@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import styled from "styled-components";
 
 import { useWindowSize } from "../../hooks/index";
+import Decor from "./login-art";
 import LoginForm from "./login-form";
 import { StyledUserLogin } from "./styled";
 
@@ -18,17 +18,12 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {}, [email]);
-
   return (
     <>
       {width >= 950 && usr_urls.some((e) => e === where) ? (
         <StyledUserLogin>
           <LoginForm email={[email, setEmail]} password={[password, setPassword]} />
-
-          <div className="semi-bcgrnd-holder-right">
-            <div className="pic-holder-right" />
-          </div>
+          <Decor />
         </StyledUserLogin>
       ) : width < 950 && usr_urls.some((e) => e === where) ? (
         <>
@@ -37,9 +32,7 @@ const Login = () => {
       ) : width >= 950 && psi_urls.some((e) => e === where) ? (
         <>
           <StyledUserLogin>
-            <div className="semi-bcgrnd-holder-left">
-              <div className="pic-holder-left" />
-            </div>
+            <Decor />
             <LoginForm email={[email, setEmail]} password={[password, setPassword]} />
           </StyledUserLogin>
         </>
