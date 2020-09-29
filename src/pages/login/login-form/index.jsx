@@ -3,9 +3,11 @@ import { useLocation, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import { usr_urls, psi_urls } from "../";
+import { useWindowSize } from "../../../hooks/index";
 import logo from "../assets/logo.svg";
 
 const LoginForm = ({ email: [email, setEmail], password: [password, setPassword] }) => {
+  const [width] = useWindowSize();
   const where = useLocation().pathname;
   const history = useHistory();
 
@@ -18,7 +20,7 @@ const LoginForm = ({ email: [email, setEmail], password: [password, setPassword]
   };
 
   return (
-    <Container>
+    <Container width={width}>
       <div className="small-header">
         <div className="logo-holder" onClick={() => history.push("/")} />
       </div>
@@ -76,7 +78,8 @@ const LoginForm = ({ email: [email, setEmail], password: [password, setPassword]
 export default LoginForm;
 
 const Container = styled.div`
-  width: 40%;
+  background-color: #f3f3f3;
+  width: ${(props) => (props.width < 950 ? "100%" : "40%")};
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -93,18 +96,19 @@ const Container = styled.div`
   }
 
   .small-header {
+    width: ${(props) => (props.width < 450 ? "100%" : "auto")};
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     display: grid;
     grid-template-columns: 2fr 7fr;
-    height: 50%;
+    height: 40%;
   }
 
   .logo-holder {
     margin: 75px 95px;
-    width: 350px;
+    width: ${(props) => (props.width < 450 ? "300px" : "350px")};
     height: 100px;
     background-image: url(${logo});
     object-fit: cover;
@@ -145,6 +149,7 @@ const Container = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
   }
 
   form {
