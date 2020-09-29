@@ -9,6 +9,14 @@ export const CalendarWrapper = styled(Calendar)`
     max-width: 200px;
   }
 
+  div.work-day {
+    background-color: aqua;
+  }
+
+  div.rbc-timeslot-group div:nth-child(1) {
+    background-color: white;
+  }
+
   @media (max-width: 730px) {
     span.rbc-toolbar-label {
       display: none;

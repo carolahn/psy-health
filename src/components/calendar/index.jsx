@@ -96,13 +96,19 @@ const Calendar = () => {
     });
 
   const customSlotPropGetter = (date) => {
-    if (date.getDay() === 1) {
-      console.log(date.getHours());
-      return {
-        className: "work-day",
-      };
-    } else {
-      return {};
+    const keys = Object.keys(workDays);
+    for (let i = 0; i <= keys.length; i++) {
+      if (date.getDay().toString() === keys[i]) {
+        console.log(keys);
+        const hours = Object.values(workDays[keys[i]]);
+        for (let j = 0; j < hours.length; j++) {
+          if (date.getHours() === hours[j]) {
+            return {
+              className: "work-day",
+            };
+          }
+        }
+      }
     }
   };
 
