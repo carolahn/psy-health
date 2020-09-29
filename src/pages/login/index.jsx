@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-import gbcgrnd from "./assets/kurvaE.svg";
-import bcgrndi from "./assets/loginE.svg";
+import gbcgrndD from "./assets/kurvaD.svg";
+import gbcgrndE from "./assets/kurvaE.svg";
+import bcgrndiD from "./assets/loginD.svg";
+import bcgrndiE from "./assets/loginE.svg";
 import logo from "./assets/logo.svg";
+import LoginForm from "./login-form";
 
 const Login = () => {
+  const where = useLocation().pathname;
+  const history = useHistory();
   const [width] = useWindowSize();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const urls = ["/login/usr", "/login/usr/", "/login/psi", "/login/psi/"];
+  const usr_urls = ["/login/usr", "/login/usr/"];
+  const psi_urls = ["/login/psi", "/login/psi/"];
 
   const handleChange = ({ target: { value } }) => {
     setEmail(value);
@@ -15,9 +26,9 @@ const Login = () => {
 
   return (
     <>
-      {width > 950 ? (
+      {width >= 950 && usr_urls.some((e) => e === where) ? (
         <StyledUserLogin>
-          <div className="left">
+          {/* <div className="left">
             <div className="small-header">
               <div className="logo-holder" />
             </div>
@@ -25,9 +36,17 @@ const Login = () => {
             <div className="lower-left">
               <h1>Entrar</h1>
 
-              <div className="">
-                <span>Sou Paciente</span>
-                <span>Sou Psicólogo</span>
+              <div className="login">
+                <span
+                  className={usr_urls.some((e) => e === where) && "usr"}
+                  onClick={() => history.push("/login/usr")}>
+                  Sou Paciente
+                </span>
+                <span
+                  className={psi_urls.some((e) => e === where) && "psi"}
+                  onClick={() => history.push("/login/psi")}>
+                  Sou Psicólogo
+                </span>
               </div>
 
               <div className="form-holder">
@@ -42,17 +61,33 @@ const Login = () => {
                     Entrar
                   </button>
                 </form>
-                <span>
-                  Não é cadastrado? <a>Crie sua conta!</a>
+                <span className="register">
+                  Não é cadastrado?{" "}
+                  <span
+                    className="link-register"
+                    onClick={() => {
+                      usr_urls.some((e) => e === where) && history.push("/register/usr");
+                      psi_urls.some((e) => e === where) && history.push("/register/psi");
+                    }}>
+                    Crie sua conta!
+                  </span>
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
+
+          <LoginForm />
 
           <div className="semi-bcgrnd-holder">
             <div className="pic-holder" />
           </div>
         </StyledUserLogin>
+      ) : width < 950 && usr_urls.some((e) => e === where) ? (
+        <></>
+      ) : width >= 950 && psi_urls.some((e) => e === where) ? (
+        <></>
+      ) : width < 950 && psi_urls.some((e) => e === where) ? (
+        <></>
       ) : (
         <></>
       )}
@@ -66,12 +101,13 @@ const StyledUserLogin = styled.div`
   background-color: #d5d5d5;
   width: 100%;
   height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-flow: row nowrap;
   justify-content: stretch;
   align-items: center;
 
-  h1 {
+  /*   h1 {
     color: #053559;
     font-size: 44px;
   }
@@ -119,9 +155,25 @@ const StyledUserLogin = styled.div`
     height: 100%;
   }
 
+  .login {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 1.2rem;
+    margin: 1.5rem;
+
+    span {
+      cursor: pointer;
+    }
+
+    .usr,
+    .psi {
+      color: #70a3ef;
+      cursor: pointer;
+      font-weight: normal;
+    }
+  }
+
   .form-holder {
     width: 40%;
-    /* height: 100%; */
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -137,7 +189,7 @@ const StyledUserLogin = styled.div`
 
   input {
     height: 35px;
-    border: 2px solid #053559b3;
+    border: 2px solid #70a3ef;
     border-radius: 5px;
     padding-left: 0.2rem;
     margin: 15px;
@@ -153,10 +205,26 @@ const StyledUserLogin = styled.div`
     margin: 10px;
   }
 
+  .register {
+    justify-self: center;
+    align-self: center;
+    width: 300px;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 1rem;
+    text-align: center;
+    margin: 20px;
+
+    span {
+      color: #70a3ef;
+      cursor: pointer;
+    }
+  } */
+
   .semi-bcgrnd-holder {
     width: 60%;
     height: 100%;
-    background-image: url(${gbcgrnd});
+    object-fit: cover;
+    background-image: url(${gbcgrndE});
     background-size: cover;
     display: grid;
     grid-template-columns: 1fr 7fr;
@@ -164,7 +232,7 @@ const StyledUserLogin = styled.div`
   }
 
   .pic-holder {
-    background-image: url(${bcgrndi});
+    background-image: url(${bcgrndiE});
     width: 100%;
     height: 100%;
     object-fit: cover;
