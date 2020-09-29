@@ -1,38 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
-import gbcgrndD from "../assets/kurvaD.svg";
-import gbcgrndE from "../assets/kurvaE.svg";
-import bcgrndiD from "../assets/loginD.svg";
-import bcgrndiE from "../assets/loginE.svg";
+import { usr_urls, psi_urls } from "../";
 import logo from "../assets/logo.svg";
 
-const usr_urls = ["/login/usr", "/login/usr/"];
-const psi_urls = ["/login/psi", "/login/psi/"];
-
-const LoginForm = () => {
+const LoginForm = ({ email: [email, setEmail], password: [password, setPassword] }) => {
   const where = useLocation().pathname;
   const history = useHistory();
-  // const [width] = useWindowSize();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const urls = ["/login/usr", "/login/usr/", "/login/psi", "/login/psi/"];
-  const usr_urls = ["/login/usr", "/login/usr/"];
-  const psi_urls = ["/login/psi", "/login/psi/"];
-
-  const handleChange = ({ target: { value } }) => {
+  const handleInputChange = ({ target: { value } }) => {
     setEmail(value);
+  };
+
+  const handlePasswordChange = ({ target: { value } }) => {
+    setPassword(value);
   };
 
   return (
     <Container>
       <div className="small-header">
-        <div className="logo-holder" />
+        <div className="logo-holder" onClick={() => history.push("/")} />
       </div>
 
-      <div className="lower-left">
+      <div className="lower-form">
         <h1>Entrar</h1>
 
         <div className="login">
@@ -50,8 +41,13 @@ const LoginForm = () => {
 
         <div className="form-holder">
           <form>
-            <input placeholder="E-mail" value={email} onChange={handleChange} />
-            <input type="password" placeholder="Password" />
+            <input type="email" placeholder="E-mail" value={email} onChange={handleInputChange} />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -117,7 +113,7 @@ const Container = styled.div`
     align-self: flex-start;
   }
 
-  .lower-left {
+  .lower-form {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
