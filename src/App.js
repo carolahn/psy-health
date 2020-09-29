@@ -1,18 +1,21 @@
 import React from "react";
+import styled from "styled-components";
 import "./App.css";
 
 import Footer from "./components/footer";
-import Header from "./components/header";
-import Routes from "./routes";
+import Header from "./components/header/index.jsx";
+import Routes from "./routes/index";
 
 const App = () => {
   return (
-    <div>
-      <Header />
+    <BodyFrame>
+      {/* <Header /> */}
       <Routes />
       <Footer />
-    </div>
+    </BodyFrame>
   );
 };
 
 export default App;
+
+const BodyFrame = styled.div``;

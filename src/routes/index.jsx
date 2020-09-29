@@ -1,6 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
+import Login from "../pages/login";
+
 const Routes = (props) => {
   const token = ""; // somente para testes
 
@@ -9,12 +11,14 @@ const Routes = (props) => {
       <Switch>
         {token && (
           // logado
-          <Route path="/">Home Logado</Route>
+          <Route path="/" />
         )}
         {/* não logado */}
-        <Route path="/login">Login</Route>
-        <Route path="/register">Register</Route>
-        <Route path="/">Home</Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register" />
+        <Route path="/" />
       </Switch>
     </div>
   );
