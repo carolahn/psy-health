@@ -2,18 +2,22 @@ import moment from "moment";
 import React from "react";
 import { momentLocalizer } from "react-big-calendar";
 
+import useWindowSize from "./use-window-size";
+
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { CalendarWrapper } from "./styled";
 
 const Calendar = () => {
+  const size = useWindowSize();
+
   moment.locale("en-US");
   const localizer = momentLocalizer(moment);
 
   var myEventsList = [
     {
       title: "Conference",
-      start: new Date(2020, 9, 1),
-      end: new Date(2020, 9, 1),
+      start: new Date(2020, 9, 1, 8, 0, 0),
+      end: new Date(2020, 9, 1, 9, 0, 0),
       desc: "Big conference for important people",
     },
     {
@@ -40,22 +44,33 @@ const Calendar = () => {
       end: new Date(2020, 9, 2, 10, 0, 0, 0),
       desc: "Surgery",
     },
+    {
+      title: "Doctor",
+      start: new Date(2020, 9, 2, 15, 0, 0, 0),
+      end: new Date(2020, 9, 2, 16, 0, 0, 0),
+      desc: "Surgery",
+    },
   ];
+
+  const workDays = {
+    1: [7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19],
+    2: [8, 9, 10],
+  };
 
   function onSlotChange(slotInfo) {
     var startDate = moment(slotInfo.start.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
     var endDate = moment(slotInfo.end.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
     console.log("startTime", startDate); //shows the start time chosen
     console.log("endTime", endDate); //shows the end time chosen
-    console.log("startcarol", moment(slotInfo.start.toLocaleString())._d); //pegar sat ou sun por aqui
+    // console.log("startcarol", moment(slotInfo.start.toLocaleString())._d); //pegar sat ou sun por aqui
   }
 
   function onEventClick(event) {
-    console.log(event); //Shows the event details provided while booking
+    console.log("onEventClick", event); //Shows the event details provided while booking
   }
 
   function eventStyleGetter(event, start, end, isSelected) {
-    console.log("event", event);
+    // console.log("eventStyleGetter", event);
 
     if (event.title.includes("Conference")) {
       var backgroundColor = "#ba274a";
@@ -73,21 +88,74 @@ const Calendar = () => {
     };
   }
 
+  const ColoredDateCellWrapper = ({ children }) =>
+    React.cloneElement(React.Children.only(children), {
+      style: {
+        backgroundColor: "lightblue",
+      },
+    });
+
+  const customSlotPropGetter = (date) => {
+    if (date.getDay() === 1) {
+      console.log(date.getHours());
+      return {
+        className: "work-day",
+      };
+    } else {
+      return {};
+    }
+  };
+
   return (
-    <CalendarWrapper
-      views={["work_week", "agenda"]}
-      defaultView="work_week"
-      selectable
-      onSelectEvent={(event) => onEventClick(event)}
-      onSelectSlot={(slotInfo) => onSlotChange(slotInfo)}
-      eventPropGetter={eventStyleGetter}
-      localizer={localizer}
-      events={myEventsList}
-      startAccessor="start"
-      endAccessor="end"
-      style={{ height: "auto", maxWidth: 900 }}
-      // timeslots={2}
-    />
+    <>
+      {size.width >= 430 && (
+        <CalendarWrapper
+          views={["work_week", "day", "agenda"]}
+          defaultView="work_week"
+          selectable
+          onSelectEvent={(event) => onEventClick(event)}
+          onSelectSlot={(slotInfo) => onSlotChange(slotInfo)}
+          eventPropGetter={eventStyleGetter}
+          localizer={localizer}
+          events={myEventsList}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: "auto", maxWidth: 900 }}
+          formats={{
+            timeGutterFormat: (date, culture, localizer) => localizer.format(date, "H:mm", culture),
+          }} // formato 24h
+          min={moment().minute(0).hour(7).toDate()}
+          max={moment().minute(0).hour(20).toDate()}
+          // timeslots={2}
+          // components={{
+          //   timeSlotWrapper: ColoredDateCellWrapper,
+          // }}
+          slotPropGetter={customSlotPropGetter}
+        />
+      )}
+
+      {size.width < 430 && (
+        <CalendarWrapper
+          views={["day", "agenda"]}
+          defaultView="day"
+          selectable
+          onSelectEvent={(event) => onEventClick(event)}
+          onSelectSlot={(slotInfo) => onSlotChange(slotInfo)}
+          eventPropGetter={eventStyleGetter}
+          localizer={localizer}
+          events={myEventsList}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: "auto", maxWidth: 900 }}
+          formats={{
+            timeGutterFormat: (date, culture, localizer) => localizer.format(date, "H:mm", culture),
+          }} // formato 24h
+          min={moment().minute(0).hour(7).toDate()}
+          max={moment().minute(0).hour(20).toDate()}
+          // timeslots={2}
+        />
+      )}
+    </>
   );
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
+import Calendar from "../components/calendar";
+
 const Routes = (props) => {
   const token = ""; // somente para testes
   const access = ""; // somente para testes
@@ -29,7 +31,10 @@ const Routes = (props) => {
       <Route path="/register/psc">Register Psicologo</Route>
       <Route path="/register">Register</Route>
 
-      <Route path="/">Home</Route>
+      <Route path="/">
+        Home
+        <Calendar />
+      </Route>
     </Switch>
   );
 };
