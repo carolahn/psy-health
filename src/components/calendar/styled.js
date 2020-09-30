@@ -10,7 +10,7 @@ export const CalendarWrapper = styled(Calendar)`
   }
 
   div.work-day {
-    background-color: #4caf4f6e;
+    background-color: #4caf4f2b;
   }
 
   div.rbc-time-gutter .work-day {
