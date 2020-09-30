@@ -14,7 +14,7 @@ export const ArtContainer = styled.div`
   justify-content: stretch;
   align-items: center;
 
-  .semi-bcgrnd-holder-right {
+  .semi-bcgrnd-holder {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -37,16 +37,8 @@ export const ArtContainer = styled.div`
     grid-row: 3/4;
   }
 
-  .semi-bcgrnd-holder-left {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .left {
     transform: rotateY(180deg);
-    background-image: url(${gbcgrndE});
-    background-size: cover;
-    display: grid;
-    grid-template-columns: 1fr 7fr;
-    grid-template-rows: 1fr 1fr 7fr 1fr;
   }
 
   .pic-holder-left {

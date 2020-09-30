@@ -11,13 +11,13 @@ const Decor = () => {
     <>
       {usr_urls.some((e) => e === where) ? (
         <ArtContainer>
-          <div className="semi-bcgrnd-holder-right">
+          <div className="semi-bcgrnd-holder right">
             <div className="pic-holder-right" />
           </div>
         </ArtContainer>
       ) : psi_urls.some((e) => e === where) ? (
         <ArtContainer>
-          <div className="semi-bcgrnd-holder-left">
+          <div className="semi-bcgrnd-holder left">
             <div className="pic-holder-left" />
           </div>
         </ArtContainer>

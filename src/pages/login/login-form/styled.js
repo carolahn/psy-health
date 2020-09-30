@@ -32,7 +32,8 @@ export const Container = styled.div`
   }
 
   .logo-holder {
-    margin: ${(props) => (props.width > 550 ? "75px 95px" : "75px")};
+    align-self: "center";
+    margin: ${(props) => (props.width > 440 ? "75px 95px" : "75px 20px")};
     width: ${(props) => (props.width > 550 ? "350px" : "280px")};
     height: 100px;
     background-image: url(${logo});
@@ -89,7 +90,8 @@ export const Container = styled.div`
     border: 2px solid #70a3ef;
     border-radius: 5px;
     padding-left: 0.2rem;
-    margin: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     width: 300px;
   }
 
@@ -99,7 +101,8 @@ export const Container = styled.div`
     color: #fff;
     background-color: #053559;
     border-radius: 5px;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .register {
@@ -109,7 +112,8 @@ export const Container = styled.div`
     color: rgba(0, 0, 0, 0.4);
     font-size: 1rem;
     text-align: center;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     span {
       color: #70a3ef;

@@ -21,9 +21,13 @@ const LoginForm = ({ email: [email, setEmail], password: [password, setPassword]
 
   return (
     <Container width={width}>
-      <div className="small-header">
-        <div className="logo-holder" onClick={() => history.push("/")} />
-      </div>
+      {width > 950 ? (
+        <div className="small-header">
+          <div className="logo-holder" onClick={() => history.push("/")} />
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div className="lower-form">
         <h1>Entrar</h1>
