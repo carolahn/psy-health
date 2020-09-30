@@ -10,10 +10,10 @@ export const CalendarWrapper = styled(Calendar)`
   }
 
   div.work-day {
-    background-color: aqua;
+    background-color: #4caf4f6e;
   }
 
-  div.rbc-timeslot-group div:nth-child(1) {
+  div.rbc-time-gutter .work-day {
     background-color: white;
   }
 
