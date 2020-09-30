@@ -3,6 +3,7 @@ import { Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import logo from '../../assets/img/Grupo_-1.svg';
 import { StyledFooterContainer, StyledLogoCotainer, StyledCol, StyledContainerColSocial } from './styled';
+import ModalSocialNetwork from '../modal-social-network';
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
           <StyledLogoCotainer href="#"><img src={logo} alt="Logo" /></StyledLogoCotainer>
         </Col>
-        <StyledCol xs={12} sm={7} md={7} lg={7} xl={7}>
+        <StyledCol xs={12} sm={6} md={6} lg={6} xl={6}>
           <div className="container-box-left">
             <h4>Sobre a PsyHealth</h4>
             <a href="#">Perguntas frequentes</a>
@@ -41,10 +42,10 @@ const Footer = () => {
             <a href="#">Coachs</a>
           </div>
         </StyledCol>
-        <StyledContainerColSocial xs={12} sm={3} md={3} lg={3} xl={3}>
+        <StyledContainerColSocial xs={12} sm={4} md={4} lg={4} xl={4}>
           <div>
-            <h4>Redes Sociais</h4>
-            <button>Teste</button>
+            <h4>Redes sociais</h4>
+            <ModalSocialNetwork />
           </div>
         </StyledContainerColSocial>
       </Row>
