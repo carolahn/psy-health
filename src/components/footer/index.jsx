@@ -2,13 +2,13 @@ import React from "react";
 import { Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import logo from '../../assets/img/Grupo_-1.svg';
-import { StyledFooterContainer, StyledLogoCotainer, StyledCol, StyledContainerColSocial } from './styled';
-import ModalSocialNetwork from '../modal-social-network';
+import { StyledFooterContainer, StyledRow, StyledLogoCotainer, StyledCol, StyledContainerColSocial } from './styled';
+import { FaInstagramSquare, FaFacebookSquare, FaTwitterSquare, FaYoutubeSquare } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <StyledFooterContainer>
-      <Row>
+      <StyledRow>
         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
           <StyledLogoCotainer href="#"><img src={logo} alt="Logo" /></StyledLogoCotainer>
         </Col>
@@ -43,12 +43,34 @@ const Footer = () => {
           </div>
         </StyledCol>
         <StyledContainerColSocial xs={12} sm={4} md={4} lg={4} xl={4}>
-          <div>
+          <div className="container-icons-social-network">
             <h4>Redes sociais</h4>
-            <ModalSocialNetwork />
+            <div>
+              <a href="#"><span><FaInstagramSquare /></span></a>
+              <a href="#"><span><FaFacebookSquare /></span></a>
+            </div>
+            <div>
+              <a href="#"><span><FaTwitterSquare /></span></a>
+              <a href="#"><span><FaYoutubeSquare /></span></a>
+            </div>
           </div>
         </StyledContainerColSocial>
-      </Row>
+      </StyledRow>
+      <div className="developed-by">
+        <span className="copy">&copy; PsyHealth</span>
+        <div>
+          <span className="developed-by-text">
+            Desenvolvido por:
+          </span> 
+          <a href="https://www.linkedin.com/in/augusto-pietroski/">Augusto,</a>
+          <a href="https://www.linkedin.com/in/alexmiguel95/">Alex,</a>
+          <a href="https://www.linkedin.com/in/cassiano-doederlein-648592148/">Cassiano,</a>
+          <a href="https://www.linkedin.com/in/carolina-ahn-35ab7473/">Carolina,</a>
+          <a href="https://www.linkedin.com/in/edu-magno/">Eduardo</a>
+          <span>e</span>
+          <a href="https://www.linkedin.com/in/willian-brusch-237448154/">Willian</a>
+        </div>
+      </div>
     </StyledFooterContainer>
   );
 };
