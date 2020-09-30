@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Calendar from "../components/calendar";
+import { psic0, pat0 } from "../components/calendar/data";
 
 const Routes = (props) => {
   const token = ""; // somente para testes
@@ -33,7 +34,7 @@ const Routes = (props) => {
 
       <Route path="/">
         Home
-        <Calendar />
+        <Calendar type="psic-info" psicInfo={psic0} patInfo={pat0} />
       </Route>
     </Switch>
   );

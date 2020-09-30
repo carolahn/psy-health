@@ -18,8 +18,8 @@ export const psic0 = {
     {
       id: 0,
       date: {
-        start: `${new Date(2020, 8, 2, 10, 0, 0)}`,
-        end: `${new Date(2020, 8, 2, 11, 0, 0)}`,
+        start: "2020-09-03 10:00:00",
+        end: "2020-09-03 11:00:00",
       },
       patient: {
         name: "João da Silva",
@@ -29,11 +29,44 @@ export const psic0 = {
     {
       id: 1,
       date: {
-        start: `${new Date(2020, 9, 2, 15, 0, 0)}`,
-        end: `${new Date(2020, 9, 2, 16, 0, 0)}`,
+        start: "2020-10-02 15:00:00",
+        end: "2020-10-02 16:00:00",
       },
       patient: {
         name: "João da Silva",
+        id: 0,
+      },
+    },
+  ],
+};
+
+export const pat0 = {
+  id: 0,
+  name: "João da Silva",
+  email: "joaodasilva@gmail.com",
+  phone: "(41)98979-8798",
+  "cpf-cnpj": "016.538.123.18",
+  password: "123456",
+  appointments: [
+    {
+      id: 0,
+      date: {
+        start: "2020-09-03 10:00:00",
+        end: "2020-09-03 11:00:00",
+      },
+      psic: {
+        name: "Rodisval Pereira",
+        id: 0,
+      },
+    },
+    {
+      id: 1,
+      date: {
+        start: "2020-10-02 15:00:00",
+        end: "2020-10-02 16:00:00",
+      },
+      psic: {
+        name: "Rodisval Pereira",
         id: 0,
       },
     },

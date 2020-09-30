@@ -3,125 +3,128 @@ import React from "react";
 import { momentLocalizer } from "react-big-calendar";
 
 import useWindowSize from "./use-window-size";
-import { psic0 } from "./data";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { CalendarWrapper } from "./styled";
 
-const Calendar = () => {
+const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
   const size = useWindowSize();
-  // console.log(psic0);
-  let workDays = {};
-  workDays = { ...psic0.workDays };
-  // console.log(workDays);
+  console.log("patInfo", patInfo);
 
   let eventList = [];
-  eventList = psic0.appointments.map((item) => {
-    console.log(item);
-    return {
-      title: item.patient.name,
-      start: new Date(item.date.start),
-      end: new Date(item.date.end),
-    };
-  });
-  console.log(eventList);
+  // eventList = psicInfo.appointments.map((item) => {
+  if (type === "psic-info") {
+    eventList = psicInfo.appointments.map((item) => {
+      return {
+        title: "Reservado",
+        start: new Date(item.date.start),
+        end: new Date(item.date.end),
+        appointment_id: item.id,
+        patient_id: item.patient.id,
+      };
+    });
+  } else if (type === "user-pat") {
+    eventList = patInfo.appointments.map((item) => {
+      return {
+        title: item.psic.name,
+        start: new Date(item.date.start),
+        end: new Date(item.date.end),
+        appointment_id: item.id,
+        psic_id: item.psic.id,
+      };
+    });
+  } else if (type === "user-psic") {
+    eventList = psicInfo.appointments.map((item) => {
+      return {
+        title: item.patient.name,
+        start: new Date(item.date.start),
+        end: new Date(item.date.end),
+        appointment_id: item.id,
+        patient_id: item.patient.id,
+      };
+    });
+  }
+  // });
+  // console.log(eventList);
 
   moment.locale("en-US");
   const localizer = momentLocalizer(moment);
 
-  // var myEventsList = [
-  //   {
-  //     title: "Conference",
-  //     start: new Date(2020, 9, 1, 8, 0, 0),
-  //     end: new Date(2020, 9, 1, 9, 0, 0),
-  //     desc: "Big conference for important people",
-  //   },
-  //   {
-  //     title: "Conference2",
-  //     start: new Date(2020, 9, 1, 17, 0, 0),
-  //     end: new Date(2020, 9, 1, 18, 0, 0),
-  //     desc: "Big conference for important people",
-  //   },
-  //   {
-  //     title: "Meeting",
-  //     start: new Date(2020, 8, 28, 10, 30, 0, 0),
-  //     end: new Date(2020, 8, 28, 12, 30, 0, 0),
-  //     desc: "Pre-meeting meeting, to prepare for the meeting",
-  //   },
-  //   {
-  //     title: "Lunch",
-  //     start: new Date(2020, 9, 1, 6, 0, 0, 0),
-  //     end: new Date(2020, 9, 1, 7, 0, 0, 0),
-  //     desc: "Power lunch",
-  //   },
-  //   {
-  //     title: "Doctor",
-  //     start: new Date(2020, 9, 2, 9, 0, 0, 0),
-  //     end: new Date(2020, 9, 2, 10, 0, 0, 0),
-  //     desc: "Surgery",
-  //   },
-  //   {
-  //     title: "Doctor",
-  //     start: new Date(2020, 9, 2, 15, 0, 0, 0),
-  //     end: new Date(2020, 9, 2, 16, 0, 0, 0),
-  //     desc: "Surgery",
-  //   },
-  // ];
-
-  // const workDays = {
-  //   1: [7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19],
-  //   2: [8, 9, 10],
-  //   5: [13, 14, 15, 16, 17, 18, 19],
-  // };
-
   function onSlotChange(slotInfo) {
     var startDate = moment(slotInfo.start.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
     var endDate = moment(slotInfo.end.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
-    console.log("startTime", startDate); //shows the start time chosen
-    console.log("endTime", endDate); //shows the end time chosen
+    // console.log("startTime", startDate); //shows the start time chosen
+    // console.log("endTime", endDate); //shows the end time chosen
     // console.log("startcarol", moment(slotInfo.start.toLocaleString())._d); //pegar sat ou sun por aqui
+    // console.log(slotInfo);
+
+    if (type === "psic-info") {
+      console.log("user-pat: Quer agendar?", slotInfo);
+      return {
+        id: psicInfo.appointments.length,
+        date: {
+          start: startDate,
+          end: endDate,
+        },
+        psic: {
+          name: psicInfo.name,
+          id: psicInfo.id,
+        },
+        patient: {
+          name: patInfo.name,
+          id: patInfo.id,
+        },
+      };
+    } else {
+      return "";
+    }
   }
 
   function onEventClick(event) {
-    console.log("onEventClick", event); //Shows the event details provided while booking
-  }
-
-  function eventStyleGetter(event, start, end, isSelected) {
-    // console.log("eventStyleGetter", event);
-
-    if (event.title.includes("Conference")) {
-      var backgroundColor = "#ba274a";
+    if (type === "user-psic") {
+      console.log("onEventClick - Mostrar dados do agendamento?", event);
+    } else if (type === "user-pat") {
+      console.log("Cancelar agendamento?", event);
+    } else {
+      return "";
     }
-    var style = {
-      backgroundColor,
-      // borderRadius: '0px',
-      // opacity: 0.8,
-      // color: 'black',
-      // border: '0px',
-      // display: 'block',
-    };
-    return {
-      style,
-    };
   }
 
-  const ColoredDateCellWrapper = ({ children }) =>
-    React.cloneElement(React.Children.only(children), {
-      style: {
-        backgroundColor: "lightblue",
-      },
-    });
+  // function eventStyleGetter(event, start, end, isSelected) {
+
+  //   if (event.title.includes("Conference")) {
+  //     var backgroundColor = "#ba274a";
+  //   }
+  //   var style = {
+  //     backgroundColor,
+  //     opacity: 0.8,
+  //   };
+  //   return {
+  //     style,
+  //   };
+  // }
+
+  // const ColoredDateCellWrapper = ({ children }) =>
+  //   React.cloneElement(React.Children.only(children), {
+  //     style: {
+  //       backgroundColor: "lightblue",
+  //     },
+  //   });
 
   const customSlotPropGetter = (date) => {
-    const keys = Object.keys(workDays);
-    for (let i = 0; i <= keys.length; i++) {
-      if (date.getDay().toString() === keys[i]) {
-        const hours = Object.values(workDays[keys[i]]);
-        for (let j = 0; j < hours.length; j++) {
-          if (date.getHours() === hours[j]) {
-            return {
-              className: "work-day",
-            };
+    if (type === "psic-info" || type === "user-psic") {
+      let workDays = {};
+      workDays = { ...psicInfo.workDays };
+      const keys = Object.keys(workDays);
+      for (let i = 0; i <= keys.length; i++) {
+        if (date.getDay().toString() === keys[i]) {
+          const hours = Object.values(workDays[keys[i]]);
+          for (let j = 0; j < hours.length; j++) {
+            if (date.getHours() === hours[j]) {
+              return {
+                className: "work-day",
+              };
+            }
           }
         }
       }
@@ -138,7 +141,7 @@ const Calendar = () => {
           selectable
           onSelectEvent={(event) => onEventClick(event)}
           onSelectSlot={(slotInfo) => onSlotChange(slotInfo)}
-          eventPropGetter={eventStyleGetter}
+          // eventPropGetter={eventStyleGetter}
           localizer={localizer}
           events={eventList}
           startAccessor="start"
@@ -154,6 +157,7 @@ const Calendar = () => {
           //   timeSlotWrapper: ColoredDateCellWrapper,
           // }}
           slotPropGetter={customSlotPropGetter}
+          onClick={(e) => console.log("clique")}
         />
       )}
 
@@ -165,7 +169,7 @@ const Calendar = () => {
           selectable
           onSelectEvent={(event) => onEventClick(event)}
           onSelectSlot={(slotInfo) => onSlotChange(slotInfo)}
-          eventPropGetter={eventStyleGetter}
+          // eventPropGetter={eventStyleGetter}
           localizer={localizer}
           events={eventList}
           startAccessor="start"

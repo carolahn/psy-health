@@ -9,6 +9,10 @@ export const CalendarWrapper = styled(Calendar)`
     max-width: 200px;
   }
 
+  div.rbc-day-slot .rbc-events-container {
+    margin-right: 0;
+  }
+
   div.work-day {
     background-color: #4caf4f2b;
   }
