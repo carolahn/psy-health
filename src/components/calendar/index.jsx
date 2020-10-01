@@ -1,5 +1,5 @@
 import moment from "moment";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { momentLocalizer } from "react-big-calendar";
 
 import useWindowSize from "./use-window-size";
@@ -9,10 +9,9 @@ import { CalendarWrapper } from "./styled";
 
 const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
   const size = useWindowSize();
-  console.log("patInfo", patInfo);
+  const [unavailable, setUnavailable] = useState([]);
 
   let eventList = [];
-  // eventList = psicInfo.appointments.map((item) => {
   if (type === "psic-info") {
     eventList = psicInfo.appointments.map((item) => {
       return {
@@ -44,8 +43,17 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
       };
     });
   }
-  // });
   // console.log(eventList);
+
+  useEffect(() => {
+    if (type === "psic-info") {
+      let unavailableDates = psicInfo.appointments.map((item) => {
+        return [item.date.start];
+      });
+      unavailableDates = unavailableDates.flat();
+      setUnavailable(...[unavailableDates]);
+    }
+  }, [psicInfo]);
 
   moment.locale("en-US");
   const localizer = momentLocalizer(moment);
@@ -58,26 +66,69 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
     // console.log("startcarol", moment(slotInfo.start.toLocaleString())._d); //pegar sat ou sun por aqui
     // console.log(slotInfo);
 
+    const thirtyMinutesMoreUnformatted = new Date(slotInfo.start.getTime() + 1000 * 60 * 30);
+    const thirtyMinutesMore = moment(thirtyMinutesMoreUnformatted.toLocaleString()).format(
+      "YYYY-MM-DD HH:mm:ss"
+    );
+    console.log(thirtyMinutesMore);
+
     if (type === "psic-info") {
-      console.log("user-pat: Quer agendar?", slotInfo);
-      return {
-        id: psicInfo.appointments.length,
-        date: {
-          start: startDate,
-          end: endDate,
-        },
-        psic: {
-          name: psicInfo.name,
-          id: psicInfo.id,
-        },
-        patient: {
-          name: patInfo.name,
-          id: patInfo.id,
-        },
-      };
-    } else {
-      return "";
+      let workDays = {};
+      workDays = { ...psicInfo.workDays };
+      const keys = Object.keys(workDays);
+      for (let i = 0; i <= keys.length; i++) {
+        if (slotInfo.start.getDay().toString() === keys[i]) {
+          const hours = Object.values(workDays[keys[i]]);
+          for (let j = 0; j < hours.length; j++) {
+            if (
+              slotInfo.start.getHours() === hours[j] &&
+              hours.includes(thirtyMinutesMoreUnformatted.getHours())
+            ) {
+              if (!unavailable.includes(startDate) && !unavailable.includes(thirtyMinutesMore)) {
+                console.log("pode agendar");
+                console.log("é work day");
+                console.log("user-pat: Quer agendar?", slotInfo);
+              }
+
+              return {
+                id: psicInfo.appointments.length,
+                date: {
+                  start: startDate,
+                  end: endDate,
+                },
+                psic: {
+                  name: psicInfo.name,
+                  id: psicInfo.id,
+                },
+                patient: {
+                  name: patInfo.name,
+                  id: patInfo.id,
+                },
+              };
+            }
+          }
+        }
+      }
     }
+    //   console.log("user-pat: Quer agendar?", slotInfo);
+    //   return {
+    //     id: psicInfo.appointments.length,
+    //     date: {
+    //       start: startDate,
+    //       end: endDate,
+    //     },
+    //     psic: {
+    //       name: psicInfo.name,
+    //       id: psicInfo.id,
+    //     },
+    //     patient: {
+    //       name: patInfo.name,
+    //       id: patInfo.id,
+    //     },
+    //   };
+    // } else {
+    //   return "";
+    // }
   }
 
   function onEventClick(event) {
@@ -91,7 +142,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
   }
 
   // function eventStyleGetter(event, start, end, isSelected) {
-
+  //   console.log("event", event);
   //   if (event.title.includes("Conference")) {
   //     var backgroundColor = "#ba274a";
   //   }
@@ -131,6 +182,8 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
     }
   };
 
+  console.log(unavailable);
+
   return (
     <>
       {size.width >= 430 && (
@@ -157,7 +210,6 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
           //   timeSlotWrapper: ColoredDateCellWrapper,
           // }}
           slotPropGetter={customSlotPropGetter}
-          onClick={(e) => console.log("clique")}
         />
       )}
 
@@ -180,7 +232,6 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
           }} // formato 24h
           min={moment().minute(0).hour(7).toDate()}
           max={moment().minute(0).hour(20).toDate()}
-          slotPropGetter={customSlotPropGetter}
         />
       )}
     </>
