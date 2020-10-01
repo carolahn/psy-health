@@ -8,11 +8,15 @@ const LeftNonLoggedHeader = () => {
   const history = useHistory();
   return (
     <StyledLeftNonLoggedHeader>
-      <div className="logo">LOGO</div>
+      <div className="logo" onClick={() => history.push("/")}>
+        LOGO
+      </div>
       <div className="links" onClick={() => history.push("/search")}>
         Encontre um psicólogo
       </div>
-      <div className="links">Sou psicólogo</div>
+      <div className="links" onClick={() => history.push("/psi")}>
+        Sou psicólogo
+      </div>
     </StyledLeftNonLoggedHeader>
   );
 };

@@ -8,7 +8,7 @@ import { LeftNonLoggedHeader, RightNonLoggedHeader } from "./non-logged-header";
 import { StyledHeader } from "./styled";
 
 const urls = ["/", "search", "search/", ...login_urls];
-const non_header_urls = [...login_urls];
+const non_header_urls = [...login_urls, "/register", "/register/"];
 const header_urls = ["", "/", "search", "search/"];
 
 const Header = () => {
@@ -37,40 +37,12 @@ const Header = () => {
           <StyledHeader>
             <LeftNonLoggedHeader />
             <RightNonLoggedHeader />
-            {/* <div className="header left">
-              <div className="logo">LOGO</div>
-              <div className="links" onClick={() => history.push("/search")}>
-                Encontre um psicólogo
-              </div>
-              <div className="links">Sou psicólogo</div>
-            </div>
-            <div className="header right">
-              <div className="links" onClick={() => history.push("/register")}>
-                Cadastrar
-              </div>
-              <div className="links" onClick={() => history.push("/login/usr")}>
-                Login
-              </div>
-            </div> */}
           </StyledHeader>
         )
       ) : (
         <StyledHeader>
-          <div className="header left">
-            <div className="logo">LOGO</div>
-            <div className="links" onClick={() => history.push("/search")}>
-              Encontre um psicólogo
-            </div>
-            <div className="links">Sou psicólogo</div>
-          </div>
-          <div className="header right">
-            <div className="links" onClick={() => history.push("/register")}>
-              Cadastrar
-            </div>
-            <div className="links" onClick={() => history.push("/login/usr")}>
-              Login
-            </div>
-          </div>
+          <LeftNonLoggedHeader />
+          <RightNonLoggedHeader />
         </StyledHeader>
       )}
     </>
