@@ -85,9 +85,15 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
               hours.includes(thirtyMinutesMoreUnformatted.getHours())
             ) {
               if (!unavailable.includes(startDate) && !unavailable.includes(thirtyMinutesMore)) {
-                console.log("pode agendar");
-                console.log("é work day");
-                console.log("user-pat: Quer agendar?", slotInfo);
+                const currentDate = new Date();
+                // console.log(currentDate);
+                const moreUnf = new Date(slotInfo.start.getTime() + 1000 * 60 * 30);
+                // const more = moment(moreUnf.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
+                if (moreUnf > currentDate) {
+                  console.log("pode agendar");
+                  console.log("é work day");
+                  console.log("user-pat: Quer agendar?", slotInfo);
+                }
               }
 
               return {
