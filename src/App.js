@@ -8,7 +8,7 @@ import Routes from "./routes/index";
 const App = () => {
   return (
     <BodyFrame>
-      {/* <Header /> */}
+      <Header />
       <Routes />
       <Footer />
     </BodyFrame>

@@ -1,36 +1,80 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React from "react";
+import { useLocation, useHistory } from "react-router-dom";
+
+import { useWindowSize } from "../../hooks";
+import { login_urls } from "../../pages/login";
+import { LeftNonLoggedHeader, RightNonLoggedHeader } from "./non-logged-header";
+import { StyledHeader } from "./styled";
+
+const urls = ["/", "search", "search/", ...login_urls];
+const non_header_urls = [...login_urls];
+const header_urls = ["", "/", "search", "search/"];
 
 const Header = () => {
-  const token = true;
+  const token = false;
   const { width } = useWindowSize();
+  const where = useLocation().pathname;
+  const history = useHistory();
 
-  return <StyledHeader>{token ? <></> : <></>}</StyledHeader>;
+  return (
+    <>
+      {non_header_urls.some((e) => e === where) ? (
+        <></>
+      ) : header_urls.some((e) => e === where) ? (
+        token ? (
+          <StyledHeader>
+            <div className="header left">
+              <div className="logo">LOGO</div>
+              <div className="links" onClick={() => history.push("/search")}>
+                Encontre um psicólogo
+              </div>
+              <div className="links">Sou psicólogo</div>
+            </div>
+            <div className="header right" />
+          </StyledHeader>
+        ) : (
+          <StyledHeader>
+            <LeftNonLoggedHeader />
+            <RightNonLoggedHeader />
+            {/* <div className="header left">
+              <div className="logo">LOGO</div>
+              <div className="links" onClick={() => history.push("/search")}>
+                Encontre um psicólogo
+              </div>
+              <div className="links">Sou psicólogo</div>
+            </div>
+            <div className="header right">
+              <div className="links" onClick={() => history.push("/register")}>
+                Cadastrar
+              </div>
+              <div className="links" onClick={() => history.push("/login/usr")}>
+                Login
+              </div>
+            </div> */}
+          </StyledHeader>
+        )
+      ) : (
+        <StyledHeader>
+          <div className="header left">
+            <div className="logo">LOGO</div>
+            <div className="links" onClick={() => history.push("/search")}>
+              Encontre um psicólogo
+            </div>
+            <div className="links">Sou psicólogo</div>
+          </div>
+          <div className="header right">
+            <div className="links" onClick={() => history.push("/register")}>
+              Cadastrar
+            </div>
+            <div className="links" onClick={() => history.push("/login/usr")}>
+              Login
+            </div>
+          </div>
+        </StyledHeader>
+      )}
+    </>
+  );
 };
 
 export default Header;
-
-const StyledHeader = styled.div`
-  background-color: #70a3ef;
-  width: 100%;
-  height: 70px;
-`;
-
-function useWindowSize() {
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return windowSize;
-}
