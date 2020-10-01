@@ -8,3 +8,5 @@ export const StyledHeader = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
 `;
+
+export const StyledMobileHeader = styled(StyledHeader)``;

@@ -2,21 +2,18 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import { StyledLeftNonLoggedHeader } from "./styled";
+import { StyledLeftLoggedHeader } from "./styled";
 
-const LeftNonLoggedHeader = () => {
+const LeftLoggedHeader = () => {
   const history = useHistory();
   return (
-    <StyledLeftNonLoggedHeader>
+    <StyledLeftLoggedHeader>
       <div className="logo" onClick={() => history.push("/")} />
       <div className="links" onClick={() => history.push("/search")}>
         Encontre um psicólogo
       </div>
-      <div className="links" onClick={() => history.push("/psi")}>
-        Sou psicólogo
-      </div>
-    </StyledLeftNonLoggedHeader>
+    </StyledLeftLoggedHeader>
   );
 };
 
-export default LeftNonLoggedHeader;
+export default LeftLoggedHeader;

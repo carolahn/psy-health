@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import logo from "../../assets/mobile-menu/logo-branco.png";
 
-export const StyledLeftNonLoggedHeader = styled.div`
+export const StyledLeftLoggedHeader = styled.div`
   background-color: #70a3ef;
   width: auto;
   height: 100%;

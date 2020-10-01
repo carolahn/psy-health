@@ -1,30 +1,25 @@
 import styled from "styled-components";
 
-import logo from "../../assets/mobile-menu/logo-branco.png";
-
-export const StyledLeftNonLoggedHeader = styled.div`
+export const StyledRightLoggedHeader = styled.div`
   background-color: #70a3ef;
   width: auto;
   height: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   div {
     margin-left: 15px;
     margin-right: 15px;
   }
 
-  .logo {
-    height: 60px;
-    width: 152px;
+  .perfil {
+    height: 100%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(${logo});
-    background-size: cover;
   }
 
   .links {
