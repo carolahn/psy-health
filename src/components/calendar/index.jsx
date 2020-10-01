@@ -2,10 +2,9 @@ import moment from "moment";
 import React, { useState, useEffect } from "react";
 import { momentLocalizer } from "react-big-calendar";
 
-import useWindowSize from "./use-window-size";
-
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import { CalendarWrapper } from "./styled";
+import useWindowSize from "./use-window-size";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
   const size = useWindowSize();
@@ -61,16 +60,12 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
   function onSlotChange(slotInfo) {
     var startDate = moment(slotInfo.start.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
     var endDate = moment(slotInfo.end.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
-    // console.log("startTime", startDate); //shows the start time chosen
-    // console.log("endTime", endDate); //shows the end time chosen
     // console.log("startcarol", moment(slotInfo.start.toLocaleString())._d); //pegar sat ou sun por aqui
-    // console.log(slotInfo);
 
     const thirtyMinutesMoreUnformatted = new Date(slotInfo.start.getTime() + 1000 * 60 * 30);
     const thirtyMinutesMore = moment(thirtyMinutesMoreUnformatted.toLocaleString()).format(
       "YYYY-MM-DD HH:mm:ss"
     );
-    console.log(thirtyMinutesMore);
 
     if (type === "psic-info") {
       let workDays = {};
@@ -90,8 +85,6 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
                 const moreUnf = new Date(slotInfo.start.getTime() + 1000 * 60 * 30);
                 // const more = moment(moreUnf.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
                 if (moreUnf > currentDate) {
-                  console.log("pode agendar");
-                  console.log("é work day");
                   console.log("user-pat: Quer agendar?", slotInfo);
                 }
               }
@@ -100,7 +93,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
                 id: psicInfo.appointments.length,
                 date: {
                   start: startDate,
-                  end: endDate,
+                  end: thirtyMinutesMore,
                 },
                 psic: {
                   name: psicInfo.name,
@@ -116,25 +109,6 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
         }
       }
     }
-    //   console.log("user-pat: Quer agendar?", slotInfo);
-    //   return {
-    //     id: psicInfo.appointments.length,
-    //     date: {
-    //       start: startDate,
-    //       end: endDate,
-    //     },
-    //     psic: {
-    //       name: psicInfo.name,
-    //       id: psicInfo.id,
-    //     },
-    //     patient: {
-    //       name: patInfo.name,
-    //       id: patInfo.id,
-    //     },
-    //   };
-    // } else {
-    //   return "";
-    // }
   }
 
   function onEventClick(event) {
@@ -187,8 +161,6 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
       }
     }
   };
-
-  console.log(unavailable);
 
   return (
     <>
