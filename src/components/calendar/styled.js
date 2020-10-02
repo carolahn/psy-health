@@ -41,4 +41,11 @@ export const CalendarWrapper = styled(Calendar)`
       margin-bottom: 10px;
     }
   }
+
+  @media (max-width: 400px) {
+    .rbc-agenda-view table.rbc-agenda-table tbody > tr > td {
+      padding: 0;
+      font-size: 12px;
+    }
+  }
 `;

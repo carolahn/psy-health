@@ -6,13 +6,29 @@ import { CalendarWrapper } from "./styled";
 import useWindowSize from "./use-window-size";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
-const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
+// type: "psic-info" -> mostra os workDays em verde e os horários reservados, para ser usado nas páginas de informações sobre o psicólogo
+// type: "user-psic" -> mostra os workDays em verde e os horários reservados com o nome do paciente, para ser usado na página pessoal do psicólogo
+// type: "user-pat" -> mostra os agendamentos do paciente, para ser usado na página pessoal do paciente (mas a princípio não haverá calendário na pág do paciente)
+
+// como usar o componente Calendar:
+// const allUsers = useSelector((state)=> state.users.allUsers)
+// OU const oneUser = useSelector((state)=> state.users.oneUser)
+// <Calendar type:"psic-info" psicInfo={allUsers[<psicId>]} patInfo={}
+// a props patInfo só é necessária no type="user-pat" ou na hora de agendar consulta(deve ser encaminhado para fazer o login)
+
+const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) => {
   const size = useWindowSize();
   const [unavailable, setUnavailable] = useState([]);
+  const thisPsicAppointments = Object.values(allAppointments).filter(
+    (item) => item.psic.id === psicInfo.id
+  );
+  const thisPatAppointments = Object.values(allAppointments).filter(
+    (item) => item.patient.id === patInfo.id
+  );
 
   let eventList = [];
   if (type === "psic-info") {
-    eventList = psicInfo.appointments.map((item) => {
+    eventList = thisPsicAppointments.map((item) => {
       return {
         title: "Reservado",
         start: new Date(item.date.start),
@@ -22,7 +38,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
       };
     });
   } else if (type === "user-pat") {
-    eventList = patInfo.appointments.map((item) => {
+    eventList = thisPatAppointments.map((item) => {
       return {
         title: item.psic.name,
         start: new Date(item.date.start),
@@ -32,7 +48,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
       };
     });
   } else if (type === "user-psic") {
-    eventList = psicInfo.appointments.map((item) => {
+    eventList = thisPsicAppointments.map((item) => {
       return {
         title: item.patient.name,
         start: new Date(item.date.start),
@@ -46,7 +62,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
 
   useEffect(() => {
     if (type === "psic-info") {
-      let unavailableDates = psicInfo.appointments.map((item) => {
+      let unavailableDates = thisPsicAppointments.map((item) => {
         return [item.date.start];
       });
       unavailableDates = unavailableDates.flat();
@@ -86,11 +102,12 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {} }) => {
                 // const more = moment(moreUnf.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
                 if (moreUnf > currentDate) {
                   console.log("user-pat: Quer agendar?", slotInfo);
+                  //enviar para fazere login, depois fazer dispatch(postAppointment(userId,token,{appointment data}))
                 }
               }
 
               return {
-                id: psicInfo.appointments.length,
+                id: allAppointments.length,
                 date: {
                   start: startDate,
                   end: thirtyMinutesMore,
