@@ -21,13 +21,20 @@ export const CalendarWrapper = styled(Calendar)`
     background-color: white;
   }
 
-  @media (max-width: 730px) {
-    span.rbc-toolbar-label {
-      display: none;
-    }
+  div.rbc-allday-cell {
+    display: none;
+  }
 
+  @media (max-width: 730px) {
+    /* span.rbc-toolbar-label {
+      display: none;
+    } */
+
+    div.rbc-toolbar {
+      flex-direction: column;
+    }
     span.rbc-btn-group {
-      margin: 0 10px;
+      margin: 10px 10px;
     }
 
     td.rbc-agenda-time-cell {
@@ -39,6 +46,13 @@ export const CalendarWrapper = styled(Calendar)`
   @media (max-width: 530px) {
     div.rbc-toolbar span:first-child {
       margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .rbc-agenda-view table.rbc-agenda-table tbody > tr > td {
+      padding: 0;
+      font-size: 14px;
     }
   }
 

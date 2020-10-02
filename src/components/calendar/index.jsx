@@ -227,6 +227,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) =
           }} // formato 24h
           min={moment().minute(0).hour(7).toDate()}
           max={moment().minute(0).hour(20).toDate()}
+          slotPropGetter={customSlotPropGetter}
         />
       )}
     </>
