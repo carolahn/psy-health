@@ -38,7 +38,7 @@ const RegisterUser = (props) => {
           </div>
 
           <div className="form-holder">
-            <RegisterForm isPsic={where.includes("psc")} />
+            <RegisterForm isPsic={where.includes("psc")} history={history} />
             <span className="changePage">
               Já possui cadastrado?{" "}
               <span
