@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
-import PsychologistPage from "../pages/psychologist-page";
-
 const Routes = (props) => {
   const token = ""; // somente para testes
   const access = ""; // somente para testes
@@ -32,10 +30,7 @@ const Routes = (props) => {
       <Route path="/register/psc">Register Psicologo</Route>
       <Route path="/register">Register</Route>
 
-      <Route path="/">
-        Home
-        <PsychologistPage />
-      </Route>
+      <Route path="/">Home</Route>
     </Switch>
   );
 };
