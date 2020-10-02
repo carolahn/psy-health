@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledMobileMenuListWithoutTokenHeader = styled.div`
+export const StyledRightMenuListWithTokenHeader = styled.div`
   background-color: #053559;
   position: absolute;
   top: 70px;
@@ -24,9 +24,5 @@ export const StyledMobileMenuListWithoutTokenHeader = styled.div`
     cursor: pointer;
     scale: 0.9;
     transition: 0.2s;
-  }
-
-  .mobile-menu-list-whithout-token {
-    transition: 2s;
   }
 `;

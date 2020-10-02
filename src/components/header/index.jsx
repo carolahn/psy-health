@@ -9,7 +9,13 @@ import { MobileStandardHeaderWithMenu } from "./mobile-header";
 import { LeftNonLoggedHeader, RightNonLoggedHeader } from "./non-logged-header";
 import { StyledHeader, StyledMobileHeader } from "./styled";
 
-const non_header_urls = [...login_urls, "/register", "/register/"];
+const non_header_urls = [
+  ...login_urls,
+  "/register",
+  "/register/",
+  "/register/psi",
+  "/register/psi/",
+];
 const header_urls = [
   "",
   "/",
@@ -23,7 +29,7 @@ const header_urls = [
 const urls = [...header_urls, ...non_header_urls];
 
 const Header = () => {
-  const token = true;
+  const token = false;
   const [width] = useWindowSize();
   const where = useLocation().pathname;
 
@@ -31,7 +37,7 @@ const Header = () => {
     <>
       {non_header_urls.some((e) => e === where) ? (
         <></>
-      ) : header_urls.some((e) => e === where) ? (
+      ) : header_urls.some((e) => e === where) || where.startsWith("/profile") ? (
         token ? (
           width >= 950 ? (
             <StyledHeader>

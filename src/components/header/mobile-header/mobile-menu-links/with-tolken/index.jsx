@@ -21,7 +21,15 @@ const MobileMenuListWithTokenHeader = ({ setMMenu }) => {
           history.push("/perfil:id");
           setMMenu(false);
         }}>
-        Perfil
+        Meu perfil
+      </div>
+      <div
+        className="mobile-list"
+        onClick={() => {
+          history.push("/my-appointments");
+          setMMenu(false);
+        }}>
+        Minhas consultas
       </div>
       <div
         className="mobile-list logout"

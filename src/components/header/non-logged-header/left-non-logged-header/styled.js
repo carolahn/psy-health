@@ -17,14 +17,20 @@ export const StyledLeftNonLoggedHeader = styled.div`
   }
 
   .logo {
-    height: 60px;
-    width: 152px;
+    height: 50px;
+    width: 126px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: url(${logo});
     background-size: cover;
+  }
+
+  .logo:hover {
+    cursor: pointer;
+    transition: 0.4s;
+    scale: 0.8;
   }
 
   .links {

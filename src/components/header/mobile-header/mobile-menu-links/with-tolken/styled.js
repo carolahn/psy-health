@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledMobileMenuListWithTokenHeader = styled.div`
-  background-color: #70a3ef;
+  background-color: #053559;
   position: absolute;
   top: 70px;
   right: 2px;
@@ -26,7 +26,7 @@ export const StyledMobileMenuListWithTokenHeader = styled.div`
     transition: 0.2s;
   }
 
-  .mobile-menu-list-whithout-token {
+  /*   .mobile-menu-list-whithout-token {
     transition: 2s;
-  }
+  } */
 `;

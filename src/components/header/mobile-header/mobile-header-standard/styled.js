@@ -12,8 +12,8 @@ export const StyledMobileStandardHeaderWithMenu = styled.div`
   align-items: center;
 
   .logo {
-    height: 60px;
-    width: 152px;
+    height: 50px;
+    width: 126px;
     color: #f3f3f3;
     margin-left: 1rem;
     display: flex;
@@ -24,6 +24,12 @@ export const StyledMobileStandardHeaderWithMenu = styled.div`
     background-size: cover;
   }
 
+  .logo:hover {
+    cursor: pointer;
+    transition: 0.4s;
+    scale: 0.8;
+  }
+
   .menu {
     width: 40px;
     height: 100%;
@@ -31,9 +37,9 @@ export const StyledMobileStandardHeaderWithMenu = styled.div`
     margin-right: 1rem;
   }
 
-  .mobile-menu-list-whithout-token {
+  /*   .mobile-menu-list-whithout-token {
     transition: height 2s linear;
-  }
+  } */
 
   @keyframes sliding {
     from {

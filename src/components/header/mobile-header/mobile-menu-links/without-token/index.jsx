@@ -34,7 +34,7 @@ const MobileMenuListWithoutTokenHeader = ({ setMMenu }) => {
       <div
         className="mobile-list"
         onClick={() => {
-          history.push("/login/usr");
+          history.push("/login");
           setMMenu(false);
         }}>
         Login

@@ -35,7 +35,7 @@ const LoginForm = ({ email: [email, setEmail], password: [password, setPassword]
         <div className="login">
           <span
             className={usr_urls.some((e) => e === where) && "usr"}
-            onClick={() => history.push("/login/usr")}>
+            onClick={() => history.push("/login")}>
             Sou Paciente
           </span>
           <span
@@ -67,7 +67,7 @@ const LoginForm = ({ email: [email, setEmail], password: [password, setPassword]
             <span
               className="link-register"
               onClick={() => {
-                usr_urls.some((e) => e === where) && history.push("/register/usr");
+                usr_urls.some((e) => e === where) && history.push("/register");
                 psi_urls.some((e) => e === where) && history.push("/register/psi");
               }}>
               Crie sua conta!

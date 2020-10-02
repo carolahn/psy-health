@@ -6,8 +6,8 @@ import Decor from "./login-art";
 import LoginForm from "./login-form";
 import { StyledUserLogin } from "./styled";
 
-const login_urls = ["/login/usr", "/login/usr/", "/login/psi", "/login/psi/"];
-const usr_urls = ["/login/usr", "/login/usr/"];
+const login_urls = ["/login", "/login/", "/login/psi", "/login/psi/"];
+const usr_urls = ["/login", "/login/"];
 const psi_urls = ["/login/psi", "/login/psi/"];
 
 export { login_urls, usr_urls, psi_urls };
