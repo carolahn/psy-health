@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import Search from "../pages/search";
 
 const Routes = (props) => {
   const token = ""; // somente para testes
@@ -28,7 +29,9 @@ const Routes = (props) => {
 
       <Route path="/register/psc">Register Psicologo</Route>
       <Route path="/register">Register</Route>
-
+      <Route path="/search">
+        <Search />
+      </Route>
       <Route path="/">Home</Route>
     </Switch>
   );
