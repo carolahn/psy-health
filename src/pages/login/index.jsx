@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useWindowSize } from "../../hooks/index";
 import Decor from "./login-art";
 import LoginForm from "./login-form";
-import { StyledUserLogin } from "./styled";
+import { StyledUserLogin, StyledMobileLoginHeader, StyledMobileLogoHolder } from "./styled";
 
 const login_urls = ["/login", "/login/", "/login/psi", "/login/psi/"];
 const usr_urls = ["/login", "/login/"];
@@ -27,6 +27,9 @@ const Login = () => {
         </StyledUserLogin>
       ) : width < 950 && usr_urls.some((e) => e === where) ? (
         <>
+          <StyledMobileLoginHeader>
+            <StyledMobileLogoHolder />
+          </StyledMobileLoginHeader>
           <LoginForm email={[email, setEmail]} password={[password, setPassword]} />
         </>
       ) : width >= 950 && psi_urls.some((e) => e === where) ? (
@@ -38,6 +41,9 @@ const Login = () => {
         </>
       ) : width < 950 && psi_urls.some((e) => e === where) ? (
         <>
+          <StyledMobileLoginHeader>
+            <StyledMobileLogoHolder />
+          </StyledMobileLoginHeader>
           <LoginForm email={[email, setEmail]} password={[password, setPassword]} />
         </>
       ) : (
