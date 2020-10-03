@@ -1728,9 +1728,6 @@
   dependencies:
     "@types/react" "*"
 
-<<<<<<< HEAD
-"@types/react@*", "@types/react@^16.9.11":
-=======
 "@types/react-native@*":
   version "0.63.23"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.23.tgz#bc4617e5bbb1ac28cb5dbf7ad09cc49a2cce914c"
@@ -1745,8 +1742,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
->>>>>>> submaster031020
+"@types/react@*", "@types/react@^16.9.11":
   version "16.9.49"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.49.tgz#09db021cf8089aba0cdb12a49f8021a69cce4872"
   integrity sha512-DtLFjSj0OYAdVLBbyjhuV9CdGVHCkHn2R+xr3XkBvK2rS1Y1tkc14XSGjYgm5Fjjr90AxH9tiSzc1pCFMGO06g==
@@ -9143,6 +9139,11 @@ pretty-format@^26.4.2:
     ansi-regex "^5.0.0"
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
+
+primereact@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/primereact/-/primereact-5.0.0.tgz#bb807fd663d9bf99b622820746c7c50d35d6900a"
+  integrity sha512-Bml42MALgv2agl1b/9R9uyE0PuZGLn+KWbh1flCuhhX5r7UazevG1w/JEewZlDiMTcGXEqPF4gprsCQOLYZQ/w==
 
 private@^0.1.8:
   version "0.1.8"

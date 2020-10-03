@@ -11,6 +11,7 @@
     "antd": "^4.6.6",
     "axios": "^0.20.0",
     "moment": "^2.29.0",
+    "primereact": "^5.0.0",
     "react": "^16.13.1",
     "react-big-calendar": "^0.28.0",
     "react-dom": "^16.13.1",
