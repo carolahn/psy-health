@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-const SearchContainer = styled.div`
-
+const SearchContainer = styled.main`
+  width: 40vw;
   display:flex;
+  flex-wrap: wrap;
   justify-content: center;
   .search-input {
     box-sizing: border-box;
@@ -47,6 +48,14 @@ const SearchContainer = styled.div`
     outline: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+  }
+
+  .filter-specialist {
+    width: 120px;
+  }
+
+  .filter-specificity {
+    width: 200px;
   }
 `;
 
