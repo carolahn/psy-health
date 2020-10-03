@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Calendar from "../../components/calendar";
 import { getAppointments } from "../../redux/actions/appointments";
 import { getUsers } from "../../redux/actions/users";
+import PsychologistProfile from "../psychologist-profile";
+import { MainWrapper } from "./styled";
 
 const PsychologistPage = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,8 @@ const PsychologistPage = () => {
   }, []);
 
   return (
-    <>
+    <MainWrapper>
+      <PsychologistProfile />
       {allUsers
         ? allAppointments && (
             <Calendar
@@ -27,7 +30,7 @@ const PsychologistPage = () => {
             />
           )
         : ""}
-    </>
+    </MainWrapper>
   );
 };
 
