@@ -2,6 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Search from "../pages/search";
 
+import Login from "../pages/login";
+
 const Routes = (props) => {
   const token = ""; // somente para testes
   const access = ""; // somente para testes

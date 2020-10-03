@@ -29,7 +29,12 @@
   "eslintConfig": {
     "extends": "universe/web",
     "rules": {
-      "react/no-did-mount-set-state": "off"
+      "react/no-did-mount-set-state": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "off",
+        "error"
+      ]
     }
   },
   "browserslist": {
