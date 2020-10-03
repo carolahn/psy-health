@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
+import Footer from "../components/footer";
 import RegisterUser from "../pages/register-user";
 
 const Routes = (props) => {
@@ -16,11 +17,13 @@ const Routes = (props) => {
             {/* <Route path="/blog">Blog</Route> */}
             <Route path="/search/:id">Search</Route>
             <Route path="/">Home Logado</Route>
+            <Footer />
           </Switch>
         ) : (
           // logado como psicologo
           <Switch>
             <Route path="/">Home Psicologo</Route>
+            <Footer />
           </Switch>
         ))}
 
@@ -31,7 +34,9 @@ const Routes = (props) => {
         <RegisterUser />
       </Route>
 
-      <Route path="/">Home</Route>
+      <Route path="/">
+        Home <Footer />
+      </Route>
     </Switch>
   );
 };
