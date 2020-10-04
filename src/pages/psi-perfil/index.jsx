@@ -4,24 +4,27 @@ import "antd/dist/antd.css";
 // import "primereact/resources/themes/saga-blue/theme.css";
 // import "primereact/resources/primereact.css";
 // import "primereact/resources/primereact.min.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Calendar from "../../components/calendar";
 import { useWindowSize } from "../../hooks/index";
 import { getAppointments } from "../../redux/actions/appointments";
-import { getUsers } from "../../redux/actions/users";
+import { getOneUser, patchUserInfo } from "../../redux/actions/users";
 import { MainWrapper, PsiCard } from "./styled";
 
-const PsiProfile = () => {
+const PsiProfile = ({ userId, token }) => {
   const style = { background: "#0092ff", padding: "8px 0" };
   const dispatch = useDispatch();
   const [width] = useWindowSize();
-  const allUsers = useSelector((state) => state.users.allUsers);
+  const oneUser = useSelector((state) => state.users.oneUser);
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
   let psicInfo = {};
   const { TextArea } = Input;
   const { Option } = Select;
+  // const [infoEdited, setInfoEdited] = useState({});
+  const [form] = Form.useForm();
+  // let infoDefault = {};
 
   const layout = {
     labelCol: {
@@ -39,22 +42,40 @@ const PsiProfile = () => {
   };
   const formRef = React.createRef();
 
-  const handleOnFinish = () => {
-    console.log("finished");
+  const handleOnFinish = (values) => {
+    console.log("values", values);
+    dispatch(patchUserInfo(userId, token, { ...values }));
+  };
+
+  const handleOnReset = () => {
+    console.log("onreset");
+    form.setFieldsValue({
+      description: psicInfo.description || "Adicione uma descrição sobre você",
+      experience: psicInfo.experience || "Adicione suas experiências",
+      specializations: psicInfo.specializations.join(", ") || "Adicione suas especialidades",
+      language: psicInfo.language || "Adicione seus idiomas",
+      academic_formation: psicInfo.academic_formation || "Adicione sua formação acadêmica",
+      video: psicInfo.video || "Adicione um vídeo de apresentação",
+    });
   };
 
   useEffect(() => {
-    if (JSON.stringify(allUsers) === "{}") {
-      dispatch(getUsers());
+    if (JSON.stringify(oneUser) === "{}") {
+      dispatch(getOneUser());
     }
     if (JSON.stringify(allAppointments) === "{}") {
       dispatch(getAppointments());
     }
   }, []);
 
-  if (allUsers && allAppointments) {
-    psicInfo = allUsers[13];
+  if (oneUser && allAppointments) {
+    psicInfo = oneUser;
+    // infoDefault = { ...psicInfo };
+    // console.log(infoDefault);
+    // console.log("psicInfo", psicInfo);
+    // setInfoEdited(infoDefault);
   }
+
   return (
     <MainWrapper>
       {psicInfo
@@ -86,7 +107,15 @@ const PsiProfile = () => {
 
               <Col className="col-center col" xs={24} sm={24} md={16} lg={16} xl={10}>
                 {width >= 768 && <p className="card-name">{psicInfo.name}</p>}
-                <Form {...layout} ref={formRef} name="control-ref" onFinish={handleOnFinish}>
+                <Form
+                  {...layout}
+                  ref={formRef}
+                  name="control-ref"
+                  onFinish={handleOnFinish}
+                  defaultValue={{
+                    remember: true,
+                  }}
+                  form={form}>
                   <Form.Item name="description" label="Sobre mim">
                     <TextArea
                       defaultValue={psicInfo.description || "Adicione uma descrição sobre você"}
@@ -121,11 +150,7 @@ const PsiProfile = () => {
                     <Button type="primary" htmlType="submit">
                       Submit
                     </Button>
-                    <Button
-                      htmlType="button"
-                      onClick={() => {
-                        console.log("click");
-                      }}>
+                    <Button htmlType="button" onClick={handleOnReset}>
                       Reset
                     </Button>
                     <Button
@@ -144,7 +169,15 @@ const PsiProfile = () => {
                 col-extra
               </Col>
               <Col className="col-right col" xs={24} sm={24} md={16} lg={16} xl={9}>
-                <Form {...layout} ref={formRef} name="control-ref" onFinish={() => {}}>
+                <Form
+                  {...layout}
+                  ref={formRef}
+                  name="control-ref"
+                  onFinish={handleOnFinish}
+                  defaultValue={{
+                    remember: true,
+                  }}
+                  form={form}>
                   <Form.Item name="academic_formation" label="Formação acadêmica">
                     <TextArea
                       defaultValue={
@@ -159,11 +192,7 @@ const PsiProfile = () => {
                     <Button type="primary" htmlType="submit">
                       Submit
                     </Button>
-                    <Button
-                      htmlType="button"
-                      onClick={() => {
-                        console.log("click");
-                      }}>
+                    <Button htmlType="button" onClick={handleOnReset}>
                       Reset
                     </Button>
                     <Button
@@ -184,7 +213,15 @@ const PsiProfile = () => {
                       src="https://www.youtube.com/embed/owiAfw-3_nY"
                     />
                   ) : (
-                    <Form {...layout} ref={formRef} name="control-ref" onFinish={handleOnFinish}>
+                    <Form
+                      {...layout}
+                      ref={formRef}
+                      name="control-ref"
+                      onFinish={handleOnFinish}
+                      defaultValue={{
+                        remember: true,
+                      }}
+                      form={form}>
                       <Form.Item name="video" label="Vídeo de apresentação">
                         <TextArea
                           defaultValue="Adicione um vídeo de apresentação"
@@ -196,11 +233,7 @@ const PsiProfile = () => {
                         <Button type="primary" htmlType="submit">
                           Submit
                         </Button>
-                        <Button
-                          htmlType="button"
-                          onClick={() => {
-                            console.log("click");
-                          }}>
+                        <Button htmlType="button" onClick={handleOnReset}>
                           Reset
                         </Button>
                         <Button
@@ -221,12 +254,12 @@ const PsiProfile = () => {
         : ""}
       <Row className="row-calendar">
         <Col className="col-calendar" xs={24} sm={24} md={24} lg={24} xl={24}>
-          {allUsers
+          {oneUser
             ? allAppointments && (
                 <Calendar
-                  type="psic-info"
-                  psicInfo={allUsers["13"]}
-                  patInfo={allUsers["12"]}
+                  type="user-psic"
+                  psicInfo={oneUser}
+                  // patInfo={}
                   allAppointments={allAppointments}
                 />
               )

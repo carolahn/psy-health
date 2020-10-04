@@ -4,20 +4,20 @@ import { Link, useHistory, Switch, Route } from "react-router-dom";
 
 import Calendar from "../../components/calendar";
 import { getAppointments } from "../../redux/actions/appointments";
-import { getUsers } from "../../redux/actions/users";
+import { getOneUser } from "../../redux/actions/users";
 import PsiProfile from "../psi-perfil";
 import { MainWrapper } from "./styled";
 
 const PsiPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const allUsers = useSelector((state) => state.users.allUsers);
+  const oneUser = useSelector((state) => state.users.oneUser);
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
 
   useEffect(() => {
-    history.push("/psi/consultas");
-    dispatch(getUsers());
+    dispatch(getOneUser(13));
     dispatch(getAppointments());
+    history.push("/psi/consultas");
   }, []);
 
   return (
@@ -27,7 +27,10 @@ const PsiPage = () => {
       <Switch>
         <Route path="/psi/consultas">Consultas</Route>
         <Route path="/psi/perfil">
-          <PsiProfile />
+          <PsiProfile
+            userId={13}
+            token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvZGlzdmFsLnBzaWNvbG9nb0BnbWFpbC5jb20iLCJpYXQiOjE2MDE3OTg2NzIsImV4cCI6MTYwMTgwMjI3Miwic3ViIjoiMTMifQ.XNcSP2QSEaF4dCaST_Z9jhH434wZpsutB32BUipSWB8"
+          />
           {/* {allUsers
             ? allAppointments && (
                 <Calendar
