@@ -58,6 +58,12 @@ export const PsiCard = styled.div`
     color: #70a3ef;
   }
 
+  /* .card-price{
+    &:hover {
+
+    }
+  } */
+
   @media (max-width: 768px) {
     display: flex;
     flex-direction: row;

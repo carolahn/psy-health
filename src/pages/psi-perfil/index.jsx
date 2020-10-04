@@ -40,6 +40,22 @@ const PsiProfile = ({ userId, token }) => {
       span: 16,
     },
   };
+  const priceLayout = {
+    labelCol: {
+      span: 4,
+    },
+    wrapperCol: {
+      span: 14,
+    },
+  };
+  const workDaysLayout = {
+    labelCol: {
+      span: 10,
+    },
+    wrapperCol: {
+      span: 50,
+    },
+  };
   const formRef = React.createRef();
 
   const handleOnFinish = (values) => {
@@ -50,14 +66,25 @@ const PsiProfile = ({ userId, token }) => {
   const handleOnReset = () => {
     console.log("onreset");
     form.setFieldsValue({
+      price: psicInfo.price || "Adicione o valor da consulta",
       description: psicInfo.description || "Adicione uma descrição sobre você",
       experience: psicInfo.experience || "Adicione suas experiências",
-      specializations: psicInfo.specializations.join(", ") || "Adicione suas especialidades",
+      // specializations: psicInfo.specializations.join(", ") || "Adicione suas especialidades",
+      specializations: psicInfo.specializations || "Adicione suas especialidades",
       language: psicInfo.language || "Adicione seus idiomas",
       academic_formation: psicInfo.academic_formation || "Adicione sua formação acadêmica",
       video: psicInfo.video || "Adicione um vídeo de apresentação",
     });
   };
+
+  const children = [];
+  for (let i = 7; i < 20; i++) {
+    children.push(<Option key={i}>{`${i}h`}</Option>);
+  }
+
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
 
   useEffect(() => {
     if (JSON.stringify(oneUser) === "{}") {
@@ -68,12 +95,33 @@ const PsiProfile = ({ userId, token }) => {
     }
   }, []);
 
+  let seg,
+    ter,
+    qua,
+    qui,
+    sex = [];
   if (oneUser && allAppointments) {
     psicInfo = oneUser;
     // infoDefault = { ...psicInfo };
     // console.log(infoDefault);
     // console.log("psicInfo", psicInfo);
     // setInfoEdited(infoDefault);
+    console.log(psicInfo.workDays[1]);
+    if (psicInfo.workDays[1]) {
+      seg = psicInfo.workDays[1];
+    }
+    if (psicInfo.workDays[2]) {
+      ter = psicInfo.workDays[2];
+    }
+    if (psicInfo.workDays[3]) {
+      qua = psicInfo.workDays[3];
+    }
+    if (psicInfo.workDays[4]) {
+      qui = psicInfo.workDays[4];
+    }
+    if (psicInfo.workDays[5]) {
+      sex = psicInfo.workDays[5];
+    }
   }
 
   return (
@@ -93,13 +141,46 @@ const PsiProfile = ({ userId, token }) => {
                   </div>
                   <div className="card-text">
                     <p className="crp">CRP: {psicInfo.crp}</p>
-                    <Rate value={psicInfo.rating} />
+                    <Rate allowHalf value={psicInfo.rating} />
                     {width >= 768 && <p>Valor do atendimento</p>}
-                    <p>
-                      {parseInt(psicInfo.price).toLocaleString("pt-BR", {
+                    <p className="card-price">
+                      {/* {parseInt(psicInfo.price).toLocaleString("pt-BR", {
                         style: "currency",
                         currency: "BRL",
-                      })}
+                      })} */}
+                      <Form
+                        {...priceLayout}
+                        ref={formRef}
+                        name="control-ref"
+                        onFinish={handleOnFinish}
+                        defaultValue={{
+                          remember: true,
+                        }}
+                        form={form}>
+                        <Form.Item name="price" label="R$" colon={false}>
+                          <TextArea
+                            defaultValue={psicInfo.price || "Adicione o valor da consulta"}
+                            bordered={false}
+                            autoSize={{ minRows: 1, maxRows: 1 }}
+                          />
+                        </Form.Item>
+                        <Form.Item {...tailLayout}>
+                          <Button type="primary" htmlType="submit">
+                            Submit
+                          </Button>
+                          <Button htmlType="button" onClick={handleOnReset}>
+                            Reset
+                          </Button>
+                          <Button
+                            type="link"
+                            htmlType="button"
+                            onClick={() => {
+                              console.log("click");
+                            }}>
+                            Fill form
+                          </Button>
+                        </Form.Item>
+                      </Form>
                     </p>
                   </div>
                 </PsiCard>
@@ -120,30 +201,31 @@ const PsiProfile = ({ userId, token }) => {
                     <TextArea
                       defaultValue={psicInfo.description || "Adicione uma descrição sobre você"}
                       bordered={false}
-                      autoSize={{ minRows: 2, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 10 }}
                     />
                   </Form.Item>
                   <Form.Item name="experience" label="Experiências">
                     <TextArea
                       defaultValue={psicInfo.experience || "Adicione suas experiências"}
                       bordered={false}
-                      autoSize={{ minRows: 2, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 10 }}
                     />
                   </Form.Item>
                   <Form.Item name="specializations" label="Especialidades">
                     <TextArea
-                      defaultValue={
-                        psicInfo.specializations.join(", ") || "Adicione suas especialidades"
-                      }
+                      // defaultValue={
+                      //   psicInfo.specializations.join(", ") || "Adicione suas especialidades"
+                      // }
+                      defaultValue={psicInfo.specializations || "Adicione suas especialidades"}
                       bordered={false}
-                      autoSize={{ minRows: 2, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 10 }}
                     />
                   </Form.Item>
                   <Form.Item name="language" label="Idiomas">
                     <TextArea
                       defaultValue={psicInfo.language || "Adicione seus idiomas"}
                       bordered={false}
-                      autoSize={{ minRows: 2, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 10 }}
                     />
                   </Form.Item>
                   <Form.Item {...tailLayout}>
@@ -184,7 +266,7 @@ const PsiProfile = ({ userId, token }) => {
                         psicInfo.academic_formation || "Adicione sua formação acadêmica"
                       }
                       bordered={false}
-                      autoSize={{ minRows: 2, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 10 }}
                     />
                   </Form.Item>
 
@@ -226,7 +308,7 @@ const PsiProfile = ({ userId, token }) => {
                         <TextArea
                           defaultValue="Adicione um vídeo de apresentação"
                           bordered={false}
-                          autoSize={{ minRows: 2, maxRows: 10 }}
+                          autoSize={{ minRows: 1, maxRows: 10 }}
                         />
                       </Form.Item>
                       <Form.Item {...tailLayout}>
@@ -252,6 +334,92 @@ const PsiProfile = ({ userId, token }) => {
             </Row>
           )
         : ""}
+      <Row className="row-work-days">
+        <Col className="col-work-days" xs={24} sm={24} md={24} lg={24} xl={24}>
+          <Form
+            {...workDaysLayout}
+            ref={formRef}
+            name="control-ref"
+            onFinish={handleOnFinish}
+            defaultValue={{
+              remember: true,
+            }}
+            form={form}>
+            <Form.Item name="1" label="Segunda" colon={false}>
+              <Select
+                mode="multiple"
+                allowClear
+                style={{ width: "100%" }}
+                placeholder="Selecione os horários de atendimento"
+                defaultValue={[8, 9]}
+                onChange={handleChange}>
+                {children}
+              </Select>
+            </Form.Item>
+            <Form.Item name="2" label="Terça" colon={false}>
+              <Select
+                mode="multiple"
+                allowClear
+                style={{ width: "100%" }}
+                placeholder="Selecione os horários de atendimento"
+                defaultValue={ter}
+                onChange={handleChange}>
+                {children}
+              </Select>
+            </Form.Item>
+            <Form.Item name="3" label="Quarta" colon={false}>
+              <Select
+                mode="multiple"
+                allowClear
+                style={{ width: "100%" }}
+                placeholder="Selecione os horários de atendimento"
+                defaultValue={qua}
+                onChange={handleChange}>
+                {children}
+              </Select>
+            </Form.Item>
+            <Form.Item name="4" label="Quinta" colon={false}>
+              <Select
+                mode="multiple"
+                allowClear
+                style={{ width: "100%" }}
+                placeholder="Selecione os horários de atendimento"
+                defaultValue={qui}
+                onChange={handleChange}>
+                {children}
+              </Select>
+            </Form.Item>
+            <Form.Item name="5" label="Sexta" colon={false}>
+              <Select
+                mode="multiple"
+                allowClear
+                style={{ width: "100%" }}
+                placeholder="Selecione os horários de atendimento"
+                defaultValue={sex}
+                onChange={handleChange}>
+                {children}
+              </Select>
+            </Form.Item>
+
+            <Form.Item {...tailLayout}>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+              <Button htmlType="button" onClick={handleOnReset}>
+                Reset
+              </Button>
+              <Button
+                type="link"
+                htmlType="button"
+                onClick={() => {
+                  console.log("click");
+                }}>
+                Fill form
+              </Button>
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
       <Row className="row-calendar">
         <Col className="col-calendar" xs={24} sm={24} md={24} lg={24} xl={24}>
           {oneUser
