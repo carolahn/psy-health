@@ -14,22 +14,33 @@ const Search = () => {
 
   return (
     <SearchContainer>
-      <input placeholder="Procure por especialidade, nome ou experiência"  className='search-input'/>
-      <button className='search-button'>Buscar</button>
-      <Select defaultValue='Todos' className='filter-specialist'>
-        <Option value='coach'>Coach</Option>
-        <Option value='psicanalista'>Psicanalista</Option>
-        <Option value='psicologo'>Psicólogo</Option>
-      </Select>
-      <Select defaultValue='Preço'>
-        <Option value='50-100'>R$50-100</Option>
-        <Option value='100-150'>R$100-150</Option>
-        <Option value='150-200'>R$150-200</Option>
-        <Option value='200-300'>R$200-300</Option>
-      </Select>
-      <Select  mode='multiple' placeholder='Especialidade' className='filter-specificity'>
-        {options}
-      </Select>
+      <div>
+        <input placeholder="Procure por especialidade, nome ou experiência"  className='search-input'/>
+        <button className='search-button'>Buscar</button>
+      </div>
+      <div>
+        <Select defaultValue='Todos' className='filter-specialist'>
+          <Option value='coach'>Coach</Option>
+          <Option value='psicanalista'>Psicanalista</Option>
+          <Option value='psicologo'>Psicólogo</Option>
+        </Select>
+        <Select defaultValue='Preço'>
+          <Option value='50-100'>R$50-100</Option>
+          <Option value='100-150'>R$100-150</Option>
+          <Option value='150-200'>R$150-200</Option>
+          <Option value='200-300'>R$200-300</Option>
+        </Select>
+        <Select  mode='multiple' placeholder='Especialidade' className='filter-specificity'>
+          {options}
+        </Select>
+      </div>
+
+      <div className='card-list'> 
+        <div className='card'></div>
+        <div className='card'></div>
+        <div className='card'></div>
+        <div className='card'></div>
+      </div>
     </SearchContainer>
   );
 };

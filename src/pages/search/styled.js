@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 const SearchContainer = styled.main`
-  width: 40vw;
+  width: 70vw;
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
   .search-input {
+    margin-top: 2.50rem;
     box-sizing: border-box;
     font-size: 20px;
 
@@ -37,6 +38,7 @@ const SearchContainer = styled.main`
   }
 
   .search-button {
+    margin-top: 2.5rem;
     box-sizing: border-box;
     border: none;
     background-color: #053559;
@@ -56,6 +58,23 @@ const SearchContainer = styled.main`
 
   .filter-specificity {
     width: 200px;
+  }
+
+  .ant-select {
+    margin: 1.25rem 2.50rem;
+  }
+
+  .card-list {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    width:30vw;
+    height:450px;
+    margin: 1.25rem;
+    border: 2px solid green;
   }
 `;
 
