@@ -6,6 +6,7 @@ const defaultState = {
   email: "",
   access: "",
   token: "",
+  hadError: false,
 };
 
 const reducer = (
@@ -23,6 +24,7 @@ const reducer = (
         email: action.email,
         access: action.access,
         token: action.token,
+        hadError: action.error,
       };
       localStorage.setItem("psi-health-logged-data", JSON.stringify(state));
       return state;
@@ -34,6 +36,7 @@ const reducer = (
         email: "",
         access: "",
         token: "",
+        hadError: false,
       };
       localStorage.removeItem("psi-health-logged-data");
       return state;
