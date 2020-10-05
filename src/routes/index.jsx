@@ -26,7 +26,9 @@ const Routes = (props) => {
 
       {/* não logado */}
       <Route path="/login/psc">Login Psicologo</Route>
-      <Route path="/login">Login</Route>
+      <Route path="/login">
+        <Login />
+      </Route>
 
       <Route path="/register/psc">Register Psicologo</Route>
       <Route path="/register">Register</Route>
