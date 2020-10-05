@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-// import reducer from "path to reducer";
+import login from "./login";
 
 export default combineReducers({
-  /* reducer */
+  login,
 });
