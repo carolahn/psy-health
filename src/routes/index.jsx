@@ -2,7 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Footer from "../components/footer";
-import RegisterUser from "../pages/register-user";
+import Login from "../pages/login";
+import Register from "../pages/register";
 
 const Routes = (props) => {
   const token = ""; // somente para testes
@@ -15,7 +16,6 @@ const Routes = (props) => {
           // logado como paciente
           <Switch>
             {/* <Route path="/blog">Blog</Route> */}
-            <Route path="/search/:id">Search</Route>
             <Route path="/">Home Logado</Route>
             <Footer />
           </Switch>
@@ -28,10 +28,12 @@ const Routes = (props) => {
         ))}
 
       {/* não logado */}
-      <Route path="/login/psc">Login Psicologo</Route>
-      <Route path="/login">Login</Route>
+      <Route path="/login">
+        <Login />
+      </Route>
+
       <Route path="/register">
-        <RegisterUser />
+        <Register />
       </Route>
 
       <Route path="/">

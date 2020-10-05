@@ -1,9 +1,9 @@
 import React from "react";
 import { useLocation, useHistory } from "react-router-dom";
 
+import Logo from "../../assets/imgs/logo2.svg";
+import RegisterSvg from "../../assets/imgs/undraw_secure_login_pdn4 (1).svg";
 import SvgContainer from "../../components/svg-container";
-import Logo from "../../imgs/logo2.svg";
-import RegisterSvg from "../../imgs/undraw_secure_login_pdn4 (1).svg";
 import RegisterForm from "./register-form";
 import { RegisterContainer, SideContainer } from "./styled";
 
@@ -13,7 +13,7 @@ const RegisterUser = (props) => {
 
   return (
     <RegisterContainer>
-      {where.includes("psc") && <SvgContainer svgExtra={RegisterSvg} esquerda />}
+      {where.includes("psi") && <SvgContainer svgExtra={RegisterSvg} esquerda />}
       <SideContainer>
         <div>
           <div className="small-header">
@@ -31,19 +31,19 @@ const RegisterUser = (props) => {
               Sou Paciente
             </span>
             <span
-              className={where === "/register/psc" && "psc"}
-              onClick={() => history.push("/register/psc")}>
+              className={where === "/register/psi" && "psi"}
+              onClick={() => history.push("/register/psi")}>
               Sou Psicólogo
             </span>
           </div>
 
           <div className="form-holder">
-            <RegisterForm isPsic={where.includes("psc")} history={history} />
+            <RegisterForm isPsic={where.includes("psi")} history={history} />
             <span className="changePage">
               Já possui cadastrado?{" "}
               <span
                 onClick={() =>
-                  where.includes("psc") ? history.push("/login/psc") : history.push("/login")
+                  where.includes("psi") ? history.push("/login/psi") : history.push("/login")
                 }>
                 Faça o login!
               </span>
@@ -53,7 +53,7 @@ const RegisterUser = (props) => {
 
         <div className="mobile footer">footer</div>
       </SideContainer>
-      {!where.includes("psc") && <SvgContainer svgExtra={RegisterSvg} />}
+      {!where.includes("psi") && <SvgContainer svgExtra={RegisterSvg} />}
     </RegisterContainer>
   );
 };

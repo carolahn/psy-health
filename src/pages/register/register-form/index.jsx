@@ -67,7 +67,7 @@ const RegisterForm = ({ isPsic = false, history }) => {
             required: "Informe seu email!",
             pattern: {
               value: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi,
-              message: "Formato do email está errado! Formato certo: examble@example.com",
+              message: "Formato do email está errado! Formato certo: example@example.com",
             },
           })}
           error={errors.email}
@@ -89,67 +89,89 @@ const RegisterForm = ({ isPsic = false, history }) => {
         />
       </Tooltip>
 
-      <StyledInput
-        maxLength={15}
-        placeholder="Telefone (opcional)"
-        type="tel"
-        value={values.phone}
-        name="phone"
-        onChange={(e) => handleMaskOnChange(phoneMask(e.target.value), e.target.name)}
-        ref={register({
-          pattern: { value: /\(\d{2}\) \d{5}-\d{4}/i, message: "Número de telefone não aceito!" },
-        })}
-        error={errors.phone}
-      />
+      <Tooltip title={errors.phone && errors.phone.message} placement={isPsic ? "left" : "right"}>
+        <StyledInput
+          maxLength={15}
+          placeholder="Telefone (opcional)"
+          type="tel"
+          value={values.phone}
+          name="phone"
+          onChange={(e) => handleMaskOnChange(phoneMask(e.target.value), e.target.name)}
+          ref={register({
+            pattern: { value: /\(\d{2}\) \d{5}-\d{4}/i, message: "Número de telefone não aceito!" },
+          })}
+          error={errors.phone}
+        />
+      </Tooltip>
 
-      <StyledInput
-        maxLength={18}
-        placeholder="CPF/CNPJ"
-        value={values.cpf_cnpj}
-        name="cpf_cnpj"
-        onChange={(e) => handleMaskOnChange(cpfCnpjMask(e.target.value), e.target.name)}
-        ref={register({
-          required: true,
-          pattern: /(^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$)|(^\d{2}\.?\d{3}\.?\d{3}\/\d{4}-?\d{2}$)/i,
-        })}
-        error={errors.cpf_cnpj}
-      />
+      <Tooltip
+        title={errors.cpf_cnpj && errors.cpf_cnpj.message}
+        placement={isPsic ? "left" : "right"}>
+        <StyledInput
+          maxLength={18}
+          placeholder="CPF/CNPJ"
+          value={values.cpf_cnpj}
+          name="cpf_cnpj"
+          onChange={(e) => handleMaskOnChange(cpfCnpjMask(e.target.value), e.target.name)}
+          ref={register({
+            required: "Informe seu CPF/CNPJ!",
+            pattern: {
+              vlue: /(^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$)|(^\d{2}\.?\d{3}\.?\d{3}\/\d{4}-?\d{2}$)/i,
+              message: "CPF/CNPJ não aceito!",
+            },
+          })}
+          error={errors.cpf_cnpj}
+        />
+      </Tooltip>
 
       {isPsic && (
-        <StyledInput
-          maxLength={8}
-          placeholder="CRP"
-          value={values.crp}
-          name="crp"
-          onChange={(e) => handleMaskOnChange(crpMask(e.target.value), e.target.name)}
-          ref={register({
-            required: true,
-            pattern: /\d{2}\/\d{5}/i,
-          })}
-          error={errors.crp}
-        />
+        <Tooltip title={errors.crp && errors.crp.message} placement={isPsic ? "left" : "right"}>
+          <StyledInput
+            maxLength={8}
+            placeholder="CRP"
+            value={values.crp}
+            name="crp"
+            onChange={(e) => handleMaskOnChange(crpMask(e.target.value), e.target.name)}
+            ref={register({
+              required: "Favor informar CRP!",
+              pattern: { value: /\d{2}\/\d{5}/i, message: "Informe um CRP válido!" },
+            })}
+            error={errors.crp}
+          />
+        </Tooltip>
       )}
 
-      <StyledInput
-        placeholder="Senha"
-        type="password"
-        value={values.password}
-        name="password"
-        onChange={handleOnChange}
-        ref={register({ required: true, minLength: 4 })}
-        error={errors.password}
-      />
+      <Tooltip
+        title={errors.password && errors.password.message}
+        placement={isPsic ? "left" : "right"}>
+        <StyledInput
+          placeholder="Senha"
+          type="password"
+          value={values.password}
+          name="password"
+          onChange={handleOnChange}
+          ref={register({
+            required: "Crie sua senha!",
+            minLength: { value: 4, message: "Deve conter no mínimo quatro caracteres!" },
+          })}
+          error={errors.password}
+        />
+      </Tooltip>
 
-      <StyledInput
-        placeholder="Confirmar Senha"
-        type="password"
-        name="confirmPassword"
-        ref={register({
-          required: true,
-          validate: (value) => value === values.password,
-        })}
-        error={errors.confirmPassword}
-      />
+      <Tooltip
+        title={errors.confirmPassword && errors.confirmPassword.message}
+        placement={isPsic ? "left" : "right"}>
+        <StyledInput
+          placeholder="Confirmar Senha"
+          type="password"
+          name="confirmPassword"
+          ref={register({
+            required: "Confirme sua senha!",
+            validate: (value) => value === values.password || "Senhas não batem!",
+          })}
+          error={errors.confirmPassword}
+        />
+      </Tooltip>
 
       <StyledButton type="submit">Register</StyledButton>
     </StyledForm>

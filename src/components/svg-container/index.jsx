@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Curva from "../../imgs/curva.svg";
+import Curva from "../../assets/imgs/curva.svg";
 
 const SvgContainer = ({ svgExtra, esquerda = false }) => {
   return !esquerda ? (

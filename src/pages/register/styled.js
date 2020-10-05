@@ -79,7 +79,7 @@ export const SideContainer = styled.div`
       }
 
       .usr,
-      .psc {
+      .psi {
         color: #70a3ef;
         cursor: pointer;
         font-weight: normal;

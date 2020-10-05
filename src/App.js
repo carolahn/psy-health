@@ -1,15 +1,27 @@
 import React from "react";
-import "./App.css";
+import styled from "styled-components";
 
-// import Header from "./components/header";
-import Routes from "./routes";
+import Footer from "./components/footer";
+import Header from "./components/header/index.jsx";
+import Routes from "./routes/index";
 
 const App = () => {
   return (
-    <div>
+    <BodyFrame>
+      <Header />
       <Routes />
-    </div>
+      <Footer />
+    </BodyFrame>
   );
 };
 
 export default App;
+
+const BodyFrame = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+`;
