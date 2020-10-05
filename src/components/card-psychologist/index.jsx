@@ -2,24 +2,24 @@ import React from 'react';
 import { Rate } from 'antd';
 import StyledContainer from './styled';
 
-const CardPsychologist = ({ imgUrl, name, abstract, crp, rating, specialty, languages, value }) => {
+const CardPsychologist = ({ image, name, description, crp, rating, specializations, language, price }) => {
     return (
         <StyledContainer>
             <div className='container-img'>
-                <img src={imgUrl} alt="Imagem do Psicólogo" />
+                <img src={image} alt="Imagem do Psicólogo" />
                 <span id='crp'>{`CRP: ${crp}`}</span>
-                <Rate value={rating} disabled={true} />
+                <Rate allowHalf value={rating} disabled={true} />
                 <h5>Valor por atendimento</h5>
-                <span id='price-per-hour'>{`R$${value.price}/${value.perHour}min`}</span>
+                <span id='price-per-hour'>{`R$${price}/50min`}</span>
             </div>
 
             <div className='container-abstract'>
                 <h4>{name}</h4>
-                <p>{abstract}</p>
+                <p>{description}</p>
                 <h5>Especialidades</h5>
-                <p>{specialty.join(', ')}</p>
+                <p>{specializations.join(', ')}</p>
                 <h5>Idiomas</h5>
-                <p>{languages.join(', ')}</p>
+                <p>{language}</p>
                 <button>Agendar uma consulta</button>
             </div>
         </StyledContainer>
