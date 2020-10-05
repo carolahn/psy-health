@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
+import Footer from "../components/footer";
 import Login from "../pages/login";
 import PsychologistPage from "../pages/psychologist-page";
 
@@ -11,23 +12,31 @@ const Routes = (props) => {
   return (
     <div className="Routes">
       <Switch>
-        {token && (
-          // logado
-          <Route path="/" />
-        )}
+        {token &&
+          (!access ? (
+            // logado como paciente
+            <Switch>
+              // <Route path="/blog">Blog</Route>
+              <Route path="/">Home Logado</Route>
+              <Footer />
+            </Switch>
+          ) : (
+            // logado como psicologo
+            <Switch>
+              <Route path="/">
+                <PsychologistPage />
+              </Route>
+              <Footer />
+            </Switch>
+          ))}
         {/* não logado */}
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/login/psi">
-          <Login />
-        </Route>
-        <Route path="/psi">
-          {/* teste */}
-          <PsychologistPage />
-        </Route>
         <Route path="/register" />
-        <Route path="/" />
+        <Route path="/">
+          Home <Footer />
+        </Route>
       </Switch>
     </div>
   );
