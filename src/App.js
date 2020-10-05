@@ -1,21 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import Footer from "./components/footer";
 import Header from "./components/header/index.jsx";
 import Routes from "./routes/index";
-
-
-import Psychologist from '../src/pages/psychologist';
-
 
 const App = () => {
   return (
     <BodyFrame>
       <Header />
       <Routes />
-      <Psychologist />
-      <Footer />
     </BodyFrame>
   );
 };
@@ -28,5 +21,5 @@ const BodyFrame = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  align-items: center;
+  /* align-items: center; */
 `;

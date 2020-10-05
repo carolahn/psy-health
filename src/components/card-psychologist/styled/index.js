@@ -39,7 +39,7 @@ const StyledContainer = styled.div`
         width: 125px;
         height: 125px;
         border-radius: 50%;
-        object-fit: cover;
+
     }
 
     span{

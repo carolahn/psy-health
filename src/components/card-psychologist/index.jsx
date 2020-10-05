@@ -17,7 +17,7 @@ const CardPsychologist = ({ image, name, description, crp, rating, specializatio
                 <h4>{name}</h4>
                 <p>{description}</p>
                 <h5>Especialidades</h5>
-                <p>{specializations.join(', ')}</p>
+                <p>{specializations}</p>
                 <h5>Idiomas</h5>
                 <p>{language}</p>
                 <button>Agendar uma consulta</button>
