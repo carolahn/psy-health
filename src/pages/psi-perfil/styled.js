@@ -44,8 +44,9 @@ export const MainWrapper = styled.div`
   }
 
   .title-p-agenda {
-    font-weight: bold;
-    font-size: 1.8rem;
+    font-weight: 700;
+    font-size: 36px;
+    color: #585858;
     margin-left: 30px;
   }
 
@@ -113,6 +114,10 @@ export const MainWrapper = styled.div`
     .col-work-days {
       padding-left: 0px;
     }
+
+    .title-p-agenda {
+      font-size: 28px;
+    }
   }
 
   @media (max-width: 576px) {
@@ -125,6 +130,9 @@ export const MainWrapper = styled.div`
     .form-text-area {
       font-size: 16px;
       line-height: 20px;
+    }
+    .title-p-agenda {
+      font-size: 28px;
     }
   }
 
@@ -264,7 +272,7 @@ export const PsiCard = styled.div`
   }
 `;
 
-export const StyledWorkForm = styled(Form)`
+export const StyledWorkForm = styled.div`
   div.ant-form-item-label {
     text-align: left;
   }

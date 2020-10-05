@@ -279,8 +279,8 @@ const PsiProfile = ({ userId, token }) => {
                     remember: true,
                   }}
                   form={form}>
+                  <p className="input-title">Sobre mim</p>
                   <Form.Item name="description" label="">
-                    <p className="input-title">Sobre mim</p>
                     <TextArea
                       className="form-text-area"
                       defaultValue={psicInfo.description || "Adicione uma descrição sobre você"}
@@ -288,8 +288,8 @@ const PsiProfile = ({ userId, token }) => {
                       autoSize={{ minRows: 1, maxRows: 20 }}
                     />
                   </Form.Item>
+                  <p className="input-title">Experiências</p>
                   <Form.Item name="experience" label="">
-                    <p className="input-title">Experiências</p>
                     <TextArea
                       className="form-text-area"
                       defaultValue={psicInfo.experience || "Adicione suas experiências"}
@@ -297,8 +297,8 @@ const PsiProfile = ({ userId, token }) => {
                       autoSize={{ minRows: 1, maxRows: 20 }}
                     />
                   </Form.Item>
+                  <p className="input-title">Especialidades</p>
                   <Form.Item name="specializations" label="">
-                    <p className="input-title">Especialidades</p>
                     <TextArea
                       className="form-text-area"
                       // defaultValue={
@@ -309,8 +309,8 @@ const PsiProfile = ({ userId, token }) => {
                       autoSize={{ minRows: 1, maxRows: 20 }}
                     />
                   </Form.Item>
+                  <p className="input-title">Idiomas</p>
                   <Form.Item name="language" label="">
-                    <p className="input-title">Idiomas</p>
                     <TextArea
                       className="form-text-area"
                       defaultValue={psicInfo.language || "Adicione seus idiomas"}
@@ -333,8 +333,8 @@ const PsiProfile = ({ userId, token }) => {
                     remember: true,
                   }}
                   form={form}>
+                  <p className="input-title">Formação acadêmica</p>
                   <Form.Item name="academic_formation" label="">
-                    <p className="input-title">Formação acadêmica</p>
                     <TextArea
                       className="form-text-area"
                       defaultValue={
@@ -359,8 +359,8 @@ const PsiProfile = ({ userId, token }) => {
                         remember: true,
                       }}
                       form={form}>
+                      <p className="input-title">Vídeo de apresentação</p>
                       <Form.Item name="video" label="">
-                        <p className="input-title">Vídeo de apresentação</p>
                         <TextArea
                           className="form-text-area"
                           defaultValue="Adicione um vídeo de apresentação"
@@ -379,94 +379,96 @@ const PsiProfile = ({ userId, token }) => {
         <Col className="col-space col" xs={0} sm={0} md={6} lg={5} xl={5} />
         <Col className="col-work-days" xs={24} sm={24} md={18} lg={19} xl={19}>
           <p className="work-days-tag input-title">Horários de atendimento</p>
-          <StyledWorkForm
-            {...workDaysLayout}
-            ref={formRef}
-            name="control-ref"
-            onFinish={handleOnFinish}
-            defaultValue={{
-              remember: true,
-            }}
-            form={form}>
-            <Form.Item name="1" label="Segunda" colon={false}>
-              <Select
-                mode="multiple"
-                placeholder="Selecione os horários de atendimento"
-                defaultValue={seg}
-                onChange={handleOnChangeSeg}
-                style={{ width: "100%" }}>
-                {filteredOptionsSeg.map((item) => (
-                  <Select.Option key={item} value={item}>
-                    {item}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Form.Item>
-            <Form.Item name="2" label="Terça" colon={false}>
-              <Select
-                mode="multiple"
-                placeholder="Selecione os horários de atendimento"
-                defaultValue={ter}
-                onChange={handleOnChangeTer}
-                style={{ width: "100%" }}>
-                {filteredOptionsTer.map((item) => (
-                  <Select.Option key={item} value={item}>
-                    {item}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Form.Item>
-            <Form.Item name="3" label="Quarta" colon={false}>
-              <Select
-                mode="multiple"
-                placeholder="Selecione os horários de atendimento"
-                defaultValue={qua}
-                onChange={handleOnChangeQua}
-                style={{ width: "100%" }}>
-                {filteredOptionsQua.map((item) => (
-                  <Select.Option key={item} value={item}>
-                    {item}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Form.Item>
-            <Form.Item name="4" label="Quinta" colon={false}>
-              <Select
-                mode="multiple"
-                placeholder="Selecione os horários de atendimento"
-                defaultValue={qui}
-                onChange={handleOnChangeQui}
-                style={{ width: "100%" }}>
-                {filteredOptionsQui.map((item) => (
-                  <Select.Option key={item} value={item}>
-                    {item}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Form.Item>
-            <Form.Item name="5" label="Sexta" colon={false}>
-              <Select
-                mode="multiple"
-                placeholder="Selecione os horários de atendimento"
-                defaultValue={sex}
-                onChange={handleOnChangeSex}
-                style={{ width: "100%" }}>
-                {filteredOptionsSex.map((item) => (
-                  <Select.Option key={item} value={item}>
-                    {item}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Form.Item>
+          <StyledWorkForm>
+            <Form
+              {...workDaysLayout}
+              ref={formRef}
+              name="control-ref"
+              onFinish={handleOnFinish}
+              defaultValue={{
+                remember: true,
+              }}
+              form={form}>
+              <Form.Item name="1" label="Segunda" colon={false}>
+                <Select
+                  mode="multiple"
+                  placeholder="Selecione os horários de atendimento"
+                  defaultValue={seg}
+                  onChange={handleOnChangeSeg}
+                  style={{ width: "100%" }}>
+                  {filteredOptionsSeg.map((item) => (
+                    <Select.Option key={item} value={item}>
+                      {item}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+              <Form.Item name="2" label="Terça" colon={false}>
+                <Select
+                  mode="multiple"
+                  placeholder="Selecione os horários de atendimento"
+                  defaultValue={ter}
+                  onChange={handleOnChangeTer}
+                  style={{ width: "100%" }}>
+                  {filteredOptionsTer.map((item) => (
+                    <Select.Option key={item} value={item}>
+                      {item}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+              <Form.Item name="3" label="Quarta" colon={false}>
+                <Select
+                  mode="multiple"
+                  placeholder="Selecione os horários de atendimento"
+                  defaultValue={qua}
+                  onChange={handleOnChangeQua}
+                  style={{ width: "100%" }}>
+                  {filteredOptionsQua.map((item) => (
+                    <Select.Option key={item} value={item}>
+                      {item}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+              <Form.Item name="4" label="Quinta" colon={false}>
+                <Select
+                  mode="multiple"
+                  placeholder="Selecione os horários de atendimento"
+                  defaultValue={qui}
+                  onChange={handleOnChangeQui}
+                  style={{ width: "100%" }}>
+                  {filteredOptionsQui.map((item) => (
+                    <Select.Option key={item} value={item}>
+                      {item}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+              <Form.Item name="5" label="Sexta" colon={false}>
+                <Select
+                  mode="multiple"
+                  placeholder="Selecione os horários de atendimento"
+                  defaultValue={sex}
+                  onChange={handleOnChangeSex}
+                  style={{ width: "100%" }}>
+                  {filteredOptionsSex.map((item) => (
+                    <Select.Option key={item} value={item}>
+                      {item}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
 
-            <Form.Item {...tailLayout} className="work-form-btn-group">
-              <Button className="form-btn" type="primary" htmlType="submit">
-                Atualizar
-              </Button>
-              <Button className="form-btn" htmlType="button" onClick={handleOnReset}>
-                Desfazer
-              </Button>
-            </Form.Item>
+              <Form.Item {...tailLayout} className="work-form-btn-group">
+                <Button className="form-btn" type="primary" htmlType="submit">
+                  Atualizar
+                </Button>
+                <Button className="form-btn" htmlType="button" onClick={handleOnReset}>
+                  Desfazer
+                </Button>
+              </Form.Item>
+            </Form>
           </StyledWorkForm>
         </Col>
       </Row>
