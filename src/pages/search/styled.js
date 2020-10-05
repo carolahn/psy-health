@@ -52,30 +52,7 @@ const SearchContainer = styled.main`
     border-bottom-right-radius: 5px;
   }
 
-  .filter-specialist {
-    width: 120px;
-  }
 
-  .filter-experience {
-    width: 200px;
-  }
-
-  .ant-select {
-    margin: 1.25rem 2.50rem;
-  }
-
-  .card-list {
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .card {
-    width:30vw;
-    height:450px;
-    margin: 1.25rem;
-    border: 2px solid green;
-  }
 `;
 
 export default SearchContainer;
