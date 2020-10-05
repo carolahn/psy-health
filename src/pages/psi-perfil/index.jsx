@@ -7,7 +7,14 @@ import Calendar from "../../components/calendar";
 import { useWindowSize } from "../../hooks/index";
 import { getAppointments } from "../../redux/actions/appointments";
 import { getOneUser, patchUserInfo } from "../../redux/actions/users";
-import { MainWrapper, PsiCard, StyledWorkForm } from "./styled";
+import {
+  MainWrapper,
+  PsiCard,
+  StyledWorkForm,
+  StyledRate,
+  StyledPsicName,
+  StyledPsicNameCenter,
+} from "./styled";
 
 const PsiProfile = ({ userId, token }) => {
   const style = { background: "#0092ff", padding: "8px 0" };
@@ -219,29 +226,22 @@ const PsiProfile = ({ userId, token }) => {
       {psicInfo
         ? allAppointments && (
             <Row className="row-info">
-              <Col className="col-left col" xs={24} sm={24} md={6} lg={5} xl={5}>
-                {width < 768 && (
-                  <div
-                    className="card-name"
-                    style={{ textAlign: "center", fontWeight: "bold", fontSize: "1.8rem" }}>
-                    {psicInfo.name}
-                  </div>
-                )}
-                <PsiCard>
-                  <div className="card-avatar">
-                    <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
-                  </div>
-                  <div className="card-text">
-                    <p className="crp">CRP: {psicInfo.crp}</p>
-                    <p className="rating">
-                      <Rate allowHalf value={psicInfo.rating} />
-                    </p>
-                    {width >= 768 && <p className="price-tag input-title">Valor do atendimento</p>}
-                    <p className="card-price">
-                      {/* {parseInt(psicInfo.price).toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      })} */}
+              <Col className="col-left col" xs={24} sm={24} md={6} lg={6} xl={5}>
+                <div className="card-wrapper">
+                  <StyledPsicName className="card-name">{psicInfo.name}</StyledPsicName>
+
+                  <PsiCard>
+                    <div className="card-avatar">
+                      <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                    </div>
+                    <div className="card-text">
+                      <p className="crp">CRP: {psicInfo.crp}</p>
+                      <p className="rating">
+                        <StyledRate allowHalf value={psicInfo.rating} />
+                      </p>
+                      {width >= 768 && (
+                        <p className="price-tag input-title">Valor do atendimento</p>
+                      )}
                       <Form
                         // {...priceLayout}
                         ref={formRef}
@@ -251,28 +251,25 @@ const PsiProfile = ({ userId, token }) => {
                           remember: true,
                         }}
                         form={form}>
-                        <Form.Item name="price" label="R$" colon={false}>
-                          <TextArea
-                            className="form-text-area"
-                            defaultValue={psicInfo.price || "Valor"}
-                            bordered={false}
-                            autoSize={{ minRows: 1, maxRows: 1 }}
-                          />
-                        </Form.Item>
+                        <div className="card-price">
+                          <span className="price-label">R$</span>
+                          <Form.Item name="price" label="" colon={false}>
+                            <TextArea
+                              className="form-price-area"
+                              defaultValue={psicInfo.price || "Valor"}
+                              bordered={false}
+                              autoSize={{ minRows: 1, maxRows: 1 }}
+                            />
+                          </Form.Item>
+                        </div>
                       </Form>
-                    </p>
-                  </div>
-                </PsiCard>
+                    </div>
+                  </PsiCard>
+                </div>
               </Col>
 
-              <Col className="col-center col" xs={24} sm={24} md={18} lg={19} xl={10}>
-                {width >= 768 && (
-                  <p
-                    className="card-name"
-                    style={{ fontWeight: "bold", fontSize: "1.8rem", marginBottom: "5px" }}>
-                    {psicInfo.name}
-                  </p>
-                )}
+              <Col className="col-center col" xs={24} sm={24} md={18} lg={18} xl={10}>
+                <StyledPsicNameCenter className="card-name">{psicInfo.name}</StyledPsicNameCenter>
                 <Form
                   {...layout}
                   ref={formRef}
@@ -288,7 +285,7 @@ const PsiProfile = ({ userId, token }) => {
                       className="form-text-area"
                       defaultValue={psicInfo.description || "Adicione uma descrição sobre você"}
                       bordered={false}
-                      autoSize={{ minRows: 1, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 20 }}
                     />
                   </Form.Item>
                   <Form.Item name="experience" label="">
@@ -297,7 +294,7 @@ const PsiProfile = ({ userId, token }) => {
                       className="form-text-area"
                       defaultValue={psicInfo.experience || "Adicione suas experiências"}
                       bordered={false}
-                      autoSize={{ minRows: 1, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 20 }}
                     />
                   </Form.Item>
                   <Form.Item name="specializations" label="">
@@ -309,7 +306,7 @@ const PsiProfile = ({ userId, token }) => {
                       // }
                       defaultValue={psicInfo.specializations || "Adicione suas especialidades"}
                       bordered={false}
-                      autoSize={{ minRows: 1, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 20 }}
                     />
                   </Form.Item>
                   <Form.Item name="language" label="">
@@ -318,15 +315,15 @@ const PsiProfile = ({ userId, token }) => {
                       className="form-text-area"
                       defaultValue={psicInfo.language || "Adicione seus idiomas"}
                       bordered={false}
-                      autoSize={{ minRows: 1, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 20 }}
                     />
                   </Form.Item>
                 </Form>
               </Col>
 
-              <Col className="col-space col" xs={0} sm={0} md={6} lg={5} xl={0} />
-              <Col className="col-right col" xs={24} sm={24} md={18} lg={19} xl={9}>
-                {width >= 1200 && <div style={{ height: "45px" }} />}
+              <Col className="col-space col" xs={0} sm={0} md={6} lg={6} xl={0} />
+              <Col className="col-right col" xs={24} sm={24} md={18} lg={18} xl={9}>
+                {width >= 1200 && <div style={{ height: "66px" }} />}
                 <Form
                   {...layout}
                   ref={formRef}
@@ -344,19 +341,14 @@ const PsiProfile = ({ userId, token }) => {
                         psicInfo.academic_formation || "Adicione sua formação acadêmica"
                       }
                       bordered={false}
-                      autoSize={{ minRows: 1, maxRows: 10 }}
+                      autoSize={{ minRows: 1, maxRows: 20 }}
                     />
                   </Form.Item>
                 </Form>
                 <div className="psic-video">
                   <p className="video-tag input-title">Vídeo de apresentação</p>
                   {psicInfo.video ? (
-                    <iframe
-                      className="psic-video"
-                      width="385"
-                      height="215"
-                      src="https://www.youtube.com/embed/owiAfw-3_nY"
-                    />
+                    <iframe className="psic-video" width="385" height="215" src={psicInfo.video} />
                   ) : (
                     <Form
                       {...layout}
@@ -373,7 +365,7 @@ const PsiProfile = ({ userId, token }) => {
                           className="form-text-area"
                           defaultValue="Adicione um vídeo de apresentação"
                           bordered={false}
-                          autoSize={{ minRows: 1, maxRows: 10 }}
+                          autoSize={{ minRows: 1, maxRows: 20 }}
                         />
                       </Form.Item>
                     </Form>
@@ -467,7 +459,7 @@ const PsiProfile = ({ userId, token }) => {
               </Select>
             </Form.Item>
 
-            <Form.Item {...tailLayout}>
+            <Form.Item {...tailLayout} className="work-form-btn-group">
               <Button className="form-btn" type="primary" htmlType="submit">
                 Atualizar
               </Button>

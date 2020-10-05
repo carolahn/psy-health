@@ -1,4 +1,4 @@
-import { Form } from "antd";
+import { Form, Rate } from "antd";
 import styled from "styled-components";
 
 export const MainWrapper = styled.div`
@@ -8,6 +8,12 @@ export const MainWrapper = styled.div`
   flex-direction: column;
   align-items: unset;
   justify-content: center;
+  font-family: "Roboto", sans-serif;
+
+  .card-wrapper {
+    width: fit-content;
+    margin: 0 auto;
+  }
 
   .psic-video {
     text-align: center;
@@ -17,13 +23,21 @@ export const MainWrapper = styled.div`
   }
 
   p.input-title {
-    font-weight: bold;
-    color: #545454;
+    color: #474747;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 17px;
   }
 
   .form-text-area {
-    color: #8d8d8d;
+    color: #9e9e9e;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    /* margin-bottom: 17px;  */
   }
+
   .title-agenda {
     max-width: 900px;
     margin: 0px auto 15px auto;
@@ -45,11 +59,7 @@ export const MainWrapper = styled.div`
   }
 
   .col-center {
-    /* background-color: yellow; */
     padding-left: 30px;
-    @media (max-width: 768px) {
-      padding-left: 0px;
-    }
   }
 
   .col-space {
@@ -57,16 +67,11 @@ export const MainWrapper = styled.div`
   }
 
   .col-right {
-    /* background-color: orange; */
     padding-left: 30px;
-    @media (max-width: 768px) {
-      padding-left: 0px;
-    }
   }
 
   .row-info,
   .row-work-days {
-    /* margin: 0 auto; */
     padding: 0 30px;
   }
 
@@ -80,9 +85,6 @@ export const MainWrapper = styled.div`
 
   .col-work-days {
     padding-left: 30px;
-    @media (max-width: 768px) {
-      padding-left: 0px;
-    }
   }
 
   .form-btn {
@@ -98,6 +100,32 @@ export const MainWrapper = styled.div`
 
   .row-calendar {
     margin-bottom: 30px;
+  }
+  @media (max-width: 768px) {
+    .col-center {
+      padding-left: 0px;
+    }
+
+    .col-right {
+      padding-left: 0px;
+    }
+
+    .col-work-days {
+      padding-left: 0px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    p.input-title {
+      font-size: 16px;
+      line-height: 16px;
+      margin-bottom: 14px;
+    }
+
+    .form-text-area {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 
   @media (max-width: 460px) {
@@ -119,10 +147,10 @@ export const PsiCard = styled.div`
   }
 
   .img-avatar {
-    width: 178px;
-    height: 178px;
+    width: 226px;
+    height: 226px;
     border-radius: 50%;
-    border: 3px solid #70a3ef;
+    border: 4px solid #70a3ef;
   }
 
   .card-text {
@@ -134,29 +162,73 @@ export const PsiCard = styled.div`
 
   p.crp {
     color: #70a3ef;
-    margin-top: 9px;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 36px auto 15.3px auto;
   }
 
   p.rating {
-    margin-top: 8px;
+    margin: 0px auto 30px auto;
   }
 
   p.price-tag {
-    margin-top: 8px;
-    font-weight: bold;
-    margin-bottom: -2px;
+    color: #474747;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 0px;
+    /* margin-bottom: -2px; */
   }
 
-  p.card-price {
-    width: 109px;
-    margin: 0 auto;
+  div.card-price {
+    margin: 24px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  span.price-label {
+    color: #474747;
+    font-weight: 400;
+    font-size: 18px;
+    /* line-height: 29px; */
+  }
+  .form-price-area {
+    color: #474747;
+    font-weight: 400;
+    font-size: 18px;
+    /* line-height: 21px; */
+    width: 87px;
+    padding-top: 0;
+    /* padding: 0 0 0 5px; */
+  }
+
+  @media (max-width: 992px) {
+    .img-avatar {
+      width: 183px;
+      height: 183px;
+    }
+    p.crp {
+      font-size: 16px;
+      /* margin: 36px auto 34px auto; */
+    }
+    p.price-tag {
+      font-size: 16px;
+      /* margin-top: 0px; */
+    }
+    span.price-label {
+      font-size: 16px;
+    }
   }
 
   @media (max-width: 768px) {
     display: flex;
     flex-direction: row;
 
+    .img-avatar {
+      width: 140px;
+      height: 141px;
+    }
     .card-text {
       display: flex;
       flex-direction: column;
@@ -164,15 +236,30 @@ export const PsiCard = styled.div`
       align-items: flex-start;
       margin-left: 15px;
     }
+    p.crp {
+      margin: 13px auto 10px 0px;
+    }
+    div.card-price {
+      margin: 21px auto 0 auto;
+    }
+    p.rating {
+      margin: 0px auto 0px auto;
+    }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 576px) {
     .img-avatar {
-      width: 110px;
-      height: 110px;
+      width: 96px;
+      height: 96px;
     }
-    .ant-rate {
-      font-size: 14px;
+    p.crp {
+      margin: 8px auto 0px auto;
+    }
+    div.card-price {
+      margin: 0px auto 0 auto;
+    }
+    p.rating {
+      margin: 0px auto 0px auto;
     }
   }
 `;
@@ -180,5 +267,57 @@ export const PsiCard = styled.div`
 export const StyledWorkForm = styled(Form)`
   div.ant-form-item-label {
     text-align: left;
+  }
+  .ant-form-item-control {
+    flex-wrap: nowrap;
+  }
+
+  @media (max-width: 576px) {
+    .work-form-btn-group {
+      width: fit-content;
+      margin: 0 auto;
+    }
+    .ant-form-item-control {
+      margin: 0;
+    }
+  }
+`;
+
+export const StyledRate = styled(Rate)`
+  font-size: 28px;
+
+  @media (max-width: 992px) {
+    font-size: 24px;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
+`;
+export const StyledPsicNameCenter = styled.div`
+  font-weight: 700;
+  font-size: 36px;
+  color: #585858;
+  line-height: 36px;
+  margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+export const StyledPsicName = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: unset;
+    text-align: start;
+    font-weight: 700;
+    font-size: 28px;
+    color: #585858;
+  }
+  @media (max-width: 576px) {
+    display: unset;
+    font-size: 20px;
   }
 `;
