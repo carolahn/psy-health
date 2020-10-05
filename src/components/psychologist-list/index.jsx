@@ -4,7 +4,7 @@ import StyledPsychologistList from './styled'
 const PsychologistList = ({ psychologists }) => {
   return(
     <StyledPsychologistList>
-      {psychologists.map(psychologist => {})}
+      {psychologists.map(psychologist => <div>psicologo</div>)}
     </StyledPsychologistList>
   )
 }

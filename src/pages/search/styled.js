@@ -56,7 +56,7 @@ const SearchContainer = styled.main`
     width: 120px;
   }
 
-  .filter-specificity {
+  .filter-experience {
     width: 200px;
   }
 
