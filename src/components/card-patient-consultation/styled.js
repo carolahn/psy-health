@@ -13,7 +13,7 @@ export const CardContainer = styled.div`
 
   @media (max-width: 1270px) {
     width: 80vw;
-    height: 240px;
+    height: 210px;
   }
 
   @media (max-width: 710px) {
