@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Footer from "./components/footer";
 import Header from "./components/header/index.jsx";
 import Routes from "./routes/index";
 
@@ -10,7 +9,6 @@ const App = () => {
     <BodyFrame>
       <Header />
       <Routes />
-      <Footer />
     </BodyFrame>
   );
 };

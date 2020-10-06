@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
+import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import { useWindowSize } from "../../hooks";
@@ -29,7 +30,7 @@ const header_urls = [
 const urls = [...header_urls, ...non_header_urls];
 
 const Header = () => {
-  const token = false;
+  const token = useSelector((state) => state.login.token);
   const [width] = useWindowSize();
   const where = useLocation().pathname;
 
@@ -45,30 +46,30 @@ const Header = () => {
               <RightLoggedHeader />
             </StyledHeader>
           ) : (
-            <StyledMobileHeader>
-              <MobileStandardHeaderWithMenu token={token} />
-            </StyledMobileHeader>
-          )
+              <StyledMobileHeader>
+                <MobileStandardHeaderWithMenu token={token} />
+              </StyledMobileHeader>
+            )
         ) : width >= 950 ? (
           <StyledHeader>
             <LeftNonLoggedHeader />
             <RightNonLoggedHeader />
           </StyledHeader>
         ) : (
-          <StyledMobileHeader>
-            <MobileStandardHeaderWithMenu token={token} />
-          </StyledMobileHeader>
-        )
+              <StyledMobileHeader>
+                <MobileStandardHeaderWithMenu token={token} />
+              </StyledMobileHeader>
+            )
       ) : width >= 950 ? (
         <StyledHeader>
           <LeftNonLoggedHeader />
           <RightNonLoggedHeader />
         </StyledHeader>
       ) : (
-        <StyledMobileHeader>
-          <MobileStandardHeaderWithMenu token={token} />
-        </StyledMobileHeader>
-      )}
+              <StyledMobileHeader>
+                <MobileStandardHeaderWithMenu token={token} />
+              </StyledMobileHeader>
+            )}
     </>
   );
 };
