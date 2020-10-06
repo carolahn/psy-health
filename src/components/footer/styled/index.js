@@ -39,7 +39,6 @@ export const StyledFooterContainer = styled.footer`
       display: inline;
       color: #F3F3F3;
       font-weight: bold;
-      margin-bottom: 0;
       margin-right: 0.2rem;
       margin-left: 0.2rem;		
     }

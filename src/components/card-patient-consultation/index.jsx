@@ -1,6 +1,6 @@
 import { Rate } from "antd";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   CardContainer,
@@ -17,6 +17,14 @@ import {
 } from "./styled";
 
 const CardPatientConsultation = () => {
+  const userId = useSelector((state) => state.login.user.id);
+  const allAppointments = useSelector((state) => state.appointments.allAppointments);
+  console.log(allAppointments);
+  const FilterAppointmentsUser = () => {
+    const AppointmentsUser = allAppointments.filter((appointment) => appointment.userId === userId);
+    return AppointmentsUser;
+  };
+
   const data = {
     userId: 12,
     id: 2,
