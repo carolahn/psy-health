@@ -14,6 +14,7 @@ export const StyledUserLogin = styled.div`
 `;
 
 export const StyledMobileLoginHeader = styled.div`
+  background-color: #f3f3f3;
   width: 100%;
   height: 150px;
   display: flex;
@@ -23,6 +24,7 @@ export const StyledMobileLoginHeader = styled.div`
 `;
 
 export const StyledMobileLogoHolder = styled.div`
+  background-color: #f3f3f3;
   width: 212px;
   height: 84px;
   background-image: url(${logo});
