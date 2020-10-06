@@ -1,9 +1,13 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import { logout } from "../../../../../redux/actions/login/action";
 import { StyledMobileMenuListWithTokenHeader } from "./styled";
 
 const MobileMenuListWithTokenHeader = ({ setMMenu }) => {
+  const token = useSelector((state) => state.login.token);
+  const dispatch = useDispatch();
   const history = useHistory();
   return (
     <StyledMobileMenuListWithTokenHeader className="mobile-menu-list-whithout-token">
@@ -33,8 +37,9 @@ const MobileMenuListWithTokenHeader = ({ setMMenu }) => {
       </div>
       <div
         className="mobile-list logout"
-        onClick={() => {
-          history.push("/");
+        onClick={async () => {
+          dispatch(logout());
+          (await !token) && history.push("/");
           setMMenu(false);
         }}>
         Logout
