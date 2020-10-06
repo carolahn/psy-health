@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
 import Footer from "../components/footer";
@@ -7,8 +8,8 @@ import PsychologistPage from "../pages/psychologist-page";
 import Register from "../pages/register";
 
 const Routes = (props) => {
-  const token = ""; // somente para testes
-  const access = true; // somente para testes
+  const token = useSelector((state) => state.login.token);
+  const access = useSelector((state) => state.login.user.isPsic);
 
   return (
     <Switch>

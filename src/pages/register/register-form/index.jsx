@@ -2,8 +2,10 @@ import { Tooltip } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import { login } from "../../../redux/actions/login/action";
 import { cpfCnpjMask, phoneMask, crpMask } from "./masks";
 import { StyledInput, StyledButton, StyledForm } from "./styled";
 
@@ -11,12 +13,13 @@ const RegisterForm = ({ isPsic = false }) => {
   const history = useHistory();
   const [values, setValues] = useState({});
   const { register, handleSubmit, errors, setError } = useForm();
+  const dispatch = useDispatch();
 
   const onSubmit = () => {
     axios
       .post("https://psy-health-api.herokuapp.com/register", { ...values, isPsic })
-      .then(({ data }) => {
-        history.push("/");
+      .then(() => {
+        dispatch(login(values.email, values.password, history));
       })
       .catch(({ response: { status } }) => {
         if (status === 400) {
