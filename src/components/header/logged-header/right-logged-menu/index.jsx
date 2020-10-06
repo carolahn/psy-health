@@ -14,7 +14,7 @@ const RightMenuListWithTokenHeader = ({ setMMenu }) => {
       <div
         className="mobile-list"
         onClick={() => {
-          history.push("/perfil:id");
+          history.push("/perfil/:id");
           setMMenu(false);
         }}>
         Meu perfil

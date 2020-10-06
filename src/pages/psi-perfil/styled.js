@@ -3,8 +3,8 @@ import styled from "styled-components";
 import "antd/dist/antd.css";
 
 export const MainWrapper = styled.div`
-  margin: 0 auto;
   max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: unset;

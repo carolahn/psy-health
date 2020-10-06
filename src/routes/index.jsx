@@ -20,6 +20,7 @@ const Routes = (props) => {
             {/* <Route path="/blog">Blog</Route> */}
             <Route path="/">
               Home Logado
+              <PsiPage />
               <Footer />
             </Route>
           </Switch>

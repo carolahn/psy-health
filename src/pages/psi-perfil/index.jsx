@@ -17,10 +17,13 @@ import {
 } from "./styled";
 
 const PsiProfile = ({ userId, token }) => {
-  const style = { background: "#0092ff", padding: "8px 0" };
+  // const style = { background: "#0092ff", padding: "8px 0" };
   const dispatch = useDispatch();
   const [width] = useWindowSize();
-  const oneUser = useSelector((state) => state.users.oneUser);
+  // const oneUser = useSelector((state) => state.users.oneUser);
+
+  const oneUser = useSelector((state) => state.login.user);
+
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
   let psicInfo = {};
   const { TextArea } = Input;
