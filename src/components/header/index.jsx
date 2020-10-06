@@ -12,22 +12,25 @@ import { StyledHeader, StyledMobileHeader } from "./styled";
 
 const non_header_urls = [
   ...login_urls,
-  "/register",
-  "/register/",
-  "/register/psi",
-  "/register/psi/",
+  "/cadastro",
+  "/cadastro/",
+  "/cadastro/psi",
+  "/cadastro/psi/",
 ];
-const header_urls = [
-  "",
-  "/",
-  "/search",
-  "/search/",
-  "/psi",
-  "/psi/",
-  "/my-appointments",
-  "/my-appointments/",
+const header_urls = ["", "/", "/busca", "/busca/", "/psi", "/psi/"];
+
+const start_with_urls = [
+  "/consultas",
+  "/consultas/",
+  "/psi/consultas",
+  "/psi/consultas/",
+  "/perfil",
+  "/perfil/",
+  "/psi/perfil",
+  "/psi/perfil/",
 ];
-const urls = [...header_urls, ...non_header_urls];
+
+const urls = [...header_urls, ...start_with_urls, ...non_header_urls];
 
 const Header = () => {
   const token = useSelector((state) => state.login.token);
@@ -38,7 +41,8 @@ const Header = () => {
     <>
       {non_header_urls.some((e) => e === where) ? (
         <></>
-      ) : header_urls.some((e) => e === where) || where.startsWith("/profile") ? (
+      ) : header_urls.some((e) => e === where) ||
+        start_with_urls.some((e) => where.startsWith(e)) ? (
         token ? (
           width >= 950 ? (
             <StyledHeader>
