@@ -16,7 +16,7 @@ const login_unsuccesseful = (error) => ({
   error,
 });
 
-export const login = (email, password, history) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
   await axios({
     headers: { "Content-Type": "application/json" },
     method: "post",
@@ -36,7 +36,6 @@ export const login = (email, password, history) => async (dispatch) => {
               Object.values(data).find((e) => e.email === email)
             )
           );
-          history.push("/");
         })
         .catch((error) => dispatch(login_unsuccesseful(error)));
     })

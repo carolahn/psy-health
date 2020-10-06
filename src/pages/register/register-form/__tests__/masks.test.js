@@ -6,6 +6,11 @@ describe("Tests cpfCnpjMask function", () => {
     expect(cpfCnpjMask(cpf)).toBe("066.568.029-58");
   });
 
+  it("bad path cpf", () => {
+    const cpf = " 06a56802b58)";
+    expect(cpfCnpjMask(cpf)).toBe("065.680.258");
+  });
+
   it("cool path cnpj", () => {
     const cnpj = "12123123123412 ";
     expect(cpfCnpjMask(cnpj)).toBe("12.123.123/1234-12");
