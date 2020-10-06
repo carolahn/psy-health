@@ -1,7 +1,11 @@
 import { combineReducers } from "redux";
 
-// import reducer from "path to reducer";
+import appointments from "./appointments";
+import login from "./login";
+import users from "./users";
 
 export default combineReducers({
-  /* reducer */
+  login,
+  users,
+  appointments,
 });
