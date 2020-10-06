@@ -29,7 +29,7 @@ const PsiPage = () => {
         <Route path="/psi/perfil">
           <PsiProfile
             userId={13}
-            token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvZGlzdmFsLnBzaWNvbG9nb0BnbWFpbC5jb20iLCJpYXQiOjE2MDE5MzI5MDUsImV4cCI6MTYwMTkzNjUwNSwic3ViIjoiMTMifQ.e7jA2PFJk5WUcUtluOC4fDReSyif-OEdQvvQ8XDZFMk"
+            token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvZGlzdmFsLnBzaWNvbG9nb0BnbWFpbC5jb20iLCJpYXQiOjE2MDE5ODUxMDAsImV4cCI6MTYwMTk4ODcwMCwic3ViIjoiMTMifQ.PnZK_wzML-82-WA8e4UkZjP5JcliYOPxgd579pyimMY"
           />
           {/* {allUsers
             ? allAppointments && (

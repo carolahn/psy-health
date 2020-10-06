@@ -1,5 +1,6 @@
 import { Form, Rate } from "antd";
 import styled from "styled-components";
+import "antd/dist/antd.css";
 
 export const MainWrapper = styled.div`
   margin: 0 auto;
