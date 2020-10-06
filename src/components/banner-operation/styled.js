@@ -43,7 +43,7 @@ export const TitleInfo = styled.h1`
 
 export const InfoContainerDiv = styled.div`
   width: 100vw;
-  height: 300px;
+  height: 280px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -60,7 +60,7 @@ export const InfoDiv = styled.div`
 
   @media (max-width: 800px) {
     padding: 40px;
-    width: 350px;
+    width: 300px;
     height: 200px;
   }
 `;
