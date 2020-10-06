@@ -2,25 +2,24 @@ import { Tooltip } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 import { cpfCnpjMask, phoneMask, crpMask } from "./masks";
 import { StyledInput, StyledButton, StyledForm } from "./styled";
 
-const RegisterForm = ({ isPsic = false, history }) => {
+const RegisterForm = ({ isPsic = false }) => {
+  const history = useHistory();
   const [values, setValues] = useState({});
   const { register, handleSubmit, errors, setError } = useForm();
 
-  // console.log(errors);
   const onSubmit = () => {
     axios
       .post("https://psy-health-api.herokuapp.com/register", { ...values, isPsic })
-      .then(({ data: { accessToken } }) => {
-        console.log(accessToken);
+      .then(({ data }) => {
         history.push("/");
       })
       .catch(({ response: { status } }) => {
         if (status === 400) {
-          console.log("deu ruim");
           setError("email", {
             type: "manual",
             message: "Email já foi usado!",

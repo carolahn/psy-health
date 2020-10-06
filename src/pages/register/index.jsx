@@ -2,12 +2,12 @@ import React from "react";
 import { useLocation, useHistory } from "react-router-dom";
 
 import Logo from "../../assets/imgs/logo2.svg";
-import RegisterSvg from "../../assets/imgs/undraw_secure_login_pdn4 (1).svg";
+import RegisterSvg from "../../assets/imgs/undraw_secure_login_pdn4.svg";
 import SvgContainer from "../../components/svg-container";
 import RegisterForm from "./register-form";
 import { RegisterContainer, SideContainer } from "./styled";
 
-const RegisterUser = (props) => {
+const RegisterUser = () => {
   const history = useHistory();
   const where = useLocation().pathname;
 
@@ -38,7 +38,7 @@ const RegisterUser = (props) => {
           </div>
 
           <div className="form-holder">
-            <RegisterForm isPsic={where.includes("psi")} history={history} />
+            <RegisterForm isPsic={where.includes("psi")} />
             <span className="changePage">
               Já possui cadastrado?{" "}
               <span
