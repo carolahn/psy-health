@@ -19,7 +19,7 @@ const RegisterForm = ({ isPsic = false }) => {
     axios
       .post("https://psy-health-api.herokuapp.com/register", { ...values, isPsic })
       .then(() => {
-        dispatch(login(values.email, values.password, history));
+        dispatch(login(values.email, values.password));
       })
       .catch(({ response: { status } }) => {
         if (status === 400) {

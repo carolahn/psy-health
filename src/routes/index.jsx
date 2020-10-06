@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Footer from "../components/footer";
 import Login from "../pages/login";
@@ -9,7 +9,7 @@ import Register from "../pages/register";
 
 const Routes = (props) => {
   const token = useSelector((state) => state.login.token);
-  const access = useSelector((state) => state.login.user.isPsic);
+  const access = useSelector((state) => state.login.user.is_psic);
 
   return (
     <Switch>
@@ -18,6 +18,10 @@ const Routes = (props) => {
           // logado como paciente
           <Switch>
             {/* <Route path="/blog">Blog</Route> */}
+            <Route path={["/login", "/register"]}>
+              <Redirect to="/" />
+            </Route>
+
             <Route path="/">
               Home Logado
               <Footer />
