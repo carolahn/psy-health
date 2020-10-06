@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+import DepoimentsForm from "../components/depoiments-form";
 import Footer from "../components/footer";
 import Login from "../pages/login";
 import PsychologistPage from "../pages/psychologist-page";
@@ -10,6 +11,7 @@ import Register from "../pages/register";
 const Routes = (props) => {
   const token = useSelector((state) => state.login.token);
   const access = useSelector((state) => state.login.user.is_psic);
+  const [modalVisible, setModalVisible] = useState(true);
 
   return (
     <Switch>
@@ -23,8 +25,12 @@ const Routes = (props) => {
             </Route>
 
             <Route path="/">
+              <button onClick={() => setModalVisible(true)} psicId={1}>
+                {/* psicId vem do card */}
+                Display a modal dialog
+              </button>
+              <DepoimentsForm showModal={[modalVisible, setModalVisible]} />
               Home Logado
-              <Footer />
             </Route>
           </Switch>
         ) : (

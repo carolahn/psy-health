@@ -6,7 +6,7 @@ import {
 } from "../../actions/login/action-types";
 
 const defaultState = {
-  user: "",
+  user: {},
   token: "",
   hadError: false,
   chosenPsi: "",

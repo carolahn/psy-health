@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { login } from "../../../redux/actions/login/action";
+import { StyledInput, StyledButton, StyledForm } from "../../../styles";
 import { cpfCnpjMask, phoneMask, crpMask } from "./masks";
-import { StyledInput, StyledButton, StyledForm } from "./styled";
 
 const RegisterForm = ({ isPsic = false }) => {
   const history = useHistory();
