@@ -17,7 +17,7 @@ const PsiPage = () => {
   const login = useSelector((state) => state.login);
 
   useEffect(() => {
-    // dispatch(getOneUser(13));
+    dispatch(getOneUser(login.user.id));
     dispatch(getAppointments());
     history.push("/psi/consultas");
   }, []);
@@ -29,12 +29,7 @@ const PsiPage = () => {
       <Switch>
         <Route path="/psi/consultas">Consultas</Route>
         <Route path="/psi/perfil">
-          <PsiProfile
-            userId={login.user.id}
-            token={login.token}
-            login={login}
-            allAppointments={allAppointments}
-          />
+          <PsiProfile />
           {/* {allUsers
             ? allAppointments && (
                 <Calendar

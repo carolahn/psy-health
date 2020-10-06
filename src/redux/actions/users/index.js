@@ -48,7 +48,9 @@ export const patchUserInfo = (userId, token, newData) => (dispatch) => {
       userId,
       ...newData,
     },
-  }).then(() => dispatch(patchUserInfoAction()));
+  })
+    .then(() => dispatch(patchUserInfoAction()))
+    .then(() => dispatch(getOneUser(userId)));
 };
 
 const patchUserInfoAction = () => ({

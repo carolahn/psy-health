@@ -16,14 +16,14 @@ import {
   StyledPsicNameCenter,
 } from "./styled";
 
-const PsiProfile = ({ userId, token, login, allAppointments }) => {
+const PsiProfile = () => {
   // const style = { background: "#0092ff", padding: "8px 0" };
   const dispatch = useDispatch();
   const [width] = useWindowSize();
 
-  // const oneUser = useSelector((state) => state.users.oneUser);
-  const oneUser = useSelector((state) => state.login.user);
-  // const allAppointments = useSelector((state) => state.appointments.allAppointments);
+  const oneUser = useSelector((state) => state.users.oneUser);
+  const login = useSelector((state) => state.login);
+  const allAppointments = useSelector((state) => state.appointments.allAppointments);
 
   let psicInfo = {};
   const { TextArea } = Input;
@@ -138,7 +138,7 @@ const PsiProfile = ({ userId, token, login, allAppointments }) => {
     });
     newValues = { ...newValues, workDays: { ...newWorkDays } };
     console.log("newValues", newValues);
-    dispatch(patchUserInfo(userId, token, { ...newValues }));
+    dispatch(patchUserInfo(login.user.id, login.token, { ...newValues }));
   };
 
   const handleOnReset = () => {
@@ -147,7 +147,6 @@ const PsiProfile = ({ userId, token, login, allAppointments }) => {
       price: psicInfo.price || "Adicione o valor da consulta",
       description: psicInfo.description || "Adicione uma descrição sobre você",
       experience: psicInfo.experience || "Adicione suas experiências",
-      // specializations: psicInfo.specializations.join(", ") || "Adicione suas especialidades",
       specializations: psicInfo.specializations || "Adicione suas especialidades",
       language: psicInfo.language || "Adicione seus idiomas",
       academic_formation: psicInfo.academic_formation || "Adicione sua formação acadêmica",
@@ -304,9 +303,6 @@ const PsiProfile = ({ userId, token, login, allAppointments }) => {
                   <Form.Item name="specializations" label="">
                     <TextArea
                       className="form-text-area"
-                      // defaultValue={
-                      //   psicInfo.specializations.join(", ") || "Adicione suas especialidades"
-                      // }
                       defaultValue={psicInfo.specializations || "Adicione suas especialidades"}
                       bordered={false}
                       autoSize={{ minRows: 1, maxRows: 20 }}
