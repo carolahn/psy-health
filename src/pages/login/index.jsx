@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { useLocation, useHistory } from "react-router-dom";
 
 import { useWindowSize } from "../../hooks/index";
 import Decor from "./login-art";
@@ -14,37 +14,36 @@ export { login_urls, usr_urls, psi_urls };
 
 const Login = () => {
   const where = useLocation().pathname;
+  const history = useHistory();
   const [width] = useWindowSize();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
     <>
       {width >= 950 && usr_urls.some((e) => e === where) ? (
         <StyledUserLogin>
-          <LoginForm email={[email, setEmail]} password={[password, setPassword]} />
+          <LoginForm />
           <Decor />
         </StyledUserLogin>
       ) : width < 950 && usr_urls.some((e) => e === where) ? (
         <>
           <StyledMobileLoginHeader>
-            <StyledMobileLogoHolder />
+            <StyledMobileLogoHolder onClick={() => history.push("/")} />
           </StyledMobileLoginHeader>
-          <LoginForm email={[email, setEmail]} password={[password, setPassword]} />
+          <LoginForm />
         </>
       ) : width >= 950 && psi_urls.some((e) => e === where) ? (
         <>
           <StyledUserLogin>
             <Decor />
-            <LoginForm email={[email, setEmail]} password={[password, setPassword]} />
+            <LoginForm />
           </StyledUserLogin>
         </>
       ) : width < 950 && psi_urls.some((e) => e === where) ? (
         <>
           <StyledMobileLoginHeader>
-            <StyledMobileLogoHolder />
+            <StyledMobileLogoHolder onClick={() => history.push("/")} />
           </StyledMobileLoginHeader>
-          <LoginForm email={[email, setEmail]} password={[password, setPassword]} />
+          <LoginForm />
         </>
       ) : (
         <></>

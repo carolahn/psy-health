@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Col, Row } from 'antd';
 
 export const StyledFooterContainer = styled.footer`
+  background-color: white;
+  
   h4{
     font-weight: bold;
   }
@@ -39,7 +41,6 @@ export const StyledFooterContainer = styled.footer`
       display: inline;
       color: #F3F3F3;
       font-weight: bold;
-      margin-bottom: 0;
       margin-right: 0.2rem;
       margin-left: 0.2rem;		
     }
@@ -90,8 +91,8 @@ export const StyledContainerColSocial = styled(Col)`
 
 export const StyledLogoCotainer = styled.a`
   img{
-    max-width: 150px;
-    max-height: 100px;
+    max-width: 126px;
+    max-height: 75px;
     width: auto;
     height: auto;
     margin: 10px 0 10px 0;

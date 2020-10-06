@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo-azul.svg";
 
 export const Container = styled.div`
   background-color: #f3f3f3;
@@ -21,26 +21,22 @@ export const Container = styled.div`
   }
 
   .small-header {
-    width: ${(props) => (props.width < 450 ? "100%" : "100%")};
+    width: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    display: grid;
-    grid-template-columns: 2fr 7fr;
-    height: 40%;
   }
 
   .logo-holder {
-    align-self: "center";
-    margin: ${(props) => (props.width > 440 ? "75px 95px" : "75px 20px")};
-    width: ${(props) => (props.width > 550 ? "350px" : "280px")};
+    margin: 75px 95px;
+    width: 250px;
     height: 100px;
     background-image: url(${logo});
     object-fit: cover;
     background-repeat: no-repeat;
     background-size: contain;
-    align-self: flex-start;
+    align-self: center;
   }
 
   .lower-form {

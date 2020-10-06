@@ -1,4 +1,4 @@
-import { Row, Col } from "antd";
+import { Col } from "antd";
 import React from "react";
 import "antd/dist/antd.css";
 import {
@@ -8,7 +8,7 @@ import {
   FaYoutubeSquare,
 } from "react-icons/fa";
 
-import logo from "../../assets/img/Grupo_-1.svg";
+import logo from "../../assets/imgs/logo-azul.svg";
 import {
   StyledFooterContainer,
   StyledRow,

@@ -9,10 +9,10 @@ const LeftNonLoggedHeader = () => {
   return (
     <StyledLeftNonLoggedHeader>
       <div className="logo" onClick={() => history.push("/")} />
-      <div className="links" onClick={() => history.push("/search")}>
+      <div className="links" onClick={() => history.push("/buscar")}>
         Encontre um psicólogo
       </div>
-      <div className="links" onClick={() => history.push("/psi")}>
+      <div className="links" onClick={() => history.push("/login/psi")}>
         Sou psicólogo
       </div>
     </StyledLeftNonLoggedHeader>

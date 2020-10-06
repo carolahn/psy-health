@@ -2,7 +2,7 @@
 
 exports[`footer-renderer 1`] = `
 <footer
-  className="sc-bdnylx icdQsk"
+  className="sc-bdnylx csdGan"
 >
   <div
     className="ant-row sc-gtssRu gCLzAC"
@@ -13,12 +13,12 @@ exports[`footer-renderer 1`] = `
       style={Object {}}
     >
       <a
-        className="sc-eCApGN GcAYw"
+        className="sc-eCApGN kDhUK"
         href="#"
       >
         <img
           alt="Logo"
-          src="Grupo_-1.svg"
+          src="logo-azul.svg"
         />
       </a>
     </div>
