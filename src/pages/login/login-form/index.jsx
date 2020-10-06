@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { usr_urls, psi_urls } from "../";
@@ -15,6 +15,8 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const token = useSelector((state) => state.login.token);
+
   const handleInputChange = ({ target: { value } }) => {
     setEmail(value);
   };
@@ -25,7 +27,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    dispatch(login(email, password, history));
   };
 
   return (

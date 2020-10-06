@@ -6,16 +6,12 @@ import {
 } from "../../actions/login/action-types";
 
 const defaultState = {
-  id: "",
-  psi: "",
-  username: "",
-  email: "",
-  isPsic: "",
+  user: "",
   token: "",
   hadError: false,
   chosenPsi: "",
-  psiScheduleBeginning: "",
-  psiScheduleEnding: "",
+  psiAppointmentBeginning: "",
+  psiAppointmentEnding: "",
 };
 
 const reducer = (
@@ -28,11 +24,7 @@ const reducer = (
     case LOGIN_SUCCESSFUL:
       state = {
         ...state,
-        /* id: action.id, */
-        psi: action.psi,
-        /* username: action.username,
-        email: action.email,
-        isPsic: action.isPsic, */
+        user: action.user,
         token: action.token,
         hadError: false,
       };
@@ -41,27 +33,19 @@ const reducer = (
     case LOGIN_UNSUCCESSFUL:
       state = {
         ...state,
-        id: "",
-        psi: "",
-        username: "",
-        email: "",
-        isPsic: "",
+        user: "",
         token: "",
         hadError: action.error,
         chosenPsi: "",
-        psiScheduleBeginning: "",
-        psiScheduleEnding: "",
+        psiAppointmentBeginning: "",
+        psiAppointmentEnding: "",
       };
       localStorage.setItem("psi-health-logged-data", JSON.stringify(state));
       return state;
     case LOGOUT:
       state = {
         ...state,
-        id: "",
-        psi: "",
-        username: "",
-        email: "",
-        isPsic: "",
+        user: "",
         token: "",
         hadError: false,
       };
@@ -71,8 +55,8 @@ const reducer = (
       state = {
         ...state,
         chosenPsi: action.chosenPsi,
-        psiScheduleBeginning: action.psiScheduleBeginning,
-        psiScheduleEnding: action.psiScheduleEnding,
+        psiAppointmentBeginning: action.psiAppointmentBeginning,
+        psiAppointmentEnding: action.psiAppointmentEnding,
       };
       localStorage.setItem("psi-health-logged-data", JSON.stringify(state));
       return state;
