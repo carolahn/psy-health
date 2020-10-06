@@ -9,7 +9,7 @@ import Register from "../pages/register";
 
 const Routes = (props) => {
   const token = useSelector((state) => state.login.token);
-  const access = useSelector((state) => state.login.user.isPsic);
+  const access = useSelector((state) => state.login.user.is_psic); //arrumei aqui
 
   return (
     <Switch>
@@ -20,7 +20,6 @@ const Routes = (props) => {
             {/* <Route path="/blog">Blog</Route> */}
             <Route path="/">
               Home Logado
-              <PsiPage />
               <Footer />
             </Route>
           </Switch>

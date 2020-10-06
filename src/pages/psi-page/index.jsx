@@ -29,7 +29,12 @@ const PsiPage = () => {
       <Switch>
         <Route path="/psi/consultas">Consultas</Route>
         <Route path="/psi/perfil">
-          <PsiProfile userId={login.user.id} token={login.token} />
+          <PsiProfile
+            userId={login.user.id}
+            token={login.token}
+            login={login}
+            allAppointments={allAppointments}
+          />
           {/* {allUsers
             ? allAppointments && (
                 <Calendar
