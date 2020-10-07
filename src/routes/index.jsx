@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import Footer from "../components/footer";
 import Login from "../pages/login";
+import PsiPage from "../pages/psi-page";
 import Register from "../pages/register";
 
 const Routes = (props) => {
@@ -31,6 +32,7 @@ const Routes = (props) => {
           <Switch>
             <Route path="/">
               Home do psicólogo
+              <PsiPage />
               <Footer />
             </Route>
           </Switch>

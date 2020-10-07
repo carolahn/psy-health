@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Header from "./components/header/index.jsx";
-import Routes from "./routes/index";
+import Routes from "./routes";
 
 const App = () => {
   return (
