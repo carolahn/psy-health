@@ -35,7 +35,7 @@ const Search = () => {
         />
         <button className="search-button">Buscar</button>
       </section>
-      <SearchFilter className="filter" />
+      <SearchFilter />
 
       <PsychologistList psychologists={filteredPsy !== undefined ? filteredPsy : []} />
     </SearchContainer>

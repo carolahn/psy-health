@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
-import styled from "styled-components";
 
 import { usr_urls, psi_urls } from "../";
 import { useWindowSize } from "../../../hooks/index";
+import { login } from "../../../redux/actions/login/action";
 import { Container } from "./styled";
 
-const LoginForm = ({ email: [email, setEmail], password: [password, setPassword] }) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
   const [width] = useWindowSize();
   const where = useLocation().pathname;
   const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const token = useSelector((state) => state.login.token);
 
   const handleInputChange = ({ target: { value } }) => {
     setEmail(value);
@@ -17,6 +23,11 @@ const LoginForm = ({ email: [email, setEmail], password: [password, setPassword]
 
   const handlePasswordChange = ({ target: { value } }) => {
     setPassword(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(email, password, history));
   };
 
   return (
@@ -54,11 +65,7 @@ const LoginForm = ({ email: [email, setEmail], password: [password, setPassword]
               value={password}
               onChange={handlePasswordChange}
             />
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-              }}
-              className="submit-button">
+            <button onClick={handleSubmit} className="submit-button">
               Entrar
             </button>
           </form>

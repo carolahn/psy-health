@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import 'antd/dist/antd.css'
-import Footer from "./components/footer";
 import Header from "./components/header/index.jsx";
 import Routes from "./routes/index";
 
@@ -10,7 +9,6 @@ const App = () => {
     <BodyFrame>
       <Header />
       <Routes />
-      <Footer />
     </BodyFrame>
   );
 };
@@ -23,5 +21,5 @@ const BodyFrame = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  align-items: center;
+  /* align-items: center; */
 `;
