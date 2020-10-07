@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import PsychologistList from "../../components/psychologist-list";
-import SearchFilter from "../../components/search-filter";
-import { uniqueEntries } from "../../components/search-filter/helper";
+import SearchFilter from "../../container/search-filter";
+import { uniqueEntries } from "../../container/search-filter/helper";
 import { requestPsy } from "../../redux/actions/search";
 import SearchContainer from "./styled";
 

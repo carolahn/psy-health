@@ -1,25 +1,22 @@
-import axios from 'axios'
+import axios from "axios";
 
-export const GET_PSY = 'GET_PSY'
-export const FILTERED_PSY = 'FILTERED_PSY'
+export const GET_PSY = "GET_PSY";
+export const FILTERED_PSY = "FILTERED_PSY";
 
 export const filterPsyList = (filtered) => ({
   type: FILTERED_PSY,
-  filtered
-})
+  filtered,
+});
 
-const addToPsyList = (psyList) =>( {
+const addToPsyList = (psyList) => ({
   type: GET_PSY,
-  psyList
-})
+  psyList,
+});
 
 export const requestPsy = () => async (dispatch) => {
+  const request = await axios.get("http://psy-health-api.herokuapp.com/users");
 
-  const request = await axios.get('http://psy-health-api.herokuapp.com/users')
-  
-  const psy = request.data.filter(user => user.is_psic)
+  const psy = request.data.filter((user) => user.is_psic);
 
-  dispatch(addToPsyList(psy))
-}
-
-
+  dispatch(addToPsyList(psy));
+};

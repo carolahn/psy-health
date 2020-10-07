@@ -51,7 +51,7 @@ const SearchFilter = () => {
   const handleLanguage = (value) => {
     setFilterValues({ ...filterValues, language: value });
   };
-
+  
   return (
     <StyledSearchFilter>
       <Select placeholder="Preço" onChange={handleFilterPrice} className="filter">
