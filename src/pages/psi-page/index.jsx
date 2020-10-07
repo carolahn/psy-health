@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useHistory, Switch, Route } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Calendar from "../../components/calendar";
 import { getAppointments } from "../../redux/actions/appointments";
 import { getOneUser } from "../../redux/actions/users";
-import PsiAppointments from "./psi-consultas";
-import PsiProfile from "./psi-perfil";
 import { MainWrapper } from "./styled";
 
 const PsiPage = () => {
@@ -17,25 +15,24 @@ const PsiPage = () => {
 
   const login = useSelector((state) => state.login);
 
+  // useEffect(() => {
+  //   dispatch(getOneUser(login.user.id));
+  //   dispatch(getAppointments());
+  //   // history.push("/psi/consultas");
+  // }, []);
+
   useEffect(() => {
-    dispatch(getOneUser(login.user.id));
-    dispatch(getAppointments());
-    history.push("/psi/consultas");
+    if (allAppointments) {
+      dispatch(getAppointments());
+    } else if (JSON.stringify(allAppointments) === "{}") {
+      dispatch(getAppointments());
+    }
   }, []);
 
   return (
     <MainWrapper>
-      <Link to="/psi/consultas">Consultas</Link>
-      <Link to="/psi/perfil">Perfil</Link>
-      <Switch>
-        <Route path="/psi/consultas">
-          Consultas
-          <PsiAppointments />
-        </Route>
-        <Route path="/psi/perfil">
-          Perfil
-          <PsiProfile />
-          {/* {allUsers
+      <p>Home do psicólogo</p>
+      {/* {allUsers
             ? allAppointments && (
                 <Calendar
                   type="psic-info"
@@ -45,8 +42,6 @@ const PsiPage = () => {
                 />
               )
             : ""} */}
-        </Route>
-      </Switch>
     </MainWrapper>
   );
 };

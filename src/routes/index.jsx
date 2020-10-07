@@ -5,6 +5,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Footer from "../components/footer";
 import Login from "../pages/login";
 import PsiPage from "../pages/psi-page";
+import PsiAppointments from "../pages/psi-page/psi-consultas";
+import PsiProfile from "../pages/psi-page/psi-perfil";
 import Register from "../pages/register";
 
 const Routes = (props) => {
@@ -30,10 +32,14 @@ const Routes = (props) => {
         ) : (
           // logado como psicologo
           <Switch>
-            {/* <Route path="/psi/perfil/:id" />
-            <Route path="/psi/consultas/:id" /> */}
+            <Route path="/psi/perfil/:id">
+              Perfil
+              <PsiProfile />
+            </Route>
+            <Route path="/psi/consultas/:id">
+              <PsiAppointments />
+            </Route>
             <Route path="/">
-              Home do psicólogo
               <PsiPage />
               <Footer />
             </Route>
