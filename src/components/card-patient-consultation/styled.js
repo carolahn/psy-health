@@ -1,9 +1,11 @@
+import { Rate } from "antd";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
+  margin-bottom: 20px;
   background: #f3f3f3;
-  border-radius: 10px;
-  border: 3px solid #70a3ef;
+  border-radius: 5px;
+  border: 2px solid #70a3ef;
   height: 120px;
   width: 1050px;
   display: flex;
@@ -12,13 +14,12 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
 
   @media (max-width: 1270px) {
+    height: 220px;
     width: 80vw;
-    height: 210px;
   }
 
   @media (max-width: 710px) {
-    width: 90vw;
-    height: 210px;
+    height: 220px;
   }
 `;
 
@@ -28,8 +29,8 @@ export const ImgAndNameCardCotainer = styled.div`
   height: 114px;
 
   @media (max-width: 710px) {
-    width: 300px;
-    height: 90px;
+    width: 280px;
+    height: 70px;
   }
 `;
 
@@ -42,19 +43,19 @@ export const ImgDivCotainer = styled.div`
 
   @media (max-width: 710px) {
     width: 100px;
-    height: 80px;
+    height: 70px;
   }
 `;
 
 export const PhotoPsychologist = styled.img`
   border-radius: 50%;
-  border: 3px solid #70a3ef;
-  width: 100px;
-  height: 100px;
+  border: 2px solid #70a3ef;
+  width: 90px;
+  height: 90px;
 
   @media (max-width: 710px) {
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
   }
 `;
 
@@ -68,20 +69,25 @@ export const NameDivCotainer = styled.div`
   @media (max-width: 710px) {
     padding-top: 5px;
     width: 200px;
-    height: 90px;
+    height: 70px;
   }
 `;
 
 export const CrpDiv = styled.div`
   color: #70a3ef;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 14px;
+
+  @media (max-width: 710px) {
+    font-size: 12px;
+  }
 `;
 
 export const TitleForNameDateScheduleValueAndAvaliation = styled.div`
   padding-bottom: 10px;
   color: #585858;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
 
   @media (max-width: 710px) {
     padding-bottom: 5px;
@@ -132,5 +138,13 @@ export const AvaliationOrButton = styled.div`
     padding: 0px;
     width: 150px;
     height: 50px;
+  }
+`;
+
+export const NewRate = styled(Rate)`
+  font-size: 16px;
+
+  @media (max-width: 710px) {
+    font-size: 14px;
   }
 `;

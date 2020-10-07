@@ -7,6 +7,7 @@ import BannerSearch from "./components/banner-search";
 import CardPatientConsultation from "./components/card-patient-consultation";
 import Footer from "./components/footer";
 import Header from "./components/header/index.jsx";
+import PatientPage from "./pages/patient-page";
 import Routes from "./routes/index";
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
   console.log(user);
   return (
     <div>
-      <CardPatientConsultation />
+      <PatientPage />
     </div>
   );
 };

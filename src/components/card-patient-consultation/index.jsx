@@ -1,4 +1,3 @@
-import { Rate } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,46 +13,61 @@ import {
   DateScheduleAndValue,
   CrpDiv,
   TextStyle,
+  NewRate,
 } from "./styled";
 
-const CardPatientConsultation = () => {
+const CardPatientConsultation = ({ oneUser, appointment }) => {
+  const dateAppointment = appointment.date.start.split(" ");
+
+  const compareDates = (dateAppointment) => {
+    const parts = dateAppointment[0].split("-");
+    const today = new Date();
+
+    dateAppointment = new Date(parts[0], parts[1] - 1, parts[2]);
+    return console.log(dateAppointment >= today);
+  };
+
+  compareDates(dateAppointment);
+
   return (
     <CardContainer>
       <ImgAndNameCardCotainer>
-        <ImgDivCotainer>{/* <PhotoPsychologist src={oneUser.image} /> */}</ImgDivCotainer>
+        <ImgDivCotainer>
+          <PhotoPsychologist src={oneUser.image} />
+        </ImgDivCotainer>
         <NameDivCotainer>
           <TitleForNameDateScheduleValueAndAvaliation>
-            {/* {oneUser.name} */}
+            {oneUser.name}
           </TitleForNameDateScheduleValueAndAvaliation>
-          {/* <CrpDiv>{`CRP ${oneUser.crp}`}</CrpDiv> */}
-          {/* <Rate allowHalf defaultValue={oneUser.rating} style={{ fontSize: "14px" }} /> */}
+          <CrpDiv>{`CRP: ${oneUser.crp}`}</CrpDiv>
+          <NewRate allowHalf defaultValue={oneUser.rating} />
         </NameDivCotainer>
       </ImgAndNameCardCotainer>
       <DateScheduleAndValueContainer>
         <DateScheduleAndValue>
           <TitleForNameDateScheduleValueAndAvaliation>
-            {window.innerWidth < 710 ? "Data" : "Data da Consulta"}
+            Data
           </TitleForNameDateScheduleValueAndAvaliation>
-          {/* <TextStyle>{dateUser[0]}</TextStyle> */}
+          <TextStyle>{dateAppointment[0]}</TextStyle>
         </DateScheduleAndValue>
         <DateScheduleAndValue>
           <TitleForNameDateScheduleValueAndAvaliation>
             Horário
           </TitleForNameDateScheduleValueAndAvaliation>
-          {/* <TextStyle>{dateUser[1]}</TextStyle> */}
+          <TextStyle>{dateAppointment[1]}</TextStyle>
         </DateScheduleAndValue>
         <DateScheduleAndValue>
           <TitleForNameDateScheduleValueAndAvaliation>
             Valor
           </TitleForNameDateScheduleValueAndAvaliation>
-          {/* <TextStyle>{`R$ ${oneUser.price},00`}</TextStyle> */}
+          <TextStyle>{`R$ ${oneUser.price},00`}</TextStyle>
         </DateScheduleAndValue>
       </DateScheduleAndValueContainer>
       <AvaliationOrButton>
         <TitleForNameDateScheduleValueAndAvaliation>
           Avaliação
         </TitleForNameDateScheduleValueAndAvaliation>
-        <Rate allowHalf defaultValue={5} style={{ fontSize: "16px" }} />
+        <NewRate allowHalf defaultValue={5} />
       </AvaliationOrButton>
     </CardContainer>
   );
