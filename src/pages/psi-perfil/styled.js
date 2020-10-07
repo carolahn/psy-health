@@ -11,6 +11,10 @@ export const MainWrapper = styled.div`
   justify-content: center;
   font-family: "Roboto", sans-serif;
 
+  .ant-input[disabled] {
+    cursor: default;
+  }
+
   .card-wrapper {
     width: fit-content;
     margin: 0 auto;

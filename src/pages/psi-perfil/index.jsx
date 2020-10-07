@@ -28,7 +28,7 @@ const PsiProfile = () => {
 
   return (
     <MainWrapper>
-      <PsiForm oneUser={oneUser} login={login} allAppointments={allAppointments} />
+      <PsiForm oneUser={oneUser} login={login} allAppointments={allAppointments} isEditable />
 
       <Row className="row-calendar">
         <Col className="col-calendar" xs={24} sm={24} md={24} lg={24} xl={24}>
