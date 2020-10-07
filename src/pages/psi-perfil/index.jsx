@@ -36,7 +36,7 @@ const PsiProfile = () => {
             <p className="title-p-agenda">Agenda</p>
           </div>
 
-          {/* {oneUser
+          {oneUser
             ? allAppointments && (
                 <Calendar
                   type="user-psic"
@@ -45,7 +45,7 @@ const PsiProfile = () => {
                   allAppointments={allAppointments}
                 />
               )
-            : ""} */}
+            : ""}
         </Col>
       </Row>
     </MainWrapper>
