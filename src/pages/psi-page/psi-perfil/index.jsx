@@ -3,10 +3,10 @@ import "antd/dist/antd.css";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import Calendar from "../../components/calendar";
-import { useWindowSize } from "../../hooks/index";
-import { getAppointments } from "../../redux/actions/appointments";
-import { getOneUser, patchUserInfo } from "../../redux/actions/users";
+import Calendar from "../../../components/calendar";
+import { useWindowSize } from "../../../hooks/index";
+import { getAppointments } from "../../../redux/actions/appointments";
+import { getOneUser, patchUserInfo } from "../../../redux/actions/users";
 import PsiForm from "./psi-form"; //////////////////////////////
 import {
   MainWrapper,

@@ -5,7 +5,8 @@ import { Link, useHistory, Switch, Route } from "react-router-dom";
 import Calendar from "../../components/calendar";
 import { getAppointments } from "../../redux/actions/appointments";
 import { getOneUser } from "../../redux/actions/users";
-import PsiProfile from "../psi-perfil";
+import PsiAppointments from "./psi-consultas";
+import PsiProfile from "./psi-perfil";
 import { MainWrapper } from "./styled";
 
 const PsiPage = () => {
@@ -27,7 +28,10 @@ const PsiPage = () => {
       <Link to="/psi/consultas">Consultas</Link>
       <Link to="/psi/perfil">Perfil</Link>
       <Switch>
-        <Route path="/psi/consultas">Consultas</Route>
+        <Route path="/psi/consultas">
+          Consultas
+          <PsiAppointments />
+        </Route>
         <Route path="/psi/perfil">
           Perfil
           <PsiProfile />

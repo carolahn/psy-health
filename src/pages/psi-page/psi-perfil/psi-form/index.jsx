@@ -2,9 +2,9 @@ import { Row, Col, Rate, Form, Input, Button, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { useWindowSize } from "../../../hooks/index";
-import { getAppointments } from "../../../redux/actions/appointments";
-import { getOneUser, patchUserInfo } from "../../../redux/actions/users";
+import { useWindowSize } from "../../../../hooks/index";
+import { getAppointments } from "../../../../redux/actions/appointments";
+import { getOneUser, patchUserInfo } from "../../../../redux/actions/users";
 import {
   MainWrapper,
   PsiCard,

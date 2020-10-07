@@ -30,6 +30,8 @@ const Routes = (props) => {
         ) : (
           // logado como psicologo
           <Switch>
+            {/* <Route path="/psi/perfil/:id" />
+            <Route path="/psi/consultas/:id" /> */}
             <Route path="/">
               Home do psicólogo
               <PsiPage />
