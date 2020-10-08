@@ -1,5 +1,4 @@
-import { Select } from "antd";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import PsychologistList from "../../components/psychologist-list";
@@ -11,30 +10,26 @@ import SearchContainer from "./styled";
 
 
 const Search = () => {
+ 
   const dispatch = useDispatch();
 
   const filteredPsy = useSelector((state) => state.search.filteredPsy);
   const psychologists = useSelector((state) => state.search.psychologists);
+  
 
   useEffect(() => {
     dispatch(requestPsy());
   }, []);
 
   useEffect(() => {
-    dispatch(getUniqueEntries(psychologists,["experience", "language", "price"]))
+    dispatch(getUniqueEntries(psychologists,["experience", "language", "price", "name"]))
   }, [psychologists])
+
+ 
   
   return (
     <SearchContainer>
-      <section className='search-bar'>
-        <input
-          placeholder="Procure por especialidade, nome ou experiência"
-          className="search-input"
-        />
-        <button className="search-button">Buscar</button>
-      </section>
       <SearchFilter />
-
       <PsychologistList psychologists={filteredPsy} />
     </SearchContainer>
   );

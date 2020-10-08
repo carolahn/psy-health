@@ -6,7 +6,8 @@ const defaultState = {
   fValues: {
     exp: [],
     lang: [],
-    price: []
+    price: [],
+    name: []
   }
 }
 

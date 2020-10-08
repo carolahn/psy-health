@@ -19,7 +19,8 @@ const filterValues = (fValues) => ({
   filterValues: {
     exp: fValues[0],
     lang: fValues[1],
-    price: fValues[2]
+    price: fValues[2],
+    name: fValues[3]
   }
 })
 
@@ -38,12 +39,14 @@ export const getUniqueEntries = (array, propArr) => (dispatch) => {
     const arrOfProps = propArr.map(prop => {
       const filterUndefined = array.filter( arr => arr[prop] !== undefined)
   
-      const arr = filterUndefined.flatMap(arr => arr[prop] !== undefined && arr[prop].split(', '))
+      const arr = filterUndefined.flatMap(arr => arr[prop] !== undefined && typeof arr[prop] === 'string' ? arr[prop].split(', ') : arr[prop])
       
       const newSet = new Set(arr)
       const newArray = Array.from(newSet)
+      newArray.sort((a, b) => a - b).unshift('todos')
       
       return newArray
+      
     })
   
   

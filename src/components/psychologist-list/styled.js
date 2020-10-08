@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 
 const StyledPsychologistList = styled.section`
-  width:40vw;
+  width:50vw;
   display:flex;
   flex-wrap: wrap;
-  
+  justify-content: space-between;
 
   @media (max-width: 1600px) {
     width: 50vw;
@@ -15,8 +15,12 @@ const StyledPsychologistList = styled.section`
     width: 60vw;
   }
 
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
   @media (max-width: 1024px) {
-    width: 70vw;
+    width: 90vw;
   }
 
   @media (max-width: 540px) {

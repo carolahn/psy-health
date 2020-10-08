@@ -2,15 +2,13 @@ import { Select } from "antd";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { filterPsyList, getUniqueEntries } from "../../redux/actions/search";
-import { genericFilter, priceFilter, uniqueEntries, sortLength } from "./helper";
+import { filterPsyList } from "../../redux/actions/search";
+import { genericFilter, priceFilter, sortLength } from "./helper";
 import StyledSearchFilter from "./styled";
-
-
-
 
 const SearchFilter = () => {
  
+  const { Option, OptGroup } = Select
 
   const dispatch = useDispatch();
 
@@ -18,69 +16,97 @@ const SearchFilter = () => {
   const exp = useSelector(state => state.search.fValues.exp)
   const lang = useSelector(state => state.search.fValues.lang)
   const price = useSelector(state => state.search.fValues.price)
-
-
+  const name = useSelector(state => state.search.fValues.name)
+ 
   const [filterValues, setFilterValues] = useState({
-    prices: price,
-    experiences: exp,
-    languages: lang,
+    prices:'todos',
+    experiences: 'todos',
+    languages: 'todos',
   });
-
   
-
   useEffect(() => {
       
-      console.log(filterValues)
-      const priceFiltered = priceFilter(psychologists, filterValues.prices);
-      const experienceFiltered = genericFilter(priceFiltered, filterValues.experiences, "experience");
-      const languageFiltered = genericFilter(priceFiltered, filterValues.languages, "language");
-      
-      dispatch(filterPsyList(sortLength(priceFiltered, experienceFiltered, languageFiltered)));
+    const priceFiltered = priceFilter(psychologists, filterValues.prices);
     
+    const experienceFiltered = genericFilter(priceFiltered, filterValues.experiences, "experience");
+    
+    const languageFiltered = genericFilter(experienceFiltered, filterValues.languages, "language");
+    
+    dispatch(filterPsyList(sortLength(filterValues.prices,priceFiltered, experienceFiltered, languageFiltered)));
+  }, [filterValues, price, lang, exp]);
+
+  const handleInput = (value) => {
+    if ( value === 'todos') {
    
-  }, [ filterValues ]);
-
-  const handleFilterPrice = (event) => {
-    console.log(event.target.value)
-    setFilterValues({ ...filterValues, prices: event.target.value });
-  };
-
-  const handleFilterExperience = (event) => {
-    setFilterValues({ ...filterValues, experiences: event.target.value });
-  };
-
-  const handleLanguage = (event) => {
-    setFilterValues({ ...filterValues, languages: event.target.value });
-  };
+      dispatch(filterPsyList(psychologists))
+    }else {
+     
+      const filteredInput = psychologists.filter(psy => psy.name === value || psy.experience && psy.experience.includes(value))
+      dispatch(filterPsyList(filteredInput))
+    }
   
+  }
+  
+  const handleFilterPrice = (value) => {
+   
+    setFilterValues({ ...filterValues, prices: value });
+  };
+
+  const handleFilterExperience = (value) => {
+    
+    setFilterValues({ ...filterValues, experiences: value });
+  };
+
+  const handleLanguage = (value) => {
+   
+    setFilterValues({ ...filterValues, languages: value });
+  };
+
   return (
     <StyledSearchFilter>
-      <select placeholder="Preço" onChange={handleFilterPrice} className="filter" defaultValue='Todos'>
-        {price.map((price, index) => (
-          <option key={index} value={price.value}>
-            {price}
-          </option>
-        ))}
-      </select>
+      <section className='search-bar'>
+        <Select
+          showSearch
+          onChange={handleInput}
+          placeholder="Procure por especialidade, nome ou experiência"
+          className="search-input">
+            <OptGroup label='Experiências'>
+            {exp.map(exp => <Option value={exp} style={{textTransform:'capitalize'}}>{exp}</Option>)}
+            </OptGroup>
+            <OptGroup label='Nomes'>
+              {name.map(name => <Option value={name} style={{textTransform:'capitalize'}} >{name}</Option>)}
+            </OptGroup>
+        </Select>
+      </section>
 
-      <select
-        mode="multiple"
-        placeholder="Experiência"
-        className="filter"
-        onChange={handleFilterExperience}>
+      <section className="filter"> 
+      <Select placeholder="Preço" onChange={handleFilterPrice} className='select-filter'>
+        {price.map((price, index) => (
+          <Option key={index} value={price} style={{textTransform:'capitalize'}}>
+            {price}
+          </Option>
+        ))}
+      </Select>
+
+      <Select
+        placeholder="Experiência" 
+        onChange={handleFilterExperience}
+        className='select-filter'
+        >
         {exp.map((exp, index) => (
-          <option key={index} value={exp}>
+          <Option key={index} value={exp} style={{textTransform:'capitalize'}}>
             {exp}
-          </option>
+          </Option>
         ))}
-      </select>
-      <select placeholder="Idioma" onChange={handleLanguage} className="filter">
+      </Select>
+      <Select placeholder="Idioma" onChange={handleLanguage} className='select-filter'>
         {lang.map((lang, index) => (
-          <option key={index} value={lang}>
+          <Option key={index} value={lang} style={{textTransform:'capitalize'}}>
             {lang}
-          </option>
+          </Option>
         ))}
-      </select>
+      </Select>
+      </section>
     </StyledSearchFilter>
   );
 };

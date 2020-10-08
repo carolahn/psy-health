@@ -28,16 +28,16 @@ describe("Test", () => {
     wrapper
       .find("div")
       .children()
-      .find("select")
-      .at(0)
-      .simulate('change', { target: { value : 
-        '{"low": 100, "high" : 350}'
-    }})
+      .find("section")
+      .children()
+      .find("div")
+      .at(1)
+      .simulate("change", { target: { value : 2}})
 
-  
-  
+      
+      
 
-    expect(dispatchMock).toHaveBeenCalledTimes(2);
+    expect(dispatchMock).toHaveBeenCalledTimes(1);
     expect(dispatchMock).toHaveBeenCalledWith({"filtered": [], "type": "FILTERED_PSY"});
   });
 });
