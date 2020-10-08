@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "antd/dist/antd.css";
 
+import Calendar from "../../../components/calendar";
 import CardListPsiAppointments from "../../../components/card-list-psi-appointments";
 import { getAppointments } from "../../../redux/actions/appointments";
 import { getOneUser } from "../../../redux/actions/users";
@@ -13,6 +14,7 @@ const PsiAppointments = () => {
   const dispatch = useDispatch();
   const login = useSelector((state) => state.login);
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
+  const oneUser = useSelector((state) => state.users.oneUser);
   // const myAppointments = {};
   const nextAppointments = {};
   const pastAppointments = {};
@@ -77,6 +79,25 @@ const PsiAppointments = () => {
                 />
               )}
             </div>
+          </Col>
+        </Row>
+        <Row className="row-calendar">
+          <Col className="col-calendar" xs={24} sm={24} md={24} lg={24} xl={24}>
+            <div className="title-agenda">
+              {/* <p className="title-p-agenda">Agenda</p> */}
+              <div className="appointments-title title-calendar">Calendário</div>
+            </div>
+
+            {oneUser
+              ? allAppointments && (
+                  <Calendar
+                    type="user-psic"
+                    psicInfo={oneUser}
+                    // patInfo={}
+                    allAppointments={allAppointments}
+                  />
+                )
+              : ""}
           </Col>
         </Row>
       </MainWrapper>

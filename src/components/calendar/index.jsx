@@ -72,7 +72,6 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) =
 
   moment.locale("en-US");
   const localizer = momentLocalizer(moment);
-  console.log("localizer", localizer);
 
   function onSlotChange(slotInfo) {
     var startDate = moment(slotInfo.start.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");

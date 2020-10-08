@@ -40,6 +40,9 @@ export const MainWrapper = styled.div`
     line-height: 42px;
     margin-bottom: 60px;
   }
+  .title-calendar {
+    margin-top: 40px;
+  }
 
   @media (max-width: 1100px) {
     .appointments-title {
