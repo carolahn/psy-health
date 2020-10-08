@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import DepoimentsForm from "../components/depoiments-form";
 import Footer from "../components/footer";
+import DepoimentsFormContainer from "../containers/depoiments-form";
+import RegisterContainer from "../containers/register";
 import Login from "../pages/login";
 import PsychologistPage from "../pages/psychologist-page";
-import Register from "../pages/register";
 
 const Routes = (props) => {
   const token = useSelector((state) => state.login.token);
@@ -25,18 +25,22 @@ const Routes = (props) => {
             </Route>
 
             <Route path="/">
-              <button onClick={() => setModalVisible(true)} psicId={1}>
-                {/* psicId vem do card */}
-                Display a modal dialog
-              </button>
-              <DepoimentsForm showModal={[modalVisible, setModalVisible]} />
+              <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
               Home Logado
+              <Footer />
+              <DepoimentsFormContainer
+                showModal={[modalVisible, setModalVisible]}
+                psicId={2}
+                psicName="João Cleber"
+              />
             </Route>
           </Switch>
         ) : (
           // logado como psicologo
           <Switch>
-            <Route path="/">
+            <Route path="/psi/perfil/:id" />
+            <Route path="/psi/consultas/:id" />
+            <Route path="/psi">
               <PsychologistPage />
               <Footer />
             </Route>
@@ -49,7 +53,7 @@ const Routes = (props) => {
       </Route>
 
       <Route path="/register">
-        <Register />
+        <RegisterContainer />
       </Route>
 
       <Route path="/">

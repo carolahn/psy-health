@@ -1,44 +1,17 @@
 import { Tooltip } from "antd";
-import axios from "axios";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React from "react";
 
-import { login } from "../../../redux/actions/login/action";
-import { StyledInput, StyledButton, StyledForm } from "../../../styles";
+import { StyledInput, StyledButton, StyledForm } from "../../styles";
 import { cpfCnpjMask, phoneMask, crpMask } from "./masks";
 
-const RegisterForm = ({ isPsic = false }) => {
-  const history = useHistory();
-  const [values, setValues] = useState({});
-  const { register, handleSubmit, errors, setError } = useForm();
-  const dispatch = useDispatch();
-
-  const onSubmit = () => {
-    axios
-      .post("https://psy-health-api.herokuapp.com/register", { ...values, isPsic })
-      .then(() => {
-        dispatch(login(values.email, values.password));
-      })
-      .catch(({ response: { status } }) => {
-        if (status === 400) {
-          setError("email", {
-            type: "manual",
-            message: "Email já foi usado!",
-          });
-          setError("confirmEmail", {
-            type: "manual",
-            message: "Email já foi usado!",
-          });
-        }
-      });
-  };
-
-  const handleOnChange = ({ target }) => setValues({ ...values, [target.name]: target.value });
-
-  const handleMaskOnChange = (value, key) => setValues({ ...values, [key]: value });
-
+const RegisterForm = ({
+  isPsic = false,
+  values,
+  onSubmit,
+  formErrors: { register, handleSubmit, errors },
+  handleOnChange,
+  handleMaskOnChange,
+}) => {
   return (
     <StyledForm name="register" onSubmit={handleSubmit(onSubmit)} noValidate>
       <Tooltip title={errors.name && errors.name.message} placement={isPsic ? "left" : "right"}>
