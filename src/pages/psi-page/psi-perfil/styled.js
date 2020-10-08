@@ -6,6 +6,10 @@ export const MainContainer = styled.div`
   /* margin: 0 auto;
   max-width: 1200px; */
   width: 100%;
+  padding-top: 60px;
+  @media (max-width: 768px) {
+    padding-top: 30px;
+  }
 `;
 
 export const MainWrapper = styled.div`

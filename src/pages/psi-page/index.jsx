@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 import Calendar from "../../components/calendar";
 import { getAppointments } from "../../redux/actions/appointments";
@@ -8,6 +8,7 @@ import { getOneUser } from "../../redux/actions/users";
 import { MainWrapper } from "./styled";
 
 const PsiPage = () => {
+  const { id } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
   const oneUser = useSelector((state) => state.users.oneUser);
@@ -15,19 +16,19 @@ const PsiPage = () => {
 
   const login = useSelector((state) => state.login);
 
-  // useEffect(() => {
-  //   dispatch(getOneUser(login.user.id));
-  //   dispatch(getAppointments());
-  //   // history.push("/psi/consultas");
-  // }, []);
-
   useEffect(() => {
-    if (allAppointments) {
-      dispatch(getAppointments());
-    } else if (JSON.stringify(allAppointments) === "{}") {
-      dispatch(getAppointments());
-    }
+    dispatch(getOneUser(login.user.id));
+    dispatch(getAppointments());
+    history.push(`/psi/consultas/${login.user.id}`);
   }, []);
+
+  // useEffect(() => {
+  //   if (allAppointments) {
+  //     dispatch(getAppointments());
+  //   } else if (JSON.stringify(allAppointments) === "{}") {
+  //     dispatch(getAppointments());
+  //   }
+  // }, []);
 
   return (
     <MainWrapper>

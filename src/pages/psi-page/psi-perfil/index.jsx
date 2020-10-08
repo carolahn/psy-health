@@ -30,9 +30,13 @@ const PsiProfile = () => {
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
 
   useEffect(() => {
-    dispatch(getOneUser(login.user.id));
-    dispatch(getAppointments());
-    // history.push("/psi/consultas");
+    if (!allAppointments) {
+      dispatch(getAppointments());
+      dispatch(getOneUser(login.user.id));
+    } else if (JSON.stringify(allAppointments) === "{}") {
+      dispatch(getAppointments());
+      dispatch(getOneUser(login.user.id));
+    }
   }, []);
 
   return (

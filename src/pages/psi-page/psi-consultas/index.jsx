@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import CardListPsiAppointments from "../../../components/card-list-psi-appointments";
 import { getAppointments } from "../../../redux/actions/appointments";
+import { getOneUser } from "../../../redux/actions/users";
 import { MainContainer, MainWrapper } from "./styled";
 
 const PsiAppointments = () => {
@@ -12,10 +13,12 @@ const PsiAppointments = () => {
   const myAppointments = {};
 
   useEffect(() => {
-    if (allAppointments) {
+    if (!allAppointments) {
       dispatch(getAppointments());
+      dispatch(getOneUser(login.user.id));
     } else if (JSON.stringify(allAppointments) === "{}") {
       dispatch(getAppointments());
+      dispatch(getOneUser(login.user.id));
     }
   }, []);
 
