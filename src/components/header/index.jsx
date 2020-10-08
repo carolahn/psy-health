@@ -34,8 +34,11 @@ const urls = [...header_urls, ...start_with_urls, ...non_header_urls];
 
 const Header = () => {
   const token = useSelector((state) => state.login.token);
+  // const userAppointments = useSelector((state) => state.login.userAppointments);
   const [width] = useWindowSize();
   const where = useLocation().pathname;
+
+  // console.log(userAppointments);
 
   return (
     <>

@@ -6,9 +6,11 @@ import {
 } from "../../actions/login/action-types";
 
 const defaultState = {
-  user: "",
+  user: {},
   token: "",
   hadError: false,
+  userAppointments: {},
+  psiList: [],
   chosenPsi: "",
   psiAppointmentBeginning: "",
   psiAppointmentEnding: "",
@@ -24,8 +26,10 @@ const reducer = (
     case LOGIN_SUCCESSFUL:
       state = {
         ...state,
-        user: action.user,
+        user: { ...action.user },
         token: action.token,
+        userAppointments: { ...action.userAppointments },
+        psiList: [...action.psiList],
         hadError: false,
       };
       localStorage.setItem("psi-health-logged-data", JSON.stringify(state));
@@ -33,9 +37,11 @@ const reducer = (
     case LOGIN_UNSUCCESSFUL:
       state = {
         ...state,
-        user: "",
+        user: {},
         token: "",
         hadError: action.error,
+        userAppointments: {},
+        psiList: [],
         chosenPsi: "",
         psiAppointmentBeginning: "",
         psiAppointmentEnding: "",
@@ -45,9 +51,11 @@ const reducer = (
     case LOGOUT:
       state = {
         ...state,
-        user: "",
+        user: {},
         token: "",
         hadError: false,
+        userAppointments: {},
+        psiList: [],
       };
       localStorage.removeItem("psi-health-logged-data");
       return state;
