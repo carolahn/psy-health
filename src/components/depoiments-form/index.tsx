@@ -5,22 +5,42 @@ import styled from "styled-components";
 
 import { StyledForm, StyledButton } from "../../styles";
 
+interface Values {
+  depoiment?: string;
+  grading?: number;
+}
+
+interface DepoimentsFormProps {
+  psicName?: string;
+  formValues: {
+    values: Values;
+    setValues: React.Dispatch<React.SetStateAction<Values>>;
+  };
+  onSubmit: any;
+  formErrors: {
+    errors: any;
+    register: any;
+    clearErrors: any;
+    setError: any;
+  };
+}
+
 const DepoimentsForm = ({
   psicName,
   formValues: { values, setValues },
   onSubmit,
   formErrors: { errors, register, clearErrors, setError },
-}) => {
+}: DepoimentsFormProps) => {
   return (
     <StyledForm name="depoiment" onSubmit={onSubmit} noValidate>
       <Tooltip title={errors.depoiment && errors.depoiment.message}>
         <StyledTextArea
-          autofocus
+          autoFocus
           name="depoiment"
           placeholder={`Fale um pouco sobre sua experiência durante a consulta com ${psicName}.`}
           rows={5}
           value={values.depoiment}
-          spellcheck
+          spellCheck
           onChange={({ target: { value } }) => setValues({ ...values, depoiment: value })}
           ref={register({ required: "Coloque seu depoimento!" })}
         />
@@ -30,8 +50,6 @@ const DepoimentsForm = ({
           <Rate
             grading={0}
             color="#FFC23D"
-            name="grading"
-            value={values.grading}
             onClick={(value) => {
               setValues({ ...values, grading: value });
               if (errors.grading) clearErrors("grading");

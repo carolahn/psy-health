@@ -6,8 +6,28 @@ import { useDispatch } from "react-redux";
 import RegisterForm from "../../components/register-form";
 import { login } from "../../redux/actions/login/action";
 
-const RegisterFormContainer = ({ isPsic = false }) => {
-  const [values, setValues] = useState({});
+interface RegisterFormProps {
+  isPsic?: boolean;
+}
+
+interface Values {
+  name?: string;
+  email?: string;
+  password?: string;
+  cpf_cnpj?: string;
+  phone?: string;
+  crp?: string;
+}
+
+interface OnChange {
+  target: {
+    name: string;
+    value: string;
+  };
+}
+
+const RegisterFormContainer = ({ isPsic = false }: RegisterFormProps) => {
+  const [values, setValues] = useState<Values>({});
   const { register, handleSubmit, errors, setError } = useForm();
   const dispatch = useDispatch();
 
@@ -31,9 +51,10 @@ const RegisterFormContainer = ({ isPsic = false }) => {
       });
   };
 
-  const handleOnChange = ({ target }) => setValues({ ...values, [target.name]: target.value });
+  const handleOnChange = ({ target: { name, value } }: OnChange) =>
+    setValues({ ...values, [name]: value });
 
-  const handleMaskOnChange = (value, key) => setValues({ ...values, [key]: value });
+  const handleMaskOnChange = (value: string, key: string) => setValues({ ...values, [key]: value });
 
   return (
     <RegisterForm

@@ -15,6 +15,8 @@ export const StyledModal = styled.div`
 
   background-color: rgba(0, 0, 0, 0.5);
 
+  z-index: 1000;
+
   .container {
     border: 2px solid #70a3ef;
     border-radius: 5px;
