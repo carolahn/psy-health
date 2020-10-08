@@ -7,6 +7,8 @@ import DepoimentsFormContainer from "../containers/depoiments-form";
 import RegisterContainer from "../containers/register";
 import Login from "../pages/login";
 import PsychologistPage from "../pages/psychologist-page";
+import Register from "../pages/register";
+import Search from '../pages/search'
 
 const Routes = (props) => {
   const token = useSelector((state) => state.login.token);
@@ -48,6 +50,9 @@ const Routes = (props) => {
 
       <Route path="/register">
         <RegisterContainer />
+      </Route>
+      <Route path="/buscar">
+        <Search />
       </Route>
 
       <Route path="/">
