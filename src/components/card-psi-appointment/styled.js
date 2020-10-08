@@ -14,6 +14,10 @@ export const StyledCard = styled.div`
   line-height: 19px;
   text-align: center;
 
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
   .col-container {
     height: 86px;
     display: flex;

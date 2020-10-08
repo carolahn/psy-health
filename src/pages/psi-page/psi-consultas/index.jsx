@@ -70,7 +70,7 @@ const PsiAppointments = () => {
               <div className="appointments-title">Histórico de consultas</div>
               {pastAppointments && (
                 <CardListPsiAppointments
-                  type="next"
+                  type="past"
                   appointments={pastAppointments}
                   numberOfCards={3}
                   style={{ marginLeft: "15px" }}
