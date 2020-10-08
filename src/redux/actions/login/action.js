@@ -19,7 +19,7 @@ const login_unsuccesseful = (error) => ({
   error,
 });
 
-export const login = (email, password, history) => async (dispatch) => {
+export const login = (email, password, history, hasPsi) => async (dispatch) => {
   await axios({
     headers: { "Content-Type": "application/json" },
     method: "post",
@@ -48,7 +48,7 @@ export const login = (email, password, history) => async (dispatch) => {
                   Object.values(data).filter((e) => e.is_psic)
                 )
               );
-              history.push("/");
+              return hasPsi ? history.goBack() : history.push("/");
             })
             .catch((error) => dispatch(login_unsuccesseful(error)));
         })
@@ -67,3 +67,7 @@ export const schedule_appointment = (chosenPsi, psiAppointmentBeginning, psiAppo
   psiAppointmentBeginning,
   psiAppointmentEnding,
 });
+
+export const update_appointments = (id) => async (dispatch) => {
+  await axios().then().catch();
+};

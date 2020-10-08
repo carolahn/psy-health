@@ -3,6 +3,7 @@ import {
   LOGIN_UNSUCCESSFUL,
   LOGOUT,
   SCHEDULE_APPOINTMENT,
+  UPDATE_APPOINTMENTS,
 } from "../../actions/login/action-types";
 
 const defaultState = {
@@ -65,6 +66,13 @@ const reducer = (
         chosenPsi: action.chosenPsi,
         psiAppointmentBeginning: action.psiAppointmentBeginning,
         psiAppointmentEnding: action.psiAppointmentEnding,
+      };
+      localStorage.setItem("psi-health-logged-data", JSON.stringify(state));
+      return state;
+    case UPDATE_APPOINTMENTS:
+      state = {
+        ...state,
+        userAppointments: { ...action.userAppointments },
       };
       localStorage.setItem("psi-health-logged-data", JSON.stringify(state));
       return state;
