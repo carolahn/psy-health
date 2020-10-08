@@ -5,7 +5,6 @@ export const CardListWrapper = styled.div`
     height: 324px;
     overflow-y: ${(props) => props.overflow};
     overflow-x: hidden;
-    /* position: relative; */
   }
   .btn-more {
     text-decoration: none;
@@ -16,30 +15,55 @@ export const CardListWrapper = styled.div`
     font-weight: 700;
     font-size: 18px;
     cursor: pointer;
-    width: 550px;
+    text-align: end;
   }
   .btn-container {
+    /* relative é next-appointments */
     position: absolute;
     right: 0;
     top: 73px;
     max-width: 550px;
-    border: 2px solid blue;
   }
   @media (max-width: 1100px) {
     .btn-container {
-      position: absolute;
-      margin: 0 auto;
       top: 60px;
+    }
+    .btn-more {
+      font-size: 16px;
     }
   }
   @media (max-width: 992px) {
     .btn-container {
-      position: absolute;
-      margin: 0 auto;
+      right: auto;
+      width: 550px;
+      text-align: end;
     }
   }
-  /* @media (max-width: 576px){}
-  @media (max-width: 500px){} */
+
+  @media (max-width: 624px) {
+    .btn-container {
+      right: 0;
+      top: 60px;
+      width: auto;
+      margin-right: 0px;
+    }
+  }
+  @media (max-width: 576px) {
+    .btn-more {
+      font-size: 14px;
+    }
+    .btn-container {
+      top: 48px;
+    }
+  }
+  @media (max-width: 500px) {
+    .btn-more {
+      font-size: 11px;
+    }
+    .btn-container {
+      top: 40px;
+    }
+  }
 `;
 
 export const SpecialList = styled.div`

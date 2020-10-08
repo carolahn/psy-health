@@ -26,11 +26,11 @@ export const MainWrapper = styled.div`
 
   .next-appointments {
     margin-right: 30px;
+    position: relative;
   }
 
   .past-appointments {
     margin-left: 30px;
-    position: relative;
   }
   .appointments-title {
     max-width: 550px;
@@ -46,7 +46,6 @@ export const MainWrapper = styled.div`
       font-size: 30px;
       line-height: 38px;
       margin-bottom: 50px;
-      position: relative;
     }
   }
 
@@ -65,7 +64,6 @@ export const MainWrapper = styled.div`
       min-width: 260px;
       margin: 0 auto;
       margin-bottom: 50px;
-      position: relative;
     }
     .card-list-psi-appointments {
       margin: 0 auto;
