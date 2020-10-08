@@ -50,30 +50,30 @@ const Header = () => {
               <RightLoggedHeader />
             </StyledHeader>
           ) : (
-            <StyledMobileHeader>
-              <MobileStandardHeaderWithMenu token={token} />
-            </StyledMobileHeader>
-          )
+              <StyledMobileHeader>
+                <MobileStandardHeaderWithMenu token={token} />
+              </StyledMobileHeader>
+            )
         ) : width >= 950 ? (
           <StyledHeader>
             <LeftNonLoggedHeader />
             <RightNonLoggedHeader />
           </StyledHeader>
         ) : (
-          <StyledMobileHeader>
-            <MobileStandardHeaderWithMenu token={token} />
-          </StyledMobileHeader>
-        )
+              <StyledMobileHeader>
+                <MobileStandardHeaderWithMenu token={token} />
+              </StyledMobileHeader>
+            )
       ) : width >= 950 ? (
         <StyledHeader>
           <LeftNonLoggedHeader />
           <RightNonLoggedHeader />
         </StyledHeader>
       ) : (
-        <StyledMobileHeader>
-          <MobileStandardHeaderWithMenu token={token} />
-        </StyledMobileHeader>
-      )}
+              <StyledMobileHeader>
+                <MobileStandardHeaderWithMenu token={token} />
+              </StyledMobileHeader>
+            )}
     </>
   );
 };

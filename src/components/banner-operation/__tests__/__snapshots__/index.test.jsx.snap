@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly BannerOperation 1`] = `
+<div
+  className="sc-bdnylx jaNIbE"
+>
+  <div
+    className="sc-gtssRu hKtdZT"
+  >
+    <h1
+      className="sc-dlnjPT cpkyoC"
+    >
+      Como funciona
+    </h1>
+  </div>
+  <div
+    className="sc-hKFyIo lljcEr"
+  >
+    <div
+      className="sc-eCApGN OiIum"
+    >
+      <h2
+        className="sc-jSFkmK fzlIRV"
+      >
+        Encontre um psicólogo
+      </h2>
+      <div>
+        <svg
+          className="sc-gKAblj jtqpbe"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"
+          />
+          <path
+            d="M11.412,8.586C11.791,8.966,12,9.468,12,10h2c0-1.065-0.416-2.069-1.174-2.828c-1.514-1.512-4.139-1.512-5.652,0 l1.412,1.416C9.346,7.83,10.656,7.832,11.412,8.586z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      className="sc-eCApGN OiIum"
+    >
+      <h2
+        className="sc-jSFkmK fzlIRV"
+      >
+        Escolha a data que seja melhor pra você
+      </h2>
+      <div>
+        <svg
+          className="sc-iCoHVE eZjvSF"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 11H9V13H7zM7 15H9V17H7zM11 11H13V13H11zM11 15H13V17H11zM15 11H17V13H15zM15 15H17V17H15z"
+          />
+          <path
+            d="M5,22h14c1.103,0,2-0.897,2-2V8V6c0-1.103-0.897-2-2-2h-2V2h-2v2H9V2H7v2H5C3.897,4,3,4.897,3,6v2v12 C3,21.103,3.897,22,5,22z M19,8l0.001,12H5V8H19z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      className="sc-eCApGN OiIum"
+    >
+      <h2
+        className="sc-jSFkmK fzlIRV"
+      >
+        Faça a sessão pelo computador ou celular
+      </h2>
+      <div>
+        <svg
+          className="sc-fujyUd gxGVdK"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18,7c0-1.103-0.897-2-2-2H4C2.897,5,2,5.897,2,7v10c0,1.103,0.897,2,2,2h12c1.103,0,2-0.897,2-2v-3.333L22,17V7l-4,3.333 V7z M16.002,17H4V7h12l0.001,4.999L16,12l0.001,0.001L16.002,17z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
