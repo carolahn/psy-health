@@ -72,6 +72,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) =
 
   moment.locale("en-US");
   const localizer = momentLocalizer(moment);
+  console.log("localizer", localizer);
 
   function onSlotChange(slotInfo) {
     var startDate = moment(slotInfo.start.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
@@ -97,7 +98,6 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) =
             ) {
               if (!unavailable.includes(startDate) && !unavailable.includes(thirtyMinutesMore)) {
                 const currentDate = new Date();
-                // console.log(currentDate);
                 const moreUnf = new Date(slotInfo.start.getTime() + 1000 * 60 * 30);
                 // const more = moment(moreUnf.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
                 if (moreUnf > currentDate) {

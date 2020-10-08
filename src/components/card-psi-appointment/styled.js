@@ -4,7 +4,7 @@ export const StyledCard = styled.div`
   max-width: 550px;
   height: 86px;
   margin-bottom: 25px;
-  background: #f3f3f3;
+  background: #fafafa;
   border-radius: 5px;
   border: 2px solid #70a3ef;
   font-family: "Roboto", sans-serif;
@@ -26,18 +26,26 @@ export const StyledCard = styled.div`
     font-size: 20px;
     line-height: 24px;
   }
+  @media (max-width: 1100px) {
+    font-size: 15px;
+    .card-title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
 
   @media (max-width: 576px) {
     /* max-width: 260px; */
     height: 70px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 17px;
     .col-container {
       height: 70px;
     }
     .card-title {
       font-weight: 700;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 21px;
     }
   }
