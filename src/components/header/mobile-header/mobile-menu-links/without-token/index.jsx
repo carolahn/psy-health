@@ -10,7 +10,7 @@ const MobileMenuListWithoutTokenHeader = ({ setMMenu }) => {
       <div
         className="mobile-list"
         onClick={() => {
-          history.push("/search");
+          history.push("/busca");
           setMMenu(false);
         }}>
         Encontre um psicólogo
@@ -18,7 +18,7 @@ const MobileMenuListWithoutTokenHeader = ({ setMMenu }) => {
       <div
         className="mobile-list"
         onClick={() => {
-          history.push("/psi");
+          history.push("/login/psi");
           setMMenu(false);
         }}>
         Sou psicólogo
@@ -26,7 +26,7 @@ const MobileMenuListWithoutTokenHeader = ({ setMMenu }) => {
       <div
         className="mobile-list"
         onClick={() => {
-          history.push("/register");
+          history.push("/cadastro");
           setMMenu(false);
         }}>
         Cadastro

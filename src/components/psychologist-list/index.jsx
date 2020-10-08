@@ -1,13 +1,26 @@
-import React from 'react'
-import StyledPsychologistList from './styled'
+import React from "react";
+
+import CardPsychologist from "../card-psychologist";
+import StyledPsychologistList from "./styled";
 
 const PsychologistList = ({ psychologists }) => {
-  
-  return(
+  return (
     <StyledPsychologistList>
-      {psychologists.map((psychologist, index) => <div key={index}>{psychologist.name}</div>)}
+      {psychologists.map((psychologist, index) => (
+        <CardPsychologist
+          key={index}
+          name={psychologist.name}
+          image={psychologist.image}
+          description={psychologist.description}
+          crp={psychologist.crp}
+          rating={psychologist.rating}
+          specializations={psychologist.specializations}
+          language={psychologist.language}
+          price={psychologist.price}
+        />
+      ))}
     </StyledPsychologistList>
-  )
-}
+  );
+};
 
-export default PsychologistList
+export default PsychologistList;

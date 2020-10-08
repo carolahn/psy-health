@@ -1,25 +1,52 @@
-import axios from 'axios'
+import axios from "axios";
 
-export const GET_PSY = 'GET_PSY'
-export const FILTERED_PSY = 'FILTERED_PSY'
+export const GET_PSY = "GET_PSY";
+export const FILTERED_PSY = "FILTERED_PSY";
+export const FILTER_VALUES = "FILTER_VALUES"
 
 export const filterPsyList = (filtered) => ({
   type: FILTERED_PSY,
-  filtered
-})
+  filtered,
+});
 
-const addToPsyList = (psyList) =>( {
+const addToPsyList = (psyList) => ({
   type: GET_PSY,
-  psyList
+  psyList,
+});
+
+const filterValues = (fValues) => ({
+  type: FILTER_VALUES,
+  filterValues: {
+    exp: fValues[0],
+    lang: fValues[1],
+    price: fValues[2]
+  }
 })
 
 export const requestPsy = () => async (dispatch) => {
+  const request = await axios.get("http://psy-health-api.herokuapp.com/users");
 
-  const request = await axios.get('http://psy-health-api.herokuapp.com/users')
+  const psy = request.data.filter((user) => user.is_psic);
+
+  dispatch(addToPsyList(psy));
+};
+
+
+export const getUniqueEntries = (array, propArr) => (dispatch) => {
+
+
+    const arrOfProps = propArr.map(prop => {
+      const filterUndefined = array.filter( arr => arr[prop] !== undefined)
   
-  const psy = request.data.filter(user => user.is_psic)
-
-  dispatch(addToPsyList(psy))
-}
-
-
+      const arr = filterUndefined.flatMap(arr => arr[prop] !== undefined && arr[prop].split(', '))
+      
+      const newSet = new Set(arr)
+      const newArray = Array.from(newSet)
+      
+      return newArray
+    })
+  
+  
+  
+  dispatch(filterValues(arrOfProps))
+} 
