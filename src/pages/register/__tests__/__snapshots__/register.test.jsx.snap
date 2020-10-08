@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Snapshot renders register 1`] = `ShallowWrapper {}`;
-
-exports[`Snapshot renders register for psi 1`] = `ShallowWrapper {}`;

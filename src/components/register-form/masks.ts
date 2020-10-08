@@ -1,4 +1,4 @@
-export const cpfCnpjMask = (value) => {
+export const cpfCnpjMask = (value: string) => {
   return value.length < 15
     ? value
         .replace(/\D/g, "") // substitui qualquer caracter que nao seja numero por nada
@@ -15,13 +15,13 @@ export const cpfCnpjMask = (value) => {
         .replace(/(-\d{2})\d+?$/, "$1"); // captura 2 numeros seguidos de um traço e não deixa ser digitado mais nada;
 };
 
-export const phoneMask = (value) => {
+export const phoneMask = (value: string) => {
   return value
     .replace(/\D/g, "")
     .replace(/(\d{2})(\d)/, "($1) $2")
     .replace(/(\) \d{5})(\d)/, "$1-$2");
 };
 
-export const crpMask = (value) => {
+export const crpMask = (value: string) => {
   return value.replace(/\D/g, "").replace(/(\d{2})(\d)/, "$1/$2");
 };

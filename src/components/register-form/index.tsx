@@ -1,44 +1,46 @@
 import { Tooltip } from "antd";
-import axios from "axios";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React from "react";
 
-import { login } from "../../../redux/actions/login/action";
+import { StyledInput, StyledButton, StyledForm } from "../../styles";
 import { cpfCnpjMask, phoneMask, crpMask } from "./masks";
-import { StyledInput, StyledButton, StyledForm } from "./styled";
 
-const RegisterForm = ({ isPsic = false }) => {
-  const history = useHistory();
-  const [values, setValues] = useState({});
-  const { register, handleSubmit, errors, setError } = useForm();
-  const dispatch = useDispatch();
+interface Values {
+  name?: string;
+  email?: string;
+  password?: string;
+  cpf_cnpj?: string;
+  phone?: string;
+  crp?: string;
+}
 
-  const onSubmit = () => {
-    axios
-      .post("https://psy-health-api.herokuapp.com/register", { ...values, isPsic })
-      .then(() => {
-        dispatch(login(values.email, values.password));
-      })
-      .catch(({ response: { status } }) => {
-        if (status === 400) {
-          setError("email", {
-            type: "manual",
-            message: "Email já foi usado!",
-          });
-          setError("confirmEmail", {
-            type: "manual",
-            message: "Email já foi usado!",
-          });
-        }
-      });
+interface OnChange {
+  target: {
+    name: string;
+    value: string;
   };
+}
 
-  const handleOnChange = ({ target }) => setValues({ ...values, [target.name]: target.value });
+interface RegisterFormProps {
+  isPsic: boolean;
+  values: Values;
+  onSubmit: () => void;
+  formErrors: {
+    register: any;
+    handleSubmit: any;
+    errors: any;
+  };
+  handleOnChange: ({ target: { name, value } }: OnChange) => void;
+  handleMaskOnChange: (value: string, key: string) => void;
+}
 
-  const handleMaskOnChange = (value, key) => setValues({ ...values, [key]: value });
-
+const RegisterForm = ({
+  isPsic,
+  values,
+  onSubmit,
+  formErrors: { register, handleSubmit, errors },
+  handleOnChange,
+  handleMaskOnChange,
+}: RegisterFormProps) => {
   return (
     <StyledForm name="register" onSubmit={handleSubmit(onSubmit)} noValidate>
       <Tooltip title={errors.name && errors.name.message} placement={isPsic ? "left" : "right"}>
@@ -54,7 +56,6 @@ const RegisterForm = ({ isPsic = false }) => {
               message: "Informe seu nome e sobrenome!",
             },
           })}
-          error={errors.name}
         />
       </Tooltip>
 
@@ -72,7 +73,6 @@ const RegisterForm = ({ isPsic = false }) => {
               message: "Formato do email está errado! Formato certo: example@example.com",
             },
           })}
-          error={errors.email}
         />
       </Tooltip>
 
@@ -85,9 +85,8 @@ const RegisterForm = ({ isPsic = false }) => {
           name="confirmEmail"
           ref={register({
             required: "Confirme seu email!",
-            validate: (value) => value === values.email || "Emails não batem",
+            validate: (value: string) => value === values.email || "Emails não batem",
           })}
-          error={errors.confirmEmail}
         />
       </Tooltip>
 
@@ -102,7 +101,6 @@ const RegisterForm = ({ isPsic = false }) => {
           ref={register({
             pattern: { value: /\(\d{2}\) \d{5}-\d{4}/i, message: "Número de telefone não aceito!" },
           })}
-          error={errors.phone}
         />
       </Tooltip>
 
@@ -122,7 +120,6 @@ const RegisterForm = ({ isPsic = false }) => {
               message: "CPF/CNPJ não aceito!",
             },
           })}
-          error={errors.cpf_cnpj}
         />
       </Tooltip>
 
@@ -138,7 +135,6 @@ const RegisterForm = ({ isPsic = false }) => {
               required: "Favor informar CRP!",
               pattern: { value: /\d{2}\/\d{5}/i, message: "Informe um CRP válido!" },
             })}
-            error={errors.crp}
           />
         </Tooltip>
       )}
@@ -156,7 +152,6 @@ const RegisterForm = ({ isPsic = false }) => {
             required: "Crie sua senha!",
             minLength: { value: 4, message: "Deve conter no mínimo quatro caracteres!" },
           })}
-          error={errors.password}
         />
       </Tooltip>
 
@@ -169,9 +164,8 @@ const RegisterForm = ({ isPsic = false }) => {
           name="confirmPassword"
           ref={register({
             required: "Confirme sua senha!",
-            validate: (value) => value === values.password || "Senhas não batem!",
+            validate: (value: string) => value === values.password || "Senhas não batem!",
           })}
-          error={errors.confirmPassword}
         />
       </Tooltip>
 

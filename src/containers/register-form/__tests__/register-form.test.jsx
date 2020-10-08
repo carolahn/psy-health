@@ -2,10 +2,9 @@ import enzyme from "enzyme";
 import mockAxios from "jest-mock-axios";
 import React from "react";
 import { useDispatch } from "react-redux";
-import renderer from "react-test-renderer";
 
-import { login } from "../../../../redux/actions/login/action";
-import RegisterForm from "../index";
+import { login } from "../../../redux/actions/login/action";
+import RegisterFormContainer from "../index";
 
 jest.mock("axios", () => mockAxios);
 jest.mock("react-hook-form", () => ({
@@ -19,21 +18,9 @@ jest.mock("react-hook-form", () => ({
 jest.mock("react-redux", () => ({
   useDispatch: jest.fn(() => jest.fn()),
 }));
-jest.mock("../../../../redux/actions/login/action", () => ({
+jest.mock("../../../redux/actions/login/action", () => ({
   login: jest.fn(),
 }));
-
-describe("Tests snapshot", () => {
-  it("shows pat", () => {
-    const tree = renderer.create(<RegisterForm isPsic={false} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("shows psi", () => {
-    const tree = renderer.create(<RegisterForm isPsic />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
 
 describe("Tests behaviour", () => {
   jest.mock("react", () => ({
@@ -49,7 +36,7 @@ describe("Tests behaviour", () => {
     login.mockImplementation(loginMock);
     useDispatch.mockImplementation(useDispatchMock);
 
-    const wrapper = enzyme.mount(<RegisterForm />);
+    const wrapper = enzyme.mount(<RegisterFormContainer />);
 
     const inputs = wrapper.find("input");
 

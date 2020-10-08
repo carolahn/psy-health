@@ -1,4 +1,4 @@
-import { GET_PSY, FILTERED_PSY, FILTER_VALUES } from '../../actions/search'
+import { GET_PSY, FILTERED_PSY, FILTER_VALUES } from "../../actions/search";
 
 const defaultState = {
   psychologists: [],
@@ -7,32 +7,32 @@ const defaultState = {
     exp: [],
     lang: [],
     price: [],
-    name: []
-  }
-}
+    name: [],
+  },
+};
 
-const search = (state = defaultState, { type, psyList, filtered, filterValues } ) => {
-  switch(type) {
+const search = (state = defaultState, { type, psyList, filtered, filterValues }) => {
+  switch (type) {
     case GET_PSY:
       return {
         ...state,
-        psychologists: psyList
-      }
+        psychologists: psyList,
+      };
     case FILTERED_PSY:
       return {
         ...state,
-        filteredPsy: filtered
-      }
+        filteredPsy: filtered,
+      };
 
     case FILTER_VALUES:
       return {
         ...state,
-        fValues: filterValues
-      }
+        fValues: filterValues,
+      };
 
     default:
       return state;
   }
-}
+};
 
-export default search
+export default search;

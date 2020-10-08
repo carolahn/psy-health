@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const GET_PSY = "GET_PSY";
 export const FILTERED_PSY = "FILTERED_PSY";
-export const FILTER_VALUES = "FILTER_VALUES"
+export const FILTER_VALUES = "FILTER_VALUES";
 
 export const filterPsyList = (filtered) => ({
   type: FILTERED_PSY,
@@ -20,9 +20,9 @@ const filterValues = (fValues) => ({
     exp: fValues[0],
     lang: fValues[1],
     price: fValues[2],
-    name: fValues[3]
-  }
-})
+    name: fValues[3],
+  },
+});
 
 export const requestPsy = () => async (dispatch) => {
   const request = await axios.get("http://psy-health-api.herokuapp.com/users");
@@ -32,24 +32,20 @@ export const requestPsy = () => async (dispatch) => {
   dispatch(addToPsyList(psy));
 };
 
-
 export const getUniqueEntries = (array, propArr) => (dispatch) => {
+  const arrOfProps = propArr.map((prop) => {
+    const filterUndefined = array.filter((arr) => arr[prop] !== undefined);
 
+    const arr = filterUndefined.flatMap((arr) =>
+      arr[prop] !== undefined && typeof arr[prop] === "string" ? arr[prop].split(", ") : arr[prop]
+    );
 
-    const arrOfProps = propArr.map(prop => {
-      const filterUndefined = array.filter( arr => arr[prop] !== undefined)
-  
-      const arr = filterUndefined.flatMap(arr => arr[prop] !== undefined && typeof arr[prop] === 'string' ? arr[prop].split(', ') : arr[prop])
-      
-      const newSet = new Set(arr)
-      const newArray = Array.from(newSet)
-      newArray.sort((a, b) => a - b).unshift('todos')
-      
-      return newArray
-      
-    })
-  
-  
-  
-  dispatch(filterValues(arrOfProps))
-} 
+    const newSet = new Set(arr);
+    const newArray = Array.from(newSet);
+    newArray.sort((a, b) => a - b).unshift("todos");
+
+    return newArray;
+  });
+
+  dispatch(filterValues(arrOfProps));
+};

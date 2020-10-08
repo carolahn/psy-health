@@ -11,31 +11,25 @@ const StyledSearchFilter = styled.div`
     margin-bottom: 1.25rem;
     display: flex;
     place-content: center;
-  
   }
-
 
   .filter {
     display: flex;
     justify-content: space-around;
-  
   }
-
 
   .ant-select {
     width: 160px;
-    
   }
 
-  .ant-select-item{
+  .ant-select-item {
     text-transform: capitalized;
   }
-  
+
   .search-input {
-    
     font-size: 18px;
     text-align: left;
-    width: 100%;  
+    width: 100%;
   }
 
   .search-button {
@@ -53,7 +47,6 @@ const StyledSearchFilter = styled.div`
   }
 
   .ant-select {
-    
     text-align: center;
   }
 
@@ -71,9 +64,7 @@ const StyledSearchFilter = styled.div`
 
   @media (max-width: 540px) {
     .ant-select {
-      
-      margin: 0.625rem 0.400rem;
-      
+      margin: 0.625rem 0.4rem;
     }
 
     .search-bar {
@@ -94,7 +85,6 @@ const StyledSearchFilter = styled.div`
       width: 85px;
     }
   }
-
 `;
 
 export default StyledSearchFilter;
