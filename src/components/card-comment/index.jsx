@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const CardComment = ({ image, name, coment, grading }) => {
     return (
         <StyledContainerCard>
-            <div>
+            <div className="container-header">
                 <img src={image} alt="Imagem do paciente" />
                 <h4>{name}</h4>
             </div>
@@ -24,20 +24,24 @@ const StyledContainerCard = styled.div`
     border: 2px solid #70A3EF;
     border-radius: 3px;
     background-color: white;
-    padding: 15px 1% 5px 1%; 
+    padding: 15px 1% 5px 1%;
 
-    h4 {
-        font-weight: bold;
-        display: inline-block;
-        vertical-align: top;
-        padding-left: 4px;	
-    }
-
-    img{
-        border: 1px solid #70A3EF;
-        width: 75px;
-        height: 75px;
-        border-radius: 50%;
+    .container-header{
+        display: flex;
+        
+        img{
+            border: 1px solid #70A3EF;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+        }
+    
+        h4 {
+            font-weight: bold;
+            display: inline-block;
+            vertical-align: top;
+            padding-left: 4px;	
+        }
     }
 
     p{

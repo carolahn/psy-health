@@ -17,9 +17,71 @@ import {
   StyledContainerColSocial,
 } from "./styled";
 
+
+import CarouselComment from '../carousel-comment';
+const list = [
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "0Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  },
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "1Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  },
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "2Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  },
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "3Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  },
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "4Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  },
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "5Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  },
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "6Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  },
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "7Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  },
+  {
+    "name": "João",
+    "image": 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg',
+    "coment": "8Agradeço à Drª que conseguiu identificar o principal motivo do meu caso e, com a sua experiência, me fez pensar racionalmente. Juntos, buscamos soluções para que consiga resolvê-lo da melhor forma.",
+    "grading": 5
+  }
+];
+
 const Footer = () => {
   return (
     <StyledFooterContainer>
+
+      <CarouselComment listComments={list} />
+
       <StyledRow>
         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
           <StyledLogoCotainer href="#">
