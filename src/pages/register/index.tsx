@@ -8,7 +8,12 @@ import SvgContainer from "../../components/svg-container";
 import RegisterFormContainer from "../../containers/register-form";
 import { RegisterContainer, SideContainer } from "./styled";
 
-const Register = ({ where, history }) => {
+interface RegisterProps {
+  where: string;
+  history: any;
+}
+
+const Register = ({ where, history }: RegisterProps) => {
   return (
     <RegisterContainer>
       {where.includes("psi") && <SvgContainer svgExtra={RegisterSvg} esquerda />}
@@ -26,12 +31,12 @@ const Register = ({ where, history }) => {
           <h1>Register</h1>
           <div className="changeToPsic">
             <span
-              className={where === "/register" && "usr"}
+              className={where === "/register" ? "usr" : undefined}
               onClick={() => history.push("/register")}>
               Sou Paciente
             </span>
             <span
-              className={where === "/register/psi" && "psi"}
+              className={where === "/register/psi" ? "psi" : undefined}
               onClick={() => history.push("/register/psi")}>
               Sou Psicólogo
             </span>

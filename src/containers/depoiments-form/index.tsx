@@ -6,15 +6,34 @@ import { useSelector } from "react-redux";
 import DepoimentsForm from "../../components/depoiments-form";
 import { StyledModal, StyledH1 } from "./styled";
 
+interface DepoimentsFormProps {
+  showModal: {
+    modalVisible: boolean;
+    setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  };
+  psicId: number;
+  psicName: string;
+}
+
+interface Values {
+  depoiment?: string;
+  grading?: number;
+}
+
+interface AAAA {
+  target: EventTarget | any;
+  currentTarget: EventTarget & HTMLDivElement;
+}
+
 const DepoimentsFormContainer = ({
-  showModal: [modalVisible, setModalVisible],
+  showModal: { modalVisible, setModalVisible },
   psicId,
   psicName,
-}) => {
+}: DepoimentsFormProps) => {
   const { register, handleSubmit, errors, setError, clearErrors } = useForm();
-  const [values, setValues] = useState({});
-  const token = useSelector((state) => state.login.token);
-  const id = useSelector((state) => state.login.user.id);
+  const [values, setValues] = useState<Values>({});
+  const token = useSelector((state: any) => state.login.token);
+  const id = useSelector((state: any) => state.login.user.id);
 
   useEffect(() => {
     document.body.style.overflow = modalVisible ? "hidden" : "unset";
@@ -57,7 +76,7 @@ const DepoimentsFormContainer = ({
   return (
     modalVisible && (
       <StyledModal
-        onClick={({ target, currentTarget }) => {
+        onClick={({ target, currentTarget }: AAAA) => {
           if (target.className === currentTarget.className) {
             setValues({});
             clearErrors();

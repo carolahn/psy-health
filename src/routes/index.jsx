@@ -25,14 +25,8 @@ const Routes = (props) => {
             </Route>
 
             <Route path="/">
-              <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
               Home Logado
               <Footer />
-              <DepoimentsFormContainer
-                showModal={[modalVisible, setModalVisible]}
-                psicId={2}
-                psicName="João Cleber"
-              />
             </Route>
           </Switch>
         ) : (
@@ -57,6 +51,12 @@ const Routes = (props) => {
       </Route>
 
       <Route path="/">
+        <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
+        <DepoimentsFormContainer
+          showModal={{ modalVisible, setModalVisible }}
+          psicId={2}
+          psicName="João Cleber"
+        />
         Home <Footer />
       </Route>
     </Switch>
