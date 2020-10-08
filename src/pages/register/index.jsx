@@ -1,16 +1,14 @@
 import React from "react";
-import { useLocation, useHistory } from "react-router-dom";
 
 import Logo from "../../assets/imgs/logo2.svg";
 import RegisterSvg from "../../assets/imgs/undraw_secure_login_pdn4.svg";
+import Footer from "../../components/footer";
+import Header from "../../components/header";
 import SvgContainer from "../../components/svg-container";
-import RegisterForm from "./register-form";
+import RegisterFormContainer from "../../containers/register-form";
 import { RegisterContainer, SideContainer } from "./styled";
 
-const RegisterUser = () => {
-  const history = useHistory();
-  const where = useLocation().pathname;
-
+const Register = ({ where, history }) => {
   return (
     <RegisterContainer>
       {where.includes("psi") && <SvgContainer svgExtra={RegisterSvg} esquerda />}
@@ -19,7 +17,9 @@ const RegisterUser = () => {
           <div className="small-header">
             <img src={Logo} alt="Logo" onClick={() => history.push("/")} />
           </div>
-          <div className="mobile header">header</div>
+          <div className="mobile header">
+            <Header />
+          </div>
         </div>
 
         <div className="lower-form">
@@ -38,9 +38,9 @@ const RegisterUser = () => {
           </div>
 
           <div className="form-holder">
-            <RegisterForm isPsic={where.includes("psi")} />
+            <RegisterFormContainer isPsic={where.includes("psi")} />
             <span className="changePage">
-              Já possui cadastrado?{" "}
+              Já possui cadastrado?
               <span
                 onClick={() =>
                   where.includes("psi") ? history.push("/login/psi") : history.push("/login")
@@ -51,11 +51,13 @@ const RegisterUser = () => {
           </div>
         </div>
 
-        <div className="mobile footer">footer</div>
+        <div className="mobile footer">
+          <Footer />
+        </div>
       </SideContainer>
       {!where.includes("psi") && <SvgContainer svgExtra={RegisterSvg} />}
     </RegisterContainer>
   );
 };
 
-export default RegisterUser;
+export default Register;

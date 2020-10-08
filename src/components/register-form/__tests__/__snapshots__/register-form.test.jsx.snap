@@ -5,7 +5,6 @@ exports[`Tests snapshot shows pat 1`] = `
   className="sc-bdnylx ljPwdE"
   name="register"
   noValidate={true}
-  onSubmit={[Function]}
 >
   <input
     className="sc-gtssRu dobViZ"
@@ -82,7 +81,6 @@ exports[`Tests snapshot shows psi 1`] = `
   className="sc-bdnylx ljPwdE"
   name="register"
   noValidate={true}
-  onSubmit={[Function]}
 >
   <input
     className="sc-gtssRu dobViZ"
