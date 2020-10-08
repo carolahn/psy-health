@@ -15,7 +15,6 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const token = useSelector((state) => state.login.token);
   const chosenPsi = useSelector((state) => state.login.chosenPsi);
 
   const handleInputChange = ({ target: { value } }) => {

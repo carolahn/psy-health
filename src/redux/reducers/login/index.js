@@ -3,14 +3,12 @@ import {
   LOGIN_UNSUCCESSFUL,
   LOGOUT,
   SCHEDULE_APPOINTMENT,
-  UPDATE_APPOINTMENTS,
 } from "../../actions/login/action-types";
 
 const defaultState = {
   user: {},
   token: "",
   hadError: false,
-  userAppointments: {},
   psiList: [],
   chosenPsi: "",
   psiAppointmentBeginning: "",
@@ -29,7 +27,6 @@ const reducer = (
         ...state,
         user: { ...action.user },
         token: action.token,
-        userAppointments: { ...action.userAppointments },
         psiList: [...action.psiList],
         hadError: false,
       };
@@ -41,7 +38,6 @@ const reducer = (
         user: {},
         token: "",
         hadError: action.error,
-        userAppointments: {},
         psiList: [],
         chosenPsi: "",
         psiAppointmentBeginning: "",
@@ -55,7 +51,6 @@ const reducer = (
         user: {},
         token: "",
         hadError: false,
-        userAppointments: {},
         psiList: [],
       };
       localStorage.removeItem("psi-health-logged-data");
@@ -66,13 +61,6 @@ const reducer = (
         chosenPsi: action.chosenPsi,
         psiAppointmentBeginning: action.psiAppointmentBeginning,
         psiAppointmentEnding: action.psiAppointmentEnding,
-      };
-      localStorage.setItem("psi-health-logged-data", JSON.stringify(state));
-      return state;
-    case UPDATE_APPOINTMENTS:
-      state = {
-        ...state,
-        userAppointments: { ...action.userAppointments },
       };
       localStorage.setItem("psi-health-logged-data", JSON.stringify(state));
       return state;
