@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import BannerOperation from "./components/banner-operation";
@@ -11,12 +10,11 @@ import PatientPage from "./pages/patient-page";
 import Routes from "./routes/index";
 
 const App = () => {
-  const user = useSelector((state) => state.login.user);
-  console.log(user);
   return (
-    <div>
-      <PatientPage />
-    </div>
+    <BodyFrame>
+      <Header />
+      <Routes />
+    </BodyFrame>
   );
 };
 

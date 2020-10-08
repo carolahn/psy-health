@@ -14,62 +14,76 @@ import {
   CrpDiv,
   TextStyle,
   NewRate,
+  CancelButton,
+  RescheduleButton,
 } from "./styled";
 
-const CardPatientConsultation = ({ oneUser, appointment }) => {
-  const dateAppointment = appointment.date.start.split(" ");
+const CardPatientConsultation = ({ allUsers, appointment, buttonOrAvaliation }) => {
+  const newAppointment = appointment.date.start.split(" ");
+  const dateAppointment = newAppointment[0];
+  const hourAppointment = newAppointment[1];
+  let oneUser = "";
 
-  const compareDates = (dateAppointment) => {
-    const parts = dateAppointment[0].split("-");
-    const today = new Date();
-
-    dateAppointment = new Date(parts[0], parts[1] - 1, parts[2]);
-    return console.log(dateAppointment >= today);
+  const filterPsicUser = (appointment) => {
+    oneUser = allUsers.filter((user) => user.id === appointment.psic.id);
   };
 
-  compareDates(dateAppointment);
+  filterPsicUser(appointment);
 
   return (
-    <CardContainer>
-      <ImgAndNameCardCotainer>
-        <ImgDivCotainer>
-          <PhotoPsychologist src={oneUser.image} />
-        </ImgDivCotainer>
-        <NameDivCotainer>
-          <TitleForNameDateScheduleValueAndAvaliation>
-            {oneUser.name}
-          </TitleForNameDateScheduleValueAndAvaliation>
-          <CrpDiv>{`CRP: ${oneUser.crp}`}</CrpDiv>
-          <NewRate allowHalf defaultValue={oneUser.rating} />
-        </NameDivCotainer>
-      </ImgAndNameCardCotainer>
-      <DateScheduleAndValueContainer>
-        <DateScheduleAndValue>
-          <TitleForNameDateScheduleValueAndAvaliation>
-            Data
-          </TitleForNameDateScheduleValueAndAvaliation>
-          <TextStyle>{dateAppointment[0]}</TextStyle>
-        </DateScheduleAndValue>
-        <DateScheduleAndValue>
-          <TitleForNameDateScheduleValueAndAvaliation>
-            Horário
-          </TitleForNameDateScheduleValueAndAvaliation>
-          <TextStyle>{dateAppointment[1]}</TextStyle>
-        </DateScheduleAndValue>
-        <DateScheduleAndValue>
-          <TitleForNameDateScheduleValueAndAvaliation>
-            Valor
-          </TitleForNameDateScheduleValueAndAvaliation>
-          <TextStyle>{`R$ ${oneUser.price},00`}</TextStyle>
-        </DateScheduleAndValue>
-      </DateScheduleAndValueContainer>
-      <AvaliationOrButton>
-        <TitleForNameDateScheduleValueAndAvaliation>
-          Avaliação
-        </TitleForNameDateScheduleValueAndAvaliation>
-        <NewRate allowHalf defaultValue={5} />
-      </AvaliationOrButton>
-    </CardContainer>
+    <>
+      {oneUser.length > 0 && (
+        <CardContainer>
+          <ImgAndNameCardCotainer>
+            <ImgDivCotainer>
+              <PhotoPsychologist src={oneUser[0].image} />
+            </ImgDivCotainer>
+            <NameDivCotainer>
+              <TitleForNameDateScheduleValueAndAvaliation>
+                {oneUser[0].name}
+              </TitleForNameDateScheduleValueAndAvaliation>
+              <CrpDiv>{`CRP: ${oneUser[0].crp}`}</CrpDiv>
+              <NewRate allowHalf defaultValue={oneUser[0].rating} />
+            </NameDivCotainer>
+          </ImgAndNameCardCotainer>
+          <DateScheduleAndValueContainer>
+            <DateScheduleAndValue>
+              <TitleForNameDateScheduleValueAndAvaliation>
+                Data
+              </TitleForNameDateScheduleValueAndAvaliation>
+              <TextStyle>{dateAppointment}</TextStyle>
+            </DateScheduleAndValue>
+            <DateScheduleAndValue>
+              <TitleForNameDateScheduleValueAndAvaliation>
+                Horário
+              </TitleForNameDateScheduleValueAndAvaliation>
+              <TextStyle>{hourAppointment}</TextStyle>
+            </DateScheduleAndValue>
+            <DateScheduleAndValue>
+              <TitleForNameDateScheduleValueAndAvaliation>
+                Valor
+              </TitleForNameDateScheduleValueAndAvaliation>
+              <TextStyle>{`R$ ${oneUser[0].price},00`}</TextStyle>
+            </DateScheduleAndValue>
+          </DateScheduleAndValueContainer>
+          <AvaliationOrButton>
+            {buttonOrAvaliation ? (
+              <>
+                <RescheduleButton>Remarcar</RescheduleButton>
+                <CancelButton>Cancel</CancelButton>
+              </>
+            ) : (
+                <>
+                  <TitleForNameDateScheduleValueAndAvaliation>
+                    Avaliação
+                </TitleForNameDateScheduleValueAndAvaliation>
+                  <NewRate allowHalf defaultValue={5} />
+                </>
+              )}
+          </AvaliationOrButton>
+        </CardContainer>
+      )}
+    </>
   );
 };
 

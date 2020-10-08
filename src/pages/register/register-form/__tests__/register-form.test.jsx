@@ -1,16 +1,12 @@
 import enzyme from "enzyme";
 import mockAxios from "jest-mock-axios";
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import renderer from "react-test-renderer";
 
+import { login } from "../../../../redux/actions/login/action";
 import RegisterForm from "../index";
 
-jest.mock("react-router-dom", () => ({
-  useHistory: jest.fn(() => ({
-    push: jest.fn(),
-  })),
-}));
 jest.mock("axios", () => mockAxios);
 jest.mock("react-hook-form", () => ({
   useForm: () => ({
@@ -19,6 +15,12 @@ jest.mock("react-hook-form", () => ({
     errors: {},
     setError: jest.fn(),
   }),
+}));
+jest.mock("react-redux", () => ({
+  useDispatch: jest.fn(() => jest.fn()),
+}));
+jest.mock("../../../../redux/actions/login/action", () => ({
+  login: jest.fn(),
 }));
 
 describe("Tests snapshot", () => {
@@ -38,11 +40,14 @@ describe("Tests behaviour", () => {
     useState: jest.fn(),
   }));
 
-  it("calls useHistory", () => {
-    const pushMock = jest.fn();
-    const useHistoryMock = () => ({ push: pushMock });
+  it("calls", () => {
+    const loginMock = jest.fn(() => "Login response");
+    const dispatchMock = jest.fn((_, _2) => {});
 
-    useHistory.mockImplementation(useHistoryMock);
+    const useDispatchMock = () => dispatchMock;
+
+    login.mockImplementation(loginMock);
+    useDispatch.mockImplementation(useDispatchMock);
 
     const wrapper = enzyme.mount(<RegisterForm />);
 
@@ -75,6 +80,9 @@ describe("Tests behaviour", () => {
     };
     mockAxios.mockResponse(responseObj);
 
-    expect(pushMock).toHaveBeenCalledTimes(1);
+    expect(dispatchMock).toHaveBeenCalledTimes(1);
+    expect(dispatchMock).toHaveBeenCalledWith("Login response");
+    expect(loginMock).toHaveBeenCalledTimes(1);
+    expect(loginMock).toHaveBeenCalledWith("a@a.c", "1234");
   });
 });

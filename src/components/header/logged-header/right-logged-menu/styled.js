@@ -15,6 +15,17 @@ export const StyledRightMenuListWithTokenHeader = styled.div`
   align-items: center;
   z-index: 5;
 
+  .user-name {
+    color: whitesmoke;
+    display: flex;
+    font-weight: bold;
+  }
+
+  .intra {
+    margin-right: 10px;
+    scale: 1.5;
+  }
+
   .mobile-list {
     color: whitesmoke;
     margin: 10px 15px 5px;

@@ -1,4 +1,4 @@
-import moment from "moment";
+/* import moment from "moment";
 import React, { useState, useEffect } from "react";
 import { momentLocalizer } from "react-big-calendar";
 
@@ -235,3 +235,4 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) =
 };
 
 export default Calendar;
+ */

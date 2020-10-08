@@ -4,9 +4,6 @@ import { useHistory } from "react-router-dom";
 
 import { StyledLeftNonLoggedHeader } from "./styled";
 
-const token = false;
-const isPsic = false;
-
 const LeftNonLoggedHeader = () => {
   const history = useHistory();
   return (
@@ -15,9 +12,7 @@ const LeftNonLoggedHeader = () => {
       <div className="links" onClick={() => history.push("/buscar")}>
         Encontre um psicólogo
       </div>
-      <div
-        className="links"
-        onClick={() => history.push(token && isPsic ? "/psi/consultas/:id" : "/login/psi")}>
+      <div className="links" onClick={() => history.push("/login/psi")}>
         Sou psicólogo
       </div>
     </StyledLeftNonLoggedHeader>

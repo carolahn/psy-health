@@ -1,4 +1,4 @@
-import { Rate } from "antd";
+import { Rate, Button } from "antd";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
@@ -147,4 +147,13 @@ export const NewRate = styled(Rate)`
   @media (max-width: 710px) {
     font-size: 14px;
   }
+`;
+
+export const CancelButton = styled(Button)`
+  background: red;
+`;
+
+export const RescheduleButton = styled(Button)`
+  background: #053559;
+  color: white;
 `;
