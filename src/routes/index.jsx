@@ -12,15 +12,6 @@ const Routes = () => {
   const token = useSelector((state) => state.login.token);
   const access = useSelector((state) => state.login.user.is_psic);
 
-  // import DepoimentsFormContainer from "../containers/depoiments-form";
-  // const [modalVisible, setModalVisible] = useState(false);
-  // <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
-  //       <DepoimentsFormContainer
-  //         showModal={{ modalVisible, setModalVisible }}
-  //         psicId={2}
-  //         psicName="João Cleber"
-  //       />
-
   return (
     <Switch>
       {token &&

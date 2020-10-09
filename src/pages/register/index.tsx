@@ -1,6 +1,6 @@
 import React from "react";
 
-import Logo from "../../assets/imgs/logo2.svg";
+import Logo from "../../assets/imgs/logo-azul.svg";
 import RegisterSvg from "../../assets/imgs/undraw_secure_login_pdn4.svg";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
