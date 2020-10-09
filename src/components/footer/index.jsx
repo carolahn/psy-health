@@ -17,9 +17,18 @@ import {
   StyledContainerColSocial,
 } from "./styled";
 
+
+import CarouselCommentLogic from '../../containers/depoiments-banner';
+
+
 const Footer = () => {
   return (
     <StyledFooterContainer>
+
+
+      <CarouselCommentLogic listComments={list}/>
+
+
       <StyledRow>
         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
           <StyledLogoCotainer href="#">
