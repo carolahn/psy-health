@@ -11,7 +11,7 @@ export const getAppointments = () => (dispatch) => {
     .get("https://psy-health-api.herokuapp.com/appointments")
     .then(({ data }) => {
       const normalized = {};
-      data.forEach((item) => {
+      data.map((item) => {
         normalized[item.id] = { ...item };
       });
       return normalized;

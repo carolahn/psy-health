@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import CardPatientConsultation from "../../components/card-patient-consultation";
 import { getAppointments } from "../../redux/actions/appointments";
-import { getOneUser } from "../../redux/actions/users";
 import { ContainerCards, TitleContainerAppointments, TitleContainerHistory } from "./styled";
 
 const PatientPage = () => {
@@ -13,16 +12,9 @@ const PatientPage = () => {
   const psiList = useSelector((state) => state.login.psiList);
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
 
-  // useEffect(() => {
-  //   if (allAppointments.length > 0) {
-  //     filterAppointmentsUser();
-  //   }
-  // }, [allAppointments]);
-  console.log(psiList);
-  console.log(allAppointments);
-  // const filterPsicUser = (appointment) => {
-  //   setPsic(allUsers.filter((user) => user.id === appointment.psic.id));
-  // };
+  useEffect(() => {
+    dispatch(getAppointments());
+  }, [allAppointments]);
 
   const compareDates = (dateAppointment) => {
     const parts = dateAppointment[0].split("-");
@@ -69,10 +61,10 @@ const PatientPage = () => {
       {allAppointments &&
         Object.values(allAppointments)
           .filter((appointment) => appointment.userId === userId)
-          .map((appointment, index) =>
-            compareDates(appointment.date.start.split(" "))
-              ? null
-              : constructCardWithAvaliation(appointment, index)
+          .map(
+            (appointment, index) =>
+              !compareDates(appointment.date.start.split(" ")) &&
+              constructCardWithAvaliation(appointment, index)
           )}
     </ContainerCards>
   );

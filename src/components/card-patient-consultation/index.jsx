@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
+import { deleteAppointment } from "../../redux/actions/appointments";
 import {
   CardContainer,
   ImgAndNameCardCotainer,
@@ -21,10 +23,32 @@ import {
 } from "./styled";
 
 const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const newAppointment = appointment.date.start.split(" ");
-  const dateAppointment = newAppointment[0];
-  const hourAppointment = newAppointment[1];
+  const token = useSelector((state) => state.login.token);
+
+  const Avaliation = false;
   let onePsi = "";
+
+  const constructDate = () => {
+    const partsDate = newAppointment[0].split("-");
+    return `${partsDate[2]}/${partsDate[1]}/${partsDate[0]}`;
+  };
+
+  const constructHour = () => {
+    const partsHour = newAppointment[1].split(":");
+    return `${partsHour[0]}:${partsHour[1]}`;
+  };
+
+  const cancelAppointment = () => {
+    dispatch(deleteAppointment(appointment.id, token));
+  };
+
+  const rescheduleAppointment = () => {
+    dispatch(deleteAppointment(appointment.id, token));
+    history.push("/");
+  };
 
   const filterPsicUser = (appointment) => {
     onePsi = psiList.filter((psi) => psi.id === appointment.psic.id);
@@ -45,7 +69,7 @@ const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) =
                 {onePsi[0].name}
               </TitleForNameDateScheduleValueAndAvaliation>
               <CrpDiv>{`CRP: ${onePsi[0].crp}`}</CrpDiv>
-              <NewRate allowHalf defaultValue={onePsi[0].rating} />
+              <NewRate allowHalf disabled defaultValue={onePsi[0].rating} />
             </NameDivCotainer>
           </ImgAndNameCardCotainer>
           <DateScheduleAndValueContainer>
@@ -53,13 +77,13 @@ const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) =
               <TitleForNameDateScheduleValueAndAvaliation>
                 Data
               </TitleForNameDateScheduleValueAndAvaliation>
-              <TextStyle>{dateAppointment}</TextStyle>
+              <TextStyle>{constructDate()}</TextStyle>
             </DateScheduleAndValue>
             <DateScheduleAndValue>
               <TitleForNameDateScheduleValueAndAvaliation>
                 Horário
               </TitleForNameDateScheduleValueAndAvaliation>
-              <TextStyle>{hourAppointment}</TextStyle>
+              <TextStyle>{constructHour()}</TextStyle>
             </DateScheduleAndValue>
             <DateScheduleAndValue>
               <TitleForNameDateScheduleValueAndAvaliation>
@@ -71,16 +95,25 @@ const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) =
           <AvaliationOrButton>
             {buttonOrAvaliation ? (
               <ContainerButtons>
-                <RescheduleButton>Remarcar</RescheduleButton>
-                <CancelButton>Cancel</CancelButton>
-                <AvaliationButton>Avaliar</AvaliationButton>
+                <RescheduleButton onClick={rescheduleAppointment}>Remarcar</RescheduleButton>
+                <CancelButton onClick={cancelAppointment}>Cancelar</CancelButton>
               </ContainerButtons>
             ) : (
                 <>
-                  <TitleForNameDateScheduleValueAndAvaliation>
-                    Avaliação
-                </TitleForNameDateScheduleValueAndAvaliation>
-                  <NewRate allowHalf defaultValue={5} />
+                  {Avaliation ? (
+                    <>
+                      <TitleForNameDateScheduleValueAndAvaliation>
+                        Avaliação
+                    </TitleForNameDateScheduleValueAndAvaliation>
+                      <NewRate allowHalf disabled defaultValue={5} />
+                    </>
+                  ) : (
+                      <ContainerButtons>
+                        <AvaliationButton onClick={() => console.log("avaliar")}>
+                          Avaliar
+                    </AvaliationButton>
+                      </ContainerButtons>
+                    )}
                 </>
               )}
           </AvaliationOrButton>

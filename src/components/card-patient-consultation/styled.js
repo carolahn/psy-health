@@ -159,12 +159,17 @@ export const ContainerButtons = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  @media (max-width: 500px) {
+    flex-direction: row;
+  }
 `;
 
 export const CancelButton = styled(Button)`
   padding-bottom: 5px;
   border-radius: 5px;
   background: #e16769;
+  color: white;
   width: 100px;
 `;
 
