@@ -19,7 +19,9 @@ const login_unsuccesseful = (error) => ({
   error,
 });
 
-export const login = (email, password, history, hasPsi, is_psic) => async (dispatch) => {
+export const login = (email, password, history, hasPsi /* , is_psic */) => async (dispatch) => {
+  let is_psic = false;
+
   await axios({
     headers: { "Content-Type": "application/json" },
     method: "post",
@@ -33,6 +35,7 @@ export const login = (email, password, history, hasPsi, is_psic) => async (dispa
       axios
         .get(base_users_url)
         .then(({ data }) => {
+          is_psic = Object.values(data).find((e) => e.email === email).is_psic;
           dispatch(
             login_successeful(
               accessToken,

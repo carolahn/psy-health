@@ -33,16 +33,16 @@ const Routes = (props) => {
             </Route>
           </Switch>
         ) : (
-            // logado como psicologo
-            <Switch>
-              <Route path="/psi/perfil/:id" />
-              <Route path="/psi/consultas/:id" />
-              <Route path="/psi">
-                <PsychologistPage />
-                <Footer />
-              </Route>
-            </Switch>
-          ))}
+          // logado como psicologo
+          <Switch>
+            <Route path="/psi/perfil/:id" />
+            <Route path="/psi/consultas/:id" />
+            <Route path="/psi">
+              <PsychologistPage />
+              <Footer />
+            </Route>
+          </Switch>
+        ))}
 
       {/* não logado */}
       <Route path="/login">

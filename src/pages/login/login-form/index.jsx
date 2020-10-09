@@ -16,7 +16,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const chosenPsi = useSelector((state) => state.login.chosenPsi);
-  const is_psic = useSelector((state) => state.login.user.is_psic);
+  const is_psic = psi_urls.some((e) => e === where);
+  console.log(is_psic);
 
   const handleInputChange = ({ target: { value } }) => {
     setEmail(value);
