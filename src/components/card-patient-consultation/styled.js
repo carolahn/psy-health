@@ -130,6 +130,10 @@ export const TextStyle = styled.div`
 
 export const AvaliationOrButton = styled.div`
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-top: 15px;
   width: 150px;
   height: 114px;
@@ -149,11 +153,33 @@ export const NewRate = styled(Rate)`
   }
 `;
 
+export const ContainerButtons = styled.div`
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
 export const CancelButton = styled(Button)`
-  background: red;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  background: #e16769;
+  width: 100px;
 `;
 
 export const RescheduleButton = styled(Button)`
-  background: #053559;
+  padding-top: 5px;
+  border-radius: 5px;
+  background: #9e9e9e;
   color: white;
+  width: 100px;
+`;
+
+export const AvaliationButton = styled(Button)`
+  padding-top: 5px;
+  border-radius: 5px;
+  background: #174362;
+  color: white;
+  width: 100px;
 `;

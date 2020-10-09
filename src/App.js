@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import "antd/dist/antd.css";
+
 import BannerOperation from "./components/banner-operation";
 import BannerSearch from "./components/banner-search";
 import CardPatientConsultation from "./components/card-patient-consultation";

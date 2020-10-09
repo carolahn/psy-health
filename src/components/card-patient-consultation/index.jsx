@@ -14,36 +14,38 @@ import {
   CrpDiv,
   TextStyle,
   NewRate,
+  ContainerButtons,
   CancelButton,
   RescheduleButton,
+  AvaliationButton,
 } from "./styled";
 
-const CardPatientConsultation = ({ allUsers, appointment, buttonOrAvaliation }) => {
+const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) => {
   const newAppointment = appointment.date.start.split(" ");
   const dateAppointment = newAppointment[0];
   const hourAppointment = newAppointment[1];
-  let oneUser = "";
+  let onePsi = "";
 
   const filterPsicUser = (appointment) => {
-    oneUser = allUsers.filter((user) => user.id === appointment.psic.id);
+    onePsi = psiList.filter((psi) => psi.id === appointment.psic.id);
   };
 
   filterPsicUser(appointment);
 
   return (
     <>
-      {oneUser.length > 0 && (
+      {onePsi.length > 0 && (
         <CardContainer>
           <ImgAndNameCardCotainer>
             <ImgDivCotainer>
-              <PhotoPsychologist src={oneUser[0].image} />
+              <PhotoPsychologist src={onePsi[0].image} />
             </ImgDivCotainer>
             <NameDivCotainer>
               <TitleForNameDateScheduleValueAndAvaliation>
-                {oneUser[0].name}
+                {onePsi[0].name}
               </TitleForNameDateScheduleValueAndAvaliation>
-              <CrpDiv>{`CRP: ${oneUser[0].crp}`}</CrpDiv>
-              <NewRate allowHalf defaultValue={oneUser[0].rating} />
+              <CrpDiv>{`CRP: ${onePsi[0].crp}`}</CrpDiv>
+              <NewRate allowHalf defaultValue={onePsi[0].rating} />
             </NameDivCotainer>
           </ImgAndNameCardCotainer>
           <DateScheduleAndValueContainer>
@@ -63,15 +65,16 @@ const CardPatientConsultation = ({ allUsers, appointment, buttonOrAvaliation }) 
               <TitleForNameDateScheduleValueAndAvaliation>
                 Valor
               </TitleForNameDateScheduleValueAndAvaliation>
-              <TextStyle>{`R$ ${oneUser[0].price},00`}</TextStyle>
+              <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
             </DateScheduleAndValue>
           </DateScheduleAndValueContainer>
           <AvaliationOrButton>
             {buttonOrAvaliation ? (
-              <>
+              <ContainerButtons>
                 <RescheduleButton>Remarcar</RescheduleButton>
                 <CancelButton>Cancel</CancelButton>
-              </>
+                <AvaliationButton>Avaliar</AvaliationButton>
+              </ContainerButtons>
             ) : (
                 <>
                   <TitleForNameDateScheduleValueAndAvaliation>
