@@ -9,13 +9,14 @@ import CardPatientConsultation from "./components/card-patient-consultation";
 import Footer from "./components/footer";
 import Header from "./components/header/index.jsx";
 import PatientPage from "./pages/patient-page";
-import Routes from "./routes/index";
+import Routes from "./routes/";
 
 const App = () => {
   return (
     <BodyFrame>
       <Header />
       <Routes />
+      <Footer />
     </BodyFrame>
   );
 };
@@ -28,5 +29,4 @@ const BodyFrame = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  align-items: center;
 `;

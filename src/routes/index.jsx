@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import Footer from "../components/footer";
 import DepoimentsFormContainer from "../containers/depoiments-form";
 import RegisterContainer from "../containers/register";
 import Login from "../pages/login";
@@ -75,7 +74,6 @@ const Routes = (props) => {
           psicId={2}
           psicName="João Cleber"
         />
-        <Footer />
       </Route>
     </Switch>
   );

@@ -20,6 +20,8 @@ const login_unsuccesseful = (error) => ({
 });
 
 export const login = (email, password, history, hasPsi) => async (dispatch) => {
+  let is_psic = false;
+
   await axios({
     headers: { "Content-Type": "application/json" },
     method: "post",
@@ -33,6 +35,7 @@ export const login = (email, password, history, hasPsi) => async (dispatch) => {
       axios
         .get(base_users_url)
         .then(({ data }) => {
+          is_psic = Object.values(data).find((e) => e.email === email).is_psic;
           dispatch(
             login_successeful(
               accessToken,
@@ -41,7 +44,7 @@ export const login = (email, password, history, hasPsi) => async (dispatch) => {
             )
           );
           dispatch(getAppointments());
-          return hasPsi ? history.goBack() : history.push("/");
+          return hasPsi ? history.goBack() : is_psic ? history.push("/psi") : history.push("/");
         })
         .catch((error) => dispatch(login_unsuccesseful(error)));
     })
