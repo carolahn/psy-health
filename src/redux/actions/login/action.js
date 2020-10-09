@@ -5,6 +5,7 @@ import { LOGIN_SUCCESSFUL, LOGIN_UNSUCCESSFUL, LOGOUT, SCHEDULE_APPOINTMENT } fr
 
 const base_login_url = `https://psy-health-api.herokuapp.com/login`;
 const base_users_url = `https://psy-health-api.herokuapp.com/users`;
+const base_appointments_url = `https://psy-health-api.herokuapp.com/appointments`;
 
 const login_successeful = (token, user, psiList) => ({
   type: LOGIN_SUCCESSFUL,

@@ -6,7 +6,7 @@ import {
   DELETE_APPOINTMENT,
 } from "../../actions/appointments";
 
-const defaultState = [];
+const defaultState = { allAppointments: {}, oneAppointment: {} };
 
 const appointments = (state = defaultState, { type, payload }) => {
   switch (type) {
