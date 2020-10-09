@@ -1,4 +1,4 @@
-import { Form, Rate } from "antd";
+import { Rate } from "antd";
 import styled from "styled-components";
 import "antd/dist/antd.css";
 

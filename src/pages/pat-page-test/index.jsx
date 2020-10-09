@@ -16,7 +16,7 @@ const PatPageTest = () => {
     dispatch(getAppointments());
     dispatch(getOneUser("13"));
   }, []);
-  console.log(oneUser);
+  // console.log(oneUser);
   return (
     <div className="pat-page-test">
       <p>Patient Page Test</p>

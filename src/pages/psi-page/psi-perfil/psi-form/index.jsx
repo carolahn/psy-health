@@ -1,12 +1,11 @@
-import { Row, Col, Rate, Form, Input, Button, Select } from "antd";
+import { Row, Col, Form, Input, Button, Select } from "antd";
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { useWindowSize } from "../../../../hooks/index";
 import { getAppointments } from "../../../../redux/actions/appointments";
 import { getOneUser, patchUserInfo } from "../../../../redux/actions/users";
 import {
-  MainWrapper,
   PsiCard,
   StyledWorkForm,
   StyledRate,
@@ -88,7 +87,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   const formRef = React.createRef();
 
   const handleOnFinish = (values) => {
-    console.log("valuesBefore", values);
+    // console.log("valuesBefore", values);
     const newWorkDays = {};
     Object.keys(values).map((key) => {
       if (key === "1") {
@@ -130,12 +129,12 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
       }
     });
     newValues = { ...newValues, workDays: { ...newWorkDays } };
-    console.log("newValues", newValues);
+    // console.log("newValues", newValues);
     dispatch(patchUserInfo(login.user.id, login.token, { ...newValues }));
   };
 
   const handleOnReset = () => {
-    console.log("onreset");
+    // console.log("onreset");
     form.setFieldsValue({
       price: psicInfo.price || "Adicione o valor da consulta",
       description: psicInfo.description || "Adicione uma descrição sobre você",
@@ -162,9 +161,9 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
     children.push(<Option key={i}>{`${i}h`}</Option>);
   }
 
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+  // function handleChange(value) {
+  // console.log(`selected ${value}`);
+  // }
 
   useEffect(() => {
     if (JSON.stringify(oneUser) === "{}") {

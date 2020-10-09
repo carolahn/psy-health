@@ -1,16 +1,17 @@
 import moment from "moment";
 import React, { useState, useEffect } from "react";
 import { momentLocalizer } from "react-big-calendar";
+import { FaHourglassEnd } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
 import { postAppointments } from "../../redux/actions/appointments";
 import { schedule_appointment } from "../../redux/actions/login/action";
-import { CalendarWrapper } from "./styled";
+import { CalendarWrapper, StyledModal } from "./styled";
 import useWindowSize from "./use-window-size";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { Modal, Button } from "antd";
+import { Button, notification } from "antd";
 import "antd/dist/antd.css";
 
 // type: "psic-info" -> mostra os workDays em verde e os horários reservados, para ser usado nas páginas de informações sobre o psicólogo
@@ -28,8 +29,10 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
   const history = useHistory();
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalConfirmVisible, setModalConfirmVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState([]);
   const [unavailable, setUnavailable] = useState([]);
+
   const thisPsicAppointments = Object.values(allAppointments).filter(
     (item) => item.psic.id === psicInfo.id
   );
@@ -69,26 +72,31 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
       };
     });
   }
-  // console.log(eventList);
 
+  // refresh unavailables dates when load or after an schedule
   useEffect(() => {
     if (type === "psic-info") {
       let unavailableDates = thisPsicAppointments.map((item) => {
-        return [item.date.start];
+        let moreThirty = new Date(item.date.start.toLocaleString()).getTime();
+        moreThirty = new Date(moreThirty + 1000 * 60 * 30);
+        moreThirty = moment(moreThirty.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
+        // console.log(item.date.start, moreThirty);
+        return [item.date.start, moreThirty];
       });
       unavailableDates = unavailableDates.flat();
       setUnavailable(...[unavailableDates]);
     }
-  }, [psicInfo]);
+  }, [psicInfo, allAppointments]);
 
   moment.locale("en-US");
   const localizer = momentLocalizer(moment);
 
   function onSlotChange(slotInfo) {
-    var startDate = moment(slotInfo.start.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
-    var endDate = moment(slotInfo.end.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
-    // console.log("startcarol", moment(slotInfo.start.toLocaleString())._d); //pegar sat ou sun por aqui
+    const startDate = moment(slotInfo.start.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
+    let endDate = new Date(slotInfo.start.getTime() + 1000 * 60 * 60);
+    endDate = moment(endDate).format("YYYY-MM-DD HH:mm:ss");
 
+    // prevents selecting a time that ends on a non-working hour
     const thirtyMinutesMoreUnformatted = new Date(slotInfo.start.getTime() + 1000 * 60 * 30);
     const thirtyMinutesMore = moment(thirtyMinutesMoreUnformatted.toLocaleString()).format(
       "YYYY-MM-DD HH:mm:ss"
@@ -109,29 +117,21 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
               if (!unavailable.includes(startDate) && !unavailable.includes(thirtyMinutesMore)) {
                 const currentDate = new Date();
                 const moreUnf = new Date(slotInfo.start.getTime() + 1000 * 60 * 30);
-                // const more = moment(moreUnf.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
                 if (moreUnf > currentDate) {
-                  console.log("user-pat: Quer agendar?", slotInfo);
-                  setSelectedDate([slotInfo.start, slotInfo.end]);
-                  setModalVisible(true);
-                  //enviar para fazere login, depois fazer dispatch(postAppointment(userId,token,{appointment data}))
+                  // console.log("start", startDate);
+                  // console.log("end", endDate);
+
+                  setSelectedDate([startDate, endDate]);
+                  if (login.token === "") {
+                    setModalVisible(true);
+                  } else {
+                    // console.log(selectedDate);
+                    dispatch(schedule_appointment(psicInfo, startDate, endDate));
+                    setModalConfirmVisible(true);
+                  }
+                  //enviar para fazer login, depois fazer dispatch(postAppointment(userId,token,{appointment data}))
                 }
               }
-
-              // return {
-              //   date: {
-              //     start: startDate,
-              //     end: thirtyMinutesMore,
-              //   },
-              //   psic: {
-              //     name: psicInfo.name,
-              //     id: psicInfo.id,
-              //   },
-              //   patient: {
-              //     name: patInfo.name,
-              //     id: patInfo.id,
-              //   },
-              // };
             }
           }
         }
@@ -140,13 +140,13 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
   }
 
   const handleOnCancel = () => {
+    dispatch(schedule_appointment("", "", ""));
     setModalVisible(false);
   };
 
   const handleOnOk = () => {
-    console.log(login);
     if (login.user === "") {
-      console.log("voce precisa estar logado");
+      // console.log("voce precisa estar logado");
       dispatch(schedule_appointment(psicInfo, selectedDate[0], selectedDate[1]));
       history.push("/login");
     }
@@ -154,26 +154,47 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
   };
 
   useEffect(() => {
-    if (login.token !== "" && login.chosenPsi !== "") {
-      console.log("quer agendar?", login.psiAppointmentBeginning);
-      // dispatch(
-      //   postAppointments(login.user.id, login.token, {
-      //     date: {
-      //       start: login.psiAppointmentBeginning,
-      //       end: login.psiAppointmentEnding,
-      //     },
-      //     psic: {
-      //       name: login.chosenPsi.name,
-      //       id: login.chosenPsi.id,
-      //     },
-      //     patient: {
-      //       name: login.user.name,
-      //       id: login.user.id,
-      //     },
-      //   })
-      // );
+    if (login.token !== "" && login.chosenPsi !== "" && type !== "user-psic") {
+      // console.log("quer agendar?", login.psiAppointmentBeginning);
+      setModalConfirmVisible(true);
+    } else {
+      setModalConfirmVisible(false);
     }
   }, []);
+
+  const handleOnNotConfirm = () => {
+    dispatch(schedule_appointment("", "", ""));
+    setModalConfirmVisible(false);
+  };
+
+  const handleOnConfirm = () => {
+    dispatch(
+      postAppointments(login.user.id, login.token, {
+        date: {
+          start: login.psiAppointmentBeginning,
+          end: login.psiAppointmentEnding,
+        },
+        psic: {
+          name: login.chosenPsi.name,
+          id: login.chosenPsi.id,
+        },
+        patient: {
+          name: login.user.name,
+          id: login.user.id,
+        },
+      })
+    );
+    setModalConfirmVisible(false);
+    setTimeout(dispatch(schedule_appointment("", "", "")), 200);
+    setTimeout(
+      notification.success({
+        key: login.user.id,
+        message: "Concluído",
+        description: "Agendamento realizado com sucesso!",
+      }),
+      200
+    );
+  };
 
   function onEventClick(event) {
     if (type === "user-psic") {
@@ -277,8 +298,8 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
           slotPropGetter={customSlotPropGetter}
         />
       )}
-      <Modal
-        title="Vertically"
+      <StyledModal
+        title="Efetuar login"
         centered
         visible={modalVisible}
         onOk={handleOnOk}
@@ -288,13 +309,45 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
             Cancelar
           </Button>,
           <Button key="submit" type="primary" onClick={handleOnOk}>
+            Login
+          </Button>,
+        ]}>
+        <p className="modal-confirm-text">Para agendar a consulta, você precisa efetuar o Login.</p>
+      </StyledModal>
+      <StyledModal
+        title="Confirmar consulta"
+        centered
+        visible={modalConfirmVisible}
+        onOk={handleOnConfirm}
+        onCancel={handleOnNotConfirm}
+        footer={[
+          <Button key="cancel" onClick={handleOnNotConfirm}>
+            Cancelar
+          </Button>,
+          <Button key="submit" type="primary" onClick={handleOnConfirm}>
             Agendar
           </Button>,
         ]}>
-        <p>Para agendar a consulta</p>
-        <p>você precisa efetuar o Login.</p>
-        <p>Gostaria de agendar?</p>
-      </Modal>
+        <p className="modal-confirm-text">Gostaria de agendar?</p>
+        <p className="modal-confirm-text">
+          <span className="modal-confirm-label">Data: </span>
+          <span>
+            {login.psiAppointmentBeginning &&
+              login.psiAppointmentBeginning.toLocaleString().slice(0, 10)}
+          </span>
+        </p>
+        <p className="modal-confirm-text">
+          <span className="modal-confirm-label">Horário: </span>
+          <span>
+            {login.psiAppointmentBeginning &&
+              login.psiAppointmentBeginning.toLocaleString().slice(11, 13)}
+            h
+            {login.psiAppointmentBeginning &&
+              login.psiAppointmentBeginning.toLocaleString().slice(14, 16)}
+            min
+          </span>
+        </p>
+      </StyledModal>
     </>
   );
 };

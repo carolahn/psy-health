@@ -21,9 +21,6 @@ const PsiAppointments = () => {
 
   let today = new Date();
   today = moment(today).format("YYYY-MM-DD HH:mm:ss");
-  console.log(today);
-  // today = new Date(today);
-  // console.log(today);
 
   useEffect(() => {
     if (!allAppointments) {

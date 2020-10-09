@@ -21,7 +21,6 @@ const CardListPsiAppointments = ({ type, appointments, numberOfCards }) => {
     sorted = Object.values(appointments).sort(function (b, a) {
       return new Date(a.date.start).getTime() - new Date(b.date.start).getTime();
     });
-    console.log("past-sorted", sorted);
     if (sorted.length > 3) {
       special = true;
     }

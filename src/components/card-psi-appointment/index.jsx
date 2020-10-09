@@ -7,7 +7,7 @@ import { StyledCard } from "./styled";
 
 const CardPsiAppointment = ({ type, appointmentData }) => {
   // type: next, history
-  console.log(appointmentData);
+
   return (
     <StyledCard className="card-psi-appointment">
       <Row>
