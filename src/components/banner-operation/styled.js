@@ -60,11 +60,7 @@ export const InfoDiv = styled.div`
 
   @media (max-width: 800px) {
     padding: 40px;
-<<<<<<< HEAD
     width: 340px;
-=======
-    width: 300px;
->>>>>>> 9a112990a463261c5f6c4d43237c77aff10b67b9
     height: 200px;
   }
 `;
