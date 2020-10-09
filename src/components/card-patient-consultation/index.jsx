@@ -47,7 +47,7 @@ const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) =
 
   const rescheduleAppointment = () => {
     dispatch(deleteAppointment(appointment.id, token));
-    history.push("/");
+    history.push(`/psi/agendamentos/${onePsi[0].id}`);
   };
 
   const filterPsicUser = (appointment) => {
