@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
     width: 450px;
+    margin: 1.25rem 0;
     border: 2px solid #70A3EF;
     border-radius: 3px;
     display: flex;
     background-color: white;
-
+    
     h3, h4, h5, h6{
         font-weight: bold;
         margin-bottom: 10px;
