@@ -1,10 +1,17 @@
 import moment from "moment";
 import React, { useState, useEffect } from "react";
 import { momentLocalizer } from "react-big-calendar";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 
+import { postAppointments } from "../../redux/actions/appointments";
+import { schedule_appointment } from "../../redux/actions/login/action";
 import { CalendarWrapper } from "./styled";
 import useWindowSize from "./use-window-size";
+
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Modal, Button } from "antd";
+import "antd/dist/antd.css";
 
 // type: "psic-info" -> mostra os workDays em verde e os horários reservados, para ser usado nas páginas de informações sobre o psicólogo
 // type: "user-psic" -> mostra os workDays em verde e os horários reservados com o nome do paciente, para ser usado na página pessoal do psicólogo
@@ -16,8 +23,12 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 // <Calendar type:"psic-info" psicInfo={allUsers[<psicId>]} patInfo={}
 // a props patInfo só é necessária no type="user-pat" ou na hora de agendar consulta(deve ser encaminhado para fazer o login)
 
-const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) => {
+const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, login = {} }) => {
   const size = useWindowSize();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedDate, setSelectedDate] = useState([]);
   const [unavailable, setUnavailable] = useState([]);
   const thisPsicAppointments = Object.values(allAppointments).filter(
     (item) => item.psic.id === psicInfo.id
@@ -101,31 +112,68 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) =
                 // const more = moment(moreUnf.toLocaleString()).format("YYYY-MM-DD HH:mm:ss");
                 if (moreUnf > currentDate) {
                   console.log("user-pat: Quer agendar?", slotInfo);
+                  setSelectedDate([slotInfo.start, slotInfo.end]);
+                  setModalVisible(true);
                   //enviar para fazere login, depois fazer dispatch(postAppointment(userId,token,{appointment data}))
                 }
               }
 
-              return {
-                id: allAppointments.length,
-                date: {
-                  start: startDate,
-                  end: thirtyMinutesMore,
-                },
-                psic: {
-                  name: psicInfo.name,
-                  id: psicInfo.id,
-                },
-                patient: {
-                  name: patInfo.name,
-                  id: patInfo.id,
-                },
-              };
+              // return {
+              //   date: {
+              //     start: startDate,
+              //     end: thirtyMinutesMore,
+              //   },
+              //   psic: {
+              //     name: psicInfo.name,
+              //     id: psicInfo.id,
+              //   },
+              //   patient: {
+              //     name: patInfo.name,
+              //     id: patInfo.id,
+              //   },
+              // };
             }
           }
         }
       }
     }
   }
+
+  const handleOnCancel = () => {
+    setModalVisible(false);
+  };
+
+  const handleOnOk = () => {
+    console.log(login);
+    if (login.user === "") {
+      console.log("voce precisa estar logado");
+      dispatch(schedule_appointment(psicInfo, selectedDate[0], selectedDate[1]));
+      history.push("/login");
+    }
+    setModalVisible(false);
+  };
+
+  useEffect(() => {
+    if (login.token !== "" && login.chosenPsi !== "") {
+      console.log("quer agendar?", login.psiAppointmentBeginning);
+      // dispatch(
+      //   postAppointments(login.user.id, login.token, {
+      //     date: {
+      //       start: login.psiAppointmentBeginning,
+      //       end: login.psiAppointmentEnding,
+      //     },
+      //     psic: {
+      //       name: login.chosenPsi.name,
+      //       id: login.chosenPsi.id,
+      //     },
+      //     patient: {
+      //       name: login.user.name,
+      //       id: login.user.id,
+      //     },
+      //   })
+      // );
+    }
+  }, []);
 
   function onEventClick(event) {
     if (type === "user-psic") {
@@ -229,6 +277,24 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {} }) =
           slotPropGetter={customSlotPropGetter}
         />
       )}
+      <Modal
+        title="Vertically"
+        centered
+        visible={modalVisible}
+        onOk={handleOnOk}
+        onCancel={handleOnCancel}
+        footer={[
+          <Button key="cancel" onClick={handleOnCancel}>
+            Cancelar
+          </Button>,
+          <Button key="submit" type="primary" onClick={handleOnOk}>
+            Agendar
+          </Button>,
+        ]}>
+        <p>Para agendar a consulta</p>
+        <p>você precisa efetuar o Login.</p>
+        <p>Gostaria de agendar?</p>
+      </Modal>
     </>
   );
 };

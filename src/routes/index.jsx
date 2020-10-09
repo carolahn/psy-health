@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import Footer from "../components/footer";
 import Login from "../pages/login";
+import PatPageTest from "../pages/pat-page-test";
 import PsiPage from "../pages/psi-page";
 import PsiAppointments from "../pages/psi-page/psi-consultas";
 import PsiProfile from "../pages/psi-page/psi-perfil";
@@ -23,7 +24,11 @@ const Routes = (props) => {
             <Route path={["/login", "/register"]}>
               <Redirect to="/" />
             </Route>
-
+            <Route path="/fruta">
+              Home Fruta
+              <PatPageTest />
+              <Footer />
+            </Route>
             <Route path="/">
               Home Logado
               <Footer />
@@ -34,9 +39,11 @@ const Routes = (props) => {
           <Switch>
             <Route path="/psi/perfil/:id">
               <PsiProfile />
+              <Footer />
             </Route>
             <Route path="/psi/consultas/:id">
               <PsiAppointments />
+              <Footer />
             </Route>
             <Route path="/">
               <PsiPage />
@@ -54,8 +61,10 @@ const Routes = (props) => {
         <Register />
       </Route>
 
-      <Route path="/">
-        Home <Footer />
+      <Route path="/fruta">
+        Home Não logado
+        <PatPageTest />
+        <Footer />
       </Route>
     </Switch>
   );
