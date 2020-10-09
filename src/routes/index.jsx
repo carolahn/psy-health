@@ -7,6 +7,7 @@ import DepoimentsFormContainer from "../containers/depoiments-form";
 import RegisterContainer from "../containers/register";
 import Login from "../pages/login";
 import PatPageTest from "../pages/pat-page-test";
+import PatientPage from "../pages/patient-page";
 import PsiPage from "../pages/psi-page";
 import PsiAppointments from "../pages/psi-page/psi-consultas";
 import PsiProfile from "../pages/psi-page/psi-perfil";
@@ -29,13 +30,11 @@ const Routes = (props) => {
               <Redirect to="/" />
             </Route>
             <Route path="/fruta">
-              Home Fruta
+              Page Test Fruta
               <PatPageTest />
-              <Footer />
             </Route>
             <Route exact path="/">
-              Home Logado
-              <Footer />
+              <PatientPage />
             </Route>
           </Switch>
         ) : (
@@ -43,15 +42,12 @@ const Routes = (props) => {
           <Switch>
             <Route path="/psi/perfil/:id">
               <PsiProfile />
-              <Footer />
             </Route>
             <Route path="/psi/consultas/:id">
               <PsiAppointments />
-              <Footer />
             </Route>
             <Route path="/psi">
               <PsiPage />
-              <Footer />
             </Route>
           </Switch>
         ))}
@@ -68,11 +64,9 @@ const Routes = (props) => {
         <Search />
       </Route>
       <Route path="/fruta">
-        Home Não logado
+        Page Test Fruta - Não logado
         <PatPageTest />
-        <Footer />
       </Route>
-
       <Route exact path="/">
         Home
         <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
