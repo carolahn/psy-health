@@ -19,7 +19,7 @@ const login_unsuccesseful = (error) => ({
   error,
 });
 
-export const login = (email, password, history, hasPsi /* , is_psic */) => async (dispatch) => {
+export const login = (email, password, history, hasPsi) => async (dispatch) => {
   let is_psic = false;
 
   await axios({

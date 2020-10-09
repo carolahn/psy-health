@@ -16,8 +16,6 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const chosenPsi = useSelector((state) => state.login.chosenPsi);
-  const is_psic = psi_urls.some((e) => e === where);
-  console.log(is_psic);
 
   const handleInputChange = ({ target: { value } }) => {
     setEmail(value);
@@ -29,7 +27,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email, password, history, !!chosenPsi, is_psic));
+    dispatch(login(email, password, history, !!chosenPsi));
   };
 
   return (
