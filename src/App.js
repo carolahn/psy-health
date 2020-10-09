@@ -1,9 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import 'antd/dist/antd.css'
-import Footer from "./components/footer";
 
+import "antd/dist/antd.css";
+
+import BannerOperation from "./components/banner-operation";
+import BannerSearch from "./components/banner-search";
+import CardPatientConsultation from "./components/card-patient-consultation";
+import Footer from "./components/footer";
 import Header from "./components/header/index.jsx";
+import PatientPage from "./pages/patient-page";
 import Routes from "./routes/index";
 
 const App = () => {
@@ -23,5 +28,5 @@ const BodyFrame = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  /* align-items: center; */
+  align-items: center;
 `;
