@@ -3,26 +3,32 @@ import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Footer from "../components/footer";
-import DepoimentsFormContainer from "../containers/depoiments-form";
 import RegisterContainer from "../containers/register";
 import Login from "../pages/login";
 import PsychologistPage from "../pages/psychologist-page";
-import Register from "../pages/register";
-import Search from '../pages/search'
+import Search from "../pages/search";
 
-const Routes = (props) => {
+const Routes = () => {
   const token = useSelector((state) => state.login.token);
   const access = useSelector((state) => state.login.user.is_psic);
-  const [modalVisible, setModalVisible] = useState(true);
+
+  // import DepoimentsFormContainer from "../containers/depoiments-form";
+  // const [modalVisible, setModalVisible] = useState(false);
+  // <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
+  //       <DepoimentsFormContainer
+  //         showModal={{ modalVisible, setModalVisible }}
+  //         psicId={2}
+  //         psicName="João Cleber"
+  //       />
 
   return (
     <Switch>
       {token &&
-        (!access ? (
+        (access ? (
           // logado como paciente
           <Switch>
             {/* <Route path="/blog">Blog</Route> */}
-            <Route path={["/login", "/register"]}>
+            <Route path={["/login", "/cadastro"]}>
               <Redirect to="/" />
             </Route>
 
@@ -48,7 +54,7 @@ const Routes = (props) => {
         <Login />
       </Route>
 
-      <Route path="/register">
+      <Route path="/cadastro">
         <RegisterContainer />
       </Route>
       <Route path="/buscar">
@@ -56,12 +62,6 @@ const Routes = (props) => {
       </Route>
 
       <Route path="/">
-        <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
-        <DepoimentsFormContainer
-          showModal={{ modalVisible, setModalVisible }}
-          psicId={2}
-          psicName="João Cleber"
-        />
         Home <Footer />
       </Route>
     </Switch>

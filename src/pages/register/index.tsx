@@ -28,16 +28,16 @@ const Register = ({ where, history }: RegisterProps) => {
         </div>
 
         <div className="lower-form">
-          <h1>Register</h1>
+          <h1>Cadastro</h1>
           <div className="changeToPsic">
             <span
-              className={where === "/register" ? "usr" : undefined}
-              onClick={() => history.push("/register")}>
+              className={where === "/cadastro" ? "usr" : undefined}
+              onClick={() => history.push("/cadastro")}>
               Sou Paciente
             </span>
             <span
-              className={where === "/register/psi" ? "psi" : undefined}
-              onClick={() => history.push("/register/psi")}>
+              className={where === "/cadastro/psi" ? "psi" : undefined}
+              onClick={() => history.push("/cadastro/psi")}>
               Sou Psicólogo
             </span>
           </div>

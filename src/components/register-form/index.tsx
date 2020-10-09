@@ -3,35 +3,7 @@ import React from "react";
 
 import { StyledInput, StyledButton, StyledForm } from "../../styles";
 import { cpfCnpjMask, phoneMask, crpMask } from "./masks";
-
-interface Values {
-  name?: string;
-  email?: string;
-  password?: string;
-  cpf_cnpj?: string;
-  phone?: string;
-  crp?: string;
-}
-
-interface OnChange {
-  target: {
-    name: string;
-    value: string;
-  };
-}
-
-interface RegisterFormProps {
-  isPsic: boolean;
-  values: Values;
-  onSubmit: () => void;
-  formErrors: {
-    register: any;
-    handleSubmit: any;
-    errors: any;
-  };
-  handleOnChange: ({ target: { name, value } }: OnChange) => void;
-  handleMaskOnChange: (value: string, key: string) => void;
-}
+import { RegisterFormProps } from "./types";
 
 const RegisterForm = ({
   isPsic,
@@ -116,7 +88,7 @@ const RegisterForm = ({
           ref={register({
             required: "Informe seu CPF/CNPJ!",
             pattern: {
-              vlue: /(^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$)|(^\d{2}\.?\d{3}\.?\d{3}\/\d{4}-?\d{2}$)/i,
+              value: /(^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$)|(^\d{2}\.?\d{3}\.?\d{3}\/\d{4}-?\d{2}$)/i,
               message: "CPF/CNPJ não aceito!",
             },
           })}
