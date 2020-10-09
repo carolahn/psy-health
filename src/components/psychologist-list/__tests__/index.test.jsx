@@ -1,4 +1,4 @@
-import { mount } from "enzyme";
+import { mount } from "../../../containers/search-filter/__tests__/node_modules/enzyme";
 import React from "react";
 import PsychologistList from "../index";
 import StyledPsychologistList from "../styled";
