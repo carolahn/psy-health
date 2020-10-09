@@ -16,6 +16,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const chosenPsi = useSelector((state) => state.login.chosenPsi);
+  const is_psic = useSelector((state) => state.login.user.is_psic);
 
   const handleInputChange = ({ target: { value } }) => {
     setEmail(value);
@@ -27,7 +28,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email, password, history, !!chosenPsi));
+    dispatch(login(email, password, history, !!chosenPsi, is_psic));
   };
 
   return (

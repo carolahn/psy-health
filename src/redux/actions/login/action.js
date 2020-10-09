@@ -18,7 +18,7 @@ const login_unsuccesseful = (error) => ({
   error,
 });
 
-export const login = (email, password, history, hasPsi) => async (dispatch) => {
+export const login = (email, password, history, hasPsi, is_psic) => async (dispatch) => {
   await axios({
     headers: { "Content-Type": "application/json" },
     method: "post",
@@ -40,7 +40,7 @@ export const login = (email, password, history, hasPsi) => async (dispatch) => {
             )
           );
           dispatch(getAppointments());
-          return hasPsi ? history.goBack() : history.push("/");
+          return hasPsi ? history.goBack() : is_psic ? history.push("/psi") : history.push("/");
         })
         .catch((error) => dispatch(login_unsuccesseful(error)));
     })
