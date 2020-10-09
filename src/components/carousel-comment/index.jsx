@@ -3,16 +3,16 @@ import { StyledDivContainer, StyledCarousel, StyledInnerCarousel} from './styled
 import CardComment from '../card-comment';
 import { useWindowSize } from "../../hooks";
 
-const CarouselComment = (props) => {
+const CarouselComment = ({listComments}) => {
     const [width] = useWindowSize();
-    const listComments = [];
+    const listCommentsFiltered = [];
 
-    while(listComments.length < 9) {
-        let random = Math.round(Math.random() * (props.listComments.length - 1));
+    while(listCommentsFiltered.length < 9) {
+        let random = Math.round(Math.random() * (listComments.length - 1));
 
-        // Verifica se ja não tem um comentário do userId na lista. Se encontrar, ele adiciona o comentario na lista
-        if(listComments.find(position => position.userId === props.listComments[random].userId) === undefined) {
-            listComments.push(props.listComments[random]);
+        // Verifica se não tem um comentário do userId na lista. Se não encontrar, ele adiciona o comentario na lista
+        if(listCommentsFiltered.find(position => position.userId === listComments[random].userId) === undefined) {
+            listCommentsFiltered.push(listComments[random]);
         }
     }
     
@@ -22,7 +22,7 @@ const CarouselComment = (props) => {
             <StyledCarousel>
                 {
                     width >= 950 ? (
-                        listComments.map((e, i, arr) => {
+                        listCommentsFiltered.map((e, i, arr) => {
                             if (i % 3 === 0 && i <= arr.length - (i % 3)) return (
                                 <StyledInnerCarousel key={i}>
                                     {arr[i] && <CardComment
@@ -47,7 +47,7 @@ const CarouselComment = (props) => {
                             )
                         })
                     ) :
-                        listComments.map((e, key) => {
+                    listCommentsFiltered.map((e, key) => {
                             return (
                                 <StyledInnerCarousel key={key}>
                                     <CardComment
