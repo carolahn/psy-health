@@ -13,7 +13,6 @@ const RightMenuListWithTokenHeader = ({ setMMenu }) => {
     .split(" ")
     .slice(0, 2)
     .join(" ");
-  const token = useSelector((state) => state.login.token);
   const dispatch = useDispatch();
   const history = useHistory();
   return (
@@ -32,9 +31,9 @@ const RightMenuListWithTokenHeader = ({ setMMenu }) => {
       </div>
       <div
         className="mobile-list logout"
-        onClick={async () => {
+        onClick={() => {
           dispatch(logout());
-          (await !token) && history.push("/");
+          history.push("/");
           setMMenu(false);
         }}>
         Logout
