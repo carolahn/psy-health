@@ -31,6 +31,7 @@ const Routes = (props) => {
             <Route path="/buscar">
               <Search />
             </Route>
+            <Route path="/psi/agendamentos/:id">Teste</Route>
             <Route path="/fruta">
               Page Test Fruta
               <PatPageTest />
@@ -58,13 +59,13 @@ const Routes = (props) => {
       <Route path="/login">
         <Login />
       </Route>
-
       <Route path="/register">
         <RegisterContainer />
       </Route>
       <Route path="/buscar">
         <Search />
       </Route>
+      <Route path="/psi/agendamentos/:id">Teste</Route>
       <Route path="/fruta">
         Page Test Fruta - Não logado
         <PatPageTest />
