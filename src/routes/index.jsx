@@ -28,6 +28,9 @@ const Routes = (props) => {
             <Route path={["/login", "/register"]}>
               <Redirect to="/" />
             </Route>
+            <Route path="/buscar">
+              <Search />
+            </Route>
             <Route path="/fruta">
               Page Test Fruta
               <PatPageTest />
