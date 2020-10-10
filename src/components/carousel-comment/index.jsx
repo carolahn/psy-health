@@ -1,17 +1,14 @@
 import React from 'react';
 import { StyledDivContainer, StyledCarousel, StyledInnerCarousel} from './styled';
 import CardComment from '../card-comment';
-import { useWindowSize } from "../../hooks";
 
 const CarouselComment = ({listComments}) => {
-    const [width] = useWindowSize();
-
     return (
         <StyledDivContainer>
             <h1>Depoimentos</h1>
             <StyledCarousel>
                 {
-                    width >= 950 ? (
+                    listComments.length > 3 ? (
                         listComments.map((e, i, arr) => {
                             if (i % 3 === 0 && i <= arr.length - (i % 3)) return (
                                 <StyledInnerCarousel key={i}>
