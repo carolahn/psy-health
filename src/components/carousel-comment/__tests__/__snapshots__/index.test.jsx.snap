@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardPsychologist-renderer 1`] = `
+exports[`CarouselComment-renderer 1`] = `
 <div
   className="sc-bdnylx lhDPxY"
 >
@@ -9,12 +9,11 @@ exports[`CardPsychologist-renderer 1`] = `
   >
     <img
       alt="Imagem do Psicólogo"
-      src="url-img"
     />
     <span
       id="crp"
     >
-      CRP: CRP
+      CRP: undefined
     </span>
     <ul
       className="ant-rate ant-rate-disabled"
@@ -27,10 +26,10 @@ exports[`CardPsychologist-renderer 1`] = `
       tabIndex={-1}
     >
       <li
-        className="ant-rate-star ant-rate-star-full"
+        className="ant-rate-star ant-rate-star-zero"
       >
         <div
-          aria-checked="true"
+          aria-checked="false"
           aria-posinset={1}
           aria-setsize={5}
           onClick={null}
@@ -90,10 +89,10 @@ exports[`CardPsychologist-renderer 1`] = `
         </div>
       </li>
       <li
-        className="ant-rate-star ant-rate-star-full"
+        className="ant-rate-star ant-rate-star-zero"
       >
         <div
-          aria-checked="true"
+          aria-checked="false"
           aria-posinset={2}
           aria-setsize={5}
           onClick={null}
@@ -348,30 +347,22 @@ exports[`CardPsychologist-renderer 1`] = `
     <span
       id="price-per-hour"
     >
-      R$50/50min
+      R$undefined/50min
     </span>
   </div>
   <div
     className="container-abstract"
   >
-    <h4>
-      Name psyc
-    </h4>
-    <p>
-      Abstract description about Psychologist
-    </p>
+    <h4 />
+    <p />
     <h5>
       Especialidades
     </h5>
-    <p>
-      description specializations the Psychologist
-    </p>
+    <p />
     <h5>
       Idiomas
     </h5>
-    <p>
-      language
-    </p>
+    <p />
     <button>
       Agendar uma consulta
     </button>
