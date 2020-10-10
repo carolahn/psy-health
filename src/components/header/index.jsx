@@ -30,51 +30,48 @@ const start_with_urls = [
   "/psi/perfil/",
 ];
 
-const urls = [...header_urls, ...start_with_urls, ...non_header_urls];
-
 const Header = () => {
-  const token = useSelector((state) => state.login.token);
+  const isLoggedIn = useSelector((state) => state.login.token);
   const [width] = useWindowSize();
   const where = useLocation().pathname;
 
-  return (
-    <>
-      {non_header_urls.some((e) => e === where) ? (
-        <></>
-      ) : header_urls.some((e) => e === where) ||
-        start_with_urls.some((e) => where.startsWith(e)) ? (
-        token ? (
-          width >= 950 ? (
-            <StyledHeader>
-              <LeftLoggedHeader />
-              <RightLoggedHeader />
-            </StyledHeader>
-          ) : (
-              <StyledMobileHeader>
-                <MobileStandardHeaderWithMenu token={token} />
-              </StyledMobileHeader>
-            )
-        ) : width >= 950 ? (
-          <StyledHeader>
-            <LeftNonLoggedHeader />
-            <RightNonLoggedHeader />
-          </StyledHeader>
-        ) : (
-              <StyledMobileHeader>
-                <MobileStandardHeaderWithMenu token={token} />
-              </StyledMobileHeader>
-            )
-      ) : width >= 950 ? (
+  const isDesktop = width >= 950;
+
+  if (non_header_urls.some((e) => e === where)) return <></>;
+
+  if (header_urls.some((e) => e === where) || start_with_urls.some((e) => where.startsWith(e))) {
+    return isLoggedIn ? (
+      isDesktop ? (
         <StyledHeader>
-          <LeftNonLoggedHeader />
-          <RightNonLoggedHeader />
+          <LeftLoggedHeader />
+          <RightLoggedHeader />
         </StyledHeader>
       ) : (
-              <StyledMobileHeader>
-                <MobileStandardHeaderWithMenu token={token} />
-              </StyledMobileHeader>
-            )}
-    </>
+        <StyledMobileHeader>
+          <MobileStandardHeaderWithMenu />
+        </StyledMobileHeader>
+      )
+    ) : isDesktop ? (
+      <StyledHeader>
+        <LeftNonLoggedHeader />
+        <RightNonLoggedHeader />
+      </StyledHeader>
+    ) : (
+      <StyledMobileHeader>
+        <MobileStandardHeaderWithMenu />
+      </StyledMobileHeader>
+    );
+  }
+
+  return isDesktop ? (
+    <StyledHeader>
+      <LeftNonLoggedHeader />
+      <RightNonLoggedHeader />
+    </StyledHeader>
+  ) : (
+    <StyledMobileHeader>
+      <MobileStandardHeaderWithMenu />
+    </StyledMobileHeader>
   );
 };
 

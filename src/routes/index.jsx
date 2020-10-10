@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import Footer from "../components/footer";
 import RegisterContainer from "../containers/register";
 import Login from "../pages/login";
-import PsychologistPage from "../pages/psychologist-page";
+import PatPageTest from "../pages/pat-page-test";
+import PatientPage from "../pages/patient-page";
+import PsiPage from "../pages/psi-page";
+import PsiAppointments from "../pages/psi-page/psi-consultas";
+import PsiProfile from "../pages/psi-page/psi-perfil";
 import Search from "../pages/search";
 
 const Routes = () => {
@@ -22,20 +25,25 @@ const Routes = () => {
             <Route path={["/login", "/cadastro"]}>
               <Redirect to="/" />
             </Route>
-
-            <Route path="/">
-              Home Logado
-              <Footer />
+            <Route path="/fruta">
+              Page Test Fruta
+              <PatPageTest />
+            </Route>
+            <Route exact path="/">
+              <PatientPage />
             </Route>
           </Switch>
         ) : (
           // logado como psicologo
           <Switch>
-            <Route path="/psi/perfil/:id" />
-            <Route path="/psi/consultas/:id" />
+            <Route path="/psi/perfil/:id">
+              <PsiProfile />
+            </Route>
+            <Route path="/psi/consultas/:id">
+              <PsiAppointments />
+            </Route>
             <Route path="/psi">
-              <PsychologistPage />
-              <Footer />
+              <PsiPage />
             </Route>
           </Switch>
         ))}
@@ -52,9 +60,7 @@ const Routes = () => {
         <Search />
       </Route>
 
-      <Route path="/">
-        Home <Footer />
-      </Route>
+      <Route path="/">Home</Route>
     </Switch>
   );
 };
