@@ -8,7 +8,7 @@ exports[`Render tests show 1`] = `
   onSubmit={[Function]}
 >
   <textarea
-    autofocus={true}
+    autoFocus={true}
     className="sc-dIsAE fAzNjd"
     name="depoiment"
     onChange={[Function]}
@@ -16,6 +16,7 @@ exports[`Render tests show 1`] = `
     onMouseLeave={[Function]}
     placeholder="Fale um pouco sobre sua experiência durante a consulta com Jojisval Cardozo."
     rows={5}
+    spellCheck={true}
   />
   <div
     onMouseEnter={[Function]}
