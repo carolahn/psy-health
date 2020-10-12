@@ -7,12 +7,17 @@ import RightMenuListWithTokenHeader from "../right-logged-menu";
 import { Container, StyledRightLoggedHeader } from "./styled";
 
 const RightLoggedHeader = () => {
-  const psic_id = useSelector((state) => state.login.user.id);
+  const user_id = useSelector((state) => state.login.user.id);
+  const is_psic = useSelector((state) => state.login.user.is_psic);
   const [rMenu, setRMenu] = useState(false);
   const history = useHistory();
   return (
     <StyledRightLoggedHeader>
-      <div className="links" onClick={() => history.push(`/psi/consultas/${psic_id}`)}>
+      <div
+        className="links"
+        onClick={() =>
+          history.push(is_psic ? `/psi/consultas/${user_id}` : `/consultas/${user_id}`)
+        }>
         Minhas Consultas
       </div>
       <PF className="profile" onClick={() => setRMenu((prevState) => !prevState)} />

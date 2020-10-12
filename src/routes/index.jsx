@@ -32,7 +32,7 @@ const Routes = (props) => {
               Page Test Fruta
               <PatPageTest />
             </Route>
-            <Route exact path="/">
+            <Route exact path="/consultas">
               <PatientPage />
             </Route>
           </Switch>
