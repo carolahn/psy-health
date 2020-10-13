@@ -8,10 +8,12 @@ it('CardPsychologist-renderer', () => {
             image={"url-img"}
             name={'Name psyc'}
             description={'Abstract description about Psychologist'} crp="CRP"
+            crp={'CRP-Num'}
             rating={2}
             specializations={'description specializations the Psychologist'}
             language={'language'}
             price={50}
+            onClick={() => {}}
         />
     ).toJSON();
     expect(tree).toMatchSnapshot();
