@@ -214,7 +214,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
     setSelectedHoursSex(sex);
   }, [oneUser]);
 
-  console.log("isEditable", isEditable);
+  // console.log("isEditable", isEditable);
 
   return (
     <div className="psi-form">
