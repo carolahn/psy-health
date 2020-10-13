@@ -50,7 +50,9 @@ export const postAppointments = (userId, token, newData) => (dispatch) => {
       userId,
       ...newData,
     },
-  }).then(() => dispatch(postAppointmentsAction()));
+  })
+    .then(() => dispatch(postAppointmentsAction()))
+    .then(() => dispatch(getAppointments()));
 };
 
 const postAppointmentsAction = () => ({
@@ -68,7 +70,9 @@ export const patchAppointmentInfo = (userId, appointmentId, token, newData) => (
       userId,
       ...newData,
     },
-  }).then(() => dispatch(patchAppointmentInfoAction()));
+  })
+    .then(() => dispatch(patchAppointmentInfoAction()))
+    .then(() => dispatch(getAppointments()));
 };
 
 const patchAppointmentInfoAction = () => ({

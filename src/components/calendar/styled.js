@@ -1,5 +1,7 @@
+import { Modal } from "antd";
 import { Calendar } from "react-big-calendar";
 import styled from "styled-components";
+import "antd/dist/antd.css";
 
 export const CalendarWrapper = styled(Calendar)`
   margin: 0 auto;
@@ -61,5 +63,22 @@ export const CalendarWrapper = styled(Calendar)`
       padding: 0;
       font-size: 12px;
     }
+  }
+`;
+
+export const StyledModal = styled(Modal)`
+  .ant-modal-title {
+    color: #9e9e9e;
+  }
+
+  p.modal-confirm-text {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #585858;
+  }
+  span.modal-confirm-label {
+    font-weight: 700;
+    color: #70a3ef;
   }
 `;

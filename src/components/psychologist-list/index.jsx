@@ -17,6 +17,7 @@ const PsychologistList = ({ psychologists }) => {
           specializations={psychologist.specializations}
           language={psychologist.language}
           price={psychologist.price}
+          psiId={psychologist.id}
         />
       ))}
     </StyledPsychologistList>

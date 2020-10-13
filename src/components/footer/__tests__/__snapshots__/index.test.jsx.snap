@@ -2,7 +2,7 @@
 
 exports[`footer-renderer 1`] = `
 <footer
-  className="sc-bdnylx csdGan"
+  className="sc-bdnylx tFLML"
 >
   <div
     className="ant-row sc-gtssRu gCLzAC"
@@ -13,7 +13,7 @@ exports[`footer-renderer 1`] = `
       style={Object {}}
     >
       <a
-        className="sc-eCApGN kDhUK"
+        className="sc-eCApGN lfgKha"
         href="#"
       >
         <img
@@ -23,7 +23,7 @@ exports[`footer-renderer 1`] = `
       </a>
     </div>
     <div
-      className="ant-col sc-dlnjPT hviTOt ant-col-xs-12 ant-col-sm-6 ant-col-md-6 ant-col-lg-6 ant-col-xl-6"
+      className="ant-col sc-dlnjPT VwyOd ant-col-xs-12 ant-col-sm-6 ant-col-md-6 ant-col-lg-6 ant-col-xl-6"
       style={Object {}}
     >
       <div
@@ -60,7 +60,7 @@ exports[`footer-renderer 1`] = `
       </div>
     </div>
     <div
-      className="ant-col sc-dlnjPT hviTOt ant-col-xs-12 ant-col-sm-7 ant-col-md-7 ant-col-lg-7 ant-col-xl-7"
+      className="ant-col sc-dlnjPT VwyOd ant-col-xs-12 ant-col-sm-7 ant-col-md-7 ant-col-lg-7 ant-col-xl-7"
       style={Object {}}
     >
       <div
@@ -97,7 +97,7 @@ exports[`footer-renderer 1`] = `
       </div>
     </div>
     <div
-      className="ant-col sc-dlnjPT hviTOt ant-col-xs-12 ant-col-sm-7 ant-col-md-7 ant-col-lg-7 ant-col-xl-7"
+      className="ant-col sc-dlnjPT VwyOd ant-col-xs-12 ant-col-sm-7 ant-col-md-7 ant-col-lg-7 ant-col-xl-7"
       style={Object {}}
     >
       <div
@@ -129,7 +129,7 @@ exports[`footer-renderer 1`] = `
       </div>
     </div>
     <div
-      className="ant-col sc-hKFyIo bmqWVl ant-col-xs-12 ant-col-sm-4 ant-col-md-4 ant-col-lg-4 ant-col-xl-4"
+      className="ant-col sc-hKFyIo jnTjZl ant-col-xs-12 ant-col-sm-4 ant-col-md-4 ant-col-lg-4 ant-col-xl-4"
       style={Object {}}
     >
       <div
