@@ -6,7 +6,9 @@ export const StyledHeader = styled.div`
   height: 70px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-between; // mudar
+  padding-left: 10%;
+  padding-right: 10%;
 `;
 
 export const StyledMobileHeader = styled(StyledHeader)``;

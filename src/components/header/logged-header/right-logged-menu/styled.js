@@ -4,7 +4,7 @@ export const StyledRightMenuListWithTokenHeader = styled.div`
   background-color: #053559;
   position: absolute;
   top: 70px;
-  right: 2px;
+  right: 10%;
   min-width: 150px;
   height: 150px;
   border: 2px solid #585858;

@@ -9,9 +9,7 @@ export const getUsers = () => (dispatch) => {
     .get("https://psy-health-api.herokuapp.com/users")
     .then(({ data }) => {
       const normalized = {};
-      data.map((item) => {
-        normalized[item.id] = { ...item };
-      });
+      data.map((item) => (normalized[item.id] = { ...item }));
       return normalized;
     })
     .then((normalized) => dispatch(getUsersAction(normalized)));
@@ -48,7 +46,9 @@ export const patchUserInfo = (userId, token, newData) => (dispatch) => {
       userId,
       ...newData,
     },
-  }).then(() => dispatch(patchUserInfoAction()));
+  })
+    .then(() => dispatch(patchUserInfoAction()))
+    .then(() => dispatch(getOneUser(userId)));
 };
 
 const patchUserInfoAction = () => ({

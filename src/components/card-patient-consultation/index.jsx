@@ -1,7 +1,8 @@
-import { Rate } from "antd";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
+import { deleteAppointment } from "../../redux/actions/appointments";
 import {
   CardContainer,
   ImgAndNameCardCotainer,
@@ -14,112 +15,112 @@ import {
   DateScheduleAndValue,
   CrpDiv,
   TextStyle,
+  NewRate,
+  ContainerButtons,
+  CancelButton,
+  RescheduleButton,
+  AvaliationButton,
 } from "./styled";
 
-const CardPatientConsultation = () => {
-  const userId = useSelector((state) => state.login.user.id);
-  const allAppointments = useSelector((state) => state.appointments.allAppointments);
-  console.log(allAppointments);
+const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const newAppointment = appointment.date.start.split(" ");
+  const token = useSelector((state) => state.login.token);
 
-  const FilterAppointmentsUser = () => {
-    const AppointmentsUser = allAppointments.filter((appointment) => appointment.userId === userId);
-    return AppointmentsUser;
+  const Avaliation = false;
+  let onePsi = "";
+
+  const constructDate = () => {
+    const partsDate = newAppointment[0].split("-");
+    return `${partsDate[2]}/${partsDate[1]}/${partsDate[0]}`;
   };
 
-  const data = {
-    userId: 12,
-    id: 2,
-    date: {
-      start: "2020-10-21 13:00:00",
-      end: "2020-10-21 14:00:00",
-    },
-    patient: {
-      name: "Carolina Ahn",
-      id: 12,
-    },
-    psic: {
-      name: "Rodisval Pereira",
-      id: 13,
-    },
+  const constructHour = () => {
+    const partsHour = newAppointment[1].split(":");
+    return `${partsHour[0]}:${partsHour[1]}`;
   };
 
-  const dateUser = data.date.start.split(" ");
+  const cancelAppointment = () => {
+    dispatch(deleteAppointment(appointment.id, token));
+  };
+
+  const rescheduleAppointment = () => {
+    dispatch(deleteAppointment(appointment.id, token));
+    history.push(`/psi/agendamentos/${onePsi[0].id}`);
+  };
+
+  const filterPsicUser = (appointment) => {
+    onePsi = psiList.filter((psi) => psi.id === appointment.psic.id);
+  };
+
+  filterPsicUser(appointment);
 
   return (
-    <CardContainer>
-      <ImgAndNameCardCotainer>
-        <ImgDivCotainer>
-          <PhotoPsychologist src={psic.image} />
-        </ImgDivCotainer>
-        <NameDivCotainer>
-          <TitleForNameDateScheduleValueAndAvaliation>
-            {psic.name}
-          </TitleForNameDateScheduleValueAndAvaliation>
-          <CrpDiv>{`CRP ${psic.crp}`}</CrpDiv>
-          <Rate allowHalf defaultValue={psic.rating} style={{ fontSize: "14px" }} />
-        </NameDivCotainer>
-      </ImgAndNameCardCotainer>
-      <DateScheduleAndValueContainer>
-        <DateScheduleAndValue>
-          <TitleForNameDateScheduleValueAndAvaliation>
-            {window.innerWidth < 710 ? "Data" : "Data da Consulta"}
-          </TitleForNameDateScheduleValueAndAvaliation>
-          <TextStyle>{dateUser[0]}</TextStyle>
-        </DateScheduleAndValue>
-        <DateScheduleAndValue>
-          <TitleForNameDateScheduleValueAndAvaliation>
-            Horário
-          </TitleForNameDateScheduleValueAndAvaliation>
-          <TextStyle>{dateUser[1]}</TextStyle>
-        </DateScheduleAndValue>
-        <DateScheduleAndValue>
-          <TitleForNameDateScheduleValueAndAvaliation>
-            Valor
-          </TitleForNameDateScheduleValueAndAvaliation>
-          <TextStyle>{`R$ ${psic.price},00`}</TextStyle>
-        </DateScheduleAndValue>
-      </DateScheduleAndValueContainer>
-      <AvaliationOrButton>
-        <TitleForNameDateScheduleValueAndAvaliation>
-          Avaliação
-        </TitleForNameDateScheduleValueAndAvaliation>
-        <Rate allowHalf defaultValue={5} style={{ fontSize: "16px" }} />
-      </AvaliationOrButton>
-    </CardContainer>
+    <>
+      {onePsi.length > 0 && (
+        <CardContainer>
+          <ImgAndNameCardCotainer>
+            <ImgDivCotainer>
+              <PhotoPsychologist src={onePsi[0].image} />
+            </ImgDivCotainer>
+            <NameDivCotainer>
+              <TitleForNameDateScheduleValueAndAvaliation>
+                {onePsi[0].name}
+              </TitleForNameDateScheduleValueAndAvaliation>
+              <CrpDiv>{`CRP: ${onePsi[0].crp}`}</CrpDiv>
+              <NewRate allowHalf disabled defaultValue={onePsi[0].rating} />
+            </NameDivCotainer>
+          </ImgAndNameCardCotainer>
+          <DateScheduleAndValueContainer>
+            <DateScheduleAndValue>
+              <TitleForNameDateScheduleValueAndAvaliation>
+                Data
+              </TitleForNameDateScheduleValueAndAvaliation>
+              <TextStyle>{constructDate()}</TextStyle>
+            </DateScheduleAndValue>
+            <DateScheduleAndValue>
+              <TitleForNameDateScheduleValueAndAvaliation>
+                Horário
+              </TitleForNameDateScheduleValueAndAvaliation>
+              <TextStyle>{constructHour()}</TextStyle>
+            </DateScheduleAndValue>
+            <DateScheduleAndValue>
+              <TitleForNameDateScheduleValueAndAvaliation>
+                Valor
+              </TitleForNameDateScheduleValueAndAvaliation>
+              <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
+            </DateScheduleAndValue>
+          </DateScheduleAndValueContainer>
+          <AvaliationOrButton>
+            {buttonOrAvaliation ? (
+              <ContainerButtons>
+                <RescheduleButton onClick={rescheduleAppointment}>Remarcar</RescheduleButton>
+                <CancelButton onClick={cancelAppointment}>Cancelar</CancelButton>
+              </ContainerButtons>
+            ) : (
+                <>
+                  {Avaliation ? (
+                    <>
+                      <TitleForNameDateScheduleValueAndAvaliation>
+                        Avaliação
+                    </TitleForNameDateScheduleValueAndAvaliation>
+                      <NewRate allowHalf disabled defaultValue={5} />
+                    </>
+                  ) : (
+                      <ContainerButtons>
+                        <AvaliationButton onClick={() => console.log("avaliar")}>
+                          Avaliar
+                    </AvaliationButton>
+                      </ContainerButtons>
+                    )}
+                </>
+              )}
+          </AvaliationOrButton>
+        </CardContainer>
+      )}
+    </>
   );
 };
 
 export default CardPatientConsultation;
-
-const psic = {
-  email: "rodisval.psicologo@gmail.com",
-  password: "$2a$10$4rN/ilBrjR94eNfQGpwpt.ksyf7Pttk2A2MlvjDdJWv6RaoR.5BR2",
-  name: "Rodisval Pereira",
-  is_psic: true,
-  phone: "(41)98745-2365",
-  "cpf-cnpj": "112.521.322.15",
-  crp: "01/901292",
-  price: "120",
-  rating: "4.5",
-  description:
-    "Psicólogo Clinico, com especialização em experiência somática. Meu trabalho é fundamentado na análise de conteúdos inconscientes, com foco no autoconhecimento e na resolução de conflitos internos causadores de sofrimento, angústia, ansiedade, traumas, transtornos psicos e doenças psicossomáticas.",
-  video: "https://www.youtube.com/embed/5qap5aO4i9A",
-  language: "português, ingles, espanhol",
-  academic_formation:
-    "Graduação em Administração – Faculdade Dom Bosco – 2008 , Curso de Terapia de Casais - Universidade Paranaense – 2017, Curso de Experiência Somática - Associação Brasileira do Trauma – 2017, Graduação em Psicologia - Universidade Paranaense – 2019, Pós Graduação Piscoterapia Psicanalítica - Escola de Psicoterapia Psicanalítica de Maringá - em formação.",
-  site: "https://www.google.com/",
-  experience:
-    "Angústia, Ansiedade, Autoestima, Depressão, Doenças Psicossomáticas, Síndrome do Pânico, Terapia de Casal/Casamento, Trauma",
-  specializations: "psicologia infantil, psicologia de casais",
-  image:
-    "https://media.vittude.com/media/profile_photos/psicologo-jose-alan-martins-de-freitas_5MAeAhE.jpg",
-  workDays: {
-    1: [7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19],
-    2: [],
-    3: [7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19],
-    4: [],
-    5: [7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19],
-  },
-  id: 13,
-  userId: 13,
-};

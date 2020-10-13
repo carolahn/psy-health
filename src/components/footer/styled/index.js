@@ -1,48 +1,48 @@
-import styled from 'styled-components';
-import { Col, Row } from 'antd';
+import { Col, Row } from "antd";
+import styled from "styled-components";
 
 export const StyledFooterContainer = styled.footer`
   background-color: white;
-  
-  h4{
+
+  h4 {
     font-weight: bold;
   }
 
-  a{
+  a {
     display: block;
     margin-bottom: 7px;
     color: #6e6e6e;
   }
 
-  .developed-by{
-    background-color: #70A3EF;
+  .developed-by {
+    background-color: #70a3ef;
     display: flex;
-    flex-wrap: wrap;	
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    color: #F3F3F3;	
+    color: #f3f3f3;
     margin: 0;
     padding: 5px 0 5px 0;
 
-    .copy{
+    .copy {
       font-weight: bold;
       margin-right: 4rem;
 
-      @media(max-width: 569px){ 
+      @media (max-width: 569px) {
         margin-right: 0;
       }
     }
 
-    .developed-by-text{
+    .developed-by-text {
       margin-right: 0.5rem;
     }
 
-    a{
+    a {
       display: inline;
-      color: #F3F3F3;
+      color: #f3f3f3;
       font-weight: bold;
       margin-right: 0.2rem;
-      margin-left: 0.2rem;		
+      margin-left: 0.2rem;
     }
   }
 `;
@@ -54,16 +54,16 @@ export const StyledRow = styled(Row)`
 export const StyledCol = styled(Col)`
   text-align: center;
 
-  @media(max-width: 575.98px){ 
-    text-align: left; 
+  @media (max-width: 575.98px) {
+    text-align: left;
   }
 
-  .container-box-left{
+  .container-box-left {
     display: block;
     text-align: left;
   }
 
-  .container-box-middle{
+  .container-box-middle {
     display: inline-block;
     text-align: left;
   }
@@ -72,16 +72,16 @@ export const StyledCol = styled(Col)`
 export const StyledContainerColSocial = styled(Col)`
   text-align: right;
 
-  @media(max-width: 575.98px){ 
-    text-align: left; 
+  @media (max-width: 575.98px) {
+    text-align: left;
   }
 
-  div{
+  div {
     display: inline-block;
     text-align: center;
   }
 
-  a{
+  a {
     font-size: 40px;
     margin: 0;
     line-height: 0;
@@ -90,7 +90,7 @@ export const StyledContainerColSocial = styled(Col)`
 `;
 
 export const StyledLogoCotainer = styled.a`
-  img{
+  img {
     max-width: 126px;
     max-height: 75px;
     width: auto;
