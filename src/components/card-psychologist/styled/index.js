@@ -8,6 +8,7 @@ const StyledContainer = styled.div`
     display: flex;
     background-color: white;
     box-sizing: border-box;
+    padding: 35px 0 35px 0;
 
     h4{
         font-size: 18px
@@ -27,7 +28,6 @@ const StyledContainer = styled.div`
     }
 
     .container-img{
-        padding-top: 25px;
         width: 35%;
         text-align: center;
         margin: 0 5px 0 5px;
@@ -55,15 +55,12 @@ const StyledContainer = styled.div`
         }
     }
 
-   
-
     span{
         display: block;
     }
 
     .container-abstract {
         width: 65%;
-        padding-top: 20px;
         margin-right: 20px;
 
         p{
@@ -71,30 +68,12 @@ const StyledContainer = styled.div`
             margin-bottom: 7px;
         }
 
-        button{
-            margin: 10px 0 25px 0;
-            height: 50px;
-            width: 100%;
-            border-radius: 4px;
-            background-color: #053559;
-            border: 1px solid #053559;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-            padding: 3px 0 3px 0;
-            cursor: pointer;
+        .container-btn{
+            margin-top: 15px;
         }
     }
 
-<<<<<<< HEAD
     @media (max-width: 950px){
-=======
-    @media (max-width: 1400px) {
-        margin: 0.625rem;
-    }
-
-    @media (max-width: 575.98px){
->>>>>>> submaster
         display: block;
         height: auto;
         padding: 35px; 
@@ -106,9 +85,8 @@ const StyledContainer = styled.div`
         .container-img{
             width: 100%;
 
-            img{
-                width: 140px;
-                height: 140px;
+            #price-per-hour{
+                padding-bottom: 15px; 
             }
         }
 
@@ -117,13 +95,9 @@ const StyledContainer = styled.div`
             text-align: left;
 
             .container-btn{
-                text-align: center;
-
-                button{
-                    width: 80%;
-                }
+                display: flex;
+                justify-content: center
             }
-            
         } 
     }
 `;
