@@ -4,6 +4,8 @@ import "antd/dist/antd.css";
 export const MainContainer = styled.div`
   width: 100%;
   padding-top: 60px;
+  min-height: auto;
+  background-color: #fbfbfb;
   @media (max-width: 768px) {
     padding-top: 30px;
   }

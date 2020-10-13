@@ -1,4 +1,4 @@
-import enzyme from "enzyme";
+import enzyme from "../../search-filter/__tests__/node_modules/enzyme";
 import mockAxios from "jest-mock-axios";
 import React from "react";
 import { useDispatch } from "react-redux";

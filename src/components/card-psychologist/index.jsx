@@ -1,7 +1,9 @@
-import { Rate } from "antd";
+import { Rate, notification } from "antd";
 import React from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import "antd/dist/antd.css";
 import StyledContainer from "./styled";
 import { useWindowSize } from "../../hooks";
 
@@ -19,8 +21,18 @@ const CardPsychologist = ({
   const descriptionAbstract = (description.substr(0, 190) + '...');
   const [width] = useWindowSize();
   const history = useHistory();
+  const login = useSelector((state) => state.login);
+
   const handleOnClick = () => {
-    history.push(`/psi/agendamentos/${psiId}`);
+    if (JSON.stringify(login.user) !== "{}" && login.user.is_psic === true) {
+      notification.info({
+        key: login.user.id,
+        message: "Área restrita aos pacientes",
+        description: "Para agendar uma consulta, é necessário cadastrar-se como paciente.",
+      });
+    } else {
+      history.push(`/psi/agendamentos/${psiId}`);
+    }
   };
 
   if(width >= 950) {

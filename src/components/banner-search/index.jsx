@@ -23,7 +23,7 @@ const BannerSearch = () => {
       <ContainerSearch>
         <Div>
           <TitleSearch>Encontre o psicólogo ideal pra você</TitleSearch>
-          <ButtonSearch onClick={() => history.push("/search")}>Buscar Agora</ButtonSearch>
+          <ButtonSearch onClick={() => history.push("/buscar")}>Buscar Agora</ButtonSearch>
         </Div>
       </ContainerSearch>
     </Container>

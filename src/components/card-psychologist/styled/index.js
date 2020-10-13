@@ -86,7 +86,15 @@ const StyledContainer = styled.div`
         }
     }
 
+<<<<<<< HEAD
     @media (max-width: 950px){
+=======
+    @media (max-width: 1400px) {
+        margin: 0.625rem;
+    }
+
+    @media (max-width: 575.98px){
+>>>>>>> submaster
         display: block;
         height: auto;
         padding: 35px; 

@@ -5,13 +5,7 @@ const SearchContainer = styled.main`
   flex-direction: column;
   align-items: center;
 
-  
-  
-
-
   @media (max-width: 1024px) {
-   
-
     .search-button {
       font-size: 17px;
     }
@@ -22,17 +16,12 @@ const SearchContainer = styled.main`
   }
 
   @media (max-width: 540px) {
-
-   
-
     .search-button {
       font-size: 14px;
     }
 
     .search-input {
-    
       font-size: 14px;
-      
     }
   }
 
@@ -40,8 +29,6 @@ const SearchContainer = styled.main`
     .search-bar {
       width: 85vw;
     }
-
-    
   }
 `;
 

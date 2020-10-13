@@ -7,6 +7,8 @@ export const MainContainer = styled.div`
   max-width: 1200px; */
   width: 100%;
   padding-top: 60px;
+  min-height: auto;
+  background-color: #fbfbfb;
   @media (max-width: 768px) {
     padding-top: 30px;
   }
