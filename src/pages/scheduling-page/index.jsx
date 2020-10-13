@@ -22,7 +22,7 @@ const SchedulingPage = () => {
     dispatch(getAppointments());
     dispatch(getOneUser(id));
   }, []);
-  console.log(oneUser);
+  // console.log(oneUser);
 
   return (
     <MainContainer className="scheduling-page">
@@ -52,7 +52,7 @@ const SchedulingPage = () => {
                     // patInfo={}
                     allAppointments={allAppointments}
                     login={login}
-                    isEditable={false}
+                    // isEditable={false}
                   />
                 </>
               )
