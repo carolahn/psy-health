@@ -22,27 +22,9 @@ const PsiPage = () => {
     history.push(`/psi/consultas/${login.user.id}`);
   }, []);
 
-  // useEffect(() => {
-  //   if (allAppointments) {
-  //     dispatch(getAppointments());
-  //   } else if (JSON.stringify(allAppointments) === "{}") {
-  //     dispatch(getAppointments());
-  //   }
-  // }, []);
-
   return (
     <MainWrapper>
       <p>Home do psicólogo</p>
-      {/* {allUsers
-            ? allAppointments && (
-                <Calendar
-                  type="psic-info"
-                  psicInfo={allUsers["13"]}
-                  patInfo={allUsers["12"]}
-                  allAppointments={allAppointments}
-                />
-              )
-            : ""} */}
     </MainWrapper>
   );
 };

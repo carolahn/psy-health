@@ -40,13 +40,19 @@ const Routes = (props) => {
               Page Test Fruta
               <PatPageTest />
             </Route>
-            <Route exact path="/consultas">
+            <Route exact path="/consultas/:id">
               <PatientPage />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         ) : (
           // logado como psicologo
           <Switch>
+            <Route path="/buscar">
+              <Search />
+            </Route>
             <Route path="/psi/perfil/:id">
               <PsiProfile />
             </Route>
@@ -55,6 +61,9 @@ const Routes = (props) => {
             </Route>
             <Route path="/psi">
               <PsiPage />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         ))}
