@@ -11,6 +11,7 @@ import PsiPage from "../pages/psi-page";
 import PsiAppointments from "../pages/psi-page/psi-consultas";
 import PsiProfile from "../pages/psi-page/psi-perfil";
 import Register from "../pages/register";
+import SchedulingPage from "../pages/scheduling-page";
 import Search from "../pages/search";
 
 const Routes = (props) => {
@@ -27,6 +28,12 @@ const Routes = (props) => {
             {/* <Route path="/blog">Blog</Route> */}
             <Route path={["/login", "/register"]}>
               <Redirect to="/" />
+            </Route>
+            <Route path="/buscar">
+              <Search />
+            </Route>
+            <Route path="/psi/agendamentos/:id">
+              <SchedulingPage />
             </Route>
             <Route path="/fruta">
               Page Test Fruta
@@ -55,12 +62,14 @@ const Routes = (props) => {
       <Route path="/login">
         <Login />
       </Route>
-
       <Route path="/register">
         <RegisterContainer />
       </Route>
       <Route path="/buscar">
         <Search />
+      </Route>
+      <Route path="/psi/agendamentos/:id">
+        <SchedulingPage />
       </Route>
       <Route path="/fruta">
         Page Test Fruta - Não logado
