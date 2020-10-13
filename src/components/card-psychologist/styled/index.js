@@ -1,16 +1,29 @@
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
-    width: 450px;
+    width: 550px;
     margin: 1.25rem 0;
     border: 2px solid #70A3EF;
-    border-radius: 3px;
+    border-radius: 5px;
     display: flex;
     background-color: white;
+    box-sizing: border-box;
+
+    h4{
+        font-size: 18px
+    }
     
     h3, h4, h5, h6{
         font-weight: bold;
         margin-bottom: 10px;
+    }
+
+    h5{
+        font-size: 16px;
+    }
+
+    p{
+        font-size: 14px;
     }
 
     .container-img{
@@ -19,29 +32,30 @@ const StyledContainer = styled.div`
         text-align: center;
         margin: 0 5px 0 5px;
 
-            #crp{
-                color: #70A3EF;
-                font-size: 0.7rem;
-                margin: 15px 0 15px 0;
-                font-weight: bold;
-            }
+        img{
+            border: 1px solid #70A3EF;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+        }
 
-            h5{
-                margin: 10px 0 15px 0;
-            }
+        #crp{
+            color: #70A3EF;
+            font-size: 16px;
+            margin: 15px 0 15px 0;
+            font-weight: bold;
+        }
 
-            #price-per-hour{
-                font-size: 0.8rem; 
-            }
+        h5{
+            margin: 10px 0 15px 0;
+        }
+
+        #price-per-hour{
+            font-size: 14px; 
+        }
     }
 
-    img{
-        border: 1px solid #70A3EF;
-        width: 125px;
-        height: 125px;
-        border-radius: 50%;
-
-    }
+   
 
     span{
         display: block;
@@ -53,13 +67,13 @@ const StyledContainer = styled.div`
         margin-right: 20px;
 
         p{
-            font-size: 0.7rem;
             color: #6E6E6E;
             margin-bottom: 7px;
         }
 
         button{
             margin: 10px 0 25px 0;
+            height: 50px;
             width: 100%;
             border-radius: 4px;
             background-color: #053559;
@@ -72,17 +86,36 @@ const StyledContainer = styled.div`
         }
     }
 
-    @media (max-width: 575.98px){
+    @media (max-width: 950px){
         display: block;
-        height: auto; 
+        height: auto;
+        padding: 35px; 
 
+        h4{
+            margin-top: 10px;
+        }
+        
         .container-img{
             width: 100%;
+
+            img{
+                width: 140px;
+                height: 140px;
+            }
         }
 
         .container-abstract{
             width: 100%;
-            text-align: center;
+            text-align: left;
+
+            .container-btn{
+                text-align: center;
+
+                button{
+                    width: 80%;
+                }
+            }
+            
         } 
     }
 `;
