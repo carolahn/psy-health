@@ -22,14 +22,9 @@ const StyledSearchFilter = styled.div`
     width: 160px;
   }
 
-  .ant-select-item {
-    text-transform: capitalized;
-  }
-
-  .search-input {
-    font-size: 18px;
-    text-align: left;
-    width: 100%;
+  
+  .ant-select-selector {
+    text-transform: capitalize;
   }
 
   .search-button {
