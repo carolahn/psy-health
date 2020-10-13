@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-
 import PsychologistList from "../../components/psychologist-list";
 import SearchFilter from "../../containers/search-filter";
 import { requestPsy, getUniqueEntries } from "../../redux/actions/search";
@@ -23,7 +22,6 @@ const Search = () => {
 
   return (
     <SearchContainer>
-     
       <SearchFilter />
       <PsychologistList psychologists={filteredPsy} />
     </SearchContainer>

@@ -12,8 +12,12 @@ const StyledButton = styled.button`
   outline: none;
   border: none;
   border-radius: 5px;
+  border-top-left-radius: ${(props) => props.borderTopLeft || "5px"};
+  border-top-right-radius: ${(props) => props.borderTopRight || " 5px"};
+  border-bottom-left-radius: ${(props) => props.borderBottomLeft || "5px"};
+  border-bottom-right-radius: ${(props) => props.borderBottomRight || "5px"};
   cursor: pointer;
-  font-size: ${(props) => props.fontSize || '19px'};
+  font-size: ${(props) => props.fontSize || "19px"};
   display: flex;
   justify-content: center;
   align-items: center;

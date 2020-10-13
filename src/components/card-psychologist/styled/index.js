@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
     width: 450px;
-    margin: 1.25rem 0;
+    margin: 1.25rem;
     border: 2px solid #70A3EF;
     border-radius: 3px;
     display: flex;
@@ -70,6 +70,10 @@ const StyledContainer = styled.div`
             padding: 3px 0 3px 0;
             cursor: pointer;
         }
+    }
+
+    @media (max-width: 1400px) {
+        margin: 0.625rem;
     }
 
     @media (max-width: 575.98px){
