@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import RegisterContainer from "../containers/register";
+import DeslogHome from "../pages/deslog-home";
 import Login from "../pages/login";
-import PatPageTest from "../pages/pat-page-test";
 import PatientPage from "../pages/patient-page";
 import PsiPage from "../pages/psi-page";
 import PsiAppointments from "../pages/psi-page/psi-consultas";
@@ -18,16 +18,12 @@ const Routes = () => {
   return (
     <Switch>
       {token &&
-        (access ? (
+        (!access ? (
           // logado como paciente
           <Switch>
             {/* <Route path="/blog">Blog</Route> */}
             <Route path={["/login", "/cadastro"]}>
               <Redirect to="/" />
-            </Route>
-            <Route path="/fruta">
-              Page Test Fruta
-              <PatPageTest />
             </Route>
             <Route exact path="/">
               <PatientPage />
@@ -52,15 +48,15 @@ const Routes = () => {
       <Route path="/login">
         <Login />
       </Route>
-
       <Route path="/cadastro">
         <RegisterContainer />
       </Route>
       <Route path="/buscar">
         <Search />
       </Route>
-
-      <Route path="/">Home</Route>
+      <Route path="/">
+        <DeslogHome />
+      </Route>
     </Switch>
   );
 };
