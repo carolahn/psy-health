@@ -35,9 +35,9 @@ export const CalendarWrapper = styled(Calendar)`
     div.rbc-toolbar {
       flex-direction: column;
     }
-    span.rbc-btn-group {
+    /* span.rbc-btn-group {
       margin: 10px 10px;
-    }
+    } */
 
     td.rbc-agenda-time-cell {
       white-space: unset;
@@ -80,5 +80,15 @@ export const StyledModal = styled(Modal)`
   span.modal-confirm-label {
     font-weight: 700;
     color: #70a3ef;
+  }
+
+  .ant-modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .ant-modal-footer > button {
+    margin: 10px;
   }
 `;

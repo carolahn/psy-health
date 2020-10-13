@@ -1,7 +1,8 @@
-import { Row, Col, Form, Input, Button, Select } from "antd";
+import { Row, Col, Form, Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
+import Button from "../../../../components/button";
 import { useWindowSize } from "../../../../hooks/index";
 import { getAppointments } from "../../../../redux/actions/appointments";
 import { getOneUser, patchUserInfo } from "../../../../redux/actions/users";
@@ -461,12 +462,21 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                 </Form.Item>
 
                 <Form.Item {...tailLayout} className="work-form-btn-group">
-                  <Button className="form-btn" type="primary" htmlType="submit">
-                    Atualizar
-                  </Button>
-                  <Button className="form-btn" htmlType="button" onClick={handleOnReset}>
-                    Desfazer
-                  </Button>
+                  <Button
+                    width="150px"
+                    height="35px"
+                    fontSize="19px"
+                    title="Atualizar"
+                    onClick={() => {}}
+                    htmlType="submit"
+                  />
+                  <Button
+                    width="150px"
+                    height="35px"
+                    fontSize="19px"
+                    title="Desfazer"
+                    onClick={handleOnReset}
+                  />
                 </Form.Item>
               </Form>
             </StyledWorkForm>
