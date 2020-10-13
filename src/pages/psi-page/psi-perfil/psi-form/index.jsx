@@ -18,7 +18,6 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   const [width] = useWindowSize();
   let psicInfo = {};
   const { TextArea } = Input;
-
   const { Option } = Select;
   const [form] = Form.useForm();
 
@@ -214,6 +213,8 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
     setSelectedHoursQui(qui);
     setSelectedHoursSex(sex);
   }, [oneUser]);
+
+  console.log("isEditable", isEditable);
 
   return (
     <div className="psi-form">
