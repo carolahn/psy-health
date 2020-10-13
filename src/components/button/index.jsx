@@ -11,6 +11,7 @@ const Button = ({
   borderTopRight,
   borderBottomLeft,
   borderBottomRight,
+  onClick
 }) => {
   return (
     <StyledButton
@@ -21,7 +22,8 @@ const Button = ({
       borderTopLeft={borderTopLeft}
       borderTopRight={borderTopRight}
       borderBottomLeft={borderBottomLeft}
-      borderBottomRight={borderBottomRight}>
+      borderBottomRight={borderBottomRight}
+      onClick={onClick}>
       {title.split("").map((char) => (
         <span>{char}</span>
       ))}
