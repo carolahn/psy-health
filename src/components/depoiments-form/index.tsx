@@ -3,7 +3,8 @@ import { Rate } from "lib-kenzie";
 import React from "react";
 import styled from "styled-components";
 
-import { StyledForm, StyledButton } from "../../styles";
+import { StyledForm } from "../../styles";
+import Button from "../button";
 
 interface Values {
   depoiment?: string;
@@ -58,17 +59,19 @@ const DepoimentsForm = ({
         </div>
       </Tooltip>
       <Tooltip title={errors.server && errors.server.message} placement="bottom">
-        <StyledButton
-          type="submit"
+        <Button
+          fontSize="19px"
+          width="200px"
+          height="40px"
           onClick={() =>
             !values.grading &&
             setError("grading", {
               type: "manual",
               message: "Informe seu grading!",
             })
-          }>
-          Mandar depoimento
-        </StyledButton>
+          }
+          title="Mandar depoimento"
+        />
       </Tooltip>
     </StyledForm>
   );

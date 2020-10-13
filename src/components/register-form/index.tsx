@@ -1,7 +1,8 @@
 import { Tooltip } from "antd";
 import React from "react";
 
-import { StyledInput, StyledButton, StyledForm } from "../../styles";
+import { StyledInput, StyledForm } from "../../styles";
+import Button from "../button";
 import { cpfCnpjMask, phoneMask, crpMask } from "./masks";
 import { RegisterFormProps } from "./types";
 
@@ -141,7 +142,9 @@ const RegisterForm = ({
         />
       </Tooltip>
 
-      <StyledButton type="submit">Register</StyledButton>
+      <div style={{ margin: "10px" }}>
+        <Button fontSize="19px" onClick={() => { }} width="150px" height="40px" title="Register" />
+      </div>
     </StyledForm>
   );
 };

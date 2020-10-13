@@ -2,12 +2,13 @@ import React, { useState } from "react";
 
 // import {DepoimentsOpenModalContainer} from './styled';
 import DepoimentsFormContainer from "../../containers/depoiments-form";
+import Button from "../button";
 
 const DepoimentsOpenModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
-      <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
+      <Button onClick={() => setModalVisible(true)} title="Avaliar" />
       <DepoimentsFormContainer
         showModal={{ modalVisible, setModalVisible }}
         psicId={2}

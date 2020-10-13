@@ -19,19 +19,3 @@ export const StyledInput = styled.input`
 
   outline: none;
 `;
-
-export const StyledButton = styled.button`
-  width: 150px;
-  height: 40px;
-  color: #fff;
-  background-color: #053559;
-  border-radius: 5px;
-  margin: 10px;
-  border-style: none;
-  outline: none;
-
-  :hover {
-    animation-duration: 1.5;
-    background-color: #074c7c;
-  }
-`;

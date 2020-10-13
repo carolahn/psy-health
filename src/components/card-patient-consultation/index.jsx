@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { deleteAppointment } from "../../redux/actions/appointments";
+import DepoimentsOpenModal from "../depoiments-open-modal";
 import {
   CardContainer,
   ImgAndNameCardCotainer,
@@ -99,23 +100,21 @@ const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) =
                 <CancelButton onClick={cancelAppointment}>Cancelar</CancelButton>
               </ContainerButtons>
             ) : (
-                <>
-                  {Avaliation ? (
-                    <>
-                      <TitleForNameDateScheduleValueAndAvaliation>
-                        Avaliação
+              <>
+                {Avaliation ? (
+                  <>
+                    <TitleForNameDateScheduleValueAndAvaliation>
+                      Avaliação
                     </TitleForNameDateScheduleValueAndAvaliation>
-                      <NewRate allowHalf disabled defaultValue={5} />
-                    </>
-                  ) : (
-                      <ContainerButtons>
-                        <AvaliationButton onClick={() => console.log("avaliar")}>
-                          Avaliar
-                    </AvaliationButton>
-                      </ContainerButtons>
-                    )}
-                </>
-              )}
+                    <NewRate allowHalf disabled defaultValue={5} />
+                  </>
+                ) : (
+                  <ContainerButtons>
+                    <DepoimentsOpenModal />
+                  </ContainerButtons>
+                )}
+              </>
+            )}
           </AvaliationOrButton>
         </CardContainer>
       )}
