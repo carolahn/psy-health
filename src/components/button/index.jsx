@@ -7,10 +7,6 @@ const Button = ({
   height,
   title,
   fontSize,
-  borderTopLeft,
-  borderTopRight,
-  borderBottomLeft,
-  borderBottomRight,
   onClick
 }) => {
   return (
@@ -19,10 +15,6 @@ const Button = ({
       height={height}
       data-text={title}
       fontSize={fontSize}
-      borderTopLeft={borderTopLeft}
-      borderTopRight={borderTopRight}
-      borderBottomLeft={borderBottomLeft}
-      borderBottomRight={borderBottomRight}
       onClick={onClick}>
       {title.split("").map((char) => (
         <span>{char}</span>
