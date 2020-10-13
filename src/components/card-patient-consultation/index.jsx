@@ -20,7 +20,6 @@ import {
   ContainerButtons,
   CancelButton,
   RescheduleButton,
-  AvaliationButton,
 } from "./styled";
 
 const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) => {

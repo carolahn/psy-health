@@ -23,12 +23,22 @@ const RegisterForm = ({
           name="name"
           onChange={handleOnChange}
           ref={register({
-            required: "Informe seu nome!",
-            pattern: {
-              value: /^[A-Z][a-zA-Z]* [a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/i,
-              message: "Informe seu nome e sobrenome!",
+            validate: {
+              pattern: (value: string) => {
+                handleMaskOnChange(value, "name");
+                return (
+                  (value.match(
+                    /^[A-ZÀ-Ý][A-Za-zÀ-Ýà-ÿ]* [A-Za-zÀ-Ýà-ÿ]+(([',. -][A-Za-zÀ-Ýà-ÿ ])?[A-Za-zÀ-Ýà-ÿ]*)*$/i
+                  ) &&
+                    value !== "") ||
+                  "Informe seu nome e sobrenome!"
+                );
+              },
             },
           })}
+          style={{
+            border: `2px solid ${!errors.name ? "#70a3ef" : "#f88264"}`,
+          }}
         />
       </Tooltip>
 
@@ -40,12 +50,24 @@ const RegisterForm = ({
           name="email"
           onChange={handleOnChange}
           ref={register({
-            required: "Informe seu email!",
-            pattern: {
-              value: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi,
-              message: "Formato do email está errado! Formato certo: example@example.com",
+            validate: {
+              required: (value: string) => {
+                handleMaskOnChange(value, "email");
+                return value !== "" || "Informe seu email!";
+              },
+              pattern: (value: string) => {
+                handleMaskOnChange(value, "email");
+                return (
+                  value.match(
+                    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi
+                  ) || "Formato do email está errado! Formato certo: example@example.com"
+                );
+              },
             },
           })}
+          style={{
+            border: `2px solid ${!errors.email ? "#70a3ef" : "#f88264"}`,
+          }}
         />
       </Tooltip>
 
@@ -57,9 +79,14 @@ const RegisterForm = ({
           type="email"
           name="confirmEmail"
           ref={register({
-            required: "Confirme seu email!",
-            validate: (value: string) => value === values.email || "Emails não batem",
+            validate: {
+              required: (value: string) => value !== "" || "Confirme seu email!",
+              pattern: (value: string) => value === values.email || "Emails não batem",
+            },
           })}
+          style={{
+            border: `2px solid ${!errors.confirmEmail ? "#70a3ef" : "#f88264"}`,
+          }}
         />
       </Tooltip>
 
@@ -72,8 +99,18 @@ const RegisterForm = ({
           name="phone"
           onChange={(e) => handleMaskOnChange(phoneMask(e.target.value), e.target.name)}
           ref={register({
-            pattern: { value: /\(\d{2}\) \d{5}-\d{4}/i, message: "Número de telefone não aceito!" },
+            validate: (value: string) => {
+              handleMaskOnChange(value, "phone");
+              return (
+                value.match(/\(\d{2}\) 9\d{4}-\d{4}/i) ||
+                value === "" ||
+                "Número de telefone não aceito!"
+              );
+            },
           })}
+          style={{
+            border: `2px solid ${!errors.phone ? "#70a3ef" : "#f88264"}`,
+          }}
         />
       </Tooltip>
 
@@ -87,12 +124,24 @@ const RegisterForm = ({
           name="cpf_cnpj"
           onChange={(e) => handleMaskOnChange(cpfCnpjMask(e.target.value), e.target.name)}
           ref={register({
-            required: "Informe seu CPF/CNPJ!",
-            pattern: {
-              value: /(^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$)|(^\d{2}\.?\d{3}\.?\d{3}\/\d{4}-?\d{2}$)/i,
-              message: "CPF/CNPJ não aceito!",
+            validate: {
+              required: (value: string) => {
+                handleMaskOnChange(value, "cpf_cnpj");
+                return value !== "" || "Informe seu CPF/CNPJ!";
+              },
+              pattern: (value: string) => {
+                handleMaskOnChange(value, "cpf_cnpj");
+                return (
+                  value.match(
+                    /(^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$)|(^\d{2}\.?\d{3}\.?\d{3}\/\d{4}-?\d{2}$)/i
+                  ) || "CPF/CNPJ não aceito!"
+                );
+              },
             },
           })}
+          style={{
+            border: `2px solid ${!errors.cpf_cnpj ? "#70a3ef" : "#f88264"}`,
+          }}
         />
       </Tooltip>
 
@@ -105,9 +154,20 @@ const RegisterForm = ({
             name="crp"
             onChange={(e) => handleMaskOnChange(crpMask(e.target.value), e.target.name)}
             ref={register({
-              required: "Favor informar CRP!",
-              pattern: { value: /\d{2}\/\d{5}/i, message: "Informe um CRP válido!" },
+              validate: {
+                required: (value: string) => {
+                  handleMaskOnChange(value, "crp");
+                  return value !== "" || "Favor informar CRP!";
+                },
+                pattern: (value: string) => {
+                  handleMaskOnChange(value, "crp");
+                  return value.match(/\d{2}\/\d{5}/i) || "Informe um CRP válido!";
+                },
+              },
             })}
+            style={{
+              border: `2px solid ${!errors.crp ? "#70a3ef" : "#f88264"}`,
+            }}
           />
         </Tooltip>
       )}
@@ -122,9 +182,20 @@ const RegisterForm = ({
           name="password"
           onChange={handleOnChange}
           ref={register({
-            required: "Crie sua senha!",
-            minLength: { value: 4, message: "Deve conter no mínimo quatro caracteres!" },
+            validate: {
+              required: (value: string) => {
+                handleMaskOnChange(value, "password");
+                return value !== "" || "Crie sua senha!";
+              },
+              pattern: (value: string) => {
+                handleMaskOnChange(value, "password");
+                return value.length > 3 || "Deve conter no mínimo quatro caracteres!";
+              },
+            },
           })}
+          style={{
+            border: `2px solid ${!errors.password ? "#70a3ef" : "#f88264"}`,
+          }}
         />
       </Tooltip>
 
@@ -136,9 +207,14 @@ const RegisterForm = ({
           type="password"
           name="confirmPassword"
           ref={register({
-            required: "Confirme sua senha!",
-            validate: (value: string) => value === values.password || "Senhas não batem!",
+            validate: {
+              required: (value: string) => value !== "" || "Confirme sua senha!",
+              pattern: (value: string) => value === values.password || "Senhas não batem!",
+            },
           })}
+          style={{
+            border: `2px solid ${!errors.confirmPassword ? "#70a3ef" : "#f88264"}`,
+          }}
         />
       </Tooltip>
 

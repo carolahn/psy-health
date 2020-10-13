@@ -2,8 +2,6 @@ import React from "react";
 
 import Logo from "../../assets/imgs/logo-azul.svg";
 import RegisterSvg from "../../assets/imgs/undraw_secure_login_pdn4.svg";
-import Footer from "../../components/footer";
-import Header from "../../components/header";
 import SvgContainer from "../../components/svg-container";
 import RegisterFormContainer from "../../containers/register-form";
 import { RegisterContainer, SideContainer } from "./styled";
@@ -18,13 +16,8 @@ const Register = ({ where, history }: RegisterProps) => {
     <RegisterContainer>
       {where.includes("psi") && <SvgContainer svgExtra={RegisterSvg} esquerda />}
       <SideContainer>
-        <div>
-          <div className="small-header">
-            <img src={Logo} alt="Logo" onClick={() => history.push("/")} />
-          </div>
-          <div className="mobile header">
-            <Header />
-          </div>
+        <div className="small-header">
+          <img src={Logo} alt="Logo" onClick={() => history.push("/")} />
         </div>
 
         <div className="lower-form">
@@ -54,10 +47,6 @@ const Register = ({ where, history }: RegisterProps) => {
               </span>
             </span>
           </div>
-        </div>
-
-        <div className="mobile footer">
-          <Footer />
         </div>
       </SideContainer>
       {!where.includes("psi") && <SvgContainer svgExtra={RegisterSvg} />}

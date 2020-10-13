@@ -9,7 +9,6 @@ export const StyledForm = styled.form`
 
 export const StyledInput = styled.input`
   height: 35px;
-  border: 2px solid ${(props) => (!props.error ? "#70a3ef" : "#f88264")};
   border-radius: 5px;
   padding-left: 0.2rem;
   margin: 5px;
