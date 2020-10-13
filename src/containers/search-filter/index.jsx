@@ -2,12 +2,13 @@ import { Select } from "antd";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import SearchInput from "../../components/search-input";
 import { filterPsyList } from "../../redux/actions/search";
 import { genericFilter, priceFilter, sortLength } from "./helper";
 import StyledSearchFilter from "./styled";
 
 const SearchFilter = () => {
-  const { Option, OptGroup } = Select;
+  const { Option } = Select;
 
   const dispatch = useDispatch();
 
@@ -15,7 +16,6 @@ const SearchFilter = () => {
   const exp = useSelector((state) => state.search.fValues.exp);
   const lang = useSelector((state) => state.search.fValues.lang);
   const price = useSelector((state) => state.search.fValues.price);
-  const name = useSelector((state) => state.search.fValues.name);
 
   const [filterValues, setFilterValues] = useState({
     prices: "todos",
@@ -37,12 +37,14 @@ const SearchFilter = () => {
     );
   }, [filterValues, price, lang, exp]);
 
-  const handleInput = (value) => {
+  const handleInput = (event) => {
+    const value = event.target.value;
     if (value === "todos") {
       dispatch(filterPsyList(psychologists));
     } else {
       const filteredInput = psychologists.filter(
-        (psy) => psy.name === value || (psy.experience && psy.experience.includes(value))
+        (psy) => psy.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(value) || 
+        (psy.experience && psy.experience.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(value))
       );
       dispatch(filterPsyList(filteredInput));
     }
@@ -63,26 +65,7 @@ const SearchFilter = () => {
   return (
     <StyledSearchFilter>
       <section className="search-bar">
-        <Select
-          showSearch
-          onChange={handleInput}
-          placeholder="Procure por especialidade, nome ou experiência"
-          className="search-input">
-          <OptGroup label="Experiências">
-            {exp.map((exp) => (
-              <Option value={exp} style={{ textTransform: "capitalize" }}>
-                {exp}
-              </Option>
-            ))}
-          </OptGroup>
-          <OptGroup label="Nomes">
-            {name.map((name) => (
-              <Option value={name} style={{ textTransform: "capitalize" }}>
-                {name}
-              </Option>
-            ))}
-          </OptGroup>
-        </Select>
+        <SearchInput handleChange={handleInput} title="Procure por nome ou experiência" />
       </section>
 
       <section className="filter">

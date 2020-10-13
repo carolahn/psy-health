@@ -5,10 +5,7 @@ import { useLocation } from "react-router-dom";
 
 import { useWindowSize } from "../../hooks";
 import { login_urls } from "../../pages/login";
-import { LeftLoggedHeader, RightLoggedHeader } from "./logged-header";
-import { MobileStandardHeaderWithMenu } from "./mobile-header";
-import { LeftNonLoggedHeader, RightNonLoggedHeader } from "./non-logged-header";
-import { StyledHeader, StyledMobileHeader } from "./styled";
+import { LoggedHeader, NonLoggedHeader, MobileHeader } from "./containers";
 
 const non_header_urls = [
   ...login_urls,
@@ -17,14 +14,16 @@ const non_header_urls = [
   "/cadastro/psi",
   "/cadastro/psi/",
 ];
-const header_urls = ["", "/", "/busca", "/busca/", "/psi", "/psi/"];
+const header_urls = ["", "/", "/buscar", "/buscar/", "/psi", "/psi/"];
 
 const start_with_urls = [
-  "/consultas",
+  "/consultas", //paciente logado
   "/consultas/",
   "/psi/consultas",
   "/psi/consultas/",
-  "/perfil",
+  "/psi/agendamentos",
+  "/psi/agendamentos/",
+  "/perfil", // não existe
   "/perfil/",
   "/psi/perfil",
   "/psi/perfil/",
@@ -42,37 +41,18 @@ const Header = () => {
   if (header_urls.some((e) => e === where) || start_with_urls.some((e) => where.startsWith(e))) {
     return isLoggedIn ? (
       isDesktop ? (
-        <StyledHeader>
-          <LeftLoggedHeader />
-          <RightLoggedHeader />
-        </StyledHeader>
+        <LoggedHeader />
       ) : (
-        <StyledMobileHeader>
-          <MobileStandardHeaderWithMenu />
-        </StyledMobileHeader>
+        <MobileHeader />
       )
     ) : isDesktop ? (
-      <StyledHeader>
-        <LeftNonLoggedHeader />
-        <RightNonLoggedHeader />
-      </StyledHeader>
+      <NonLoggedHeader />
     ) : (
-      <StyledMobileHeader>
-        <MobileStandardHeaderWithMenu />
-      </StyledMobileHeader>
+      <MobileHeader />
     );
   }
 
-  return isDesktop ? (
-    <StyledHeader>
-      <LeftNonLoggedHeader />
-      <RightNonLoggedHeader />
-    </StyledHeader>
-  ) : (
-    <StyledMobileHeader>
-      <MobileStandardHeaderWithMenu />
-    </StyledMobileHeader>
-  );
+  return isDesktop ? <NonLoggedHeader /> : <MobileHeader />;
 };
 
 export default Header;

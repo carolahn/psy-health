@@ -21,14 +21,18 @@ const RightMenuListWithTokenHeader = ({ setMMenu }) => {
         <CgProfile className="intra" />
         {user_name}
       </div>
-      <div
-        className="mobile-list"
-        onClick={() => {
-          history.push(is_psic ? `/psi/perfil/${user_id}` : `/perfil/${user_id}`);
-          setMMenu(false);
-        }}>
-        Meu perfil
-      </div>
+      {is_psic ? (
+        <div
+          className="mobile-list"
+          onClick={() => {
+            history.push(is_psic ? `/psi/perfil/${user_id}` : `/perfil/${user_id}`);
+            setMMenu(false);
+          }}>
+          Meu perfil
+        </div>
+      ) : (
+        <></>
+      )}
       <div
         className="mobile-list logout"
         onClick={() => {
