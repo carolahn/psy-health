@@ -20,6 +20,7 @@ const StyledButton = styled.button`
 
   span {
     display: inline-block;
+    margin: 0;
     padding: 10px 0;
     opacity: 0;
     color: #fff;
@@ -98,6 +99,86 @@ const StyledButton = styled.button`
     -webkit-transition-delay: 0.45s;
     transition-delay: 0.45s;
   }
+  &:hover > span:nth-child(11) {
+    -webkit-transition-delay: 0.50s;
+    transition-delay: 0.50s;
+  }
+  &:hover > span:nth-child(12) {
+    -webkit-transition-delay: 0.55s;
+    transition-delay: 0.55s;
+  }
+  &:hover > span:nth-child(13) {
+    -webkit-transition-delay: 0.60s;
+    transition-delay: 0.60s;
+  }
+  &:hover > span:nth-child(14) {
+    -webkit-transition-delay: 0.65s;
+    transition-delay: 0.65s;
+  }
+  &:hover > span:nth-child(15) {
+    -webkit-transition-delay: 0.70s;
+    transition-delay: 0.70s;
+  }
+  &:hover > span:nth-child(16) {
+    -webkit-transition-delay: 0.75s;
+    transition-delay: 0.75s;
+  }
+  &:hover > span:nth-child(17) {
+    -webkit-transition-delay: 0.80s;
+    transition-delay: 0.80s;
+  }
+  &:hover > span:nth-child(18) {
+    -webkit-transition-delay: 0.85s;
+    transition-delay: 0.85s;
+  }
+  &:hover > span:nth-child(19) {
+    -webkit-transition-delay: 0.90s;
+    transition-delay: 0.90s;
+  }
+  &:hover > span:nth-child(20) {
+    -webkit-transition-delay: 0.95s;
+    transition-delay: 0.95s;
+  }
+  &:hover > span:nth-child(21) {
+    -webkit-transition-delay: 0.100s;
+    transition-delay: 0.100s;
+  }
+  &:hover > span:nth-child(22) {
+    -webkit-transition-delay: 0.105s;
+    transition-delay: 0.105s;
+  }
+  &:hover > span:nth-child(23) {
+    -webkit-transition-delay: 0.110s;
+    transition-delay: 0.110s;
+  }
+  &:hover > span:nth-child(24) {
+    -webkit-transition-delay: 0.115s;
+    transition-delay: 0.115s;
+  }
+  &:hover > span:nth-child(25) {
+    -webkit-transition-delay: 0.120s;
+    transition-delay: 0.120s;
+  }
+  &:hover > span:nth-child(26) {
+    -webkit-transition-delay: 0.125s;
+    transition-delay: 0.125s;
+  }&:hover > span:nth-child(27) {
+    -webkit-transition-delay: 0.130s;
+    transition-delay: 0.130s;
+  }
+  &:hover > span:nth-child(28) {
+    -webkit-transition-delay: 0.135s;
+    transition-delay: 0.135s;
+  }
+  &:hover > span:nth-child(29) {
+    -webkit-transition-delay: 0.140s;
+    transition-delay: 0.140s;
+  }
+  &:hover > span:nth-child(30) {
+    -webkit-transition-delay: 0.145s;
+    transition-delay: 0.145s;
+  }
+
 `;
 
 export default StyledButton;
