@@ -2,11 +2,14 @@ import React from "react";
 import { useWindowSize } from "../../hooks";
 import CardComment from "../../components/card-comment";
 import { StyledDivContainer, StyledCarousel, StyledInnerCarousel } from "./styled";
+import imgDepoimentFemale from '../../assets/imgs/undraw_female_avatar_w3jk.svg';
+import imgDepoimentMale from '../../assets/imgs/undraw_male_avatar_323b.svg';
 
 const DepoimentsBanner = ({ listAllComments }) => {
   const [width] = useWindowSize();
   const listComments = [];
-
+  const listImgDepoiment = [imgDepoimentFemale, imgDepoimentMale];
+ 
   if (width >= 950) {
     while (listComments.length < 9) {
       const random = Math.round(Math.random() * (listAllComments.length - 1));
@@ -25,8 +28,7 @@ const DepoimentsBanner = ({ listAllComments }) => {
                 {
                   arr[i] && (
                     <CardComment
-                      image={arr[i].image}
-                      name={arr[i].name}
+                      image={listImgDepoiment[Math.round(Math.random() * (listImgDepoiment.length - 1))]}
                       coment={arr[i].coment}
                       grading={arr[i].grading}
                     />
@@ -35,8 +37,7 @@ const DepoimentsBanner = ({ listAllComments }) => {
                 {
                   arr[i + 1] && (
                     <CardComment
-                      image={arr[i + 1].image}
-                      name={arr[i + 1].name}
+                      image={listImgDepoiment[Math.round(Math.random() * (listImgDepoiment.length - 1))]}
                       coment={arr[i + 1].coment}
                       grading={arr[i + 1].grading}
                     />
@@ -45,8 +46,7 @@ const DepoimentsBanner = ({ listAllComments }) => {
                 {
                   arr[i + 2] && (
                     <CardComment
-                      image={arr[i + 2].image}
-                      name={arr[i + 2].name}
+                      image={listImgDepoiment[Math.round(Math.random() * (listImgDepoiment.length - 1))]}
                       coment={arr[i + 2].coment}
                       grading={arr[i + 2].grading}
                     />
@@ -74,8 +74,7 @@ const DepoimentsBanner = ({ listAllComments }) => {
               return(
                 <StyledInnerCarousel key={key}>
                   <CardComment
-                    image={e.image}
-                    name={e.name}
+                    image={listImgDepoiment[Math.round(Math.random() * (listImgDepoiment.length - 1))]}
                     coment={e.coment}
                     grading={e.grading}
                   />

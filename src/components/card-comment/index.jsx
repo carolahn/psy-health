@@ -2,12 +2,13 @@ import React from 'react';
 import { Rate } from 'antd';
 import styled from 'styled-components';
 
-const CardComment = ({ image, name, coment, grading }) => {
+const CardComment = ({ image, coment, grading }) => {
+    console.log(image);
+    
     return (
         <StyledContainerCard>
             <div className="container-header">
-                <img src={image} alt="Imagem do paciente" />
-                <h4>{name}</h4>
+                <img src={image} alt="Imagem do depoimento" />
             </div>
             <p>{coment}</p>
             <div className={'grading'}>
@@ -34,13 +35,6 @@ const StyledContainerCard = styled.div`
             width: 75px;
             height: 75px;
             border-radius: 50%;
-        }
-    
-        h4 {
-            font-weight: bold;
-            display: inline-block;
-            vertical-align: top;
-            padding-left: 4px;	
         }
     }
 
