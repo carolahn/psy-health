@@ -87,7 +87,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   const formRef = React.createRef();
 
   const handleOnFinish = (values) => {
-    // console.log("valuesBefore", values);
+    console.log("valuesBefore", values);
     const newWorkDays = {};
     Object.keys(values).map((key) => {
       if (key === "1") {
@@ -129,7 +129,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
       }
     });
     newValues = { ...newValues, workDays: { ...newWorkDays } };
-    // console.log("newValues", newValues);
+    console.log("newValues", newValues);
     dispatch(patchUserInfo(login.user.id, login.token, { ...newValues }));
   };
 
