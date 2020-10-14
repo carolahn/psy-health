@@ -6,7 +6,6 @@ import DepoimentsFormContainer from "../containers/depoiments-form";
 import RegisterContainer from "../containers/register";
 import Home from "../pages/home";
 import Login from "../pages/login";
-import PatPageTest from "../pages/pat-page-test";
 import PatientPage from "../pages/patient-page";
 import PsiPage from "../pages/psi-page";
 import PsiAppointments from "../pages/psi-page/psi-consultas";
@@ -35,10 +34,6 @@ const Routes = (props) => {
             </Route>
             <Route path="/psi/agendamentos/:id">
               <SchedulingPage />
-            </Route>
-            <Route path="/fruta">
-              Page Test Fruta
-              <PatPageTest />
             </Route>
             <Route exact path="/consultas/:id">
               <PatientPage />
@@ -80,10 +75,6 @@ const Routes = (props) => {
       </Route>
       <Route path="/psi/agendamentos/:id">
         <SchedulingPage />
-      </Route>
-      <Route path="/fruta">
-        Page Test Fruta - Não logado
-        <PatPageTest />
       </Route>
       <Route exact path="/">
         <Home />

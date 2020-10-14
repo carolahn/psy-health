@@ -147,7 +147,6 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   };
 
   const handleOnReset = () => {
-    // console.log("onreset");
     form.setFieldsValue({
       price: psicInfo.price || "Adicione o valor da consulta",
       description: psicInfo.description || "Adicione uma descrição sobre você",
@@ -228,8 +227,6 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
     setSelectedHoursSex(sex);
   }, [oneUser]);
 
-  // console.log("isEditable", isEditable);
-
   return (
     <div className="psi-form">
       {psicInfo
@@ -245,16 +242,16 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                     </div>
                     <div className="card-text">
                       <p className="crp">CRP: {psicInfo.crp}</p>
-                      <p className="rating">
+                      <div className="rating">
                         <StyledRate allowHalf value={psicInfo.rating} />
-                      </p>
+                      </div>
                       {width >= 768 && (
                         <p className="price-tag input-title">Valor do atendimento</p>
                       )}
                       <Form
                         // {...priceLayout}
                         ref={formRef}
-                        name="control-ref"
+                        name="control-ref-price"
                         onFinish={handleOnFinish}
                         defaultValue={{
                           remember: true,
@@ -283,7 +280,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                 <Form
                   {...layout}
                   ref={formRef}
-                  name="control-ref"
+                  name="control-ref-description"
                   onFinish={handleOnFinish}
                   defaultValue={{
                     remember: true,
@@ -338,7 +335,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                 <Form
                   {...layout}
                   ref={formRef}
-                  name="control-ref"
+                  name="control-ref-formation"
                   onFinish={handleOnFinish}
                   defaultValue={{
                     remember: true,
@@ -365,7 +362,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                     <Form
                       {...layout}
                       ref={formRef}
-                      name="control-ref"
+                      name="control-ref-video"
                       onFinish={handleOnFinish}
                       defaultValue={{
                         remember: true,
@@ -397,7 +394,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
               <Form
                 {...workDaysLayout}
                 ref={formRef}
-                name="control-ref"
+                name="control-ref-workdays"
                 onFinish={handleOnFinish}
                 defaultValue={{
                   remember: true,

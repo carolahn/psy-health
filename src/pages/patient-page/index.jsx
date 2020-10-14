@@ -14,7 +14,7 @@ const PatientPage = () => {
 
   useEffect(() => {
     dispatch(getAppointments());
-  }, [allAppointments]);
+  }, []);
 
   const compareDates = (dateAppointment) => {
     const parts = dateAppointment[0].split("-");
