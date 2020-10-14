@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import CardPsiAppointment from "../card-psi-appointment";
+import CardPsiAppointment from "../../components/card-psi-appointment";
 import { CardListWrapper, SpecialList } from "./styled";
 
 const CardListPsiAppointments = ({ type, appointments, numberOfCards }) => {

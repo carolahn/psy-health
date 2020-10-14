@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import RegisterContainer from "../containers/register";
+import Home from "../pages/home";
 import Login from "../pages/login";
 import PatientPage from "../pages/patient-page";
 import PsiPage from "../pages/psi-page";
@@ -31,13 +32,19 @@ const Routes = () => {
             <Route path="/psi/agendamentos/:id">
               <SchedulingPage />
             </Route>
-            <Route exact path="/consultas">
+            <Route exact path="/consultas/:id">
               <PatientPage />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         ) : (
           // logado como psicologo
           <Switch>
+            <Route path="/buscar">
+              <Search />
+            </Route>
             <Route path="/psi/perfil/:id">
               <PsiProfile />
             </Route>
@@ -46,6 +53,9 @@ const Routes = () => {
             </Route>
             <Route path="/psi">
               <PsiPage />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         ))}
@@ -63,7 +73,9 @@ const Routes = () => {
       <Route path="/psi/agendamentos/:id">
         <SchedulingPage />
       </Route>
-      <Route exact path="/" />
+      <Route exact path="/">
+        <Home />
+      </Route>
     </Switch>
   );
 };
