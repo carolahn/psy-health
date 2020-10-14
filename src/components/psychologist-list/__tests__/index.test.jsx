@@ -10,4 +10,13 @@ describe("<PsychologistList />", () => {
   it("renders corectly", () => {
     expect(wrapper.find(StyledPsychologistList).children().find(CardPsychologist)).toHaveLength(2);
   });
+
+  it(' snapshot', () => {
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('toBeTruthy', () => {
+    expect(wrapper).toBeTruthy()
+  })
+
 });
