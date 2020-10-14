@@ -1,5 +1,6 @@
 import React from "react";
 
+import DepoimentsOpenModal from "../depoiments-open-modal";
 import {
   CardContainer,
   ImgAndNameCardCotainer,
@@ -16,7 +17,6 @@ import {
   ContainerButtons,
   CancelButton,
   RescheduleButton,
-  AvaliationButton,
 } from "./styled";
 
 const CardPatientConsultation = ({
@@ -71,23 +71,21 @@ const CardPatientConsultation = ({
               <CancelButton onClick={cancelAppointment}>Cancelar</CancelButton>
             </ContainerButtons>
           ) : (
-              <>
-                {Avaliation ? (
-                  <>
-                    <TitleForNameDateScheduleValueAndAvaliation>
-                      Avaliação
+            <>
+              {Avaliation ? (
+                <>
+                  <TitleForNameDateScheduleValueAndAvaliation>
+                    Avaliação
                   </TitleForNameDateScheduleValueAndAvaliation>
-                    <NewRate allowHalf disabled defaultValue={5} />
-                  </>
-                ) : (
-                    <ContainerButtons>
-                      <AvaliationButton onClick={() => console.log("avaliar")}>
-                        Avaliar
-                  </AvaliationButton>
-                    </ContainerButtons>
-                  )}
-              </>
-            )}
+                  <NewRate allowHalf disabled defaultValue={5} />
+                </>
+              ) : (
+                <ContainerButtons>
+                  <DepoimentsOpenModal id={onePsi[0].id} name={onePsi[0].name} />
+                </ContainerButtons>
+              )}
+            </>
+          )}
         </AvaliationOrButton>
       </CardContainer>
     )

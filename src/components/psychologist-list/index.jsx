@@ -1,13 +1,13 @@
 import React from "react";
 
-import CardPsychologist from "../card-psychologist";
+import CardPsychologistLogic from "../../containers/card-psycologist";
 import StyledPsychologistList from "./styled";
 
 const PsychologistList = ({ psychologists }) => {
   return (
     <StyledPsychologistList>
       {psychologists.map((psychologist, index) => (
-        <CardPsychologist
+        <CardPsychologistLogic
           key={index}
           name={psychologist.name}
           image={psychologist.image}
