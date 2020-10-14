@@ -43,12 +43,21 @@ const DepoimentsForm = ({
           value={values.depoiment}
           spellCheck
           onChange={({ target: { value } }) => setValues({ ...values, depoiment: value })}
-          ref={register({ required: "Coloque seu depoimento!" })}
+          ref={register({
+            validate: (value: string) => {
+              setValues({ ...values, depoiment: value });
+              return value !== "" || "Coloque seu depoimento!";
+            },
+          })}
+          style={{
+            border: `2px solid ${!errors.depoiment ? "#70a3ef" : "#f88264"}`,
+          }}
         />
       </Tooltip>
       <Tooltip title={errors.grading && errors.grading.message}>
-        <div>
+        <div style={{ margin: "5px" }}>
           <Rate
+            style={{ fontSize: "30px" }}
             grading={0}
             color="#FFC23D"
             onClick={(value) => {
@@ -62,7 +71,7 @@ const DepoimentsForm = ({
         <Button
           fontSize="19px"
           width="200px"
-          height="40px"
+          height="50px"
           onClick={() =>
             !values.grading &&
             setError("grading", {
@@ -80,9 +89,8 @@ const DepoimentsForm = ({
 export default DepoimentsForm;
 
 const StyledTextArea = styled.textarea`
-  border: 2px solid #70a3ef;
   border-radius: 5px;
-  padding-left: 0.2rem;
+  padding: 10px;
   margin: 5px;
   width: 300px;
   resize: none;

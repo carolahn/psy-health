@@ -83,17 +83,7 @@ const DepoimentsFormContainer = ({
           }
         }}>
         <div className="container">
-          <StyledH1>
-            Depoimentos
-            <button
-              onClick={() => {
-                setValues({});
-                clearErrors();
-                setModalVisible(false);
-              }}>
-              X
-            </button>
-          </StyledH1>
+          <StyledH1>Depoimentos</StyledH1>
           <DepoimentsForm
             psicName={psicName}
             formValues={{ values, setValues }}

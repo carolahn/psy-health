@@ -52,6 +52,7 @@ const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) =
 
   const filterPsicUser = (appointment) => {
     onePsi = psiList.filter((psi) => psi.id === appointment.psic.id);
+    console.log(onePsi);
   };
 
   filterPsicUser(appointment);
@@ -109,7 +110,7 @@ const CardPatientConsultation = ({ psiList, appointment, buttonOrAvaliation }) =
                   </>
                 ) : (
                   <ContainerButtons>
-                    <DepoimentsOpenModal />
+                    <DepoimentsOpenModal id={onePsi[0].id} name={onePsi[0].name} />
                   </ContainerButtons>
                 )}
               </>
