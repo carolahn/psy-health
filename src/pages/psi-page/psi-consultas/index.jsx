@@ -29,6 +29,7 @@ const PsiAppointments = () => {
     } else if (JSON.stringify(allAppointments) === "{}") {
       dispatch(getAppointments());
       dispatch(getOneUser(login.user.id));
+      console.log("passei aqui");
     }
   }, []);
 
