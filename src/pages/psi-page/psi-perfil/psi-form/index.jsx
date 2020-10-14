@@ -87,36 +87,49 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   const formRef = React.createRef();
 
   const handleOnFinish = (values) => {
-    console.log("valuesBefore", values);
+    // console.log("valuesBefore", values);
+    if (values.price) {
+      values.price = parseInt(values.price);
+    }
     const newWorkDays = {};
     Object.keys(values).map((key) => {
       if (key === "1") {
         if (values["1"]) {
-          newWorkDays[1] = values["1"];
+          newWorkDays[1] = values["1"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[1] = seg;
         }
       } else if (key === "2") {
         if (values["2"]) {
-          newWorkDays[2] = values["2"];
+          newWorkDays[2] = values["2"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[2] = ter;
         }
       } else if (key === "3") {
         if (values["3"]) {
-          newWorkDays[3] = values["3"];
+          newWorkDays[3] = values["3"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[3] = qua;
         }
       } else if (key === "4") {
         if (values["4"]) {
-          newWorkDays[4] = values["4"];
+          newWorkDays[4] = values["4"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[4] = qui;
         }
       } else if (key === "5") {
         if (values["5"]) {
-          newWorkDays[5] = values["5"];
+          newWorkDays[5] = values["5"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[5] = sex;
         }
@@ -129,7 +142,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
       }
     });
     newValues = { ...newValues, workDays: { ...newWorkDays } };
-    console.log("newValues", newValues);
+    // console.log("newValues", newValues);
     dispatch(patchUserInfo(login.user.id, login.token, { ...newValues }));
   };
 

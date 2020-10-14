@@ -27,23 +27,11 @@ const SchedulingPage = () => {
   useEffect(() => {
     setPsicInfo({ ...oneUser });
   }, [oneUser]);
-  console.log("psicInfo", psicInfo);
 
   return (
     <MainContainer className="scheduling-page">
       <MainWrapper>
         <div>
-          {/* {JSON.stringify(psicInfo) != "{}"
-            ? allAppointments && (
-                <PsiForm
-                  oneUser={psicInfo}
-                  login={login}
-                  allAppointments={allAppointments}
-                  isEditable={false}
-                />
-              )
-            : ""} */}
-
           {JSON.stringify(psicInfo) != "{}"
             ? psicInfo.id == id
               ? allAppointments && (
