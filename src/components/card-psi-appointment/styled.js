@@ -4,7 +4,7 @@ export const StyledCard = styled.div`
   max-width: 550px;
   height: 86px;
   margin-bottom: 25px;
-  background: #fafafa;
+  background: #ffffff;
   border-radius: 5px;
   border: 2px solid #70a3ef;
   font-family: "Roboto", sans-serif;
