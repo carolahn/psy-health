@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 import BannerOperation from "../../components/banner-operation";
 import BannerSearch from "../../components/banner-search";
-import DepoimentsBanner from "../../containers/depoiments-banner";
+import DepoimentsBanner from '../../containers/depoiments-banner'
 import { MainContainer } from "./styled";
 
 const Home = () => {
@@ -15,13 +15,11 @@ const Home = () => {
     });
   }, []);
 
-  console.log(listComments);
-
   return (
     <MainContainer className="home-page">
       <BannerSearch />
       <BannerOperation />
-      {/* {listComments && <DepoimentsBanner listComments={listComments} />} */}
+      {listComments.length > 2 && <DepoimentsBanner listAllComments={listComments} />}
     </MainContainer>
   );
 };
