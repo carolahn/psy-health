@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render tests renders correctly 1`] = `
+<div
+  className="sc-bdnylx hwPbRu card-psi-appointment"
+>
+  <div
+    className="ant-row"
+    style={Object {}}
+  >
+    <div
+      className="ant-col ant-col-xs-10 ant-col-sm-10 ant-col-md-10 ant-col-lg-10 ant-col-xl-10"
+      style={Object {}}
+    >
+      <div
+        className="col-container"
+      >
+        <div
+          className="card-title"
+        >
+          John Fernandez
+        </div>
+      </div>
+    </div>
+    <div
+      className="ant-col ant-col-xs-8 ant-col-sm-8 ant-col-md-8 ant-col-lg-8 ant-col-xl-8"
+      style={Object {}}
+    >
+      <div
+        className="col-container"
+      >
+        <div
+          className="card-title"
+        >
+          Data da consulta
+        </div>
+        <div>
+          07-09-2020
+        </div>
+      </div>
+    </div>
+    <div
+      className="ant-col ant-col-xs-6 ant-col-sm-6 ant-col-md-6 ant-col-lg-6 ant-col-xl-6"
+      style={Object {}}
+    >
+      <div
+        className="col-container"
+      >
+        <div
+          className="card-title"
+        >
+          Horário
+        </div>
+        <div>
+          13:00
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

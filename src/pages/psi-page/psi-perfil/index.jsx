@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import Calendar from "../../../components/calendar";
+import Calendar from "../../../containers/calendar";
 import { useWindowSize } from "../../../hooks/index";
 import { getAppointments } from "../../../redux/actions/appointments";
 import { getOneUser, patchUserInfo } from "../../../redux/actions/users";
