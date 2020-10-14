@@ -22,6 +22,7 @@ const StyledContainerCard = styled.div`
     border-radius: 3px;
     background-color: white;
     padding: 15px 1% 5px 1%;
+    text-align: justify;
 
         img{
             border: 1px solid #70A3EF;
