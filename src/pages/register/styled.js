@@ -10,6 +10,8 @@ export const RegisterContainer = styled.div`
 
   @media (max-width: 945px) {
     display: block;
+    height: auto;
+    margin: 20px 0;
   }
 `;
 
@@ -20,8 +22,11 @@ export const SideContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  background-color: #f3f3f3;
 
   @media (max-width: 945px) {
+    display: grid;
+    place-items: center;
     width: 100%;
   }
 
@@ -35,24 +40,19 @@ export const SideContainer = styled.div`
 
     display: grid;
     grid-template-columns: 2fr 7fr;
+    background-color: #f3f3f3;
 
     img {
       margin: 75px 95px;
-      width: 350px;
+      width: 212px;
+      height: 84px;
 
-      @media (max-width: 550px), (max-height: 700px) {
-        width: 230px;
-        margin: 15px 75px 0 75px;
+      @media (max-height: 700px) {
+        margin: 15px 60px;
       }
     }
 
     @media (max-width: 945px) {
-      display: none;
-    }
-  }
-
-  .mobile {
-    @media (min-width: 945px) {
       display: none;
     }
   }
@@ -72,10 +72,14 @@ export const SideContainer = styled.div`
     .changeToPsic {
       color: rgba(0, 0, 0, 0.4);
       font-size: 1.2rem;
-      margin: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.5rem;
 
       span {
         cursor: pointer;
+        margin: 0;
       }
 
       .usr,

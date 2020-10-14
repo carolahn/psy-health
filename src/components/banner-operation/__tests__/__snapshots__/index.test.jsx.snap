@@ -14,10 +14,10 @@ exports[`render correctly BannerOperation 1`] = `
     </h1>
   </div>
   <div
-    className="sc-hKFyIo hsxEsy"
+    className="sc-hKFyIo lljcEr"
   >
     <div
-      className="sc-eCApGN iyWQXL"
+      className="sc-eCApGN eUsERC"
     >
       <h2
         className="sc-jSFkmK fzlIRV"
@@ -50,7 +50,7 @@ exports[`render correctly BannerOperation 1`] = `
       </div>
     </div>
     <div
-      className="sc-eCApGN iyWQXL"
+      className="sc-eCApGN eUsERC"
     >
       <h2
         className="sc-jSFkmK fzlIRV"
@@ -83,7 +83,7 @@ exports[`render correctly BannerOperation 1`] = `
       </div>
     </div>
     <div
-      className="sc-eCApGN iyWQXL"
+      className="sc-eCApGN eUsERC"
     >
       <h2
         className="sc-jSFkmK fzlIRV"

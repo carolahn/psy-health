@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests snapshot shows pat 1`] = `
+<form
+  className="sc-bdnylx ljPwdE"
+  name="register"
+  noValidate={true}
+>
+  <input
+    className="sc-gtssRu dobViZ"
+    name="name"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Nome e sobrenome"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    name="email"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="E-mail"
+    type="email"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    name="confirmEmail"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Confirmar E-mail"
+    type="email"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    maxLength={15}
+    name="phone"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Telefone (opcional)"
+    type="tel"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    maxLength={18}
+    name="cpf_cnpj"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="CPF/CNPJ"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    name="password"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Senha"
+    type="password"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    name="confirmPassword"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Confirmar Senha"
+    type="password"
+  />
+  <button
+    className="sc-dlnjPT fHXmFr"
+    type="submit"
+  >
+    Register
+  </button>
+</form>
+`;
+
+exports[`Tests snapshot shows psi 1`] = `
+<form
+  className="sc-bdnylx ljPwdE"
+  name="register"
+  noValidate={true}
+>
+  <input
+    className="sc-gtssRu dobViZ"
+    name="name"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Nome e sobrenome"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    name="email"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="E-mail"
+    type="email"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    name="confirmEmail"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Confirmar E-mail"
+    type="email"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    maxLength={15}
+    name="phone"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Telefone (opcional)"
+    type="tel"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    maxLength={18}
+    name="cpf_cnpj"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="CPF/CNPJ"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    maxLength={8}
+    name="crp"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="CRP"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    name="password"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Senha"
+    type="password"
+  />
+  <input
+    className="sc-gtssRu dobViZ"
+    name="confirmPassword"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    placeholder="Confirmar Senha"
+    type="password"
+  />
+  <button
+    className="sc-dlnjPT fHXmFr"
+    type="submit"
+  >
+    Register
+  </button>
+</form>
+`;

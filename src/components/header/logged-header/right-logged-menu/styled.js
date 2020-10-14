@@ -4,7 +4,7 @@ export const StyledRightMenuListWithTokenHeader = styled.div`
   background-color: #053559;
   position: absolute;
   top: 70px;
-  right: 2px;
+  right: 10%;
   min-width: 150px;
   height: 150px;
   border: 2px solid #585858;
@@ -14,6 +14,17 @@ export const StyledRightMenuListWithTokenHeader = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 5;
+
+  .user-name {
+    color: whitesmoke;
+    display: flex;
+    font-weight: bold;
+  }
+
+  .intra {
+    margin-right: 10px;
+    scale: 1.5;
+  }
 
   .mobile-list {
     color: whitesmoke;

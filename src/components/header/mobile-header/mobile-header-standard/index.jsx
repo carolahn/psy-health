@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CgMenu } from "react-icons/cg";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import MobileMenuListWithTokenHeader from "../mobile-menu-links/with-tolken";
 import MobileMenuListWithoutTokenHeader from "../mobile-menu-links/without-token";
 import { StyledMobileStandardHeaderWithMenu, Container } from "./styled";
 
-const MobileStandardHeaderWithMenu = ({ token }) => {
+const MobileStandardHeaderWithMenu = () => {
+  const isLoggedIn = !!useSelector((state) => state.login.token);
   const history = useHistory();
   const [mMenu, setMMenu] = useState(false);
 
@@ -15,7 +17,7 @@ const MobileStandardHeaderWithMenu = ({ token }) => {
       <div className="logo" onClick={() => history.push("/")} />
       <CgMenu className="menu" onClick={() => setMMenu((prevState) => !prevState)} />
       {mMenu &&
-        (!token ? (
+        (!isLoggedIn ? (
           <>
             <Container onClick={() => setMMenu((prevState) => !prevState)} />
             <MobileMenuListWithoutTokenHeader

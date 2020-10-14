@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 import { useWindowSize } from "../../hooks/index";
 import Decor from "./login-art";
@@ -14,6 +14,7 @@ export { login_urls, usr_urls, psi_urls };
 
 const Login = () => {
   const where = useLocation().pathname;
+  const history = useHistory();
   const [width] = useWindowSize();
 
   return (
@@ -26,7 +27,7 @@ const Login = () => {
       ) : width < 950 && usr_urls.some((e) => e === where) ? (
         <>
           <StyledMobileLoginHeader>
-            <StyledMobileLogoHolder />
+            <StyledMobileLogoHolder onClick={() => history.push("/")} />
           </StyledMobileLoginHeader>
           <LoginForm />
         </>
@@ -40,7 +41,7 @@ const Login = () => {
       ) : width < 950 && psi_urls.some((e) => e === where) ? (
         <>
           <StyledMobileLoginHeader>
-            <StyledMobileLogoHolder />
+            <StyledMobileLogoHolder onClick={() => history.push("/")} />
           </StyledMobileLoginHeader>
           <LoginForm />
         </>
