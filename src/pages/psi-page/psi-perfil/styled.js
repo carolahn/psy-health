@@ -7,6 +7,8 @@ export const MainContainer = styled.div`
   max-width: 1200px; */
   width: 100%;
   padding-top: 60px;
+  min-height: auto;
+  background-color: #fbfbfb;
   @media (max-width: 768px) {
     padding-top: 30px;
   }
@@ -103,7 +105,7 @@ export const MainWrapper = styled.div`
     padding-left: 30px;
   }
 
-  .form-btn {
+  /* .form-btn {
     background-color: #053559;
     color: #ffffff;
     margin: 8px;
@@ -112,7 +114,7 @@ export const MainWrapper = styled.div`
       color: #70a3ef;
       border: 2px solid #70a3ef;
     }
-  }
+  } */
 
   .row-calendar {
     margin-bottom: 30px;
@@ -293,6 +295,13 @@ export const StyledWorkForm = styled.div`
   }
   .ant-form-item-control {
     flex-wrap: nowrap;
+  }
+  .ant-form-item-control-input-content {
+    display: flex;
+    flex-direction: row;
+  }
+  .ant-form-item-control-input-content > button {
+    margin: 10px;
   }
 
   @media (max-width: 576px) {

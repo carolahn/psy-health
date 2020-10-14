@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import DepoimentsFormContainer from "../containers/depoiments-form";
 import RegisterContainer from "../containers/register";
+import Home from "../pages/home";
 import Login from "../pages/login";
 import PatPageTest from "../pages/pat-page-test";
 import PatientPage from "../pages/patient-page";
@@ -39,13 +40,19 @@ const Routes = (props) => {
               Page Test Fruta
               <PatPageTest />
             </Route>
-            <Route exact path="/consultas">
+            <Route exact path="/consultas/:id">
               <PatientPage />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         ) : (
           // logado como psicologo
           <Switch>
+            <Route path="/buscar">
+              <Search />
+            </Route>
             <Route path="/psi/perfil/:id">
               <PsiProfile />
             </Route>
@@ -54,6 +61,9 @@ const Routes = (props) => {
             </Route>
             <Route path="/psi">
               <PsiPage />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         ))}
@@ -76,7 +86,7 @@ const Routes = (props) => {
         <PatPageTest />
       </Route>
       <Route exact path="/">
-        Home
+        <Home />
         <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
         <DepoimentsFormContainer
           showModal={{ modalVisible, setModalVisible }}

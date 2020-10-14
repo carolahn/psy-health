@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-import Calendar from "../../components/calendar";
+import Calendar from "../../containers/calendar";
 import { getAppointments } from "../../redux/actions/appointments";
 import { getOneUser } from "../../redux/actions/users";
 import PsiForm from "../psi-page/psi-perfil/psi-form";
@@ -22,7 +22,7 @@ const SchedulingPage = () => {
     dispatch(getAppointments());
     dispatch(getOneUser(id));
   }, []);
-  console.log(oneUser);
+  // console.log(oneUser);
 
   return (
     <MainContainer className="scheduling-page">
@@ -52,7 +52,7 @@ const SchedulingPage = () => {
                     // patInfo={}
                     allAppointments={allAppointments}
                     login={login}
-                    isEditable={false}
+                    // isEditable={false}
                   />
                 </>
               )
