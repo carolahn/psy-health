@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import CardPatientConsultation from "../../components/card-patient-consultation";
+import CardPatientConsultationContainer from "../../containers/card-patient-consultation";
 import { getAppointments } from "../../redux/actions/appointments";
 import { ContainerCards, TitleContainerAppointments, TitleContainerHistory } from "./styled";
 
@@ -14,7 +14,7 @@ const PatientPage = () => {
 
   useEffect(() => {
     dispatch(getAppointments());
-  }, []);
+  }, [allAppointments]);
 
   const compareDates = (dateAppointment) => {
     const parts = dateAppointment[0].split("-");
@@ -26,7 +26,7 @@ const PatientPage = () => {
 
   const constructCardWithButtons = (appointment, index) => {
     return (
-      <CardPatientConsultation
+      <CardPatientConsultationContainer
         key={index}
         buttonOrAvaliation
         psiList={psiList}
@@ -37,7 +37,7 @@ const PatientPage = () => {
 
   const constructCardWithAvaliation = (appointment, index) => {
     return (
-      <CardPatientConsultation
+      <CardPatientConsultationContainer
         key={index}
         buttonOrAvaliation={false}
         psiList={psiList}

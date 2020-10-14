@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import Calendar from "../../components/calendar";
+import Calendar from "../../containers/calendar";
 import "antd/dist/antd.css";
 import { getAppointments } from "../../redux/actions/appointments";
 import { getOneUser } from "../../redux/actions/users";
