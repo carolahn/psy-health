@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
-import search from './search'
 
 import appointments from "./appointments";
+import depoiments from "./depoiments";
 import login from "./login";
+import search from "./search";
 import users from "./users";
 
 export default combineReducers({
@@ -10,6 +11,6 @@ export default combineReducers({
   search,
   login,
   users,
-  appointments
- 
+  appointments,
+  depoiments,
 });

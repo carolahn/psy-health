@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import DepoimentsFormContainer from "../containers/depoiments-form";
 import RegisterContainer from "../containers/register";
 import Home from "../pages/home";
 import Login from "../pages/login";
@@ -10,14 +9,12 @@ import PatientPage from "../pages/patient-page";
 import PsiPage from "../pages/psi-page";
 import PsiAppointments from "../pages/psi-page/psi-consultas";
 import PsiProfile from "../pages/psi-page/psi-perfil";
-import Register from "../pages/register";
 import SchedulingPage from "../pages/scheduling-page";
 import Search from "../pages/search";
 
-const Routes = (props) => {
+const Routes = () => {
   const token = useSelector((state) => state.login.token);
   const access = useSelector((state) => state.login.user.is_psic);
-  const [modalVisible, setModalVisible] = useState(true);
 
   return (
     <Switch>
@@ -26,7 +23,7 @@ const Routes = (props) => {
           // logado como paciente
           <Switch>
             {/* <Route path="/blog">Blog</Route> */}
-            <Route path={["/login", "/register"]}>
+            <Route path={["/login", "/cadastro"]}>
               <Redirect to="/" />
             </Route>
             <Route path="/buscar">
@@ -67,7 +64,7 @@ const Routes = (props) => {
       <Route path="/login">
         <Login />
       </Route>
-      <Route path="/register">
+      <Route path="/cadastro">
         <RegisterContainer />
       </Route>
       <Route path="/buscar">
@@ -78,12 +75,6 @@ const Routes = (props) => {
       </Route>
       <Route exact path="/">
         <Home />
-        <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
-        <DepoimentsFormContainer
-          showModal={{ modalVisible, setModalVisible }}
-          psicId={2}
-          psicName="João Cleber"
-        />
       </Route>
     </Switch>
   );

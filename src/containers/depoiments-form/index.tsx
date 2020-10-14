@@ -20,7 +20,7 @@ interface Values {
   grading?: number;
 }
 
-interface AAAA {
+interface OnClickModal {
   target: EventTarget | any;
   currentTarget: EventTarget & HTMLDivElement;
 }
@@ -40,7 +40,6 @@ const DepoimentsFormContainer = ({
   });
 
   const onSubmit = () => {
-    console.log(id, psicId);
     axios({
       method: "post",
       url: `https://psy-health-api.herokuapp.com/depoiments`,
@@ -76,7 +75,7 @@ const DepoimentsFormContainer = ({
   return (
     modalVisible && (
       <StyledModal
-        onClick={({ target, currentTarget }: AAAA) => {
+        onClick={({ target, currentTarget }: OnClickModal) => {
           if (target.className === currentTarget.className) {
             setValues({});
             clearErrors();
@@ -84,17 +83,7 @@ const DepoimentsFormContainer = ({
           }
         }}>
         <div className="container">
-          <StyledH1>
-            Depoimentos
-            <button
-              onClick={() => {
-                setValues({});
-                clearErrors();
-                setModalVisible(false);
-              }}>
-              X
-            </button>
-          </StyledH1>
+          <StyledH1>Depoimentos</StyledH1>
           <DepoimentsForm
             psicName={psicName}
             formValues={{ values, setValues }}

@@ -3,21 +3,23 @@ import styled from "styled-components";
 
 import Curva from "../../assets/imgs/curva.svg";
 
-const SvgContainer = ({ svgExtra, esquerda = false }) => {
-  return !esquerda ? (
-    <ContainerDireita>
+interface SvgContainerProps {
+  svgExtra: string;
+  esquerda?: boolean;
+}
+
+interface TransformContainer {
+  esquerda: boolean;
+}
+
+const SvgContainer = ({ svgExtra, esquerda = false }: SvgContainerProps) => {
+  return (
+    <Container esquerda={esquerda}>
       <img src={Curva} alt="Curva" />
       <div>
         <img src={svgExtra} alt="svgExtra" />
       </div>
-    </ContainerDireita>
-  ) : (
-    <ContainerEsquerda>
-      <img src={Curva} alt="Curva" />
-      <div>
-        <img src={svgExtra} alt="svgExtra" />
-      </div>
-    </ContainerEsquerda>
+    </Container>
   );
 };
 
@@ -25,6 +27,8 @@ export default SvgContainer;
 
 const Container = styled.div`
   background-color: #70a3ef;
+
+  transform: ${({ esquerda }: TransformContainer) => (esquerda ? "rotateY(180deg)" : "none")};
 
   width: 100%;
   display: grid;
@@ -48,10 +52,4 @@ const Container = styled.div`
   @media (max-width: 945px) {
     display: none;
   }
-`;
-
-const ContainerDireita = styled(Container)``;
-
-const ContainerEsquerda = styled(Container)`
-  transform: rotateY(180deg);
 `;
