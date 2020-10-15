@@ -51,12 +51,14 @@ describe("Tests behaviour", () => {
     wrapper.find("button").at(0).simulate("submit");
 
     expect(mockAxios.post).toHaveBeenCalledWith("https://psy-health-api.herokuapp.com/register", {
-      name: "Cassiano B",
-      email: "a@a.c",
-      password: "1234",
       cpf_cnpj: "000.000.000-00",
+      email: "a@a.c",
+      image: "undraw_male_avatar_323b.svg",
       is_psic: false,
+      name: "Cassiano B",
+      password: "1234",
       phone: "(41) 91111-1111",
+      price: 0,
     });
 
     const responseObj = {

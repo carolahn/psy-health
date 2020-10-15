@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import "antd/dist/antd.css";
 
-import Footer from "./components/footer";
+import FooterContainer from "./containers/footer";
 import Header from "./components/header/index.jsx";
 import Routes from "./routes/";
 
@@ -12,7 +12,7 @@ const App = () => {
     <BodyFrame>
       <Header />
       <Routes />
-      <Footer />
+      <FooterContainer />
     </BodyFrame>
   );
 };
