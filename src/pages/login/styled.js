@@ -29,4 +29,5 @@ export const StyledMobileLogoHolder = styled.div`
   height: 84px;
   background-image: url(${logo});
   background-size: cover;
+  cursor: pointer;
 `;

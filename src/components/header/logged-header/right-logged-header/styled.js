@@ -25,13 +25,14 @@ export const StyledRightLoggedHeader = styled.div`
     align-items: center;
     margin-left: 15px;
     margin-right: 30px;
-    scale: 2;
+    transform: scale(2);
+    /* scale: 2; */
   }
 
   .profile:hover {
     cursor: pointer;
     transition: 0.4s;
-    scale: 1.5;
+    transform: scale(1.5);
   }
 
   .links {
