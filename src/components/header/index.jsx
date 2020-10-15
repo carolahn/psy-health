@@ -17,14 +17,12 @@ const non_header_urls = [
 const header_urls = ["", "/", "/buscar", "/buscar/", "/psi", "/psi/"];
 
 const start_with_urls = [
-  "/consultas", //paciente logado
+  "/consultas",
   "/consultas/",
   "/psi/consultas",
   "/psi/consultas/",
   "/psi/agendamentos",
   "/psi/agendamentos/",
-  "/perfil", // não existe
-  "/perfil/",
   "/psi/perfil",
   "/psi/perfil/",
 ];

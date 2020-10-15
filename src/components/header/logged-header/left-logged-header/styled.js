@@ -10,6 +10,7 @@ export const StyledLeftLoggedHeader = styled.div`
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
 
   div {
     margin-left: 15px;

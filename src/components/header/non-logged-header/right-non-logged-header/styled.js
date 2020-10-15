@@ -8,6 +8,7 @@ export const StyledRightNonLoggedHeader = styled.div`
   flex-flow: row nowrap;
   justify-content: center;
   align-items: flex-start;
+  font-size: 16px;
 
   div {
     margin-left: 15px;

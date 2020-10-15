@@ -5,15 +5,15 @@ export const StyledMobileMenuListWithTokenHeader = styled.div`
   position: absolute;
   top: 70px;
   right: 2px;
-  min-width: 150px;
-  height: 150px;
-  border: 2px solid #585858;
-  border-top: 0.5px solid #585858;
+  min-width: 200px;
+  height: 200px;
+  border-radius: 5px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   z-index: 5;
+  font-size: 16px;
 
   .mobile-list {
     color: whitesmoke;
@@ -25,8 +25,4 @@ export const StyledMobileMenuListWithTokenHeader = styled.div`
     scale: 0.9;
     transition: 0.2s;
   }
-
-  /*   .mobile-menu-list-whithout-token {
-    transition: 2s;
-  } */
 `;
