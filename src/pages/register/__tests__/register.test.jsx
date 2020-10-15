@@ -1,7 +1,7 @@
 import React from "react";
 
 import RegisterFormContainer from "../../../containers/register-form";
-import { shallow } from "../../../containers/search-filter/__tests__/node_modules/enzyme";
+import { shallow } from "enzyme";
 import Register from "../index";
 
 describe("Renders", () => {
