@@ -2,19 +2,12 @@
 
 exports[`card-comment-renderer 1`] = `
 <div
-  className="sc-bdnylx cdMoWn"
+  className="sc-bdnylx jSmFxG"
 >
-  <div
-    className="container-header"
-  >
-    <img
-      alt="Imagem do paciente"
-      src="patient's url img "
-    />
-    <h4>
-      patient's name
-    </h4>
-  </div>
+  <img
+    alt="Imagem do depoimento"
+    src="patient's url img "
+  />
   <p>
     comentário
   </p>

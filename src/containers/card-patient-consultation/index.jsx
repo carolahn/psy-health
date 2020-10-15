@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import CardPatientConsultation from "../../components/card-patient-consultation";
-import { deleteAppointment } from "../../redux/actions/appointments";
+import { deleteAppointment, getAppointments } from "../../redux/actions/appointments";
 
 const CardPatientConsultationContainer = ({ psiList, appointment, buttonOrAvaliation }) => {
   const dispatch = useDispatch();

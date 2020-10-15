@@ -66,20 +66,36 @@ const CardPatientConsultation = ({
             <>
               <div>
                 <Button
-                  title="Remarcar"
+                  buttonName="Remarcar"
                   width="100px"
                   height="30px"
                   fontSize="16px"
                   padding-bottom="20px"
+                  color="#9E9E9E"
+                  colorHover="#9E9E9E"
+                  colorActive="#9E9E9E"
                   onClick={rescheduleAppointment}
                 />
               </div>
               <div>
                 <Button
-                  title="Cancelar"
+                  buttonName="Notificação"
                   width="100px"
                   height="30px"
                   fontSize="16px"
+                  padding-bottom="20px"
+                  onClick={() => console.log("notificar")}
+                />
+              </div>
+              <div>
+                <Button
+                  buttonName="Cancelar"
+                  width="100px"
+                  height="30px"
+                  fontSize="16px"
+                  color="#E16769"
+                  colorHover="#E16769"
+                  colorActive="#E16769"
                   onClick={cancelAppointment}
                 />
               </div>

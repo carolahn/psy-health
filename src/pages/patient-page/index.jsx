@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import CardPatientConsultationContainer from "../../containers/card-patient-consultation";
@@ -11,10 +11,6 @@ const PatientPage = () => {
   const userId = useSelector((state) => state.login.user.id);
   const psiList = useSelector((state) => state.login.psiList);
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
-
-  useEffect(() => {
-    dispatch(getAppointments());
-  }, []);
 
   useEffect(() => {
     dispatch(getAppointments());

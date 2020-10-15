@@ -51,7 +51,11 @@ export const Container = styled.div`
   .login {
     color: rgba(0, 0, 0, 0.4);
     font-size: 1.2rem;
-    margin: 1.5rem;
+    margin: 1rem;
+    width: 310px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     span {
       cursor: pointer;
@@ -89,6 +93,7 @@ export const Container = styled.div`
     margin-top: 15px;
     margin-bottom: 15px;
     width: 300px;
+    outline: none;
   }
 
   .submit-button {

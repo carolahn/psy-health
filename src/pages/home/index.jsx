@@ -19,13 +19,11 @@ const Home = () => {
     // });
   }, []);
 
-  console.log(listComments);
-
   return (
     <MainContainer className="home-page">
       <BannerSearch />
       <BannerOperation />
-      {/* {listComments && <DepoimentsBanner listComments={listComments} />} */}
+      {listComments.length > 2 && <DepoimentsBanner listAllComments={listComments} />}
     </MainContainer>
   );
 };

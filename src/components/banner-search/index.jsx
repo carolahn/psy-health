@@ -19,7 +19,7 @@ const BannerSearch = () => {
           <Button
             width="200px"
             height="60px"
-            title="Buscar"
+            buttonName="Buscar agora"
             onClick={() => history.push("/buscar")}
           />
         </Div>

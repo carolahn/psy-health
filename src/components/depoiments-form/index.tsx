@@ -79,7 +79,7 @@ const DepoimentsForm = ({
               message: "Informe seu grading!",
             })
           }
-          title="Mandar depoimento"
+          buttonName="Mandar depoimento"
         />
       </Tooltip>
     </StyledForm>

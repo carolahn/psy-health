@@ -7,72 +7,142 @@ exports[`Tests snapshot shows pat 1`] = `
   noValidate={true}
 >
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="name"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Nome e sobrenome"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="email"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="E-mail"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="email"
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="confirmEmail"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Confirmar E-mail"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="email"
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     maxLength={15}
     name="phone"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Telefone (opcional)"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="tel"
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     maxLength={18}
     name="cpf_cnpj"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="CPF/CNPJ"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="password"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Senha"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="password"
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="confirmPassword"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Confirmar Senha"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="password"
   />
-  <button
-    className="sc-dlnjPT fHXmFr"
-    type="submit"
+  <div
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
   >
-    Register
-  </button>
+    <button
+      className="sc-dlnjPT jJgUMU"
+      data-text="Register"
+      fontSize="19px"
+      height="40px"
+      onClick={[Function]}
+      width="150px"
+    >
+      <span>
+        R
+      </span>
+      <span>
+        e
+      </span>
+      <span>
+        g
+      </span>
+      <span>
+        i
+      </span>
+      <span>
+        s
+      </span>
+      <span>
+        t
+      </span>
+      <span>
+        e
+      </span>
+      <span>
+        r
+      </span>
+    </button>
+  </div>
 </form>
 `;
 
@@ -83,80 +153,155 @@ exports[`Tests snapshot shows psi 1`] = `
   noValidate={true}
 >
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="name"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Nome e sobrenome"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="email"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="E-mail"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="email"
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="confirmEmail"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Confirmar E-mail"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="email"
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     maxLength={15}
     name="phone"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Telefone (opcional)"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="tel"
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     maxLength={18}
     name="cpf_cnpj"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="CPF/CNPJ"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     maxLength={8}
     name="crp"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="CRP"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="password"
     onChange={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Senha"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="password"
   />
   <input
-    className="sc-gtssRu dobViZ"
+    className="sc-gtssRu kTOxiL"
     name="confirmPassword"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     placeholder="Confirmar Senha"
+    style={
+      Object {
+        "border": "2px solid #70a3ef",
+      }
+    }
     type="password"
   />
-  <button
-    className="sc-dlnjPT fHXmFr"
-    type="submit"
+  <div
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
   >
-    Register
-  </button>
+    <button
+      className="sc-dlnjPT jJgUMU"
+      data-text="Register"
+      fontSize="19px"
+      height="40px"
+      onClick={[Function]}
+      width="150px"
+    >
+      <span>
+        R
+      </span>
+      <span>
+        e
+      </span>
+      <span>
+        g
+      </span>
+      <span>
+        i
+      </span>
+      <span>
+        s
+      </span>
+      <span>
+        t
+      </span>
+      <span>
+        e
+      </span>
+      <span>
+        r
+      </span>
+    </button>
+  </div>
 </form>
 `;

@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { login } from "../../../redux/actions/login/action";
-import enzyme from "../../search-filter/__tests__/node_modules/enzyme";
+import enzyme from "enzyme";
 import RegisterFormContainer from "../index";
 
 jest.mock("axios", () => mockAxios);

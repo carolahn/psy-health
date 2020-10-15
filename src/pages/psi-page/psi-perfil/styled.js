@@ -192,7 +192,7 @@ export const PsiCard = styled.div`
     margin: 36px auto 15.3px auto;
   }
 
-  p.rating {
+  div.rating {
     margin: 0px auto 30px auto;
   }
 
