@@ -11,7 +11,9 @@ const CardPatientConsultationContainer = ({ psiList, appointment, buttonOrAvalia
   const newAppointment = appointment.date.start.split(" ");
   const token = useSelector((state) => state.login.token);
   const [onePsi, setOnePsi] = useState("");
+  const [avaliationExist, setAvaliationExist] = useState(false);
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
+  const allDepoiments = useSelector((state) => state.depoiments.allDepoiments);
 
   const constructDate = () => {
     const partsDate = newAppointment[0].split("-");
@@ -36,17 +38,29 @@ const CardPatientConsultationContainer = ({ psiList, appointment, buttonOrAvalia
     setOnePsi(psiList.filter((psi) => psi.id === appointment.psic.id));
   };
 
+  const filterDepoiments = (appointment) => {
+    setAvaliationExist(
+      Object.values(allDepoiments).some((depoiment) => appointment.id === depoiment.appointmentId)
+    );
+    console.log(Object.values(allDepoiments));
+  };
+
+  useEffect(() => {
+    filterDepoiments(appointment);
+  }, [allDepoiments]);
+
   useEffect(() => {
     filterPsicUser(appointment);
   }, [allAppointments]);
 
   return (
     <CardPatientConsultation
-      onePsi={onePsi}
+      avaliationExist={avaliationExist}
       buttonOrAvaliation={buttonOrAvaliation}
+      cancelAppointment={cancelAppointment}
       constructDate={constructDate}
       constructHour={constructHour}
-      cancelAppointment={cancelAppointment}
+      onePsi={onePsi}
       rescheduleAppointment={rescheduleAppointment}
     />
   );

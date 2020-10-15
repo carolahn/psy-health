@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
+import Button from "../button";
 import DepoimentsOpenModal from "../depoiments-open-modal";
 import {
   CardContainer,
@@ -15,22 +15,17 @@ import {
   CrpDiv,
   TextStyle,
   NewRate,
-  ContainerButtons,
-  CancelButton,
-  RescheduleButton,
 } from "./styled";
 
 const CardPatientConsultation = ({
+  avaliationExist,
   buttonOrAvaliation,
-  onePsi,
+  cancelAppointment,
   constructDate,
   constructHour,
-  cancelAppointment,
+  onePsi,
   rescheduleAppointment,
 }) => {
-  const Avaliation = true;
-  const allDepoiments = useSelector((state) => state.depoiments.allDepoiments);
-
   return (
     onePsi.length > 0 && (
       <CardContainer>
@@ -68,13 +63,30 @@ const CardPatientConsultation = ({
         </DateScheduleAndValueContainer>
         <AvaliationOrButton>
           {buttonOrAvaliation ? (
-            <ContainerButtons>
-              <RescheduleButton onClick={rescheduleAppointment}>Remarcar</RescheduleButton>
-              <CancelButton onClick={cancelAppointment}>Cancelar</CancelButton>
-            </ContainerButtons>
+            <>
+              <div>
+                <Button
+                  title="Remarcar"
+                  width="100px"
+                  height="30px"
+                  fontSize="16px"
+                  padding-bottom="20px"
+                  onClick={rescheduleAppointment}
+                />
+              </div>
+              <div>
+                <Button
+                  title="Cancelar"
+                  width="100px"
+                  height="30px"
+                  fontSize="16px"
+                  onClick={cancelAppointment}
+                />
+              </div>
+            </>
           ) : (
               <>
-                {Avaliation ? (
+                {avaliationExist ? (
                   <>
                     <TitleForNameDateScheduleValueAndAvaliation>
                       Avaliação
@@ -82,9 +94,9 @@ const CardPatientConsultation = ({
                     <NewRate allowHalf disabled defaultValue={5} />
                   </>
                 ) : (
-                    <ContainerButtons>
+                    <>
                       <DepoimentsOpenModal id={onePsi[0].id} name={onePsi[0].name} />
-                    </ContainerButtons>
+                    </>
                   )}
               </>
             )}

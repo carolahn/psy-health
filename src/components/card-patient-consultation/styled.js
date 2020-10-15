@@ -1,5 +1,6 @@
 import { Rate, Button } from "antd";
 import styled from "styled-components";
+// import Button from "../button";
 
 export const CardContainer = styled.div`
   margin-bottom: 20px;
@@ -132,16 +133,21 @@ export const AvaliationOrButton = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  padding-top: 15px;
+
   width: 150px;
   height: 114px;
 
   @media (max-width: 710px) {
     padding: 0px;
-    width: 150px;
+    width: 300px;
     height: 50px;
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: row;
+    justify-content: space-around;
   }
 `;
 
@@ -151,40 +157,4 @@ export const NewRate = styled(Rate)`
   @media (max-width: 710px) {
     font-size: 14px;
   }
-`;
-
-export const ContainerButtons = styled.div`
-  padding-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-
-  @media (max-width: 500px) {
-    flex-direction: row;
-  }
-`;
-
-export const CancelButton = styled(Button)`
-  padding-bottom: 5px;
-  border-radius: 5px;
-  background: #e16769;
-  color: white;
-  width: 100px;
-`;
-
-export const RescheduleButton = styled(Button)`
-  padding-top: 5px;
-  border-radius: 5px;
-  background: #9e9e9e;
-  color: white;
-  width: 100px;
-`;
-
-export const AvaliationButton = styled(Button)`
-  padding-top: 5px;
-  border-radius: 5px;
-  background: #174362;
-  color: white;
-  width: 100px;
 `;

@@ -2,15 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import img_banner_search from "../../assets/img_banner_search.svg";
-import {
-  Container,
-  ContainerSearch,
-  ContainerBanner,
-  BannerImg,
-  Div,
-  ButtonSearch,
-  TitleSearch,
-} from "./styled";
+import Button from "../button";
+import { Container, ContainerSearch, ContainerBanner, BannerImg, Div, TitleSearch } from "./styled";
 
 const BannerSearch = () => {
   const history = useHistory();
@@ -23,7 +16,12 @@ const BannerSearch = () => {
       <ContainerSearch>
         <Div>
           <TitleSearch>Encontre o psicólogo ideal pra você</TitleSearch>
-          <ButtonSearch onClick={() => history.push("/buscar")}>Buscar Agora</ButtonSearch>
+          <Button
+            width="200px"
+            height="60px"
+            title="Buscar"
+            onClick={() => history.push("/buscar")}
+          />
         </Div>
       </ContainerSearch>
     </Container>
