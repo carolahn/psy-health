@@ -13,10 +13,9 @@ const Home = () => {
   const [listComments, setListComments] = useState([]);
 
   useEffect(() => {
-    dispatch(getDepoiments());
-    // axios.get("https://psy-health-api.herokuapp.com/depoiments").then(({ data }) => {
-    //   setListComments([...data]);
-    // });
+    axios.get("https://psy-health-api.herokuapp.com/depoiments").then(({ data }) => {
+      setListComments([...data]);
+    });
   }, []);
 
   return (
