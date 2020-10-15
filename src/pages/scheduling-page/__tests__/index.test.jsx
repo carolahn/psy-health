@@ -22,10 +22,10 @@ jest.mock("react-router-dom", () => ({
 describe("Render tests", () => {
   it("renders psi-form correctly", () => {
     const wrapper = shallow(<SchedulingPage />);
-    expect(wrapper.find(<PsiForm />));
+    expect(wrapper.find(<PsiForm />)).toBeTruthy();
   });
   it("renders calendar correctly", () => {
     const wrapper = shallow(<SchedulingPage />);
-    expect(wrapper.find(<Calendar />));
+    expect(wrapper.find(<Calendar />)).toBeTruthy();
   });
 });
