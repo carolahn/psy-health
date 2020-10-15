@@ -14,7 +14,12 @@ const DepoimentsOpenModal = ({ id, name, appointId }: OpenModalProps) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
-      <Button width height fontSize onClick={() => setModalVisible(true)} title="Avaliar" />
+      <Button
+        width="auto"
+        height="auto"
+        onClick={() => setModalVisible(true)}
+        buttonName="Avaliar"
+      />
       <DepoimentsFormContainer
         showModal={{ modalVisible, setModalVisible }}
         psicId={id}

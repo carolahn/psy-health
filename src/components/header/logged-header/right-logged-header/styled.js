@@ -9,6 +9,7 @@ export const StyledRightLoggedHeader = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 0 !important;
+  font-size: 16px;
 
   div {
     margin-left: 15px;

@@ -19,7 +19,7 @@ const MobileMenuListWithTokenHeader = ({ setMMenu }) => {
         <div
           className="mobile-list"
           onClick={() => {
-            history.push("/busca");
+            history.push("/buscar");
             setMMenu(false);
           }}>
           Encontre um psicólogo

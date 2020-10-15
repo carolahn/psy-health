@@ -2,7 +2,7 @@
 
 exports[`CardPsychologist-renderer 1`] = `
 <div
-  className="sc-bdnylx lhDPxY"
+  className="sc-bdnylx chwpRk"
 >
   <div
     className="container-img"
@@ -11,10 +11,13 @@ exports[`CardPsychologist-renderer 1`] = `
       alt="Imagem do Psicólogo"
       src="url-img"
     />
+    <h4>
+      Name psyc
+    </h4>
     <span
       id="crp"
     >
-      CRP: CRP
+      CRP: CRP-Num
     </span>
     <ul
       className="ant-rate ant-rate-disabled"
@@ -354,9 +357,6 @@ exports[`CardPsychologist-renderer 1`] = `
   <div
     className="container-abstract"
   >
-    <h4>
-      Name psyc
-    </h4>
     <p>
       Abstract description about Psychologist
     </p>
@@ -372,9 +372,79 @@ exports[`CardPsychologist-renderer 1`] = `
     <p>
       language
     </p>
-    <button>
-      Agendar uma consulta
-    </button>
+    <div
+      className="container-btn"
+    >
+      <button
+        className="sc-gtssRu laQmhi"
+        data-text="Agendar uma consulta"
+        fontSize="0.8rem"
+        height="50px"
+        onClick={[Function]}
+        width="80%"
+      >
+        <span>
+          A
+        </span>
+        <span>
+          g
+        </span>
+        <span>
+          e
+        </span>
+        <span>
+          n
+        </span>
+        <span>
+          d
+        </span>
+        <span>
+          a
+        </span>
+        <span>
+          r
+        </span>
+        <span>
+           
+        </span>
+        <span>
+          u
+        </span>
+        <span>
+          m
+        </span>
+        <span>
+          a
+        </span>
+        <span>
+           
+        </span>
+        <span>
+          c
+        </span>
+        <span>
+          o
+        </span>
+        <span>
+          n
+        </span>
+        <span>
+          s
+        </span>
+        <span>
+          u
+        </span>
+        <span>
+          l
+        </span>
+        <span>
+          t
+        </span>
+        <span>
+          a
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;

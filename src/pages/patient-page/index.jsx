@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import CardPatientConsultationContainer from "../../containers/card-patient-consultation";
@@ -14,7 +14,7 @@ const PatientPage = () => {
 
   useEffect(() => {
     dispatch(getAppointments());
-  }, [allAppointments]);
+  }, []);
 
   const compareDates = (dateAppointment) => {
     const parts = dateAppointment[0].split("-");

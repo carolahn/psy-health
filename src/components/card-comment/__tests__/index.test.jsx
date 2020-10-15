@@ -6,7 +6,7 @@ it('card-comment-renderer', () => {
     const tree = renderer.create(
         <CardComment
             image={"patient's url img "}
-            name={"patient's name"} coment={"comentário"}
+            coment={"comentário"}
             grading={3}
         />
     ).toJSON();

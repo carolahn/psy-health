@@ -4,6 +4,7 @@ const SearchContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fbfbfb;
 
   @media (max-width: 1024px) {
     .search-button {
