@@ -1,4 +1,6 @@
+import { Tooltip } from "antd";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Button from "../button";
 import DepoimentsOpenModal from "../depoiments-open-modal";
@@ -27,24 +29,33 @@ const CardPatientConsultation = ({
   constructHour,
   onePsi,
   rescheduleAppointment,
-  destiny,
-  onClick,
+  href,
   appointmentId,
+  consultationStart,
 }) => {
   return (
     onePsi.length > 0 && (
-      <a href={destiny}>
-        <CardContainer>
+      <CardContainer
+        style={
+          consultationStart ? { border: "2px solid #116611" } : { border: "2px solid #70a3ef" }
+        }>
+        <Link to={`/psi/agendamentos/${onePsi[0].id}`}>
           <ImgAndNameCardCotainer>
             <ImgDivCotainer>
               <PhotoPsychologist src={onePsi[0].image} />
             </ImgDivCotainer>
             <NameDivCotainer>
-              <TitleForName>{onePsi[0].name}</TitleForName>
+              <TitleForName>
+                <Tooltip title={onePsi[0].name} color="#70a3ef">
+                  {onePsi[0].name}
+                </Tooltip>
+              </TitleForName>
               <CrpDiv>{`CRP: ${onePsi[0].crp}`}</CrpDiv>
               <NewRate allowHalf disabled defaultValue={onePsi[0].rating} />
             </NameDivCotainer>
           </ImgAndNameCardCotainer>
+        </Link>
+        <Link to={`/psi/agendamentos/${onePsi[0].id}`}>
           <DateScheduleAndValueContainer>
             <DateScheduleAndValue>
               <TitleForDateScheduleValueAndAvaliation>Data</TitleForDateScheduleValueAndAvaliation>
@@ -61,65 +72,71 @@ const CardPatientConsultation = ({
               <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
             </DateScheduleAndValue>
           </DateScheduleAndValueContainer>
-
-          {buttonOrAvaliation ? (
-            <AvaliationOrButton>
-              <div>
+        </Link>
+        {buttonOrAvaliation ? (
+          <AvaliationOrButton>
+            {consultationStart ? (
+              <a href={href}>
                 <Button
-                  buttonName="Notificação"
-                  width="88px"
-                  height="30px"
-                  fontSize="15px"
+                  buttonName="Hora da consulta"
+                  width="150px"
+                  height="40px"
+                  fontSize="16px"
+                  color="#116611"
+                  colorHover="#004400"
+                  colorActive="#55aa55"
                   padding-bottom="20px"
-                  onClick={onClick}
                 />
-              </div>
-              <div>
-                <Button
-                  buttonName="Remarcar"
-                  width="88px"
-                  height="30px"
-                  fontSize="15px"
-                  padding-bottom="20px"
-                  color="#9E9E9E"
-                  colorHover="#9E9E9E"
-                  colorActive="#9E9E9E"
-                  onClick={rescheduleAppointment}
-                />
-              </div>
-              <div>
-                <Button
-                  buttonName="Cancelar"
-                  width="88px"
-                  height="30px"
-                  fontSize="15px"
-                  color="#E16769"
-                  colorHover="#E16769"
-                  colorActive="#E16769"
-                  onClick={cancelAppointment}
-                />
-              </div>
-            </AvaliationOrButton>
-          ) : (
-              <>
-                {avaliationExist ? (
-                  <RateAvaliation>
-                    <TitleForDateScheduleValueAndAvaliation>
-                      Avaliação
-                  </TitleForDateScheduleValueAndAvaliation>
-                    <NewRate allowHalf disabled defaultValue={avaliationExist.grading} />
-                  </RateAvaliation>
-                ) : (
-                    <DepoimentsOpenModal
-                      appointId={appointmentId}
-                      id={onePsi[0].id}
-                      name={onePsi[0].name}
+              </a>
+            ) : (
+                <>
+                  <div>
+                    <Button
+                      buttonName="Remarcar"
+                      width="100px"
+                      height="35px"
+                      fontSize="16px"
+                      padding-bottom="20px"
+                      color="#9e9e9e"
+                      colorHover="#3b3a3a"
+                      colorActive="#c9c9c9"
+                      onClick={rescheduleAppointment}
                     />
-                  )}
-              </>
-            )}
-        </CardContainer>
-      </a>
+                  </div>
+                  <div>
+                    <Button
+                      buttonName="Cancelar"
+                      width="100px"
+                      height="35px"
+                      fontSize="16px"
+                      color="#e16769"
+                      colorHover="#9a1e21"
+                      colorActive="#fd9a9d"
+                      onClick={cancelAppointment}
+                    />
+                  </div>
+                </>
+              )}
+          </AvaliationOrButton>
+        ) : (
+            <>
+              {avaliationExist ? (
+                <RateAvaliation>
+                  <TitleForDateScheduleValueAndAvaliation>
+                    Avaliação
+                </TitleForDateScheduleValueAndAvaliation>
+                  <NewRate allowHalf disabled defaultValue={avaliationExist.grading} />
+                </RateAvaliation>
+              ) : (
+                  <DepoimentsOpenModal
+                    appointId={appointmentId}
+                    id={onePsi[0].id}
+                    name={onePsi[0].name}
+                  />
+                )}
+            </>
+          )}
+      </CardContainer>
     )
   );
 };

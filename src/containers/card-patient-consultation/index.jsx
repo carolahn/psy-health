@@ -12,6 +12,7 @@ const CardPatientConsultationContainer = ({ psiList, appointment, buttonOrAvalia
   const token = useSelector((state) => state.login.token);
   const [onePsi, setOnePsi] = useState("");
   const [avaliationExist, setAvaliationExist] = useState([]);
+  const [consultationStart, setConsultationStart] = useState(false);
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
   const allDepoiments = useSelector((state) => state.depoiments.allDepoiments);
 
@@ -44,16 +45,24 @@ const CardPatientConsultationContainer = ({ psiList, appointment, buttonOrAvalia
     );
   };
 
+  const showMeetingRoom = (appointment) => {
+    const start = new Date(appointment.date.start).getTime();
+    const today = new Date().getTime();
+    return setConsultationStart(start - today <= 1000 * 60 * 120 && start >= today);
+  };
+
   useEffect(() => {
     filterDepoiments(appointment);
   }, [allDepoiments]);
 
   useEffect(() => {
     filterPsicUser(appointment);
+    showMeetingRoom(appointment);
   }, [allAppointments]);
 
   return (
     <CardPatientConsultation
+      consultationStart={consultationStart}
       appointmentId={appointment.id}
       avaliationExist={avaliationExist}
       buttonOrAvaliation={buttonOrAvaliation}
