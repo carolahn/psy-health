@@ -3,15 +3,18 @@ import styled from "styled-components";
 
 export const StyledFooterContainer = styled.footer`
   background-color: white;
+  padding-top: 15px;
 
   h4 {
     font-weight: bold;
+    font-size: 18px;
   }
 
   a {
     display: block;
     margin-bottom: 7px;
     color: #6e6e6e;
+    font-size: 18px;
   }
 
   .developed-by {
@@ -21,20 +24,33 @@ export const StyledFooterContainer = styled.footer`
     align-items: center;
     justify-content: center;
     color: #f3f3f3;
-    margin: 0;
+    margin: 15px 0 0 0;
     padding: 5px 0 5px 0;
+
+    div{
+      @media (max-width: 575.98px) {
+        display: none;
+      }
+    }
 
     .copy {
       font-weight: bold;
       margin-right: 4rem;
+      text-align: center;	
 
-      @media (max-width: 569px) {
+      @media (max-width: 576px) {
+        display: block;
+        width: 100%;
         margin-right: 0;
       }
     }
 
     .developed-by-text {
       margin-right: 0.5rem;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
     }
 
     a {
@@ -42,7 +58,10 @@ export const StyledFooterContainer = styled.footer`
       color: #f3f3f3;
       font-weight: bold;
       margin-right: 0.2rem;
-      margin-left: 0.2rem;
+    }
+
+    .e-text{
+      margin-right: 0.2rem;
     }
   }
 `;
@@ -54,12 +73,7 @@ export const StyledRow = styled(Row)`
 export const StyledCol = styled(Col)`
   text-align: center;
 
-  @media (max-width: 575.98px) {
-    text-align: left;
-  }
-
-  .container-box-left {
-    display: block;
+  @media (max-width: 1200px) {
     text-align: left;
   }
 
@@ -72,13 +86,17 @@ export const StyledCol = styled(Col)`
 export const StyledContainerColSocial = styled(Col)`
   text-align: right;
 
-  @media (max-width: 575.98px) {
-    text-align: left;
+  @media (max-width: 1200px) {
+      text-align: left;
   }
 
   div {
     display: inline-block;
     text-align: center;
+
+    @media (max-width: 1200px) {
+      text-align: left;
+    }
   }
 
   a {
@@ -86,6 +104,13 @@ export const StyledContainerColSocial = styled(Col)`
     margin: 0;
     line-height: 0;
     color: #053559;
+  }
+`;
+
+export const StyledContainerLeft = styled(Col)`
+  .container-box-left {
+    display: inline-block;
+    text-align: left;
   }
 `;
 
