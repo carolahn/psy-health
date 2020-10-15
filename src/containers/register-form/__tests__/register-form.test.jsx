@@ -55,7 +55,7 @@ describe("Tests behaviour", () => {
       email: "a@a.c",
       password: "1234",
       cpf_cnpj: "000.000.000-00",
-      isPsic: false,
+      is_psic: false,
       phone: "(41) 91111-1111",
     });
 
