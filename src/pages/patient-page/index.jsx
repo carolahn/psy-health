@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import CardPatientConsultationContainer from "../../containers/card-patient-consultation";
 import { getAppointments } from "../../redux/actions/appointments";
+import { getDepoiments } from "../../redux/actions/depoiments";
 import { ContainerCards, TitleContainerAppointments, TitleContainerHistory } from "./styled";
 
 const PatientPage = () => {
@@ -15,6 +16,7 @@ const PatientPage = () => {
 
   useEffect(() => {
     dispatch(getAppointments());
+    dispatch(getDepoiments());
   }, []);
 
   // const compareDates = (dateAppointment) => {

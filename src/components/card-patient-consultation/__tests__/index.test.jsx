@@ -8,6 +8,8 @@ describe("Render tests", () => {
     const tree = renderer
       .create(
         <CardPatientConsultation
+          appointmentId={0}
+          avaliationExist={[]}
           constructDate={() => { }}
           constructHour={() => { }}
           cancelAppointment={() => { }}
@@ -35,6 +37,8 @@ describe("Render tests", () => {
     const tree = renderer
       .create(
         <CardPatientConsultation
+          appointmentId={0}
+          avaliationExist={[]}
           constructDate={() => { }}
           constructHour={() => { }}
           cancelAppointment={() => { }}
