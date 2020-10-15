@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import DepoimentsForm from "../../components/depoiments-form";
+import { getDepoiments } from "../../redux/actions/depoiments";
 import { StyledModal, StyledH1 } from "./styled";
 
 interface DepoimentsFormProps {
@@ -32,6 +33,7 @@ const DepoimentsFormContainer = ({
   psicName,
   appointmentId,
 }: DepoimentsFormProps) => {
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors, setError, clearErrors } = useForm();
   const [values, setValues] = useState<Values>({});
   const token = useSelector((state: any) => state.login.token);
@@ -60,6 +62,7 @@ const DepoimentsFormContainer = ({
         setModalVisible(false);
         setValues({});
       })
+      .then(() => dispatch(getDepoiments()))
       .catch(({ response: { status } }) => {
         if (status >= 500) {
           setError("server", {

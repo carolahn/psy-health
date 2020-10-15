@@ -16,6 +16,7 @@ import {
   CrpDiv,
   TextStyle,
   NewRate,
+  RateAvaliation,
 } from "./styled";
 
 const CardPatientConsultation = ({
@@ -60,66 +61,63 @@ const CardPatientConsultation = ({
               <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
             </DateScheduleAndValue>
           </DateScheduleAndValueContainer>
-          <AvaliationOrButton>
-            {buttonOrAvaliation ? (
+
+          {buttonOrAvaliation ? (
+            <AvaliationOrButton>
+              <div>
+                <Button
+                  buttonName="Notificação"
+                  width="88px"
+                  height="30px"
+                  fontSize="15px"
+                  padding-bottom="20px"
+                  onClick={onClick}
+                />
+              </div>
+              <div>
+                <Button
+                  buttonName="Remarcar"
+                  width="88px"
+                  height="30px"
+                  fontSize="15px"
+                  padding-bottom="20px"
+                  color="#9E9E9E"
+                  colorHover="#9E9E9E"
+                  colorActive="#9E9E9E"
+                  onClick={rescheduleAppointment}
+                />
+              </div>
+              <div>
+                <Button
+                  buttonName="Cancelar"
+                  width="88px"
+                  height="30px"
+                  fontSize="15px"
+                  color="#E16769"
+                  colorHover="#E16769"
+                  colorActive="#E16769"
+                  onClick={cancelAppointment}
+                />
+              </div>
+            </AvaliationOrButton>
+          ) : (
               <>
-                <div>
-                  <Button
-                    buttonName="Notificação"
-                    width="100px"
-                    height="30px"
-                    fontSize="16px"
-                    padding-bottom="20px"
-                    onClick={onClick}
-                  />
-                </div>
-                <div>
-                  <Button
-                    buttonName="Remarcar"
-                    width="100px"
-                    height="30px"
-                    fontSize="16px"
-                    padding-bottom="20px"
-                    color="#9E9E9E"
-                    colorHover="#9E9E9E"
-                    colorActive="#9E9E9E"
-                    onClick={rescheduleAppointment}
-                  />
-                </div>
-                <div>
-                  <Button
-                    buttonName="Cancelar"
-                    width="100px"
-                    height="30px"
-                    fontSize="16px"
-                    color="#E16769"
-                    colorHover="#E16769"
-                    colorActive="#E16769"
-                    onClick={cancelAppointment}
-                  />
-                </div>
+                {avaliationExist ? (
+                  <RateAvaliation>
+                    <TitleForDateScheduleValueAndAvaliation>
+                      Avaliação
+                  </TitleForDateScheduleValueAndAvaliation>
+                    <NewRate allowHalf disabled defaultValue={avaliationExist.grading} />
+                  </RateAvaliation>
+                ) : (
+                    <DepoimentsOpenModal
+                      appointId={appointmentId}
+                      id={onePsi[0].id}
+                      name={onePsi[0].name}
+                    />
+                  )}
               </>
-            ) : (
-                <>
-                  {avaliationExist ? (
-                    <>
-                      <TitleForDateScheduleValueAndAvaliation>
-                        Avaliação
-                    </TitleForDateScheduleValueAndAvaliation>
-                      <NewRate allowHalf disabled defaultValue={avaliationExist.grading} />
-                    </>
-                  ) : (
-                      <>
-                        <DepoimentsOpenModal
-                          appointId={appointmentId}
-                          id={onePsi[0].id}
-                          name={onePsi[0].name}
-                        />
-                      </>
-                    )}
-                </>
-              )}
-          </AvaliationOrButton>
+            )}
         </CardContainer>
       </a>
     )

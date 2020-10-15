@@ -1,35 +1,414 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Render tests render card-patient-consultation with avaliation button 1`] = `
-<div
-  className="sc-bdnylx fIhcHt"
->
+<a>
   <div
-    className="sc-gtssRu eDnBbj"
+    className="sc-hBMVcZ ejiHWD"
   >
     <div
-      className="sc-dlnjPT fHtTbp"
+      className="sc-fnVYJo iBEAHi"
     >
-      <img
-        className="sc-hKFyIo kRmnGk"
-        src="img"
-      />
+      <div
+        className="sc-fFSRdu fJdtcZ"
+      >
+        <img
+          className="sc-bkbjAj cihlKk"
+          src="img"
+        />
+      </div>
+      <div
+        className="sc-iemXMA jYmyuf"
+      >
+        <div
+          className="sc-hHEjAm gFhEMp"
+        >
+          Joana Camargo Mota
+        </div>
+        <div
+          className="sc-dIvqjp gMLrTC"
+        >
+          CRP: 01/74521
+        </div>
+        <ul
+          className="ant-rate ant-rate-disabled sc-cxNIbT dOOzIx"
+          onBlur={null}
+          onFocus={null}
+          onKeyDown={null}
+          onMouseLeave={null}
+          role="radiogroup"
+          style={Object {}}
+          tabIndex={-1}
+        >
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={1}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={2}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={3}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={4}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            className="ant-rate-star ant-rate-star-zero"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={5}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div
-      className="sc-eCApGN BqijQ"
+      className="sc-kfYqjs NwrmB"
     >
       <div
-        className="sc-gKAblj kmUQlX"
+        className="sc-fKgIGh hlYggs"
       >
-        Joana Camargo Mota
+        <div
+          className="sc-dlMBXb kXZgnO"
+        >
+          Data
+        </div>
+        <div
+          className="sc-bCwgka cDRmfD"
+        />
       </div>
       <div
-        className="sc-jSFkmK hOlCfU"
+        className="sc-fKgIGh hlYggs"
       >
-        CRP: 01/74521
+        <div
+          className="sc-dlMBXb kXZgnO"
+        >
+          Horário
+        </div>
+        <div
+          className="sc-bCwgka cDRmfD"
+        />
+      </div>
+      <div
+        className="sc-fKgIGh hlYggs"
+      >
+        <div
+          className="sc-dlMBXb kXZgnO"
+        >
+          Valor
+        </div>
+        <div
+          className="sc-bCwgka cDRmfD"
+        >
+          R$ 90,00
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-iwaifL kudCEd"
+    >
+      <div
+        className="sc-dlMBXb kXZgnO"
+      >
+        Avaliação
       </div>
       <ul
-        className="ant-rate ant-rate-disabled sc-kEqYlL lhMFEB"
+        className="ant-rate ant-rate-disabled sc-cxNIbT dOOzIx"
         onBlur={null}
         onFocus={null}
         onKeyDown={null}
@@ -39,10 +418,10 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
         tabIndex={-1}
       >
         <li
-          className="ant-rate-star ant-rate-star-full"
+          className="ant-rate-star ant-rate-star-zero"
         >
           <div
-            aria-checked="true"
+            aria-checked="false"
             aria-posinset={1}
             aria-setsize={5}
             onClick={null}
@@ -102,10 +481,10 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
           </div>
         </li>
         <li
-          className="ant-rate-star ant-rate-star-full"
+          className="ant-rate-star ant-rate-star-zero"
         >
           <div
-            aria-checked="true"
+            aria-checked="false"
             aria-posinset={2}
             aria-setsize={5}
             onClick={null}
@@ -165,10 +544,10 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
           </div>
         </li>
         <li
-          className="ant-rate-star ant-rate-star-full"
+          className="ant-rate-star ant-rate-star-zero"
         >
           <div
-            aria-checked="true"
+            aria-checked="false"
             aria-posinset={3}
             aria-setsize={5}
             onClick={null}
@@ -228,10 +607,10 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
           </div>
         </li>
         <li
-          className="ant-rate-star ant-rate-star-full"
+          className="ant-rate-star ant-rate-star-zero"
         >
           <div
-            aria-checked="true"
+            aria-checked="false"
             aria-posinset={4}
             aria-setsize={5}
             onClick={null}
@@ -294,7 +673,7 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
           className="ant-rate-star ant-rate-star-zero"
         >
           <div
-            aria-checked="true"
+            aria-checked="false"
             aria-posinset={5}
             aria-setsize={5}
             onClick={null}
@@ -356,491 +735,527 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
       </ul>
     </div>
   </div>
-  <div
-    className="sc-iCoHVE ctpNfe"
-  >
-    <div
-      className="sc-fujyUd gHpiOx"
-    >
-      <div
-        className="sc-gKAblj kmUQlX"
-      >
-        Data
-      </div>
-      <div
-        className="sc-pNWxx TxRCZ"
-      />
-    </div>
-    <div
-      className="sc-fujyUd gHpiOx"
-    >
-      <div
-        className="sc-gKAblj kmUQlX"
-      >
-        Horário
-      </div>
-      <div
-        className="sc-pNWxx TxRCZ"
-      />
-    </div>
-    <div
-      className="sc-fujyUd gHpiOx"
-    >
-      <div
-        className="sc-gKAblj kmUQlX"
-      >
-        Valor
-      </div>
-      <div
-        className="sc-pNWxx TxRCZ"
-      >
-        R$ 90,00
-      </div>
-    </div>
-  </div>
-  <div
-    className="sc-jrsJCI juUtyQ"
-  >
-    <div
-      className="sc-iqAbSa bVZoZK"
-    >
-      <button
-        className="ant-btn sc-bqGHjH gQYdhN"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Avaliar
-        </span>
-      </button>
-    </div>
-  </div>
-</div>
+</a>
 `;
 
 exports[`Render tests render card-patient-consultation with reschedule button 1`] = `
-<div
-  className="sc-hBMVcZ fLuOTM"
->
+<a>
   <div
-    className="sc-fnVYJo brzYpp"
+    className="sc-hBMVcZ ejiHWD"
   >
     <div
-      className="sc-fFSRdu fJdtcZ"
+      className="sc-fnVYJo iBEAHi"
     >
-      <img
-        className="sc-bkbjAj cihlKk"
-        src="img"
-      />
+      <div
+        className="sc-fFSRdu fJdtcZ"
+      >
+        <img
+          className="sc-bkbjAj cihlKk"
+          src="img"
+        />
+      </div>
+      <div
+        className="sc-iemXMA jYmyuf"
+      >
+        <div
+          className="sc-hHEjAm gFhEMp"
+        >
+          Mario Silva
+        </div>
+        <div
+          className="sc-dIvqjp gMLrTC"
+        >
+          CRP: 02/6667
+        </div>
+        <ul
+          className="ant-rate ant-rate-disabled sc-cxNIbT dOOzIx"
+          onBlur={null}
+          onFocus={null}
+          onKeyDown={null}
+          onMouseLeave={null}
+          role="radiogroup"
+          style={Object {}}
+          tabIndex={-1}
+        >
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={1}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={2}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={3}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={4}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            className="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              aria-checked="true"
+              aria-posinset={5}
+              aria-setsize={5}
+              onClick={null}
+              onKeyDown={null}
+              onMouseMove={null}
+              role="radio"
+              tabIndex={-1}
+            >
+              <div
+                className="ant-rate-star-first"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                className="ant-rate-star-second"
+              >
+                <span
+                  aria-label="star"
+                  className="anticon anticon-star"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="star"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div
-      className="sc-iemXMA jYmyuf"
+      className="sc-kfYqjs NwrmB"
     >
       <div
-        className="sc-hHEjAm gFhEMp"
+        className="sc-fKgIGh hlYggs"
       >
-        Mario Silva
+        <div
+          className="sc-dlMBXb kXZgnO"
+        >
+          Data
+        </div>
+        <div
+          className="sc-bCwgka cDRmfD"
+        />
       </div>
       <div
-        className="sc-dIvqjp gMLrTC"
+        className="sc-fKgIGh hlYggs"
       >
-        CRP: 02/6667
+        <div
+          className="sc-dlMBXb kXZgnO"
+        >
+          Horário
+        </div>
+        <div
+          className="sc-bCwgka cDRmfD"
+        />
       </div>
-      <ul
-        className="ant-rate ant-rate-disabled sc-iwaifL hFaQrL"
-        onBlur={null}
-        onFocus={null}
-        onKeyDown={null}
-        onMouseLeave={null}
-        role="radiogroup"
-        style={Object {}}
-        tabIndex={-1}
+      <div
+        className="sc-fKgIGh hlYggs"
       >
-        <li
-          className="ant-rate-star ant-rate-star-full"
+        <div
+          className="sc-dlMBXb kXZgnO"
         >
-          <div
-            aria-checked="true"
-            aria-posinset={1}
-            aria-setsize={5}
-            onClick={null}
-            onKeyDown={null}
-            onMouseMove={null}
-            role="radio"
-            tabIndex={-1}
-          >
-            <div
-              className="ant-rate-star-first"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <div
-              className="ant-rate-star-second"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </li>
-        <li
-          className="ant-rate-star ant-rate-star-full"
+          Valor
+        </div>
+        <div
+          className="sc-bCwgka cDRmfD"
         >
-          <div
-            aria-checked="true"
-            aria-posinset={2}
-            aria-setsize={5}
-            onClick={null}
-            onKeyDown={null}
-            onMouseMove={null}
-            role="radio"
-            tabIndex={-1}
-          >
-            <div
-              className="ant-rate-star-first"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <div
-              className="ant-rate-star-second"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </li>
-        <li
-          className="ant-rate-star ant-rate-star-full"
+          R$ 250,00
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-iwaifL kudCEd"
+    >
+      <div>
+        <button
+          className="sc-bdnylx hlyvhu"
+          data-text="Notificação"
+          fontSize="15px"
+          height="30px"
+          width="88px"
         >
-          <div
-            aria-checked="true"
-            aria-posinset={3}
-            aria-setsize={5}
-            onClick={null}
-            onKeyDown={null}
-            onMouseMove={null}
-            role="radio"
-            tabIndex={-1}
-          >
-            <div
-              className="ant-rate-star-first"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <div
-              className="ant-rate-star-second"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </li>
-        <li
-          className="ant-rate-star ant-rate-star-full"
+          <span>
+            N
+          </span>
+          <span>
+            o
+          </span>
+          <span>
+            t
+          </span>
+          <span>
+            i
+          </span>
+          <span>
+            f
+          </span>
+          <span>
+            i
+          </span>
+          <span>
+            c
+          </span>
+          <span>
+            a
+          </span>
+          <span>
+            ç
+          </span>
+          <span>
+            ã
+          </span>
+          <span>
+            o
+          </span>
+        </button>
+      </div>
+      <div>
+        <button
+          className="sc-bdnylx icYujs"
+          color="#9E9E9E"
+          data-text="Remarcar"
+          fontSize="15px"
+          height="30px"
+          onClick={[Function]}
+          width="88px"
         >
-          <div
-            aria-checked="true"
-            aria-posinset={4}
-            aria-setsize={5}
-            onClick={null}
-            onKeyDown={null}
-            onMouseMove={null}
-            role="radio"
-            tabIndex={-1}
-          >
-            <div
-              className="ant-rate-star-first"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <div
-              className="ant-rate-star-second"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </li>
-        <li
-          className="ant-rate-star ant-rate-star-full"
+          <span>
+            R
+          </span>
+          <span>
+            e
+          </span>
+          <span>
+            m
+          </span>
+          <span>
+            a
+          </span>
+          <span>
+            r
+          </span>
+          <span>
+            c
+          </span>
+          <span>
+            a
+          </span>
+          <span>
+            r
+          </span>
+        </button>
+      </div>
+      <div>
+        <button
+          className="sc-bdnylx ixkLQi"
+          color="#E16769"
+          data-text="Cancelar"
+          fontSize="15px"
+          height="30px"
+          onClick={[Function]}
+          width="88px"
         >
-          <div
-            aria-checked="true"
-            aria-posinset={5}
-            aria-setsize={5}
-            onClick={null}
-            onKeyDown={null}
-            onMouseMove={null}
-            role="radio"
-            tabIndex={-1}
-          >
-            <div
-              className="ant-rate-star-first"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <div
-              className="ant-rate-star-second"
-            >
-              <span
-                aria-label="star"
-                className="anticon anticon-star"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="star"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </li>
-      </ul>
+          <span>
+            C
+          </span>
+          <span>
+            a
+          </span>
+          <span>
+            n
+          </span>
+          <span>
+            c
+          </span>
+          <span>
+            e
+          </span>
+          <span>
+            l
+          </span>
+          <span>
+            a
+          </span>
+          <span>
+            r
+          </span>
+        </button>
+      </div>
     </div>
   </div>
-  <div
-    className="sc-dlMBXb hDYoNV"
-  >
-    <div
-      className="sc-kfYqjs cMIawc"
-    >
-      <div
-        className="sc-hHEjAm gFhEMp"
-      >
-        Data
-      </div>
-      <div
-        className="sc-fKgIGh hzEgOw"
-      />
-    </div>
-    <div
-      className="sc-kfYqjs cMIawc"
-    >
-      <div
-        className="sc-hHEjAm gFhEMp"
-      >
-        Horário
-      </div>
-      <div
-        className="sc-fKgIGh hzEgOw"
-      />
-    </div>
-    <div
-      className="sc-kfYqjs cMIawc"
-    >
-      <div
-        className="sc-hHEjAm gFhEMp"
-      >
-        Valor
-      </div>
-      <div
-        className="sc-fKgIGh hzEgOw"
-      >
-        R$ 250,00
-      </div>
-    </div>
-  </div>
-  <div
-    className="sc-bCwgka jMzCQ"
-  >
-    <div
-      className="sc-cxNIbT gjzzOZ"
-    >
-      <button
-        className="ant-btn sc-iJCRLp fAPbjg"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Remarcar
-        </span>
-      </button>
-      <button
-        className="ant-btn sc-lmgQde eTYyNK"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Cancelar
-        </span>
-      </button>
-    </div>
-  </div>
-</div>
+</a>
 `;

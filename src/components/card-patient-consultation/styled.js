@@ -1,6 +1,5 @@
-import { Rate, Button } from "antd";
+import { Rate } from "antd";
 import styled from "styled-components";
-// import Button from "../button";
 
 export const CardContainer = styled.div`
   margin-bottom: 20px;
@@ -15,12 +14,8 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
 
   @media (max-width: 1270px) {
-    height: 220px;
-    width: 80vw;
-  }
-
-  @media (max-width: 710px) {
-    height: 220px;
+    height: 240px;
+    width: 88vw;
   }
 `;
 
@@ -162,6 +157,11 @@ export const AvaliationOrButton = styled.div`
     flex-direction: row;
     justify-content: space-around;
   }
+`;
+
+export const RateAvaliation = styled.div`
+  text-align: center;
+  padding-bottom: 10px;
 `;
 
 export const NewRate = styled(Rate)`

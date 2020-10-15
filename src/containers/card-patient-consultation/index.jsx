@@ -42,7 +42,6 @@ const CardPatientConsultationContainer = ({ psiList, appointment, buttonOrAvalia
     setAvaliationExist(
       Object.values(allDepoiments).find((depoiment) => appointment.id === depoiment.appointmentId)
     );
-    console.log(avaliationExist);
   };
 
   useEffect(() => {
