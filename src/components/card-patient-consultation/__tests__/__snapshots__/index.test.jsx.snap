@@ -420,34 +420,34 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
 
 exports[`Render tests render card-patient-consultation with reschedule button 1`] = `
 <div
-  className="sc-bdnylx fIhcHt"
+  className="sc-hBMVcZ fLuOTM"
 >
   <div
-    className="sc-gtssRu eDnBbj"
+    className="sc-fnVYJo brzYpp"
   >
     <div
-      className="sc-dlnjPT fHtTbp"
+      className="sc-fFSRdu fJdtcZ"
     >
       <img
-        className="sc-hKFyIo kRmnGk"
+        className="sc-bkbjAj cihlKk"
         src="img"
       />
     </div>
     <div
-      className="sc-eCApGN BqijQ"
+      className="sc-iemXMA jYmyuf"
     >
       <div
-        className="sc-gKAblj kmUQlX"
+        className="sc-hHEjAm gFhEMp"
       >
         Mario Silva
       </div>
       <div
-        className="sc-jSFkmK hOlCfU"
+        className="sc-dIvqjp gMLrTC"
       >
         CRP: 02/6667
       </div>
       <ul
-        className="ant-rate ant-rate-disabled sc-kEqYlL lhMFEB"
+        className="ant-rate ant-rate-disabled sc-iwaifL hFaQrL"
         onBlur={null}
         onFocus={null}
         onKeyDown={null}
@@ -775,55 +775,55 @@ exports[`Render tests render card-patient-consultation with reschedule button 1`
     </div>
   </div>
   <div
-    className="sc-iCoHVE ctpNfe"
+    className="sc-dlMBXb hDYoNV"
   >
     <div
-      className="sc-fujyUd gHpiOx"
+      className="sc-kfYqjs cMIawc"
     >
       <div
-        className="sc-gKAblj kmUQlX"
+        className="sc-hHEjAm gFhEMp"
       >
         Data
       </div>
       <div
-        className="sc-pNWxx TxRCZ"
+        className="sc-fKgIGh hzEgOw"
       />
     </div>
     <div
-      className="sc-fujyUd gHpiOx"
+      className="sc-kfYqjs cMIawc"
     >
       <div
-        className="sc-gKAblj kmUQlX"
+        className="sc-hHEjAm gFhEMp"
       >
         Horário
       </div>
       <div
-        className="sc-pNWxx TxRCZ"
+        className="sc-fKgIGh hzEgOw"
       />
     </div>
     <div
-      className="sc-fujyUd gHpiOx"
+      className="sc-kfYqjs cMIawc"
     >
       <div
-        className="sc-gKAblj kmUQlX"
+        className="sc-hHEjAm gFhEMp"
       >
         Valor
       </div>
       <div
-        className="sc-pNWxx TxRCZ"
+        className="sc-fKgIGh hzEgOw"
       >
         R$ 250,00
       </div>
     </div>
   </div>
   <div
-    className="sc-jrsJCI juUtyQ"
+    className="sc-bCwgka jMzCQ"
   >
     <div
-      className="sc-iqAbSa bVZoZK"
+      className="sc-cxNIbT gjzzOZ"
     >
       <button
-        className="ant-btn sc-dIsAE eyiywg"
+        className="ant-btn sc-iJCRLp fAPbjg"
         onClick={[Function]}
         type="button"
       >
@@ -832,7 +832,7 @@ exports[`Render tests render card-patient-consultation with reschedule button 1`
         </span>
       </button>
       <button
-        className="ant-btn sc-crzoUp etlZPJ"
+        className="ant-btn sc-lmgQde eTYyNK"
         onClick={[Function]}
         type="button"
       >

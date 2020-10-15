@@ -219,7 +219,7 @@ const RegisterForm = ({
       </Tooltip>
 
       <div style={{ margin: "10px" }}>
-        <Button fontSize="19px" onClick={() => { }} width="150px" height="40px" title="Register" />
+        <Button fontSize="19px" onClick width="150px" height="40px" title="Register" />
       </div>
     </StyledForm>
   );

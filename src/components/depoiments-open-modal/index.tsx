@@ -4,15 +4,22 @@ import React, { useState } from "react";
 import DepoimentsFormContainer from "../../containers/depoiments-form";
 import Button from "../button";
 
-const DepoimentsOpenModal = ({ id, name }) => {
+interface OpenModalProps {
+  id: number;
+  name: string;
+  appointId: number;
+}
+
+const DepoimentsOpenModal = ({ id, name, appointId }: OpenModalProps) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
-      <Button onClick={() => setModalVisible(true)} title="Avaliar" />
+      <Button width height fontSize onClick={() => setModalVisible(true)} title="Avaliar" />
       <DepoimentsFormContainer
         showModal={{ modalVisible, setModalVisible }}
         psicId={id}
         psicName={name}
+        appointmentId={appointId}
       />
     </>
   );
