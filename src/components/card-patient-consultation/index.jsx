@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import DepoimentsOpenModal from "../depoiments-open-modal";
 import {
@@ -27,7 +28,8 @@ const CardPatientConsultation = ({
   cancelAppointment,
   rescheduleAppointment,
 }) => {
-  const Avaliation = false;
+  const Avaliation = true;
+  const allDepoiments = useSelector((state) => state.depoiments.allDepoiments);
 
   return (
     onePsi.length > 0 && (
@@ -71,21 +73,21 @@ const CardPatientConsultation = ({
               <CancelButton onClick={cancelAppointment}>Cancelar</CancelButton>
             </ContainerButtons>
           ) : (
-            <>
-              {Avaliation ? (
-                <>
-                  <TitleForNameDateScheduleValueAndAvaliation>
-                    Avaliação
+              <>
+                {Avaliation ? (
+                  <>
+                    <TitleForNameDateScheduleValueAndAvaliation>
+                      Avaliação
                   </TitleForNameDateScheduleValueAndAvaliation>
-                  <NewRate allowHalf disabled defaultValue={5} />
-                </>
-              ) : (
-                <ContainerButtons>
-                  <DepoimentsOpenModal id={onePsi[0].id} name={onePsi[0].name} />
-                </ContainerButtons>
-              )}
-            </>
-          )}
+                    <NewRate allowHalf disabled defaultValue={5} />
+                  </>
+                ) : (
+                    <ContainerButtons>
+                      <DepoimentsOpenModal id={onePsi[0].id} name={onePsi[0].name} />
+                    </ContainerButtons>
+                  )}
+              </>
+            )}
         </AvaliationOrButton>
       </CardContainer>
     )
