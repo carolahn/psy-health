@@ -43,7 +43,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "universe/web",
+    "extends": [
+      "universe/web",
+      "plugin:cypress/recommended"
+    ],
     "rules": {
       "react/no-did-mount-set-state": "off",
       "no-unused-vars": "off",

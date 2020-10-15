@@ -3,12 +3,16 @@
 exports[`Render tests render card-patient-consultation with avaliation button 1`] = `
 <a>
   <div
+<<<<<<< HEAD
     className="sc-hBMVcZ bKqlkm"
     style={
       Object {
         "border": "2px solid #70a3ef",
       }
     }
+=======
+    className="sc-hBMVcZ dPmVly"
+>>>>>>> 4f7a3d72784a7717da439f2ccd758a92f02d4004
   >
     <div
       className="sc-fnVYJo hDKOeT"
@@ -746,12 +750,16 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
 exports[`Render tests render card-patient-consultation with reschedule button 1`] = `
 <a>
   <div
+<<<<<<< HEAD
     className="sc-hBMVcZ bKqlkm"
     style={
       Object {
         "border": "2px solid #70a3ef",
       }
     }
+=======
+    className="sc-hBMVcZ dPmVly"
+>>>>>>> 4f7a3d72784a7717da439f2ccd758a92f02d4004
   >
     <div
       className="sc-fnVYJo hDKOeT"
