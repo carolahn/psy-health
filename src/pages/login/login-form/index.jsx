@@ -74,8 +74,8 @@ const LoginForm = () => {
             <span
               className="link-register"
               onClick={() => {
-                usr_urls.some((e) => e === where) && history.push("/register");
-                psi_urls.some((e) => e === where) && history.push("/register/psi");
+                usr_urls.some((e) => e === where) && history.push("/cadastro");
+                psi_urls.some((e) => e === where) && history.push("/cadastro/psi");
               }}>
               Crie sua conta!
             </span>
