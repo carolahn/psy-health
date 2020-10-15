@@ -191,7 +191,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
     qua,
     qui,
     sex = [];
-  if (oneUser && allAppointments) {
+  if (oneUser.workDays && allAppointments) {
     psicInfo = oneUser;
     if (psicInfo.workDays[1]) {
       seg = psicInfo.workDays[1];
@@ -238,7 +238,30 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
 
                   <PsiCard>
                     <div className="card-avatar">
-                      <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                      {psicInfo.image ? (
+                        <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                      ) : (
+                        <Form
+                          {...layout}
+                          ref={formRef}
+                          name="control-ref-avatar"
+                          onFinish={handleOnFinish}
+                          defaultValue={{
+                            remember: true,
+                          }}
+                          form={form}>
+                          <p className="input-title">Meu avatar</p>
+                          <Form.Item name="image" label="">
+                            <TextArea
+                              className="form-text-area"
+                              disabled={!isEditable}
+                              defaultValue="Adicione uma imagem"
+                              bordered={false}
+                              autoSize={{ minRows: 4 }}
+                            />
+                          </Form.Item>
+                        </Form>
+                      )}
                     </div>
                     <div className="card-text">
                       <p className="crp">CRP: {psicInfo.crp}</p>
@@ -368,7 +391,6 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                         remember: true,
                       }}
                       form={form}>
-                      <p className="input-title">Vídeo de apresentação</p>
                       <Form.Item name="video" label="">
                         <TextArea
                           className="form-text-area"
