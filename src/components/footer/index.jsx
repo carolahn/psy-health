@@ -89,13 +89,13 @@ const Footer = () => {
         <span className="copy">&copy; PsyHealth</span>
         <div>
           <span className="developed-by-text">Desenvolvido por:</span>
-          <a href="https://www.linkedin.com/in/augusto-pietroski/">Augusto,</a>
-          <a href="https://www.linkedin.com/in/alexmiguel95/">Alex,</a>
-          <a href="https://www.linkedin.com/in/cassiano-doederlein-648592148/">Cassiano,</a>
-          <a href="https://www.linkedin.com/in/carolina-ahn-35ab7473/">Carolina,</a>
-          <a href="https://www.linkedin.com/in/edu-magno/">Eduardo</a>
+          <a href="https://www.linkedin.com/in/augusto-pietroski/" target="_blank">Augusto,</a>
+          <a href="https://www.linkedin.com/in/alexmiguel95/" target="_blank">Alex,</a>
+          <a href="https://www.linkedin.com/in/cassiano-doederlein-648592148/" target="_blank">Cassiano,</a>
+          <a href="https://www.linkedin.com/in/carolina-ahn-35ab7473/" target="_blank">Carolina,</a>
+          <a href="https://www.linkedin.com/in/edu-magno/" target="_blank">Eduardo</a>
           <span>e</span>
-          <a href="https://www.linkedin.com/in/willian-brusch-237448154/">Willian</a>
+          <a href="https://www.linkedin.com/in/willian-brusch-237448154/" target="_blank">Willian</a>
         </div>
       </div>
     </StyledFooterContainer>
