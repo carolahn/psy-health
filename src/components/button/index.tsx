@@ -16,7 +16,7 @@ export interface ButtonProps {
 const Button = ({
   width,
   height,
-  buttonName,
+  buttonName = '',
   fontSize,
   color,
   colorHover,
