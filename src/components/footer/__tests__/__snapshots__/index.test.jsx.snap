@@ -2,7 +2,7 @@
 
 exports[`footer-renderer 1`] = `
 <footer
-  className="sc-bdnylx tFLML"
+  className="sc-bdnylx fKhHQb"
 >
   <div
     className="ant-row sc-gtssRu gCLzAC"
@@ -13,8 +13,8 @@ exports[`footer-renderer 1`] = `
       style={Object {}}
     >
       <a
-        className="sc-eCApGN lfgKha"
-        href="#"
+        className="sc-jSFkmK dWbIi"
+        href="/"
       >
         <img
           alt="Logo"
@@ -23,7 +23,7 @@ exports[`footer-renderer 1`] = `
       </a>
     </div>
     <div
-      className="ant-col sc-dlnjPT VwyOd ant-col-xs-12 ant-col-sm-6 ant-col-md-6 ant-col-lg-6 ant-col-xl-6"
+      className="ant-col sc-eCApGN jhasDx ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-12 ant-col-xl-6"
       style={Object {}}
     >
       <div
@@ -60,7 +60,7 @@ exports[`footer-renderer 1`] = `
       </div>
     </div>
     <div
-      className="ant-col sc-dlnjPT VwyOd ant-col-xs-12 ant-col-sm-7 ant-col-md-7 ant-col-lg-7 ant-col-xl-7"
+      className="ant-col sc-dlnjPT iIzZNQ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-12 ant-col-xl-7"
       style={Object {}}
     >
       <div
@@ -97,7 +97,7 @@ exports[`footer-renderer 1`] = `
       </div>
     </div>
     <div
-      className="ant-col sc-dlnjPT VwyOd ant-col-xs-12 ant-col-sm-7 ant-col-md-7 ant-col-lg-7 ant-col-xl-7"
+      className="ant-col sc-dlnjPT iIzZNQ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-12 ant-col-xl-7"
       style={Object {}}
     >
       <div
@@ -129,12 +129,10 @@ exports[`footer-renderer 1`] = `
       </div>
     </div>
     <div
-      className="ant-col sc-hKFyIo jnTjZl ant-col-xs-12 ant-col-sm-4 ant-col-md-4 ant-col-lg-4 ant-col-xl-4"
+      className="ant-col sc-hKFyIo hYjFCg ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-12 ant-col-xl-4"
       style={Object {}}
     >
-      <div
-        className="container-icons-social-network"
-      >
+      <div>
         <h4>
           Redes sociais
         </h4>
@@ -257,34 +255,42 @@ exports[`footer-renderer 1`] = `
       </span>
       <a
         href="https://www.linkedin.com/in/augusto-pietroski/"
+        target="_blank"
       >
         Augusto,
       </a>
       <a
         href="https://www.linkedin.com/in/alexmiguel95/"
+        target="_blank"
       >
         Alex,
       </a>
       <a
         href="https://www.linkedin.com/in/cassiano-doederlein-648592148/"
+        target="_blank"
       >
         Cassiano,
       </a>
       <a
         href="https://www.linkedin.com/in/carolina-ahn-35ab7473/"
+        target="_blank"
       >
         Carolina,
       </a>
       <a
         href="https://www.linkedin.com/in/edu-magno/"
+        target="_blank"
       >
         Eduardo
       </a>
-      <span>
+      <span
+        className="e-text"
+      >
         e
       </span>
       <a
         href="https://www.linkedin.com/in/willian-brusch-237448154/"
+        target="_blank"
       >
         Willian
       </a>

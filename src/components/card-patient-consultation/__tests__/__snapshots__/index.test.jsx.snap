@@ -3,34 +3,34 @@
 exports[`Render tests render card-patient-consultation with avaliation button 1`] = `
 <a>
   <div
-    className="sc-hBMVcZ ejiHWD"
+    className="sc-hBMVcZ dPmVly"
   >
     <div
-      className="sc-fnVYJo iBEAHi"
+      className="sc-fnVYJo hDKOeT"
     >
       <div
-        className="sc-fFSRdu fJdtcZ"
+        className="sc-fFSRdu fftKdo"
       >
         <img
-          className="sc-bkbjAj cihlKk"
+          className="sc-bkbjAj fyHKQJ"
           src="img"
         />
       </div>
       <div
-        className="sc-iemXMA jYmyuf"
+        className="sc-iemXMA laIHhy"
       >
         <div
-          className="sc-hHEjAm gFhEMp"
+          className="sc-hHEjAm hhzDWw"
         >
           Joana Camargo Mota
         </div>
         <div
-          className="sc-dIvqjp gMLrTC"
+          className="sc-dIvqjp hRZcSb"
         >
           CRP: 01/74521
         </div>
         <ul
-          className="ant-rate ant-rate-disabled sc-lmgQde iNYEit"
+          className="ant-rate ant-rate-disabled sc-lmgQde cdfVZg"
           onBlur={null}
           onFocus={null}
           onKeyDown={null}
@@ -358,42 +358,42 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
       </div>
     </div>
     <div
-      className="sc-kfYqjs NwrmB"
+      className="sc-kfYqjs hGrzbw"
     >
       <div
-        className="sc-fKgIGh hlYggs"
+        className="sc-fKgIGh bdrNNV"
       >
         <div
-          className="sc-dlMBXb kXZgnO"
+          className="sc-dlMBXb eStsov"
         >
           Data
         </div>
         <div
-          className="sc-bCwgka cDRmfD"
+          className="sc-bCwgka fTlmbS"
         />
       </div>
       <div
-        className="sc-fKgIGh hlYggs"
+        className="sc-fKgIGh bdrNNV"
       >
         <div
-          className="sc-dlMBXb kXZgnO"
+          className="sc-dlMBXb eStsov"
         >
           Horário
         </div>
         <div
-          className="sc-bCwgka cDRmfD"
+          className="sc-bCwgka fTlmbS"
         />
       </div>
       <div
-        className="sc-fKgIGh hlYggs"
+        className="sc-fKgIGh bdrNNV"
       >
         <div
-          className="sc-dlMBXb kXZgnO"
+          className="sc-dlMBXb eStsov"
         >
           Valor
         </div>
         <div
-          className="sc-bCwgka cDRmfD"
+          className="sc-bCwgka fTlmbS"
         >
           R$ 90,00
         </div>
@@ -403,12 +403,12 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
       className="sc-cxNIbT fxVCCd"
     >
       <div
-        className="sc-dlMBXb kXZgnO"
+        className="sc-dlMBXb eStsov"
       >
         Avaliação
       </div>
       <ul
-        className="ant-rate ant-rate-disabled sc-lmgQde iNYEit"
+        className="ant-rate ant-rate-disabled sc-lmgQde cdfVZg"
         onBlur={null}
         onFocus={null}
         onKeyDown={null}
@@ -741,34 +741,34 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
 exports[`Render tests render card-patient-consultation with reschedule button 1`] = `
 <a>
   <div
-    className="sc-hBMVcZ ejiHWD"
+    className="sc-hBMVcZ dPmVly"
   >
     <div
-      className="sc-fnVYJo iBEAHi"
+      className="sc-fnVYJo hDKOeT"
     >
       <div
-        className="sc-fFSRdu fJdtcZ"
+        className="sc-fFSRdu fftKdo"
       >
         <img
-          className="sc-bkbjAj cihlKk"
+          className="sc-bkbjAj fyHKQJ"
           src="img"
         />
       </div>
       <div
-        className="sc-iemXMA jYmyuf"
+        className="sc-iemXMA laIHhy"
       >
         <div
-          className="sc-hHEjAm gFhEMp"
+          className="sc-hHEjAm hhzDWw"
         >
           Mario Silva
         </div>
         <div
-          className="sc-dIvqjp gMLrTC"
+          className="sc-dIvqjp hRZcSb"
         >
           CRP: 02/6667
         </div>
         <ul
-          className="ant-rate ant-rate-disabled sc-lmgQde iNYEit"
+          className="ant-rate ant-rate-disabled sc-lmgQde cdfVZg"
           onBlur={null}
           onFocus={null}
           onKeyDown={null}
@@ -1096,49 +1096,49 @@ exports[`Render tests render card-patient-consultation with reschedule button 1`
       </div>
     </div>
     <div
-      className="sc-kfYqjs NwrmB"
+      className="sc-kfYqjs hGrzbw"
     >
       <div
-        className="sc-fKgIGh hlYggs"
+        className="sc-fKgIGh bdrNNV"
       >
         <div
-          className="sc-dlMBXb kXZgnO"
+          className="sc-dlMBXb eStsov"
         >
           Data
         </div>
         <div
-          className="sc-bCwgka cDRmfD"
+          className="sc-bCwgka fTlmbS"
         />
       </div>
       <div
-        className="sc-fKgIGh hlYggs"
+        className="sc-fKgIGh bdrNNV"
       >
         <div
-          className="sc-dlMBXb kXZgnO"
+          className="sc-dlMBXb eStsov"
         >
           Horário
         </div>
         <div
-          className="sc-bCwgka cDRmfD"
+          className="sc-bCwgka fTlmbS"
         />
       </div>
       <div
-        className="sc-fKgIGh hlYggs"
+        className="sc-fKgIGh bdrNNV"
       >
         <div
-          className="sc-dlMBXb kXZgnO"
+          className="sc-dlMBXb eStsov"
         >
           Valor
         </div>
         <div
-          className="sc-bCwgka cDRmfD"
+          className="sc-bCwgka fTlmbS"
         >
           R$ 250,00
         </div>
       </div>
     </div>
     <div
-      className="sc-iwaifL kudCEd"
+      className="sc-iwaifL hfZDBU"
     >
       <div>
         <button
