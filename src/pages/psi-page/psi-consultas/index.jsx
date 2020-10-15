@@ -4,8 +4,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "antd/dist/antd.css";
 
-import Calendar from "../../../components/calendar";
-import CardListPsiAppointments from "../../../components/card-list-psi-appointments";
+import Calendar from "../../../containers/calendar";
+import CardListPsiAppointments from "../../../containers/card-list-psi-appointments";
 import { getAppointments } from "../../../redux/actions/appointments";
 import { getOneUser } from "../../../redux/actions/users";
 import { MainContainer, MainWrapper } from "./styled";

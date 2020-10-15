@@ -5,13 +5,14 @@ import { FaHourglassEnd } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
+import Button from "../../components/button";
+import { useWindowSize } from "../../hooks";
 import { postAppointments } from "../../redux/actions/appointments";
 import { schedule_appointment } from "../../redux/actions/login/action";
 import { CalendarWrapper, StyledModal } from "./styled";
-import useWindowSize from "./use-window-size";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { Button, notification } from "antd";
+import { notification } from "antd";
 import "antd/dist/antd.css";
 
 // type: "psic-info" -> mostra os workDays em verde e os horários reservados, para ser usado nas páginas de informações sobre o psicólogo
@@ -25,7 +26,7 @@ import "antd/dist/antd.css";
 // a props patInfo só é necessária no type="user-pat" ou na hora de agendar consulta(deve ser encaminhado para fazer o login)
 
 const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, login = {} }) => {
-  const size = useWindowSize();
+  const [width] = useWindowSize();
   const history = useHistory();
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
@@ -249,7 +250,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
 
   return (
     <>
-      {size.width >= 430 && (
+      {width >= 430 && (
         <CalendarWrapper
           longPressThreshold={10} // para funcionar com touch
           views={["work_week", "day", "agenda"]}
@@ -276,7 +277,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
         />
       )}
 
-      {size.width < 430 && (
+      {width < 430 && (
         <CalendarWrapper
           longPressThreshold={10} // para funcionar com touch
           views={["day", "agenda"]}
@@ -305,12 +306,22 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
         onOk={handleOnOk}
         onCancel={handleOnCancel}
         footer={[
-          <Button key="cancel" onClick={handleOnCancel}>
-            Cancelar
-          </Button>,
-          <Button key="submit" type="primary" onClick={handleOnOk}>
-            Login
-          </Button>,
+          <Button
+            key="cancel"
+            width="150px"
+            height="35px"
+            fontSize="19px"
+            title="Cancelar"
+            onClick={handleOnCancel}
+          />,
+          <Button
+            key="submit"
+            width="150px"
+            height="35px"
+            fontSize="19px"
+            title="Login"
+            onClick={handleOnOk}
+          />,
         ]}>
         <p className="modal-confirm-text">Para agendar a consulta, você precisa efetuar o Login.</p>
       </StyledModal>
@@ -321,12 +332,22 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
         onOk={handleOnConfirm}
         onCancel={handleOnNotConfirm}
         footer={[
-          <Button key="cancel" onClick={handleOnNotConfirm}>
-            Cancelar
-          </Button>,
-          <Button key="submit" type="primary" onClick={handleOnConfirm}>
-            Agendar
-          </Button>,
+          <Button
+            key="cancel"
+            width="150px"
+            height="35px"
+            fontSize="19px"
+            title="Cancelar"
+            onClick={handleOnNotConfirm}
+          />,
+          <Button
+            key="submit"
+            width="150px"
+            height="35px"
+            fontSize="19px"
+            title="Agendar"
+            onClick={handleOnConfirm}
+          />,
         ]}>
         <p className="modal-confirm-text">Gostaria de agendar?</p>
         <p className="modal-confirm-text">

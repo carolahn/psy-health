@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-import Calendar from "../../components/calendar";
 import { getAppointments } from "../../redux/actions/appointments";
 import { getOneUser } from "../../redux/actions/users";
 import { MainWrapper } from "./styled";
@@ -22,27 +21,9 @@ const PsiPage = () => {
     history.push(`/psi/consultas/${login.user.id}`);
   }, []);
 
-  // useEffect(() => {
-  //   if (allAppointments) {
-  //     dispatch(getAppointments());
-  //   } else if (JSON.stringify(allAppointments) === "{}") {
-  //     dispatch(getAppointments());
-  //   }
-  // }, []);
-
   return (
     <MainWrapper>
       <p>Home do psicólogo</p>
-      {/* {allUsers
-            ? allAppointments && (
-                <Calendar
-                  type="psic-info"
-                  psicInfo={allUsers["13"]}
-                  patInfo={allUsers["12"]}
-                  allAppointments={allAppointments}
-                />
-              )
-            : ""} */}
     </MainWrapper>
   );
 };

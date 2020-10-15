@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import DepoimentsFormContainer from "../containers/depoiments-form";
 import RegisterContainer from "../containers/register";
+import Home from "../pages/home";
 import Login from "../pages/login";
-import PatPageTest from "../pages/pat-page-test";
 import PatientPage from "../pages/patient-page";
 import PsiPage from "../pages/psi-page";
 import PsiAppointments from "../pages/psi-page/psi-consultas";
 import PsiProfile from "../pages/psi-page/psi-perfil";
-import Register from "../pages/register";
+import SchedulingPage from "../pages/scheduling-page";
 import Search from "../pages/search";
 
-const Routes = (props) => {
+const Routes = () => {
   const token = useSelector((state) => state.login.token);
   const access = useSelector((state) => state.login.user.is_psic);
-  const [modalVisible, setModalVisible] = useState(true);
 
   return (
     <Switch>
@@ -25,20 +23,28 @@ const Routes = (props) => {
           // logado como paciente
           <Switch>
             {/* <Route path="/blog">Blog</Route> */}
-            <Route path={["/login", "/register"]}>
+            <Route path={["/login", "/cadastro"]}>
               <Redirect to="/" />
             </Route>
-            <Route path="/fruta">
-              Page Test Fruta
-              <PatPageTest />
+            <Route path="/buscar">
+              <Search />
             </Route>
-            <Route exact path="/consultas">
+            <Route path="/psi/agendamentos/:id">
+              <SchedulingPage />
+            </Route>
+            <Route exact path="/consultas/:id">
               <PatientPage />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         ) : (
           // logado como psicologo
           <Switch>
+            <Route path="/buscar">
+              <Search />
+            </Route>
             <Route path="/psi/perfil/:id">
               <PsiProfile />
             </Route>
@@ -48,6 +54,9 @@ const Routes = (props) => {
             <Route path="/psi">
               <PsiPage />
             </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
           </Switch>
         ))}
 
@@ -55,25 +64,17 @@ const Routes = (props) => {
       <Route path="/login">
         <Login />
       </Route>
-
-      <Route path="/register">
+      <Route path="/cadastro">
         <RegisterContainer />
       </Route>
       <Route path="/buscar">
         <Search />
       </Route>
-      <Route path="/fruta">
-        Page Test Fruta - Não logado
-        <PatPageTest />
+      <Route path="/psi/agendamentos/:id">
+        <SchedulingPage />
       </Route>
       <Route exact path="/">
-        Home
-        <button onClick={() => setModalVisible(true)}>Display a modal dialog</button>
-        <DepoimentsFormContainer
-          showModal={{ modalVisible, setModalVisible }}
-          psicId={2}
-          psicName="João Cleber"
-        />
+        <Home />
       </Route>
     </Switch>
   );
