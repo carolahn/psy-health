@@ -1,5 +1,7 @@
-import { Rate } from "antd";
+import { Rate, notification } from "antd";
 import React from "react";
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import "antd/dist/antd.css";
 import StyledContainer from "./styled";
 import { useWindowSize } from "../../hooks";
@@ -14,9 +16,24 @@ const CardPsychologist = ({
   specializations,
   language,
   price,
-  onClick
+  psiId
 }) => {
   const [width] = useWindowSize();
+
+  const history = useHistory();
+  const login = useSelector((state) => state.login);
+
+  const handleOnClick = () => {
+    if (JSON.stringify(login.user) !== "{}" && login.user.is_psic === true) {
+      notification.info({
+        key: login.user.id,
+        message: "Área restrita aos pacientes",
+        description: "Para agendar uma consulta, é necessário cadastrar-se como paciente.",
+      });
+    } else {
+      history.push(`/psi/agendamentos/${psiId}`);
+    }
+  };
 
   if(width >= 950) {
     return (
@@ -31,8 +48,8 @@ const CardPsychologist = ({
   
         <div className="container-abstract">
           <h4>{name}</h4>
-          <p>
-          { description }
+          <p className='card-psychologist-description'>
+          { description && description.slice(0,186) }
           </p>
           <h5>Especialidades</h5>
           <p>{specializations}</p>
@@ -42,9 +59,8 @@ const CardPsychologist = ({
             <Button 
                   width="100%"
                   height="50px"
-                  title="Agendar uma consulta"
-                  fontSize="0.8rem"
-                  onClick={onClick}
+                  buttonName="Agendar uma consulta"
+                  onClick={handleOnClick}
             /> 
           </div>
         </div>
@@ -63,8 +79,8 @@ const CardPsychologist = ({
         </div>
   
         <div className="container-abstract">
-          <p>
-          { description }
+          <p className='card-psychologist-description'>
+          { description && description.slice(0,186) }
           </p>
           <h5>Especialidades</h5>
           <p>{specializations}</p>
@@ -74,9 +90,8 @@ const CardPsychologist = ({
             <Button 
                   width="80%"
                   height="50px"
-                  title="Agendar uma consulta"
-                  fontSize="0.8rem"
-                  onClick={onClick}
+                  buttonName="Agendar uma consulta"
+                  onClick={handleOnClick}
             /> 
           </div>
         </div>

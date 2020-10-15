@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledContainer = styled.div`
     width: 550px;
     margin: 1.25rem 0;
-    border: 2px solid #70A3EF;
+    border: 3px solid #70A3EF;
     border-radius: 5px;
     display: flex;
     background-color: white;
@@ -27,13 +27,17 @@ const StyledContainer = styled.div`
         font-size: 14px;
     }
 
+    .card-psychologist-description::after{
+        content: '...';
+    }
+
     .container-img{
         width: 35%;
         text-align: center;
         margin: 0 5px 0 5px;
 
         img{
-            border: 1px solid #70A3EF;
+            border: 3px solid #70A3EF;
             width: 160px;
             height: 160px;
             border-radius: 50%;
@@ -62,6 +66,7 @@ const StyledContainer = styled.div`
     .container-abstract {
         width: 65%;
         margin-right: 20px;
+        margin-left: 10px;
 
         p{
             color: #6E6E6E;
@@ -71,6 +76,15 @@ const StyledContainer = styled.div`
         .container-btn{
             margin-top: 15px;
         }
+    }
+
+
+    @media (max-width: 1180px) {
+        width: 530px;
+    }
+
+    @media (max-width: 1100px) {
+        width: 470px;
     }
 
     @media (max-width: 950px){
