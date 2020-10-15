@@ -183,7 +183,7 @@ exports[`Render tests show 1`] = `
     </span>
   </div>
   <button
-    className="sc-crzoUp hTKSzu"
+    className="sc-crzoUp ikygPw"
     data-text="Mandar depoimento"
     fontSize="19px"
     height="50px"
@@ -209,7 +209,6 @@ exports[`Render tests show 1`] = `
       r
     </span>
     <span>
-       
     </span>
     <span>
       d

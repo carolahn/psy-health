@@ -13,6 +13,7 @@ interface DepoimentsFormProps {
   };
   psicId: number;
   psicName: string;
+  appointmentId: number;
 }
 
 interface Values {
@@ -29,6 +30,7 @@ const DepoimentsFormContainer = ({
   showModal: { modalVisible, setModalVisible },
   psicId,
   psicName,
+  appointmentId,
 }: DepoimentsFormProps) => {
   const { register, handleSubmit, errors, setError, clearErrors } = useForm();
   const [values, setValues] = useState<Values>({});
@@ -47,6 +49,7 @@ const DepoimentsFormContainer = ({
         Authorization: `Bearer ${token}`,
       },
       data: {
+        appointmentId,
         coment: values.depoiment,
         grading: values.grading,
         userId: id,
@@ -73,26 +76,25 @@ const DepoimentsFormContainer = ({
   };
 
   return (
-    modalVisible && (
-      <StyledModal
-        onClick={({ target, currentTarget }: OnClickModal) => {
-          if (target.className === currentTarget.className) {
-            setValues({});
-            clearErrors();
-            setModalVisible(false);
-          }
-        }}>
-        <div className="container">
-          <StyledH1>Depoimentos</StyledH1>
-          <DepoimentsForm
-            psicName={psicName}
-            formValues={{ values, setValues }}
-            onSubmit={handleSubmit(onSubmit)}
-            formErrors={{ register, errors, setError, clearErrors }}
-          />
-        </div>
-      </StyledModal>
-    )
+    <StyledModal
+      onClick={({ target, currentTarget }: OnClickModal) => {
+        if (target.className === currentTarget.className) {
+          setValues({});
+          clearErrors();
+          setModalVisible(false);
+        }
+      }}
+      show={modalVisible}>
+      <div className="container">
+        <StyledH1>Depoimentos</StyledH1>
+        <DepoimentsForm
+          psicName={psicName}
+          formValues={{ values, setValues }}
+          onSubmit={handleSubmit(onSubmit)}
+          formErrors={{ register, errors, setError, clearErrors }}
+        />
+      </div>
+    </StyledModal>
   );
 };
 

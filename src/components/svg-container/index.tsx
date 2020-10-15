@@ -35,7 +35,7 @@ const Container = styled.div`
   grid-template-columns: 1fr minmax(300px, 100%);
 
   > img {
-    height: 100vh;
+    height: 100%;
   }
 
   div {

@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
+interface ModalDisplay {
+  show: boolean;
+}
+
 export const StyledModal = styled.div`
-  display: grid;
+  display: ${({ show }: ModalDisplay) => (show ? "grid" : "none")};
   place-items: center;
 
   position: fixed;

@@ -5,7 +5,6 @@ import "antd/dist/antd.css";
 
 import Footer from "./components/footer";
 import Header from "./components/header/index.jsx";
-
 import Routes from "./routes/";
 
 const App = () => {
