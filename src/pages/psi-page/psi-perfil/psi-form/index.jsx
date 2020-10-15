@@ -1,8 +1,7 @@
 import { Row, Col, Form, Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import imgFemale from "../../../../assets/imgs/undraw_female_avatar_w3jk.svg";
 import imgMale from "../../../../assets/imgs/undraw_male_avatar_323b.svg";
 import Button from "../../../../components/button";
 import { useWindowSize } from "../../../../hooks/index";
@@ -23,7 +22,8 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   const { TextArea } = Input;
   const { Option } = Select;
   const [form] = Form.useForm();
-  const listImg = [imgFemale, imgMale];
+
+  const newOneUser = useSelector((state) => state.users.oneUser);
 
   const [selectedHoursSeg, setSelectedHoursSeg] = useState([]);
   const [selectedHoursTer, setSelectedHoursTer] = useState([]);
@@ -242,7 +242,34 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                   <PsiCard>
                     <div className="card-avatar">
                       {psicInfo.image ? (
-                        <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                        psicInfo.image === "/static/media/undraw_male_avatar_323b.0c675689.svg" ? (
+                          <Form
+                            {...layout}
+                            ref={formRef}
+                            name="control-ref-avatar"
+                            onFinish={handleOnFinish}
+                            defaultValue={{
+                              remember: true,
+                            }}
+                            form={form}>
+                            <img
+                              className="img-avatar"
+                              src={psicInfo.image}
+                              alt="Psicologo avatar"
+                            />
+                            <Form.Item name="image" label="">
+                              <TextArea
+                                className="form-text-area"
+                                disabled={!isEditable}
+                                defaultValue="Adicione uma imagem"
+                                bordered={false}
+                                autoSize={{ minRows: 2 }}
+                              />
+                            </Form.Item>
+                          </Form>
+                        ) : (
+                          <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                        )
                       ) : (
                         <Form
                           {...layout}
@@ -253,12 +280,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                             remember: true,
                           }}
                           form={form}>
-                          {/* <p className="input-title">Meu avatar</p> */}
-                          <img
-                            className="img-avatar"
-                            src={listImg[Math.round(Math.random() * (listImg.length - 1))]}
-                            alt="Psicologo avatar"
-                          />
+                          <img className="img-avatar" src={imgMale} alt="Psicologo avatar" />
                           <Form.Item name="image" label="">
                             <TextArea
                               className="form-text-area"
@@ -270,6 +292,35 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                           </Form.Item>
                         </Form>
                       )}
+
+                      {/* //  {psicInfo.image ? (
+                      //   <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                      // ) : (
+                      //   <Form
+                      //     {...layout}
+                      //     ref={formRef}
+                      //     name="control-ref-avatar"
+                      //     onFinish={handleOnFinish}
+                      //     defaultValue={{
+                      //       remember: true,
+                      //     }}
+                      //     form={form}>
+                      //     <img
+                      //       className="img-avatar"
+                      //       src={listImg[Math.round(Math.random() * (listImg.length - 1))]}
+                      //       alt="Psicologo avatar"
+                      //     />
+                      //     <Form.Item name="image" label="">
+                      //       <TextArea
+                      //         className="form-text-area"
+                      //         disabled={!isEditable}
+                      //         defaultValue="Adicione uma imagem"
+                      //         bordered={false}
+                      //         autoSize={{ minRows: 2 }}
+                      //       />
+                      //     </Form.Item>
+                      //   </Form>
+                      // )}  */}
                     </div>
                     <div className="card-text">
                       <p className="crp">CRP: {psicInfo.crp}</p>
