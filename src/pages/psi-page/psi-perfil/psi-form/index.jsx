@@ -2,6 +2,8 @@ import { Row, Col, Form, Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
+import imgFemale from "../../../../assets/imgs/undraw_female_avatar_w3jk.svg";
+import imgMale from "../../../../assets/imgs/undraw_male_avatar_323b.svg";
 import Button from "../../../../components/button";
 import { useWindowSize } from "../../../../hooks/index";
 import { getAppointments } from "../../../../redux/actions/appointments";
@@ -21,6 +23,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   const { TextArea } = Input;
   const { Option } = Select;
   const [form] = Form.useForm();
+  const listImg = [imgFemale, imgMale];
 
   const [selectedHoursSeg, setSelectedHoursSeg] = useState([]);
   const [selectedHoursTer, setSelectedHoursTer] = useState([]);
@@ -250,14 +253,19 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                             remember: true,
                           }}
                           form={form}>
-                          <p className="input-title">Meu avatar</p>
+                          {/* <p className="input-title">Meu avatar</p> */}
+                          <img
+                            className="img-avatar"
+                            src={listImg[Math.round(Math.random() * (listImg.length - 1))]}
+                            alt="Psicologo avatar"
+                          />
                           <Form.Item name="image" label="">
                             <TextArea
                               className="form-text-area"
                               disabled={!isEditable}
                               defaultValue="Adicione uma imagem"
                               bordered={false}
-                              autoSize={{ minRows: 4 }}
+                              autoSize={{ minRows: 2 }}
                             />
                           </Form.Item>
                         </Form>
@@ -266,12 +274,88 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                     <div className="card-text">
                       <p className="crp">CRP: {psicInfo.crp}</p>
                       <div className="rating">
-                        <StyledRate allowHalf value={psicInfo.rating} />
+                        <StyledRate allowHalf value={psicInfo.rating} disabled />
                       </div>
                       {width >= 768 && (
                         <p className="price-tag input-title">Valor do atendimento</p>
                       )}
-                      <Form
+
+                      {psicInfo.price ? (
+                        psicInfo.price == 0 ? (
+                          <Form
+                            // {...priceLayout}
+                            ref={formRef}
+                            name="control-ref-price"
+                            onFinish={handleOnFinish}
+                            defaultValue={{
+                              remember: true,
+                            }}
+                            form={form}>
+                            <p className="input-title-price">Adicione o valor da consulta</p>
+                            <div className="card-price">
+                              <span className="price-label">R$</span>
+                              <Form.Item name="price" label="" colon={false}>
+                                <TextArea
+                                  className="form-price-area"
+                                  disabled={!isEditable}
+                                  defaultValue={psicInfo.price}
+                                  bordered={false}
+                                  autoSize={{ minRows: 1, maxRows: 1 }}
+                                />
+                              </Form.Item>
+                            </div>
+                          </Form>
+                        ) : (
+                          <Form
+                            // {...priceLayout}
+                            ref={formRef}
+                            name="control-ref-price"
+                            onFinish={handleOnFinish}
+                            defaultValue={{
+                              remember: true,
+                            }}
+                            form={form}>
+                            <div className="card-price">
+                              <span className="price-label">R$</span>
+                              <Form.Item name="price" label="" colon={false}>
+                                <TextArea
+                                  className="form-price-area"
+                                  disabled={!isEditable}
+                                  defaultValue={psicInfo.price}
+                                  bordered={false}
+                                  autoSize={{ minRows: 1, maxRows: 1 }}
+                                />
+                              </Form.Item>
+                            </div>
+                          </Form>
+                        )
+                      ) : (
+                        <Form
+                          // {...priceLayout}
+                          ref={formRef}
+                          name="control-ref-price"
+                          onFinish={handleOnFinish}
+                          defaultValue={{
+                            remember: true,
+                          }}
+                          form={form}>
+                          <p className="input-title-price">Adicione o valor da consulta</p>
+                          <div className="card-price">
+                            <span className="price-label">R$</span>
+                            <Form.Item name="price" label="" colon={false}>
+                              <TextArea
+                                className="form-price-area"
+                                disabled={!isEditable}
+                                defaultValue={psicInfo.price}
+                                bordered={false}
+                                autoSize={{ minRows: 1, maxRows: 1 }}
+                              />
+                            </Form.Item>
+                          </div>
+                        </Form>
+                      )}
+
+                      {/* <Form
                         // {...priceLayout}
                         ref={formRef}
                         name="control-ref-price"
@@ -292,7 +376,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                             />
                           </Form.Item>
                         </div>
-                      </Form>
+                      </Form> */}
                     </div>
                   </PsiCard>
                 </div>
