@@ -30,7 +30,7 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
           CRP: 01/74521
         </div>
         <ul
-          className="ant-rate ant-rate-disabled sc-cxNIbT dOOzIx"
+          className="ant-rate ant-rate-disabled sc-lmgQde iNYEit"
           onBlur={null}
           onFocus={null}
           onKeyDown={null}
@@ -400,7 +400,7 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
       </div>
     </div>
     <div
-      className="sc-iwaifL kudCEd"
+      className="sc-cxNIbT fxVCCd"
     >
       <div
         className="sc-dlMBXb kXZgnO"
@@ -408,7 +408,7 @@ exports[`Render tests render card-patient-consultation with avaliation button 1`
         Avaliação
       </div>
       <ul
-        className="ant-rate ant-rate-disabled sc-cxNIbT dOOzIx"
+        className="ant-rate ant-rate-disabled sc-lmgQde iNYEit"
         onBlur={null}
         onFocus={null}
         onKeyDown={null}
@@ -768,7 +768,7 @@ exports[`Render tests render card-patient-consultation with reschedule button 1`
           CRP: 02/6667
         </div>
         <ul
-          className="ant-rate ant-rate-disabled sc-cxNIbT dOOzIx"
+          className="ant-rate ant-rate-disabled sc-lmgQde iNYEit"
           onBlur={null}
           onFocus={null}
           onKeyDown={null}
