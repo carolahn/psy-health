@@ -7,11 +7,7 @@ exports[`Tests snapshot shows pat 1`] = `
   noValidate={true}
 >
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="name"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -24,11 +20,7 @@ exports[`Tests snapshot shows pat 1`] = `
     }
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="email"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -42,11 +34,7 @@ exports[`Tests snapshot shows pat 1`] = `
     type="email"
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="confirmEmail"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -59,11 +47,7 @@ exports[`Tests snapshot shows pat 1`] = `
     type="email"
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     maxLength={15}
     name="phone"
     onChange={[Function]}
@@ -78,11 +62,7 @@ exports[`Tests snapshot shows pat 1`] = `
     type="tel"
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     maxLength={18}
     name="cpf_cnpj"
     onChange={[Function]}
@@ -96,11 +76,7 @@ exports[`Tests snapshot shows pat 1`] = `
     }
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="password"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -114,11 +90,7 @@ exports[`Tests snapshot shows pat 1`] = `
     type="password"
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="confirmPassword"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -138,19 +110,11 @@ exports[`Tests snapshot shows pat 1`] = `
     }
   >
     <button
-<<<<<<< HEAD
-      className="sc-dlnjPT gwzrKe"
-      data-text="Register"
-      fontSize="19px"
-      height="40px"
-      onClick={true}
-=======
       className="sc-dlnjPT jJgUMU"
       data-text="Register"
       fontSize="19px"
       height="40px"
       onClick={[Function]}
->>>>>>> submaster
       width="150px"
     >
       <span>
@@ -189,11 +153,7 @@ exports[`Tests snapshot shows psi 1`] = `
   noValidate={true}
 >
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="name"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -206,11 +166,7 @@ exports[`Tests snapshot shows psi 1`] = `
     }
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="email"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -224,11 +180,7 @@ exports[`Tests snapshot shows psi 1`] = `
     type="email"
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="confirmEmail"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -241,11 +193,7 @@ exports[`Tests snapshot shows psi 1`] = `
     type="email"
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     maxLength={15}
     name="phone"
     onChange={[Function]}
@@ -260,11 +208,7 @@ exports[`Tests snapshot shows psi 1`] = `
     type="tel"
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     maxLength={18}
     name="cpf_cnpj"
     onChange={[Function]}
@@ -278,11 +222,7 @@ exports[`Tests snapshot shows psi 1`] = `
     }
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     maxLength={8}
     name="crp"
     onChange={[Function]}
@@ -296,11 +236,7 @@ exports[`Tests snapshot shows psi 1`] = `
     }
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="password"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -314,11 +250,7 @@ exports[`Tests snapshot shows psi 1`] = `
     type="password"
   />
   <input
-<<<<<<< HEAD
-    className="sc-gtssRu jigLkO"
-=======
     className="sc-gtssRu kTOxiL"
->>>>>>> submaster
     name="confirmPassword"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -338,19 +270,11 @@ exports[`Tests snapshot shows psi 1`] = `
     }
   >
     <button
-<<<<<<< HEAD
-      className="sc-dlnjPT gwzrKe"
-      data-text="Register"
-      fontSize="19px"
-      height="40px"
-      onClick={true}
-=======
       className="sc-dlnjPT jJgUMU"
       data-text="Register"
       fontSize="19px"
       height="40px"
       onClick={[Function]}
->>>>>>> submaster
       width="150px"
     >
       <span>
