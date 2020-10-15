@@ -15,6 +15,7 @@ import {
   StyledLogoCotainer,
   StyledCol,
   StyledContainerColSocial,
+  StyledContainerLeft
 } from "./styled";
 
 const Footer = () => {
@@ -22,11 +23,11 @@ const Footer = () => {
       <StyledFooterContainer>
         <StyledRow>
           <Col xs={24} sm={24} md={24} lg={24} xl={24}>
-            <StyledLogoCotainer href="#">
+            <StyledLogoCotainer href="/">
               <img src={logo} alt="Logo" />
             </StyledLogoCotainer>
           </Col>
-          <StyledCol xs={12} sm={6} md={6} lg={6} xl={6}>
+          <StyledContainerLeft xs={24} sm={24} md={12} lg={12} xl={6}>
             <div className="container-box-left">
               <h4>Sobre a PsyHealth</h4>
               <a href="#">Perguntas frequentes</a>
@@ -35,8 +36,8 @@ const Footer = () => {
               <a href="#">Paciente: Termos de uso</a>
               <a href="#">Psicólogo: Termos de uso</a>
             </div>
-          </StyledCol>
-          <StyledCol xs={12} sm={7} md={7} lg={7} xl={7}>
+          </StyledContainerLeft >
+          <StyledCol xs={24} sm={24} md={12} lg={12} xl={7}>
             <div className="container-box-middle">
               <h4>Assuntos mais lidos</h4>
               <a href="#">Ansiedade</a>
@@ -46,7 +47,7 @@ const Footer = () => {
               <a href="#">Estresse</a>
             </div>
           </StyledCol>
-          <StyledCol xs={12} sm={7} md={7} lg={7} xl={7}>
+          <StyledCol xs={24} sm={24} md={12} lg={12} xl={7}>
             <div className="container-box-middle">
               <h4>Especialistas</h4>
               <a href="#">Psicanalistas</a>
@@ -55,8 +56,8 @@ const Footer = () => {
               <a href="#">Coachs</a>
             </div>
           </StyledCol>
-          <StyledContainerColSocial xs={12} sm={4} md={4} lg={4} xl={4}>
-            <div className="container-icons-social-network">
+          <StyledContainerColSocial xs={24} sm={24} md={12} lg={12} xl={4}>
+            <div>
               <h4>Redes sociais</h4>
               <div>
                 <a href="#">
@@ -94,7 +95,7 @@ const Footer = () => {
             <a href="https://www.linkedin.com/in/cassiano-doederlein-648592148/" target="_blank">Cassiano,</a>
             <a href="https://www.linkedin.com/in/carolina-ahn-35ab7473/" target="_blank">Carolina,</a>
             <a href="https://www.linkedin.com/in/edu-magno/" target="_blank">Eduardo</a>
-            <span>e</span>
+            <span className="e-text">e</span>
             <a href="https://www.linkedin.com/in/willian-brusch-237448154/" target="_blank">Willian</a>
           </div>
         </div>
