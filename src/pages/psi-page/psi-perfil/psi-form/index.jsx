@@ -476,7 +476,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                     width="150px"
                     height="35px"
                     fontSize="19px"
-                    title="Atualizar"
+                    buttonName="Atualizar"
                     onClick={() => {}}
                     htmlType="submit"
                   />
@@ -484,7 +484,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                     width="150px"
                     height="35px"
                     fontSize="19px"
-                    title="Desfazer"
+                    buttonName="Desfazer"
                     onClick={handleOnReset}
                   />
                 </Form.Item>
