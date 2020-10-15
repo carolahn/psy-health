@@ -7,7 +7,7 @@ exports[`Tests snapshot shows pat 1`] = `
   noValidate={true}
 >
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="name"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -20,7 +20,7 @@ exports[`Tests snapshot shows pat 1`] = `
     }
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="email"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -34,7 +34,7 @@ exports[`Tests snapshot shows pat 1`] = `
     type="email"
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="confirmEmail"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -47,7 +47,7 @@ exports[`Tests snapshot shows pat 1`] = `
     type="email"
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     maxLength={15}
     name="phone"
     onChange={[Function]}
@@ -62,7 +62,7 @@ exports[`Tests snapshot shows pat 1`] = `
     type="tel"
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     maxLength={18}
     name="cpf_cnpj"
     onChange={[Function]}
@@ -76,7 +76,7 @@ exports[`Tests snapshot shows pat 1`] = `
     }
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="password"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -90,7 +90,7 @@ exports[`Tests snapshot shows pat 1`] = `
     type="password"
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="confirmPassword"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -110,9 +110,8 @@ exports[`Tests snapshot shows pat 1`] = `
     }
   >
     <button
-      className="sc-dlnjPT jJgUMU"
+      className="sc-dlnjPT cZhbSc"
       data-text="Register"
-      fontSize="19px"
       height="40px"
       onClick={[Function]}
       width="150px"
@@ -153,7 +152,7 @@ exports[`Tests snapshot shows psi 1`] = `
   noValidate={true}
 >
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="name"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -166,7 +165,7 @@ exports[`Tests snapshot shows psi 1`] = `
     }
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="email"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -180,7 +179,7 @@ exports[`Tests snapshot shows psi 1`] = `
     type="email"
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="confirmEmail"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -193,7 +192,7 @@ exports[`Tests snapshot shows psi 1`] = `
     type="email"
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     maxLength={15}
     name="phone"
     onChange={[Function]}
@@ -208,7 +207,7 @@ exports[`Tests snapshot shows psi 1`] = `
     type="tel"
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     maxLength={18}
     name="cpf_cnpj"
     onChange={[Function]}
@@ -222,7 +221,7 @@ exports[`Tests snapshot shows psi 1`] = `
     }
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     maxLength={8}
     name="crp"
     onChange={[Function]}
@@ -236,7 +235,7 @@ exports[`Tests snapshot shows psi 1`] = `
     }
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="password"
     onChange={[Function]}
     onMouseEnter={[Function]}
@@ -250,7 +249,7 @@ exports[`Tests snapshot shows psi 1`] = `
     type="password"
   />
   <input
-    className="sc-gtssRu kTOxiL"
+    className="sc-gtssRu jigLkO"
     name="confirmPassword"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -270,9 +269,8 @@ exports[`Tests snapshot shows psi 1`] = `
     }
   >
     <button
-      className="sc-dlnjPT jJgUMU"
+      className="sc-dlnjPT cZhbSc"
       data-text="Register"
-      fontSize="19px"
       height="40px"
       onClick={[Function]}
       width="150px"

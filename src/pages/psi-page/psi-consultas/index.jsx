@@ -15,7 +15,6 @@ const PsiAppointments = () => {
   const login = useSelector((state) => state.login);
   const allAppointments = useSelector((state) => state.appointments.allAppointments);
   const oneUser = useSelector((state) => state.users.oneUser);
-  // const myAppointments = {};
   const nextAppointments = {};
   const pastAppointments = {};
 
@@ -35,7 +34,6 @@ const PsiAppointments = () => {
   if (allAppointments) {
     Object.values(allAppointments).map((item) => {
       if (item.psic.id === login.user.id) {
-        // myAppointments[item.date.start] = { ...item };
         if (item.date.start > today) {
           nextAppointments[item.date.start] = { ...item };
         }
@@ -81,7 +79,6 @@ const PsiAppointments = () => {
         <Row className="row-calendar">
           <Col className="col-calendar" xs={24} sm={24} md={24} lg={24} xl={24}>
             <div className="title-agenda">
-              {/* <p className="title-p-agenda">Agenda</p> */}
               <div className="appointments-title title-calendar">Calendário</div>
             </div>
 

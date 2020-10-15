@@ -8,7 +8,7 @@ import RegisterForm from "../../components/register-form";
 import { login } from "../../redux/actions/login/action";
 
 interface RegisterFormProps {
-  isPsic?: boolean;
+  is_psic?: boolean;
 }
 
 interface Values {
@@ -44,14 +44,14 @@ const openNotificationWithIcon = (type: string) => {
   }
 };
 
-const RegisterFormContainer = ({ isPsic = false }: RegisterFormProps) => {
+const RegisterFormContainer = ({ is_psic = false }: RegisterFormProps) => {
   const [values, setValues] = useState<Values>({});
   const { register, handleSubmit, errors, setError } = useForm();
   const dispatch = useDispatch();
 
   const onSubmit = () => {
     axios
-      .post("https://psy-health-api.herokuapp.com/register", { ...values, isPsic })
+      .post("https://psy-health-api.herokuapp.com/register", { ...values, is_psic })
       .then(() => {
         dispatch(login(values.email, values.password));
         openNotificationWithIcon("success");
@@ -80,7 +80,7 @@ const RegisterFormContainer = ({ isPsic = false }: RegisterFormProps) => {
 
   return (
     <RegisterForm
-      isPsic={isPsic}
+      isPsic={is_psic}
       values={values}
       onSubmit={onSubmit}
       formErrors={{ register, handleSubmit, errors }}

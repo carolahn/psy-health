@@ -2,7 +2,7 @@
 
 exports[`Render tests renders correctly 1`] = `
 <div
-  className="sc-bdnylx hwPbRu card-psi-appointment"
+  className="sc-bdnylx knEsSx card-psi-appointment"
 >
   <div
     className="ant-row"

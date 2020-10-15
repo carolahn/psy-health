@@ -26,10 +26,6 @@ export const SideContainer = styled.div`
     width: 100%;
   }
 
-  span {
-    margin: 10px;
-  }
-
   .small-header {
     justify-content: center;
     align-items: center;
@@ -42,6 +38,8 @@ export const SideContainer = styled.div`
       margin: 75px 95px;
       width: 212px;
       height: 84px;
+
+      cursor: pointer;
 
       @media (max-height: 700px) {
         margin: 15px 60px;
@@ -106,6 +104,7 @@ export const SideContainer = styled.div`
     span {
       color: #70a3ef;
       cursor: pointer;
+      margin: 10px;
     }
   }
 `;
