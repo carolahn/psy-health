@@ -74,6 +74,9 @@ context("Register Page Bad Path", () => {
     cy.get('[placeholder="Senha"]').type("136");
     cy.get('[placeholder="Confirmar Senha"]').type("345");
 
+    cy.get('[maxlength="15"]').should("have.value", "(41) 88792-5");
+    cy.get('[maxlength="18"]').should("have.value", "052.686.55");
+
     cy.get(".sc-kfYqjs").click();
 
     cy.url().should("eq", "http://localhost:3000/cadastro");
@@ -97,6 +100,9 @@ context("Register Page Bad Path", () => {
     cy.get('[maxlength="18"]').clear().type("05268655000");
     cy.get('[placeholder="Senha"]').clear().type("1360");
     cy.get('[placeholder="Confirmar Senha"]').clear().type("1360");
+
+    cy.get('[maxlength="15"]').should("have.value", "(41) 98879-2500");
+    cy.get('[maxlength="18"]').should("have.value", "052.686.550-00");
 
     cy.get(".sc-kfYqjs").click();
 
@@ -128,6 +134,10 @@ context("Register Page Bad Path", () => {
     cy.get('[placeholder="Senha"]').type("136");
     cy.get('[placeholder="Confirmar Senha"]').type("345");
 
+    cy.get('[maxlength="15"]').should("have.value", "(41) 88792-5");
+    cy.get('[maxlength="18"]').should("have.value", "052.686.55");
+    cy.get('[maxlength="8"]').type("46/581");
+
     cy.get(".sc-kfYqjs").click();
 
     cy.url().should("eq", "http://localhost:3000/cadastro/psi");
@@ -153,6 +163,10 @@ context("Register Page Bad Path", () => {
     cy.get('[maxlength="8"]').clear().type("1234567");
     cy.get('[placeholder="Senha"]').clear().type("1360");
     cy.get('[placeholder="Confirmar Senha"]').clear().type("1360");
+
+    cy.get('[maxlength="15"]').should("have.value", "(41) 98879-2500");
+    cy.get('[maxlength="18"]').should("have.value", "052.686.550-00");
+    cy.get('[maxlength="8"]').should("have.value", "12/34567");
 
     cy.get(".sc-kfYqjs").click();
 
