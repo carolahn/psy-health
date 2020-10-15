@@ -13,7 +13,7 @@ export const CardContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
-  @media (max-width: 1270px) {
+  @media (max-width: 1158px) {
     height: 240px;
     width: 88vw;
   }
@@ -24,7 +24,7 @@ export const ImgAndNameCardCotainer = styled.div`
   width: 350px;
   height: 114px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     width: 280px;
     height: 70px;
   }
@@ -37,7 +37,7 @@ export const ImgDivCotainer = styled.div`
   width: 150px;
   height: 114px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     width: 100px;
     height: 70px;
   }
@@ -49,7 +49,7 @@ export const PhotoPsychologist = styled.img`
   width: 90px;
   height: 90px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     width: 65px;
     height: 65px;
   }
@@ -62,7 +62,7 @@ export const NameDivCotainer = styled.div`
   width: 300px;
   height: 114px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     padding-top: 5px;
     width: 200px;
     height: 70px;
@@ -74,7 +74,7 @@ export const CrpDiv = styled.div`
   font-weight: 700;
   font-size: 14px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     font-size: 12px;
   }
 `;
@@ -85,7 +85,7 @@ export const TitleForName = styled.div`
   font-weight: 600;
   font-size: 18px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     padding-bottom: 5px;
     font-size: 14px;
   }
@@ -98,7 +98,7 @@ export const TitleForDateScheduleValueAndAvaliation = styled.div`
   font-weight: 600;
   font-size: 18px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     padding-bottom: 5px;
     font-size: 14px;
   }
@@ -110,7 +110,7 @@ export const DateScheduleAndValueContainer = styled.div`
   width: 510px;
   height: 114px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     padding-top: 0px;
     width: 250px;
     height: 50px;
@@ -121,7 +121,7 @@ export const DateScheduleAndValue = styled.div`
   text-align: center;
   width: 140px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     width: 110px;
     height: 50px;
   }
@@ -132,7 +132,7 @@ export const TextStyle = styled.div`
   color: #6e6e6e;
   font-size: 14px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     font-size: 12px;
   }
 `;
@@ -147,15 +147,15 @@ export const AvaliationOrButton = styled.div`
   width: 150px;
   height: 114px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     padding: 0px;
     width: 300px;
     height: 50px;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   @media (max-width: 500px) {
-    flex-direction: row;
-    justify-content: space-around;
   }
 `;
 
@@ -167,7 +167,7 @@ export const RateAvaliation = styled.div`
 export const NewRate = styled(Rate)`
   font-size: 16px;
 
-  @media (max-width: 710px) {
+  @media (max-width: 755px) {
     font-size: 14px;
   }
 `;
