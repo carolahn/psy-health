@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerCards = styled.div`
-  background: #f3f3f3;
+  background: #fbfbfb;
   margin: 0;
   padding: 0;
   display: flex;

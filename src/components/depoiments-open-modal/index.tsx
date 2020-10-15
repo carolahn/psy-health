@@ -15,8 +15,9 @@ const DepoimentsOpenModal = ({ id, name, appointId }: OpenModalProps) => {
   return (
     <>
       <Button
-        width="auto"
-        height="auto"
+        width="120px"
+        height="40px"
+        fontSize="18px"
         onClick={() => setModalVisible(true)}
         buttonName="Avaliar"
       />

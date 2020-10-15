@@ -2,34 +2,69 @@
 
 exports[`render correctly BannerSearch 1`] = `
 <div
-  className="sc-bdnylx jawjrf"
+  className="sc-gtssRu iousAW"
 >
   <div
-    className="sc-gtssRu hbdIWB"
+    className="sc-dlnjPT hkNVgF"
   >
     <img
-      className="sc-dlnjPT brcDuh"
+      className="sc-hKFyIo faMfon"
       src="img_banner_search.svg"
     />
   </div>
   <div
-    className="sc-hKFyIo knWWhU"
+    className="sc-eCApGN gwYTeE"
   >
     <div
-      className="sc-eCApGN gyqFeh"
+      className="sc-jSFkmK jrMmYd"
     >
       <h3
-        className="sc-gKAblj kHrSYI"
+        className="sc-iCoHVE gcvEML"
       >
         Encontre o psicólogo ideal pra você
       </h3>
       <button
-        className="ant-btn sc-jSFkmK kQgdrx"
+        className="sc-bdnylx jsFNV"
+        data-text="Buscar agora"
+        height="60px"
         onClick={[Function]}
-        type="button"
+        width="200px"
       >
         <span>
-          Buscar Agora
+          B
+        </span>
+        <span>
+          u
+        </span>
+        <span>
+          s
+        </span>
+        <span>
+          c
+        </span>
+        <span>
+          a
+        </span>
+        <span>
+          r
+        </span>
+        <span>
+           
+        </span>
+        <span>
+          a
+        </span>
+        <span>
+          g
+        </span>
+        <span>
+          o
+        </span>
+        <span>
+          r
+        </span>
+        <span>
+          a
         </span>
       </button>
     </div>
