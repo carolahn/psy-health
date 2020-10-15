@@ -311,7 +311,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
             width="150px"
             height="35px"
             fontSize="19px"
-            title="Cancelar"
+            buttonName="Cancelar"
             onClick={handleOnCancel}
           />,
           <Button
@@ -319,7 +319,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
             width="150px"
             height="35px"
             fontSize="19px"
-            title="Login"
+            buttonName="Login"
             onClick={handleOnOk}
           />,
         ]}>
@@ -337,7 +337,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
             width="150px"
             height="35px"
             fontSize="19px"
-            title="Cancelar"
+            buttonName="Cancelar"
             onClick={handleOnNotConfirm}
           />,
           <Button
@@ -345,7 +345,7 @@ const Calendar = ({ type, psicInfo = {}, patInfo = {}, allAppointments = {}, log
             width="150px"
             height="35px"
             fontSize="19px"
-            title="Agendar"
+            buttonName="Agendar"
             onClick={handleOnConfirm}
           />,
         ]}>

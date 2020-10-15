@@ -1,9 +1,9 @@
+import enzyme from "enzyme";
 import mockAxios from "jest-mock-axios";
 import React from "react";
 import { useDispatch } from "react-redux";
 
 import { login } from "../../../redux/actions/login/action";
-import enzyme from "../../search-filter/__tests__/node_modules/enzyme";
 import RegisterFormContainer from "../index";
 
 jest.mock("axios", () => mockAxios);
@@ -55,7 +55,7 @@ describe("Tests behaviour", () => {
       email: "a@a.c",
       password: "1234",
       cpf_cnpj: "000.000.000-00",
-      isPsic: false,
+      is_psic: false,
       phone: "(41) 91111-1111",
     });
 

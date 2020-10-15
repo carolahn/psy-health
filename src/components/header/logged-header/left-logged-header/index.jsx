@@ -14,7 +14,7 @@ const LeftLoggedHeader = () => {
       {is_psic ? (
         <></>
       ) : (
-        <div className="links" onClick={() => history.push("/busca")}>
+        <div className="links" onClick={() => history.push("/buscar")}>
           Encontre um psicólogo
         </div>
       )}

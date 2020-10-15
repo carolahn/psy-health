@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import DepoimentsForm from "../../components/depoiments-form";
+import { getDepoiments } from "../../redux/actions/depoiments";
 import { StyledModal, StyledH1 } from "./styled";
 
 interface DepoimentsFormProps {
@@ -13,6 +14,7 @@ interface DepoimentsFormProps {
   };
   psicId: number;
   psicName: string;
+  appointmentId: number;
 }
 
 interface Values {
@@ -29,7 +31,9 @@ const DepoimentsFormContainer = ({
   showModal: { modalVisible, setModalVisible },
   psicId,
   psicName,
+  appointmentId,
 }: DepoimentsFormProps) => {
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors, setError, clearErrors } = useForm();
   const [values, setValues] = useState<Values>({});
   const token = useSelector((state: any) => state.login.token);
@@ -47,6 +51,7 @@ const DepoimentsFormContainer = ({
         Authorization: `Bearer ${token}`,
       },
       data: {
+        appointmentId,
         coment: values.depoiment,
         grading: values.grading,
         userId: id,
@@ -57,6 +62,7 @@ const DepoimentsFormContainer = ({
         setModalVisible(false);
         setValues({});
       })
+      .then(() => dispatch(getDepoiments()))
       .catch(({ response: { status } }) => {
         if (status >= 500) {
           setError("server", {
@@ -73,26 +79,25 @@ const DepoimentsFormContainer = ({
   };
 
   return (
-    modalVisible && (
-      <StyledModal
-        onClick={({ target, currentTarget }: OnClickModal) => {
-          if (target.className === currentTarget.className) {
-            setValues({});
-            clearErrors();
-            setModalVisible(false);
-          }
-        }}>
-        <div className="container">
-          <StyledH1>Depoimentos</StyledH1>
-          <DepoimentsForm
-            psicName={psicName}
-            formValues={{ values, setValues }}
-            onSubmit={handleSubmit(onSubmit)}
-            formErrors={{ register, errors, setError, clearErrors }}
-          />
-        </div>
-      </StyledModal>
-    )
+    <StyledModal
+      onClick={({ target, currentTarget }: OnClickModal) => {
+        if (target.className === currentTarget.className) {
+          setValues({});
+          clearErrors();
+          setModalVisible(false);
+        }
+      }}
+      show={modalVisible}>
+      <div className="container">
+        <StyledH1>Depoimentos</StyledH1>
+        <DepoimentsForm
+          psicName={psicName}
+          formValues={{ values, setValues }}
+          onSubmit={handleSubmit(onSubmit)}
+          formErrors={{ register, errors, setError, clearErrors }}
+        />
+      </div>
+    </StyledModal>
   );
 };
 

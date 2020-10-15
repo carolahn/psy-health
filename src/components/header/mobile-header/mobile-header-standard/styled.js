@@ -5,11 +5,12 @@ import logo from "../../assets/mobile-menu/logo-branco.png";
 export const StyledMobileStandardHeaderWithMenu = styled.div`
   background-color: #70a3ef;
   width: 100%;
-  height: 70px;
+  height: 90px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  font-size: 16px;
 
   .logo {
     height: 50px;
@@ -36,10 +37,6 @@ export const StyledMobileStandardHeaderWithMenu = styled.div`
     color: #f3f3f3;
     margin-right: 1rem;
   }
-
-  /*   .mobile-menu-list-whithout-token {
-    transition: height 2s linear;
-  } */
 
   @keyframes sliding {
     from {

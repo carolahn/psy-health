@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
+import Button from "../button";
 import DepoimentsOpenModal from "../depoiments-open-modal";
 import {
   CardContainer,
@@ -10,86 +10,116 @@ import {
   ImgDivCotainer,
   NameDivCotainer,
   PhotoPsychologist,
-  TitleForNameDateScheduleValueAndAvaliation,
+  TitleForDateScheduleValueAndAvaliation,
+  TitleForName,
   DateScheduleAndValue,
   CrpDiv,
   TextStyle,
   NewRate,
-  ContainerButtons,
-  CancelButton,
-  RescheduleButton,
+  RateAvaliation,
 } from "./styled";
 
 const CardPatientConsultation = ({
+  avaliationExist,
   buttonOrAvaliation,
-  onePsi,
+  cancelAppointment,
   constructDate,
   constructHour,
-  cancelAppointment,
+  onePsi,
   rescheduleAppointment,
+  destiny,
+  onClick,
+  appointmentId,
 }) => {
-  const Avaliation = true;
-  const allDepoiments = useSelector((state) => state.depoiments.allDepoiments);
-
   return (
     onePsi.length > 0 && (
-      <CardContainer>
-        <ImgAndNameCardCotainer>
-          <ImgDivCotainer>
-            <PhotoPsychologist src={onePsi[0].image} />
-          </ImgDivCotainer>
-          <NameDivCotainer>
-            <TitleForNameDateScheduleValueAndAvaliation>
-              {onePsi[0].name}
-            </TitleForNameDateScheduleValueAndAvaliation>
-            <CrpDiv>{`CRP: ${onePsi[0].crp}`}</CrpDiv>
-            <NewRate allowHalf disabled defaultValue={onePsi[0].rating} />
-          </NameDivCotainer>
-        </ImgAndNameCardCotainer>
-        <DateScheduleAndValueContainer>
-          <DateScheduleAndValue>
-            <TitleForNameDateScheduleValueAndAvaliation>
-              Data
-            </TitleForNameDateScheduleValueAndAvaliation>
-            <TextStyle>{constructDate()}</TextStyle>
-          </DateScheduleAndValue>
-          <DateScheduleAndValue>
-            <TitleForNameDateScheduleValueAndAvaliation>
-              Horário
-            </TitleForNameDateScheduleValueAndAvaliation>
-            <TextStyle>{constructHour()}</TextStyle>
-          </DateScheduleAndValue>
-          <DateScheduleAndValue>
-            <TitleForNameDateScheduleValueAndAvaliation>
-              Valor
-            </TitleForNameDateScheduleValueAndAvaliation>
-            <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
-          </DateScheduleAndValue>
-        </DateScheduleAndValueContainer>
-        <AvaliationOrButton>
+      <a href={destiny}>
+        <CardContainer>
+          <ImgAndNameCardCotainer>
+            <ImgDivCotainer>
+              <PhotoPsychologist src={onePsi[0].image} />
+            </ImgDivCotainer>
+            <NameDivCotainer>
+              <TitleForName>{onePsi[0].name}</TitleForName>
+              <CrpDiv>{`CRP: ${onePsi[0].crp}`}</CrpDiv>
+              <NewRate allowHalf disabled defaultValue={onePsi[0].rating} />
+            </NameDivCotainer>
+          </ImgAndNameCardCotainer>
+          <DateScheduleAndValueContainer>
+            <DateScheduleAndValue>
+              <TitleForDateScheduleValueAndAvaliation>Data</TitleForDateScheduleValueAndAvaliation>
+              <TextStyle>{constructDate()}</TextStyle>
+            </DateScheduleAndValue>
+            <DateScheduleAndValue>
+              <TitleForDateScheduleValueAndAvaliation>
+                Horário
+              </TitleForDateScheduleValueAndAvaliation>
+              <TextStyle>{constructHour()}</TextStyle>
+            </DateScheduleAndValue>
+            <DateScheduleAndValue>
+              <TitleForDateScheduleValueAndAvaliation>Valor</TitleForDateScheduleValueAndAvaliation>
+              <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
+            </DateScheduleAndValue>
+          </DateScheduleAndValueContainer>
+
           {buttonOrAvaliation ? (
-            <ContainerButtons>
-              <RescheduleButton onClick={rescheduleAppointment}>Remarcar</RescheduleButton>
-              <CancelButton onClick={cancelAppointment}>Cancelar</CancelButton>
-            </ContainerButtons>
+            <AvaliationOrButton>
+              <div>
+                <Button
+                  buttonName="Notificação"
+                  width="88px"
+                  height="30px"
+                  fontSize="15px"
+                  padding-bottom="20px"
+                  onClick={onClick}
+                />
+              </div>
+              <div>
+                <Button
+                  buttonName="Remarcar"
+                  width="88px"
+                  height="30px"
+                  fontSize="15px"
+                  padding-bottom="20px"
+                  color="#9E9E9E"
+                  colorHover="#9E9E9E"
+                  colorActive="#9E9E9E"
+                  onClick={rescheduleAppointment}
+                />
+              </div>
+              <div>
+                <Button
+                  buttonName="Cancelar"
+                  width="88px"
+                  height="30px"
+                  fontSize="15px"
+                  color="#E16769"
+                  colorHover="#E16769"
+                  colorActive="#E16769"
+                  onClick={cancelAppointment}
+                />
+              </div>
+            </AvaliationOrButton>
           ) : (
               <>
-                {Avaliation ? (
-                  <>
-                    <TitleForNameDateScheduleValueAndAvaliation>
+                {avaliationExist ? (
+                  <RateAvaliation>
+                    <TitleForDateScheduleValueAndAvaliation>
                       Avaliação
-                  </TitleForNameDateScheduleValueAndAvaliation>
-                    <NewRate allowHalf disabled defaultValue={5} />
-                  </>
+                  </TitleForDateScheduleValueAndAvaliation>
+                    <NewRate allowHalf disabled defaultValue={avaliationExist.grading} />
+                  </RateAvaliation>
                 ) : (
-                    <ContainerButtons>
-                      <DepoimentsOpenModal id={onePsi[0].id} name={onePsi[0].name} />
-                    </ContainerButtons>
+                    <DepoimentsOpenModal
+                      appointId={appointmentId}
+                      id={onePsi[0].id}
+                      name={onePsi[0].name}
+                    />
                   )}
               </>
             )}
-        </AvaliationOrButton>
-      </CardContainer>
+        </CardContainer>
+      </a>
     )
   );
 };

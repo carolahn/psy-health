@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import moment from "moment";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import CardPatientConsultationContainer from "../../containers/card-patient-consultation";
 import { getAppointments } from "../../redux/actions/appointments";
+import { getDepoiments } from "../../redux/actions/depoiments";
 import { ContainerCards, TitleContainerAppointments, TitleContainerHistory } from "./styled";
 
 const PatientPage = () => {
@@ -14,14 +16,21 @@ const PatientPage = () => {
 
   useEffect(() => {
     dispatch(getAppointments());
-  }, [allAppointments]);
+    dispatch(getDepoiments());
+  }, []);
 
-  const compareDates = (dateAppointment) => {
-    const parts = dateAppointment[0].split("-");
-    const today = new Date();
+  // const compareDates = (dateAppointment) => {
+  //   const parts = dateAppointment[0].split("-");
+  //   const today = new Date();
 
-    dateAppointment = new Date(parts[0], parts[1] - 1, parts[2]);
-    return dateAppointment >= today;
+  //   dateAppointment = new Date(parts[0], parts[1] - 1, parts[2]);
+  //   return dateAppointment >= today;
+  // };
+
+  const compareDates = (dateStartAppointment) => {
+    let today = new Date();
+    today = moment(today).format("YYYY-MM-DD HH:mm:ss");
+    return dateStartAppointment >= today;
   };
 
   const constructCardWithButtons = (appointment, index) => {
@@ -52,6 +61,30 @@ const PatientPage = () => {
       {allAppointments &&
         Object.values(allAppointments)
           .filter((appointment) => appointment.userId === userId)
+          .sort(function (a, b) {
+            return new Date(a.date.start).getTime() - new Date(b.date.start).getTime();
+          })
+          .map(
+            (appointment, index) =>
+              compareDates(appointment.date.start) && constructCardWithButtons(appointment, index)
+          )}
+      <TitleContainerHistory>Histórico de Consultas</TitleContainerHistory>
+      {allAppointments &&
+        Object.values(allAppointments)
+          .filter((appointment) => appointment.userId === userId)
+          .sort(function (b, a) {
+            return new Date(a.date.start).getTime() - new Date(b.date.start).getTime();
+          })
+          .map(
+            (appointment, index) =>
+              !compareDates(appointment.date.start) &&
+              constructCardWithAvaliation(appointment, index)
+          )}
+
+      {/* <TitleContainerAppointments>Consultas Agendadas</TitleContainerAppointments>
+      {allAppointments &&
+        Object.values(allAppointments)
+          .filter((appointment) => appointment.userId === userId)
           .map(
             (appointment, index) =>
               compareDates(appointment.date.start.split(" ")) &&
@@ -65,7 +98,7 @@ const PatientPage = () => {
             (appointment, index) =>
               !compareDates(appointment.date.start.split(" ")) &&
               constructCardWithAvaliation(appointment, index)
-          )}
+          )} */}
     </ContainerCards>
   );
 };

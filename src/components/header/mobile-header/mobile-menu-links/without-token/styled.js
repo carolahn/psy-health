@@ -6,14 +6,14 @@ export const StyledMobileMenuListWithoutTokenHeader = styled.div`
   top: 70px;
   right: 2px;
   min-width: 150px;
-  height: 150px;
-  border: 2px solid #585858;
-  border-top: 0.5px solid #585858;
+  height: 200px;
+  border-radius: 5px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   z-index: 5;
+  font-size: 16px;
 
   .mobile-list {
     color: whitesmoke;

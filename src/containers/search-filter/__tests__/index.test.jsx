@@ -15,8 +15,8 @@ jest.mock("react-redux", () => ({
   useSelector: jest.fn(() => []),
 }));
 
-describe("Test", () => {
-  it("test", () => {
+describe("search filter ", () => {
+  it("integration", () => {
     const dispatchMock = jest.fn();
     const useDispatchMock = () => dispatchMock;
 
