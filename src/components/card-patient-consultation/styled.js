@@ -7,7 +7,7 @@ export const CardContainer = styled.div`
   background: #fbfbfb;
   border-radius: 5px;
   border: 2px solid #70a3ef;
-  height: 120px;
+  height: 140px;
   width: 1050px;
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@ export const CardContainer = styled.div`
 
 export const ImgAndNameCardCotainer = styled.div`
   display: flex;
-  width: 450px;
+  width: 350px;
   height: 114px;
 
   @media (max-width: 710px) {
@@ -84,7 +84,20 @@ export const CrpDiv = styled.div`
   }
 `;
 
-export const TitleForNameDateScheduleValueAndAvaliation = styled.div`
+export const TitleForName = styled.div`
+  padding-bottom: 10px;
+  color: #585858;
+  font-weight: 600;
+  font-size: 18px;
+
+  @media (max-width: 710px) {
+    padding-bottom: 5px;
+    font-size: 14px;
+  }
+`;
+
+export const TitleForDateScheduleValueAndAvaliation = styled.div`
+  padding-top: 10px;
   padding-bottom: 10px;
   color: #585858;
   font-weight: 600;
@@ -99,7 +112,7 @@ export const TitleForNameDateScheduleValueAndAvaliation = styled.div`
 export const DateScheduleAndValueContainer = styled.div`
   display: flex;
   padding-top: 15px;
-  width: 410px;
+  width: 510px;
   height: 114px;
 
   @media (max-width: 710px) {

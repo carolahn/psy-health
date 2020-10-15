@@ -2,11 +2,8 @@ import styled from "styled-components";
 
 export const RegisterContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: stretch;
-  align-items: center;
 
   @media (max-width: 945px) {
     display: block;
@@ -18,7 +15,6 @@ export const RegisterContainer = styled.div`
 export const SideContainer = styled.div`
   width: 60%;
 
-  height: 100%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -75,7 +71,7 @@ export const SideContainer = styled.div`
       display: flex;
       justify-content: space-between;
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.6rem;
 
       span {
         cursor: pointer;

@@ -8,13 +8,18 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledInput = styled.input`
-  height: 35px;
+  height: 40px;
   border-radius: 5px;
-  padding-left: 0.2rem;
-  margin: 5px;
+  padding: 0 1rem;
+  margin: 8px;
   width: 300px;
 
   animation-duration: 1.5;
 
   outline: none;
+
+  ::-webkit-input-placeholder {
+    color: #999;
+    font-size: 16px;
+  }
 `;

@@ -10,7 +10,8 @@ import {
   ImgDivCotainer,
   NameDivCotainer,
   PhotoPsychologist,
-  TitleForNameDateScheduleValueAndAvaliation,
+  TitleForDateScheduleValueAndAvaliation,
+  TitleForName,
   DateScheduleAndValue,
   CrpDiv,
   TextStyle,
@@ -25,99 +26,102 @@ const CardPatientConsultation = ({
   constructHour,
   onePsi,
   rescheduleAppointment,
+  destiny,
+  onClick,
+  appointmentId,
 }) => {
   return (
     onePsi.length > 0 && (
-      <CardContainer>
-        <ImgAndNameCardCotainer>
-          <ImgDivCotainer>
-            <PhotoPsychologist src={onePsi[0].image} />
-          </ImgDivCotainer>
-          <NameDivCotainer>
-            <TitleForNameDateScheduleValueAndAvaliation>
-              {onePsi[0].name}
-            </TitleForNameDateScheduleValueAndAvaliation>
-            <CrpDiv>{`CRP: ${onePsi[0].crp}`}</CrpDiv>
-            <NewRate allowHalf disabled defaultValue={onePsi[0].rating} />
-          </NameDivCotainer>
-        </ImgAndNameCardCotainer>
-        <DateScheduleAndValueContainer>
-          <DateScheduleAndValue>
-            <TitleForNameDateScheduleValueAndAvaliation>
-              Data
-            </TitleForNameDateScheduleValueAndAvaliation>
-            <TextStyle>{constructDate()}</TextStyle>
-          </DateScheduleAndValue>
-          <DateScheduleAndValue>
-            <TitleForNameDateScheduleValueAndAvaliation>
-              Horário
-            </TitleForNameDateScheduleValueAndAvaliation>
-            <TextStyle>{constructHour()}</TextStyle>
-          </DateScheduleAndValue>
-          <DateScheduleAndValue>
-            <TitleForNameDateScheduleValueAndAvaliation>
-              Valor
-            </TitleForNameDateScheduleValueAndAvaliation>
-            <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
-          </DateScheduleAndValue>
-        </DateScheduleAndValueContainer>
-        <AvaliationOrButton>
-          {buttonOrAvaliation ? (
-            <>
-              <div>
-                <Button
-                  buttonName="Remarcar"
-                  width="100px"
-                  height="30px"
-                  fontSize="16px"
-                  padding-bottom="20px"
-                  color="#9E9E9E"
-                  colorHover="#9E9E9E"
-                  colorActive="#9E9E9E"
-                  onClick={rescheduleAppointment}
-                />
-              </div>
-              <div>
-                <Button
-                  buttonName="Notificação"
-                  width="100px"
-                  height="30px"
-                  fontSize="16px"
-                  padding-bottom="20px"
-                  onClick={() => console.log("notificar")}
-                />
-              </div>
-              <div>
-                <Button
-                  buttonName="Cancelar"
-                  width="100px"
-                  height="30px"
-                  fontSize="16px"
-                  color="#E16769"
-                  colorHover="#E16769"
-                  colorActive="#E16769"
-                  onClick={cancelAppointment}
-                />
-              </div>
-            </>
-          ) : (
+      <a href={destiny}>
+        <CardContainer>
+          <ImgAndNameCardCotainer>
+            <ImgDivCotainer>
+              <PhotoPsychologist src={onePsi[0].image} />
+            </ImgDivCotainer>
+            <NameDivCotainer>
+              <TitleForName>{onePsi[0].name}</TitleForName>
+              <CrpDiv>{`CRP: ${onePsi[0].crp}`}</CrpDiv>
+              <NewRate allowHalf disabled defaultValue={onePsi[0].rating} />
+            </NameDivCotainer>
+          </ImgAndNameCardCotainer>
+          <DateScheduleAndValueContainer>
+            <DateScheduleAndValue>
+              <TitleForDateScheduleValueAndAvaliation>Data</TitleForDateScheduleValueAndAvaliation>
+              <TextStyle>{constructDate()}</TextStyle>
+            </DateScheduleAndValue>
+            <DateScheduleAndValue>
+              <TitleForDateScheduleValueAndAvaliation>
+                Horário
+              </TitleForDateScheduleValueAndAvaliation>
+              <TextStyle>{constructHour()}</TextStyle>
+            </DateScheduleAndValue>
+            <DateScheduleAndValue>
+              <TitleForDateScheduleValueAndAvaliation>Valor</TitleForDateScheduleValueAndAvaliation>
+              <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
+            </DateScheduleAndValue>
+          </DateScheduleAndValueContainer>
+          <AvaliationOrButton>
+            {buttonOrAvaliation ? (
               <>
-                {avaliationExist ? (
-                  <>
-                    <TitleForNameDateScheduleValueAndAvaliation>
-                      Avaliação
-                  </TitleForNameDateScheduleValueAndAvaliation>
-                    <NewRate allowHalf disabled defaultValue={5} />
-                  </>
-                ) : (
-                    <>
-                      <DepoimentsOpenModal id={onePsi[0].id} name={onePsi[0].name} />
-                    </>
-                  )}
+                <div>
+                  <Button
+                    buttonName="Notificação"
+                    width="100px"
+                    height="30px"
+                    fontSize="16px"
+                    padding-bottom="20px"
+                    onClick={onClick}
+                  />
+                </div>
+                <div>
+                  <Button
+                    buttonName="Remarcar"
+                    width="100px"
+                    height="30px"
+                    fontSize="16px"
+                    padding-bottom="20px"
+                    color="#9E9E9E"
+                    colorHover="#9E9E9E"
+                    colorActive="#9E9E9E"
+                    onClick={rescheduleAppointment}
+                  />
+                </div>
+                <div>
+                  <Button
+                    buttonName="Cancelar"
+                    width="100px"
+                    height="30px"
+                    fontSize="16px"
+                    color="#E16769"
+                    colorHover="#E16769"
+                    colorActive="#E16769"
+                    onClick={cancelAppointment}
+                  />
+                </div>
               </>
-            )}
-        </AvaliationOrButton>
-      </CardContainer>
+            ) : (
+                <>
+                  {avaliationExist ? (
+                    <>
+                      <TitleForDateScheduleValueAndAvaliation>
+                        Avaliação
+                    </TitleForDateScheduleValueAndAvaliation>
+                      <NewRate allowHalf disabled defaultValue={avaliationExist.grading} />
+                    </>
+                  ) : (
+                      <>
+                        <DepoimentsOpenModal
+                          appointId={appointmentId}
+                          id={onePsi[0].id}
+                          name={onePsi[0].name}
+                        />
+                      </>
+                    )}
+                </>
+              )}
+          </AvaliationOrButton>
+        </CardContainer>
+      </a>
     )
   );
 };
