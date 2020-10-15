@@ -86,7 +86,9 @@ export const deleteAppointment = (appointmentId, token) => (dispatch) => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  }).then(() => dispatch(deleteAppointmentAction()));
+  })
+    .then(() => dispatch(deleteAppointmentAction()))
+    .then(() => dispatch(getAppointments()));
 };
 
 const deleteAppointmentAction = () => ({
