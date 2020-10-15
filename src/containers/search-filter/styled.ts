@@ -20,11 +20,16 @@ const StyledSearchFilter = styled.div`
 
   .ant-select {
     width: 160px;
+    text-align: center;
+    border: 2px solid #70a3ef;
+    border-radius: 5px;
   }
 
   
   .ant-select-selector {
     text-transform: capitalize;
+    border-radius:none !important;
+    border: none !important;
   }
 
   .search-button {
@@ -41,9 +46,6 @@ const StyledSearchFilter = styled.div`
     border-bottom-right-radius: 5px;
   }
 
-  .ant-select {
-    text-align: center;
-  }
 
   @media (max-width: 1600px) {
     width: 50vw;

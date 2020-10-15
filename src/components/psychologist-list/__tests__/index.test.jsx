@@ -21,7 +21,7 @@ describe("<PsychologistList />", () => {
 
  
 
-  const wrapper = mount(<PsychologistList psychologists={[{ name: "joao" }, { name: "pedro" }]} />);
+  const wrapper = mount(<PsychologistList psychologists={[{ name: "joao", description:'teste apenas um test' }, { name: "pedro" , description:'teste apenas um test'}]} />);
 
   it("renders corectly", () => {
     expect(wrapper.find(StyledPsychologistList).children().find(CardPsychologist)).toHaveLength(2);

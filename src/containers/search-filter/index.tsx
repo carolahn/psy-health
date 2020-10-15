@@ -1,11 +1,11 @@
-import { Select } from "antd";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
-
+import { Select } from 'antd'
 import SearchInput from "../../components/search-input";
 import { filterPsyList } from "../../redux/actions/search";
 import { genericFilter, priceFilter, sortLength } from "./helper";
 import StyledSearchFilter from "./styled";
+
 
 interface psychologistsProps {
  psychologists:  Array<{
@@ -88,7 +88,8 @@ const SearchFilter = () => {
       </section>
 
       <section className="filter">
-        <Select placeholder="Preço" onChange={handleFilterPrice} className="select-filter">
+        
+        <Select placeholder="Preço" onChange={handleFilterPrice} className="select-filter" >
           {price.map((price : number, index: number) => (
             <Option key={index} value={price} style={{ textTransform: "capitalize" }}>
               {price}

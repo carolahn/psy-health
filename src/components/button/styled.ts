@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { ButtonProps } from './index'
 
-const StyledButton = styled.button<Pick<ButtonProps, "width" | "height" | "fontSize"  >>`
+const StyledButton = styled.button<Pick<ButtonProps, "width" | "height" | "fontSize" | "color" | "colorHover" | "colorActive"  >>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   padding: 0 2em;
-  background: #053559;
+  background-color: ${(props) => props.color || '#053559'};
   color: #fff;
   overflow: hidden;
   -webkit-transition: background-color 0.3s;
@@ -46,7 +46,7 @@ const StyledButton = styled.button<Pick<ButtonProps, "width" | "height" | "fontS
     
   }
   &:hover {
-    background-color: #02223b;
+    background-color: ${(props) => props.colorHover || '#02223b'};
   }
   &:hover::after {
     opacity: 0;
@@ -56,17 +56,13 @@ const StyledButton = styled.button<Pick<ButtonProps, "width" | "height" | "fontS
   }
 
   &:active {
-    background-color: #70a3ef;
+    background-color: ${(props) => props.colorActive || '#70a3ef'};
   }
   &:hover > span {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-
-
-  
-
 
   &:hover > span:nth-child(1) {
     -webkit-transition-delay: 0.045s;
