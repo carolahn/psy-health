@@ -1,6 +1,6 @@
 import { Tooltip } from "antd";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Button from "../button";
 import DepoimentsOpenModal from "../depoiments-open-modal";
@@ -33,14 +33,14 @@ const CardPatientConsultation = ({
   appointmentId,
   consultationStart,
 }) => {
-  
+  const history = useHistory();
   return (
     onePsi.length > 0 && (
       <CardContainer
         style={
           consultationStart ? { border: "2px solid #116611" } : { border: "2px solid #70a3ef" }
         }>
-        <Link to={`/psi/agendamentos/${onePsi[0].id}`}>
+        <div onClick={() => history.push(`/psi/agendamentos/${onePsi[0].id}`)}>
           <ImgAndNameCardCotainer>
             <ImgDivCotainer>
               <PhotoPsychologist src={onePsi[0].image} />
@@ -55,8 +55,8 @@ const CardPatientConsultation = ({
               <NewRate allowHalf disabled defaultValue={onePsi[0].rating} />
             </NameDivCotainer>
           </ImgAndNameCardCotainer>
-        </Link>
-        <Link to={`/psi/agendamentos/${onePsi[0].id}`}>
+        </div>
+        <div onClick={() => history.push(`/psi/agendamentos/${onePsi[0].id}`)}>
           <DateScheduleAndValueContainer>
             <DateScheduleAndValue>
               <TitleForDateScheduleValueAndAvaliation>Data</TitleForDateScheduleValueAndAvaliation>
@@ -73,7 +73,7 @@ const CardPatientConsultation = ({
               <TextStyle>{`R$ ${onePsi[0].price},00`}</TextStyle>
             </DateScheduleAndValue>
           </DateScheduleAndValueContainer>
-        </Link>
+        </div>
         {buttonOrAvaliation ? (
           <AvaliationOrButton>
             {consultationStart ? (
