@@ -18,6 +18,7 @@ Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em out
 - JavaScript, Typescript, React, Redux;
 - Styled components, React-icons, Antd, Undraw;
 - JSON Server;
+- react-big-calendar;
 - Vercel;
 - Jest, Enzyme, Cypress.
 
