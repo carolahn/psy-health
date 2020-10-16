@@ -19,6 +19,22 @@ Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em out
 - Styled components, React-icons, Antd, Undraw;
 - Vercel.
 
+
+*******************************************************************************************************************************
+### Home
+![screencapture-psy-health-vercel-app-2020-10-16-17_13_08](https://user-images.githubusercontent.com/62309069/96305374-29944b80-0fd4-11eb-8f23-fedb3f2bfbef.png)
+
+
+*******************************************************************************************************************************
+### Busca
+![screencapture-psy-health-vercel-app-buscar-2020-10-16-17_14_34](https://user-images.githubusercontent.com/62309069/96305416-3add5800-0fd4-11eb-9142-e1d50776edce.png)
+
+
+*******************************************************************************************************************************
+### Perfil do psicólogo
+![screencapture-psy-health-vercel-app-psi-agendamentos-13-2020-10-16-17_14_02](https://user-images.githubusercontent.com/62309069/96305470-4d579180-0fd4-11eb-8e47-ad6cbd58e200.png)
+
+
 #### Time(gestão ágil - scrum):
 ###### [Augusto Pietroski - PO](https://www.linkedin.com/in/augusto-pietroski/)
 ###### [Carolina Ahn - Scrum Master](https://www.linkedin.com/in/carolina-ahn/)
@@ -26,9 +42,3 @@ Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em out
 ###### [Eduardo Magno - QA](https://www.linkedin.com/in/edu-magno/)
 ###### [Alex Miguel - Dev](https://www.linkedin.com/in/alexmiguel95/)
 ###### [Willian Brusch - Dev](https://www.linkedin.com/in/willian-brusch-237448154/)
-
-## Available Scripts
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-In the project directory, you can run:
-## `yarn start`
-## `yarn test`
