@@ -17,6 +17,7 @@ Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em out
 #### Tecnologias:
 - JavaScript, Typescript, React, Redux;
 - Styled components, React-icons, Antd, Undraw;
+- JSON Server;
 - Vercel;
 - Jest, Enzyme, Cypress.
 
