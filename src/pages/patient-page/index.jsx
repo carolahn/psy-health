@@ -38,7 +38,7 @@ const PatientPage = () => {
   //   const today = new Date().getTime();
   //   return start - today <= 1000 * 60 * 30;
   // };
-
+  console.log(psiList)
   const constructCardWithButtons = (appointment, index) => {
     return (
       <CardPatientConsultationContainer

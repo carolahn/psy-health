@@ -25,7 +25,7 @@ const CardPatientConsultationContainer = ({ psiList, appointment, buttonOrAvalia
     const partsHour = newAppointment[1].split(":");
     return `${partsHour[0]}:${partsHour[1]}`;
   };
-
+  console.log(psiList)
   const cancelAppointment = () => {
     dispatch(deleteAppointment(appointment.id, token));
   };
@@ -71,6 +71,7 @@ const CardPatientConsultationContainer = ({ psiList, appointment, buttonOrAvalia
       constructHour={constructHour}
       onePsi={onePsi}
       rescheduleAppointment={rescheduleAppointment}
+      href='https://whereby.com/psyhealth'
     />
   );
 };

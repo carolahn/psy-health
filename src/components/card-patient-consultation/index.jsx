@@ -33,6 +33,7 @@ const CardPatientConsultation = ({
   appointmentId,
   consultationStart,
 }) => {
+  
   return (
     onePsi.length > 0 && (
       <CardContainer
