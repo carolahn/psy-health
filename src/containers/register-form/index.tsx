@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import InitialImage from "../../assets/imgs/undraw_male_avatar_323b.svg";
 import RegisterForm from "../../components/register-form";
@@ -46,6 +47,7 @@ const openNotificationWithIcon = (type: string) => {
 };
 
 const RegisterFormContainer = ({ is_psic = false }: RegisterFormProps) => {
+  const history = useHistory();
   const [values, setValues] = useState<Values>({});
   const { register, handleSubmit, errors, setError } = useForm();
   const dispatch = useDispatch();
@@ -61,7 +63,7 @@ const RegisterFormContainer = ({ is_psic = false }: RegisterFormProps) => {
     axios
       .post("https://psy-health-api.herokuapp.com/register", { ...data })
       .then(() => {
-        dispatch(login(values.email, values.password));
+        dispatch(login(values.email, values.password, history));
         openNotificationWithIcon("success");
       })
       .catch(({ response: { status } }) => {
