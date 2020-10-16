@@ -66,7 +66,7 @@ const LoginForm = () => {
               value={password}
               onChange={handlePasswordChange}
             />
-            <Button width="175px" height="40px" title="Entrar" onClick={handleSubmit} />
+            <Button width="175px" height="40px" buttonName="Entrar" onClick={handleSubmit} />
           </form>
           <span className="register">
             Não é cadastrado?{" "}
