@@ -1,14 +1,28 @@
 import React from "react";
-import "./App.css";
+import styled from "styled-components";
 
-import Routes from "./routes";
+import "antd/dist/antd.css";
+
+import FooterContainer from "./containers/footer";
+import Header from "./components/header/index.jsx";
+import Routes from "./routes/";
 
 const App = () => {
   return (
-    <div>
+    <BodyFrame>
+      <Header />
       <Routes />
-    </div>
+      <FooterContainer />
+    </BodyFrame>
   );
 };
 
 export default App;
+
+const BodyFrame = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+`;

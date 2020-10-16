@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly BannerSearch 1`] = `
+<div
+  className="sc-gtssRu iousAW"
+>
+  <div
+    className="sc-dlnjPT hkNVgF"
+  >
+    <img
+      className="sc-hKFyIo faMfon"
+      src="img_banner_search.svg"
+    />
+  </div>
+  <div
+    className="sc-eCApGN gwYTeE"
+  >
+    <div
+      className="sc-jSFkmK jrMmYd"
+    >
+      <h3
+        className="sc-iCoHVE gcvEML"
+      >
+        Encontre o psicólogo ideal pra você
+      </h3>
+      <button
+        className="sc-bdnylx jsFNV"
+        data-text="Buscar agora"
+        height="60px"
+        onClick={[Function]}
+        width="200px"
+      >
+        <span>
+          B
+        </span>
+        <span>
+          u
+        </span>
+        <span>
+          s
+        </span>
+        <span>
+          c
+        </span>
+        <span>
+          a
+        </span>
+        <span>
+          r
+        </span>
+        <span>
+           
+        </span>
+        <span>
+          a
+        </span>
+        <span>
+          g
+        </span>
+        <span>
+          o
+        </span>
+        <span>
+          r
+        </span>
+        <span>
+          a
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

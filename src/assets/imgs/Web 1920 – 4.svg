@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1552" height="344" viewBox="0 0 1552 344">
+  <defs>
+    <clipPath id="clip-Web_1920_4">
+      <rect width="1552" height="344"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_4" data-name="Web 1920 – 4" clip-path="url(#clip-Web_1920_4)">
+    <rect width="1552" height="344" fill="#fff"/>
+    <rect id="Retângulo_224" data-name="Retângulo 224" width="194" height="344" fill="#053559"/>
+    <rect id="Retângulo_225" data-name="Retângulo 225" width="194" height="344" transform="translate(194)" fill="#fff"/>
+    <rect id="Retângulo_228" data-name="Retângulo 228" width="194" height="344" transform="translate(194)" fill="#70a3ef"/>
+    <rect id="Retângulo_229" data-name="Retângulo 229" width="194" height="344" transform="translate(388)" fill="#f3f3f3"/>
+    <rect id="Retângulo_230" data-name="Retângulo 230" width="194" height="344" transform="translate(970)" fill="#fff"/>
+    <rect id="Retângulo_231" data-name="Retângulo 231" width="194" height="344" transform="translate(970)" fill="#a6554e"/>
+    <rect id="Retângulo_232" data-name="Retângulo 232" width="194" height="344" transform="translate(1164)" fill="#e26868"/>
+    <rect id="Retângulo_233" data-name="Retângulo 233" width="194" height="344" transform="translate(1358)" fill="#ffc107"/>
+    <rect id="Retângulo_226" data-name="Retângulo 226" width="194" height="344" transform="translate(582)" fill="#585858"/>
+    <rect id="Retângulo_227" data-name="Retângulo 227" width="194" height="344" transform="translate(776)" fill="#6e6e6e"/>
+    <text id="_053559" data-name="#053559" transform="translate(18 152)" fill="#fff" font-size="36" font-family="SegoeUI, Segoe UI"><tspan x="0" y="39">#053559</tspan></text>
+    <text id="_70A3EF" data-name="#70A3EF" transform="translate(212 152)" fill="#fff" font-size="36" font-family="SegoeUI, Segoe UI"><tspan x="0" y="39">#70A3EF</tspan></text>
+    <text id="_F3F3F3" data-name="#F3F3F3" transform="translate(406 152)" fill="#272727" font-size="36" font-family="SegoeUI, Segoe UI"><tspan x="0" y="39">#F3F3F3</tspan></text>
+    <text id="_585858" data-name="#585858" transform="translate(600 152)" fill="#fff" font-size="36" font-family="SegoeUI, Segoe UI"><tspan x="0" y="39">#585858</tspan></text>
+    <text id="_6E6E6E_" data-name="#6E6E6E " transform="translate(794 152)" fill="#fff" font-size="36" font-family="SegoeUI, Segoe UI"><tspan x="0" y="39">#6E6E6E </tspan></text>
+    <text id="_A6554E" data-name="#A6554E" transform="translate(988 152)" fill="#fff" font-size="36" font-family="SegoeUI, Segoe UI"><tspan x="0" y="39">#A6554E</tspan></text>
+    <text id="_E26868" data-name="#E26868" transform="translate(1182 152)" fill="#fff" font-size="36" font-family="SegoeUI, Segoe UI"><tspan x="0" y="39">#E26868</tspan></text>
+    <text id="_FFC107" data-name="#FFC107" transform="translate(1376 152)" fill="#fff" font-size="36" font-family="SegoeUI, Segoe UI"><tspan x="0" y="39">#FFC107</tspan></text>
+    <text id="_FFC107-2" data-name="#FFC107" transform="translate(907 22)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="22">#FFC107</tspan></text>
+  </g>
+</svg>

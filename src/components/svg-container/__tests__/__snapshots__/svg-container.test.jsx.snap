@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders shows 1`] = `
+<div
+  className="sc-bdnylx bTEVuL"
+>
+  <img
+    alt="Curva"
+    src="curva.svg"
+  />
+  <div>
+    <img
+      alt="svgExtra"
+      src=""
+    />
+  </div>
+</div>
+`;
