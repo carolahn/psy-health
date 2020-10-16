@@ -1,7 +1,8 @@
 import { Row, Col, Form, Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+import imgMale from "../../../../assets/imgs/undraw_male_avatar_323b.svg";
 import Button from "../../../../components/button";
 import { useWindowSize } from "../../../../hooks/index";
 import { getAppointments } from "../../../../redux/actions/appointments";
@@ -21,6 +22,8 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   const { TextArea } = Input;
   const { Option } = Select;
   const [form] = Form.useForm();
+
+  const newOneUser = useSelector((state) => state.users.oneUser);
 
   const [selectedHoursSeg, setSelectedHoursSeg] = useState([]);
   const [selectedHoursTer, setSelectedHoursTer] = useState([]);
@@ -88,35 +91,48 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
 
   const handleOnFinish = (values) => {
     // console.log("valuesBefore", values);
+    if (values.price) {
+      values.price = parseInt(values.price);
+    }
     const newWorkDays = {};
     Object.keys(values).map((key) => {
       if (key === "1") {
         if (values["1"]) {
-          newWorkDays[1] = values["1"];
+          newWorkDays[1] = values["1"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[1] = seg;
         }
       } else if (key === "2") {
         if (values["2"]) {
-          newWorkDays[2] = values["2"];
+          newWorkDays[2] = values["2"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[2] = ter;
         }
       } else if (key === "3") {
         if (values["3"]) {
-          newWorkDays[3] = values["3"];
+          newWorkDays[3] = values["3"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[3] = qua;
         }
       } else if (key === "4") {
         if (values["4"]) {
-          newWorkDays[4] = values["4"];
+          newWorkDays[4] = values["4"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[4] = qui;
         }
       } else if (key === "5") {
         if (values["5"]) {
-          newWorkDays[5] = values["5"];
+          newWorkDays[5] = values["5"].sort(function (a, b) {
+            return a - b;
+          });
         } else {
           newWorkDays[5] = sex;
         }
@@ -134,7 +150,6 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
   };
 
   const handleOnReset = () => {
-    // console.log("onreset");
     form.setFieldsValue({
       price: psicInfo.price || "Adicione o valor da consulta",
       description: psicInfo.description || "Adicione uma descrição sobre você",
@@ -179,7 +194,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
     qua,
     qui,
     sex = [];
-  if (oneUser && allAppointments) {
+  if (oneUser.workDays && allAppointments) {
     psicInfo = oneUser;
     if (psicInfo.workDays[1]) {
       seg = psicInfo.workDays[1];
@@ -215,8 +230,6 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
     setSelectedHoursSex(sex);
   }, [oneUser]);
 
-  // console.log("isEditable", isEditable);
-
   return (
     <div className="psi-form">
       {psicInfo
@@ -228,20 +241,175 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
 
                   <PsiCard>
                     <div className="card-avatar">
-                      <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                      {psicInfo.image ? (
+                        psicInfo.image === "/static/media/undraw_male_avatar_323b.0c675689.svg" ? (
+                          <Form
+                            {...layout}
+                            ref={formRef}
+                            name="control-ref-avatar"
+                            onFinish={handleOnFinish}
+                            defaultValue={{
+                              remember: true,
+                            }}
+                            form={form}>
+                            <img
+                              className="img-avatar"
+                              src={psicInfo.image}
+                              alt="Psicologo avatar"
+                            />
+                            <Form.Item name="image" label="">
+                              <TextArea
+                                className="form-text-area"
+                                disabled={!isEditable}
+                                defaultValue="Adicione uma imagem"
+                                bordered={false}
+                                autoSize={{ minRows: 2 }}
+                              />
+                            </Form.Item>
+                          </Form>
+                        ) : (
+                          <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                        )
+                      ) : (
+                        <Form
+                          {...layout}
+                          ref={formRef}
+                          name="control-ref-avatar"
+                          onFinish={handleOnFinish}
+                          defaultValue={{
+                            remember: true,
+                          }}
+                          form={form}>
+                          <img className="img-avatar" src={imgMale} alt="Psicologo avatar" />
+                          <Form.Item name="image" label="">
+                            <TextArea
+                              className="form-text-area"
+                              disabled={!isEditable}
+                              defaultValue="Adicione uma imagem"
+                              bordered={false}
+                              autoSize={{ minRows: 2 }}
+                            />
+                          </Form.Item>
+                        </Form>
+                      )}
+
+                      {/* //  {psicInfo.image ? (
+                      //   <img className="img-avatar" src={psicInfo.image} alt="Psicologo avatar" />
+                      // ) : (
+                      //   <Form
+                      //     {...layout}
+                      //     ref={formRef}
+                      //     name="control-ref-avatar"
+                      //     onFinish={handleOnFinish}
+                      //     defaultValue={{
+                      //       remember: true,
+                      //     }}
+                      //     form={form}>
+                      //     <img
+                      //       className="img-avatar"
+                      //       src={listImg[Math.round(Math.random() * (listImg.length - 1))]}
+                      //       alt="Psicologo avatar"
+                      //     />
+                      //     <Form.Item name="image" label="">
+                      //       <TextArea
+                      //         className="form-text-area"
+                      //         disabled={!isEditable}
+                      //         defaultValue="Adicione uma imagem"
+                      //         bordered={false}
+                      //         autoSize={{ minRows: 2 }}
+                      //       />
+                      //     </Form.Item>
+                      //   </Form>
+                      // )}  */}
                     </div>
                     <div className="card-text">
                       <p className="crp">CRP: {psicInfo.crp}</p>
-                      <p className="rating">
-                        <StyledRate allowHalf value={psicInfo.rating} />
-                      </p>
+                      <div className="rating">
+                        <StyledRate allowHalf value={psicInfo.rating} disabled />
+                      </div>
                       {width >= 768 && (
                         <p className="price-tag input-title">Valor do atendimento</p>
                       )}
-                      <Form
+
+                      {psicInfo.price ? (
+                        psicInfo.price == 0 ? (
+                          <Form
+                            // {...priceLayout}
+                            ref={formRef}
+                            name="control-ref-price"
+                            onFinish={handleOnFinish}
+                            defaultValue={{
+                              remember: true,
+                            }}
+                            form={form}>
+                            <p className="input-title-price">Adicione o valor da consulta</p>
+                            <div className="card-price">
+                              <span className="price-label">R$</span>
+                              <Form.Item name="price" label="" colon={false}>
+                                <TextArea
+                                  className="form-price-area"
+                                  disabled={!isEditable}
+                                  defaultValue={psicInfo.price}
+                                  bordered={false}
+                                  autoSize={{ minRows: 1, maxRows: 1 }}
+                                />
+                              </Form.Item>
+                            </div>
+                          </Form>
+                        ) : (
+                          <Form
+                            // {...priceLayout}
+                            ref={formRef}
+                            name="control-ref-price"
+                            onFinish={handleOnFinish}
+                            defaultValue={{
+                              remember: true,
+                            }}
+                            form={form}>
+                            <div className="card-price">
+                              <span className="price-label">R$</span>
+                              <Form.Item name="price" label="" colon={false}>
+                                <TextArea
+                                  className="form-price-area"
+                                  disabled={!isEditable}
+                                  defaultValue={psicInfo.price}
+                                  bordered={false}
+                                  autoSize={{ minRows: 1, maxRows: 1 }}
+                                />
+                              </Form.Item>
+                            </div>
+                          </Form>
+                        )
+                      ) : (
+                        <Form
+                          // {...priceLayout}
+                          ref={formRef}
+                          name="control-ref-price"
+                          onFinish={handleOnFinish}
+                          defaultValue={{
+                            remember: true,
+                          }}
+                          form={form}>
+                          <p className="input-title-price">Adicione o valor da consulta</p>
+                          <div className="card-price">
+                            <span className="price-label">R$</span>
+                            <Form.Item name="price" label="" colon={false}>
+                              <TextArea
+                                className="form-price-area"
+                                disabled={!isEditable}
+                                defaultValue={psicInfo.price}
+                                bordered={false}
+                                autoSize={{ minRows: 1, maxRows: 1 }}
+                              />
+                            </Form.Item>
+                          </div>
+                        </Form>
+                      )}
+
+                      {/* <Form
                         // {...priceLayout}
                         ref={formRef}
-                        name="control-ref"
+                        name="control-ref-price"
                         onFinish={handleOnFinish}
                         defaultValue={{
                           remember: true,
@@ -259,7 +427,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                             />
                           </Form.Item>
                         </div>
-                      </Form>
+                      </Form> */}
                     </div>
                   </PsiCard>
                 </div>
@@ -270,7 +438,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                 <Form
                   {...layout}
                   ref={formRef}
-                  name="control-ref"
+                  name="control-ref-description"
                   onFinish={handleOnFinish}
                   defaultValue={{
                     remember: true,
@@ -325,7 +493,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                 <Form
                   {...layout}
                   ref={formRef}
-                  name="control-ref"
+                  name="control-ref-formation"
                   onFinish={handleOnFinish}
                   defaultValue={{
                     remember: true,
@@ -352,13 +520,12 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                     <Form
                       {...layout}
                       ref={formRef}
-                      name="control-ref"
+                      name="control-ref-video"
                       onFinish={handleOnFinish}
                       defaultValue={{
                         remember: true,
                       }}
                       form={form}>
-                      <p className="input-title">Vídeo de apresentação</p>
                       <Form.Item name="video" label="">
                         <TextArea
                           className="form-text-area"
@@ -384,7 +551,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
               <Form
                 {...workDaysLayout}
                 ref={formRef}
-                name="control-ref"
+                name="control-ref-workdays"
                 onFinish={handleOnFinish}
                 defaultValue={{
                   remember: true,
@@ -466,7 +633,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                     width="150px"
                     height="35px"
                     fontSize="19px"
-                    title="Atualizar"
+                    buttonName="Atualizar"
                     onClick={() => {}}
                     htmlType="submit"
                   />
@@ -474,7 +641,7 @@ const PsiForm = ({ oneUser, login, allAppointments, isEditable }) => {
                     width="150px"
                     height="35px"
                     fontSize="19px"
-                    title="Desfazer"
+                    buttonName="Desfazer"
                     onClick={handleOnReset}
                   />
                 </Form.Item>

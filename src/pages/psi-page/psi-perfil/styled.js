@@ -7,10 +7,12 @@ export const MainContainer = styled.div`
   max-width: 1200px; */
   width: 100%;
   padding-top: 60px;
+  padding-bottom: 60px;
   min-height: auto;
   background-color: #fbfbfb;
   @media (max-width: 768px) {
     padding-top: 30px;
+    padding-bottom: 30px;
   }
 `;
 
@@ -192,7 +194,7 @@ export const PsiCard = styled.div`
     margin: 36px auto 15.3px auto;
   }
 
-  p.rating {
+  div.rating {
     margin: 0px auto 30px auto;
   }
 
@@ -226,6 +228,10 @@ export const PsiCard = styled.div`
     width: 87px;
     padding-top: 0;
     /* padding: 0 0 0 5px; */
+  }
+
+  .input-title-price {
+    color: #9e9e9e;
   }
 
   @media (max-width: 992px) {

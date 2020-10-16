@@ -36,7 +36,7 @@ const Register = ({ where, history }: RegisterProps) => {
           </div>
 
           <div className="form-holder">
-            <RegisterFormContainer isPsic={where.includes("psi")} />
+            <RegisterFormContainer is_psic={where.includes("psi")} />
             <span className="changePage">
               Já possui cadastrado?
               <span

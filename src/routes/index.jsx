@@ -10,7 +10,7 @@ import PsiPage from "../pages/psi-page";
 import PsiAppointments from "../pages/psi-page/psi-consultas";
 import PsiProfile from "../pages/psi-page/psi-perfil";
 import SchedulingPage from "../pages/scheduling-page";
-import Search from "../pages/search";
+import Search from '../pages/search'
 
 const Routes = () => {
   const token = useSelector((state) => state.login.token);

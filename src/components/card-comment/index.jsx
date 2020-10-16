@@ -7,7 +7,7 @@ const CardComment = ({ image, coment, grading }) => {
         <StyledContainerCard>
             <img src={image} alt="Imagem do depoimento" />
             <p>{coment}</p>
-            <div className={'grading'}>
+            <div className='grading'>
                 <Rate allowHalf value={grading} disabled={true} />
             </div>
         </StyledContainerCard>
@@ -17,12 +17,16 @@ const CardComment = ({ image, coment, grading }) => {
 export default CardComment;
 
 const StyledContainerCard = styled.div`
+    display: flex;
+    flex-direction: column;			
     width: 250px;
+    height: 240px;
     border: 2px solid #70A3EF;
     border-radius: 3px;
     background-color: white;
     padding: 15px 1% 5px 1%;
-    text-align: justify;
+    box-sizing: border-box;
+
 
         img{
             border: 1px solid #70A3EF;
@@ -35,7 +39,7 @@ const StyledContainerCard = styled.div`
         p{
             font-size: 0.7rem;
             color: #6E6E6E;
-            margin: 7px 0 7px 0;
+            margin: auto;
         }
 
         .grading{

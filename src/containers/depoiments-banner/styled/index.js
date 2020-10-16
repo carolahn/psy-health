@@ -4,8 +4,6 @@ import { Carousel } from 'antd';
 export const StyledDivContainer = styled.div`
     width: 100%;
     background-color: #F3F3F3;
-    border-top: 3px solid #70A3EF;
-    border-bottom: 3px solid #70A3EF;
 
     h1{
         color: #717171;

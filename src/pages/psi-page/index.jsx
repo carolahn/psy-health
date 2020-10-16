@@ -7,11 +7,8 @@ import { getOneUser } from "../../redux/actions/users";
 import { MainWrapper } from "./styled";
 
 const PsiPage = () => {
-  const { id } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
-  const oneUser = useSelector((state) => state.users.oneUser);
-  const allAppointments = useSelector((state) => state.appointments.allAppointments);
 
   const login = useSelector((state) => state.login);
 

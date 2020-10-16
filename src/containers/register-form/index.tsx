@@ -3,12 +3,14 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
+import InitialImage from "../../assets/imgs/undraw_male_avatar_323b.svg";
 import RegisterForm from "../../components/register-form";
 import { login } from "../../redux/actions/login/action";
 
 interface RegisterFormProps {
-  isPsic?: boolean;
+  is_psic?: boolean;
 }
 
 interface Values {
@@ -31,7 +33,7 @@ const openNotificationWithIcon = (type: string) => {
   switch (type) {
     case "error":
       notification["error"]({
-        message: "Alguma coisa deu erraddo!",
+        message: "Alguma coisa deu errado!",
         description: "Tente novamente. Se o problema continuar contate o suporte!",
       });
       break;
@@ -44,16 +46,24 @@ const openNotificationWithIcon = (type: string) => {
   }
 };
 
-const RegisterFormContainer = ({ isPsic = false }: RegisterFormProps) => {
+const RegisterFormContainer = ({ is_psic = false }: RegisterFormProps) => {
+  const history = useHistory();
   const [values, setValues] = useState<Values>({});
   const { register, handleSubmit, errors, setError } = useForm();
   const dispatch = useDispatch();
 
   const onSubmit = () => {
+    const data = {
+      ...values,
+      is_psic,
+      image: InitialImage,
+      price: 0,
+    };
+
     axios
-      .post("https://psy-health-api.herokuapp.com/register", { ...values, isPsic })
+      .post("https://psy-health-api.herokuapp.com/register", { ...data })
       .then(() => {
-        dispatch(login(values.email, values.password));
+        dispatch(login(values.email, values.password, history));
         openNotificationWithIcon("success");
       })
       .catch(({ response: { status } }) => {
@@ -71,16 +81,14 @@ const RegisterFormContainer = ({ isPsic = false }: RegisterFormProps) => {
       });
   };
 
-  const handleOnChange = ({ target: { name, value } }: OnChange) => {
-    console.log(value);
+  const handleOnChange = ({ target: { name, value } }: OnChange) =>
     setValues({ ...values, [name]: value });
-  };
 
   const handleMaskOnChange = (value: string, key: string) => setValues({ ...values, [key]: value });
 
   return (
     <RegisterForm
-      isPsic={isPsic}
+      isPsic={is_psic}
       values={values}
       onSubmit={onSubmit}
       formErrors={{ register, handleSubmit, errors }}
