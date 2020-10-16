@@ -16,20 +16,16 @@ Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em out
 - Styled components, React-icons, Antd, Undraw;
 - Vercel.
 
-#### Time:
+#### Time(gestão ágil - scrum):
 [Augusto Pietroski - PO](https://www.linkedin.com/in/augusto-pietroski/)
-Carolina Takasaki Ahn - Scrum Master
-Cassiano Bitencourt da Silva Doederlein - Tech Lead
-Eduardo Magno Gonçalves de Oliveira - QA
-Alex Miguel - Dev
-Willian Brusch - Dev
+[Carolina Ahn - Scrum Master](https://www.linkedin.com/in/carolina-ahn/)
+[Cassiano Bitencourt - Tech Lead](https://www.linkedin.com/in/cassiano-doederlein-648592148/)
+[Eduardo Magno - QA](https://www.linkedin.com/in/edu-magno/)
+[Alex Miguel - Dev](https://www.linkedin.com/in/alexmiguel95/)
+[illian Brusch - Dev](https://www.linkedin.com/in/willian-brusch-237448154/)
 
 ## Available Scripts
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 In the project directory, you can run:
-
-### `yarn start`
-
-### `yarn test`
+## `yarn start`
+## `yarn test`
