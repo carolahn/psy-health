@@ -8,7 +8,7 @@ const RightNonLoggedHeader = () => {
   const history = useHistory();
   return (
     <StyledRightNonLoggedHeader>
-      <div className="links" onClick={() => history.push("/register")}>
+      <div className="links" onClick={() => history.push("/cadastro")}>
         Cadastrar
       </div>
       <div className="links" onClick={() => history.push("/login")}>

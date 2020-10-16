@@ -25,14 +25,18 @@ const MobileMenuListWithTokenHeader = ({ setMMenu }) => {
           Encontre um psicólogo
         </div>
       )}
-      <div
-        className="mobile-list"
-        onClick={() => {
-          history.push(is_psic ? `/psi/perfil/${user_id}` : `/perfil/${user_id}`);
-          setMMenu(false);
-        }}>
-        Meu perfil
-      </div>
+      {is_psic ? (
+        <div
+          className="mobile-list"
+          onClick={() => {
+            history.push(is_psic ? `/psi/perfil/${user_id}` : `/perfil/${user_id}`);
+            setMMenu(false);
+          }}>
+          Meu perfil
+        </div>
+      ) : (
+        <></>
+      )}
       <div
         className="mobile-list"
         onClick={() => {
