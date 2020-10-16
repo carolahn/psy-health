@@ -42,8 +42,6 @@ export const getUniqueEntries = (array, propArr) => (dispatch) => {
 
     const newSet = new Set(arr);
     const newArray = Array.from(newSet);
-    const lowerCaseArr = newArray.map(item => typeof item === 'string' ? item.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase() : item )
-    console.log(lowerCaseArr) 
     newArray.sort((a, b) => a - b).unshift("todos");
 
     return newArray;
