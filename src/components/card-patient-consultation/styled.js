@@ -6,7 +6,7 @@ export const CardContainer = styled.div`
   background: #fbfbfb;
   border-radius: 5px;
   border: 2px solid #70a3ef;
-  height: 140px;
+  height: 120px;
   width: 1050px;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
 
   @media (max-width: 1158px) {
-    height: 240px;
+    height: 220px;
     width: 88vw;
   }
 `;
@@ -82,6 +82,9 @@ export const CrpDiv = styled.div`
 export const TitleForName = styled.div`
   padding-bottom: 10px;
   color: #585858;
+  width: 200px;
+  height: 30px;
+  overflow: hidden;
   font-weight: 600;
   font-size: 18px;
 

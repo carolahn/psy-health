@@ -33,6 +33,12 @@ const PatientPage = () => {
     return dateStartAppointment >= today;
   };
 
+  // const showMeetingRoom = (appointment) => {
+  //   const start = new Date(appointment.date.start).getTime();
+  //   const today = new Date().getTime();
+  //   return start - today <= 1000 * 60 * 30;
+  // };
+
   const constructCardWithButtons = (appointment, index) => {
     return (
       <CardPatientConsultationContainer
