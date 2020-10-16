@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { usr_urls, psi_urls } from "../";
+import Button from "../../../components/button";
 import { useWindowSize } from "../../../hooks/index";
 import { login } from "../../../redux/actions/login/action";
 import { Container } from "./styled";
@@ -65,9 +66,7 @@ const LoginForm = () => {
               value={password}
               onChange={handlePasswordChange}
             />
-            <button onClick={handleSubmit} className="submit-button">
-              Entrar
-            </button>
+            <Button width="175px" height="40px" buttonName="Entrar" onClick={handleSubmit} />
           </form>
           <span className="register">
             Não é cadastrado?{" "}
