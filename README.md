@@ -6,20 +6,22 @@
 
 Este projeto trata-se de um MVP de uma **Plataforma de agendamento de consultas com psicólogos**
 
-**[Acesse a Plataforma](https://psy-health.vercel.app/)**
-*******************************************************************************************************************************
+<h1 align = center>
+    <img src="public/psy-health.png">
+</h1>
 
- **cadastre um usuário** ou
+## Acesse a Plataforma - **[Psy Health](https://psy-health.vercel.app/)**
+
+ **cadastre um usuário** 
  
- utilize uma **conta de paciente** : ahncarolina@gmaiol.com - senha: 123456
+ ou utilize uma **conta de paciente** : ahncarolina@gmaiol.com - senha: 123456
  
- utilize uma **conta de psicólogo** : rodisval.psicologo@gmail.com - senha: 123abc
+ ou utilize uma **conta de psicólogo** : rodisval.psicologo@gmail.com - senha: 123abc
 
 
 
-#### Funcionalidades:
+## Funcionalidades:
 
-*******************************************************************************************************************************
 Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em outubro de 2020;
 - permite o cadastro de pacientes e psicólogos;
 - psicólogo pode editar seu perfil, horários de atendimento e valor da consulta;
@@ -27,9 +29,9 @@ Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em out
 - usuário tem acesso a sua lista de consultas, podendo cancelar ou reagendar consultas futuras ou avaliar consultas já realizadas;
 - próximo ao horário agendado, o usuário tem acesso ao link do Whereby para realizar a consulta.
 
-#### Tecnologias:
 
-*******************************************************************************************************************************
+## Tecnologias:
+
 - JavaScript, Typescript, React, Redux;
 - Styled components, React-icons, Antd, Undraw;
 - JSON Server;
