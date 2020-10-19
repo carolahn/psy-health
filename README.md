@@ -1,12 +1,25 @@
 # Psy-health
-MVP - Plataforma de agendamento de consultas com psicólogos
-## [LINK](https://psy-health.vercel.app/)
-###### para acessar como paciente: ahncarolina@gmaiol.com - senha: 123456
-###### para acessar como psicólogo: rodisval.psicologo@gmail.com - senha: 123abc
-###### ou cadastre um usuário
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carolina-ahn/)](https://www.linkedin.com/in/carolina-ahn/)
+[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:ahncarolina@gmail.com)](mailto:ahncarolina@gmail.com)
+
+## Sobre
+
+Este projeto trata-se de um MVP de uma **Plataforma de agendamento de consultas com psicólogos**
+
+**[Acesse a Plataforma](https://psy-health.vercel.app/)**
+*******************************************************************************************************************************
+
+ **cadastre um usuário** ou
+ 
+ utilize uma **conta de paciente** : ahncarolina@gmaiol.com - senha: 123456
+ 
+ utilize uma **conta de psicólogo** : rodisval.psicologo@gmail.com - senha: 123abc
 
 
-#### Sobre:
+
+#### Funcionalidades:
+
+*******************************************************************************************************************************
 Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em outubro de 2020;
 - permite o cadastro de pacientes e psicólogos;
 - psicólogo pode editar seu perfil, horários de atendimento e valor da consulta;
@@ -15,6 +28,8 @@ Projeto implementado no curso da [Kenzie Academy](https://kenzie.com.br/) em out
 - próximo ao horário agendado, o usuário tem acesso ao link do Whereby para realizar a consulta.
 
 #### Tecnologias:
+
+*******************************************************************************************************************************
 - JavaScript, Typescript, React, Redux;
 - Styled components, React-icons, Antd, Undraw;
 - JSON Server;
