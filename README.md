@@ -1,7 +1,12 @@
 # Psy-health
 
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carolina-ahn/)](https://www.linkedin.com/in/carolina-ahn/)
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:ahncarolina@gmail.com)](mailto:ahncarolina@gmail.com)
+[![Linkedin Badge](https://img.shields.io/badge/-Alex_Miguel-0077b5?labelColor=0077b5&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/alexmiguel95/)](https://www.linkedin.com/in/alexmiguel95/)
+[![Linkedin Badge](https://img.shields.io/badge/-Augusto_Pietroski-0077b5?labelColor=0077b5&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/augusto-pietroski/)](https://www.linkedin.com/in/augusto-pietroski/)
+[![Linkedin Badge](https://img.shields.io/badge/-Carol_Ahn-0077b5?labelColor=0077b5&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carolina-ahn/)](https://www.linkedin.com/in/carolina-ahn/)
+[![Linkedin Badge](https://img.shields.io/badge/-Cassiano_Bitencourt-0077b5?labelColor=0077b5&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/cassiano-doederlein-648592148/)](https://www.linkedin.com/in/cassiano-doederlein-648592148/)
+[![Linkedin Badge](https://img.shields.io/badge/-Eduardo_Magno-0077b5?labelColor=0077b5&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/edu-magno/)](https://www.linkedin.com/in/edu-magno/)
+[![Linkedin Badge](https://img.shields.io/badge/-Willian_Brusch-0077b5?labelColor=0077b5&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/willian-brusch-237448154/)](https://www.linkedin.com/in/willian-brusch-237448154/)
+
 
 ## Sobre
 
