@@ -7,7 +7,6 @@
 [![Linkedin Badge](https://img.shields.io/badge/-Eduardo_Magno-0077b5?labelColor=0077b5&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/edu-magno/)](https://www.linkedin.com/in/edu-magno/)
 [![Linkedin Badge](https://img.shields.io/badge/-Willian_Brusch-0077b5?labelColor=0077b5&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/willian-brusch-237448154/)](https://www.linkedin.com/in/willian-brusch-237448154/)
 
-
 ## Sobre
 
 Este projeto trata-se de um MVP de uma **Plataforma de agendamento de consultas com psicólogos**
